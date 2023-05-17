@@ -270,6 +270,9 @@
     <EmbeddedResource Include="Formularios\FrmConsultaFornecedor.resx">
       <DependentUpon>FrmConsultaFornecedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaFuncionario.resx">
+      <DependentUpon>FrmConsultaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaPaises.resx">
       <DependentUpon>FrmConsultaPaises.cs</DependentUpon>
     </EmbeddedResource>

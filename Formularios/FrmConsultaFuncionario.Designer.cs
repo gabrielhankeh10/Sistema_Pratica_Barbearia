@@ -29,7 +29,17 @@ namespace Sistema__Renovo_Barber.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmConsultaFuncionario
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Name = "FrmConsultaFuncionario";
+            this.Text = "Consulta de Funcionarios";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
