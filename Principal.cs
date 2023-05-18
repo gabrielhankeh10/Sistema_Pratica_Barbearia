@@ -66,7 +66,8 @@ namespace Sistema__Renovo_Barber
 
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmConsultaFuncionario frmConsultaFuncionario = new FrmConsultaFuncionario();
+            frmConsultaFuncionario.ShowDialog();
         }
     }
 }

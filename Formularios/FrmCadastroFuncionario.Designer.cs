@@ -33,10 +33,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbRG = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.Sexo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCargo = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbSenha = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -83,12 +83,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Sexo.TabIndex = 48;
             this.Sexo.Text = "Sexo";
             // 
-            // textBox1
+            // tbCargo
             // 
-            this.textBox1.Location = new System.Drawing.Point(678, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 22);
-            this.textBox1.TabIndex = 49;
+            this.tbCargo.Location = new System.Drawing.Point(678, 123);
+            this.tbCargo.Name = "tbCargo";
+            this.tbCargo.Size = new System.Drawing.Size(157, 22);
+            this.tbCargo.TabIndex = 49;
             // 
             // label20
             // 
@@ -108,13 +108,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.TabIndex = 51;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // textBox2
+            // tbSenha
             // 
-            this.textBox2.Location = new System.Drawing.Point(49, 362);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 22);
-            this.textBox2.TabIndex = 52;
+            this.tbSenha.Location = new System.Drawing.Point(49, 362);
+            this.tbSenha.Name = "tbSenha";
+            this.tbSenha.Size = new System.Drawing.Size(217, 22);
+            this.tbSenha.TabIndex = 52;
             // 
             // label18
             // 
@@ -130,10 +131,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbCargo);
             this.Controls.Add(this.Sexo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tbRG);
@@ -174,10 +175,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbRG, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.Sexo, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.tbCargo, 0);
             this.Controls.SetChildIndex(this.label20, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.tbSenha, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,10 +191,10 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.MaskedTextBox tbRG;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label Sexo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCargo;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.Label label18;
     }
 }

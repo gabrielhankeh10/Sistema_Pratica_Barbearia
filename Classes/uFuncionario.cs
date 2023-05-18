@@ -17,6 +17,7 @@ namespace Sistema__Renovo_Barber.Classes
         public uPessoa Pessoa { get; set; }
         public uCidade Cidade { get; set; }
         public uCargos Cargos { get; set; }
+        public string Apelido { get; set; }
         public string Status { get; set; }
         public string RG { get; set; }
         public string CPF { get; set; }

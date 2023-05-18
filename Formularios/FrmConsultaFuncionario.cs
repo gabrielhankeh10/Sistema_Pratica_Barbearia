@@ -14,5 +14,12 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             InitializeComponent();
         }
+
+        public override void IncluirFormCadastro()
+        {
+            FrmCadastroFuncionario frmCadastroFuncionario = new FrmCadastroFuncionario();
+            frmCadastroFuncionario.ShowDialog();
+        }
+
     }
 }

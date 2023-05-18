@@ -24,7 +24,7 @@ namespace Sistema__Renovo_Barber.Dao
                                 values (@status_funcionario, @nome, @sexo, @rg, @cpf, @email, @senha, @telefone, @celular, @cep, @endereco, @numero, @complemento, @data_criacao, @id_cargo, @id_cidade)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
-                ExecutaComando.Parameters.AddWithValue("@status_funcionario", Obj.Status);
+                ExecutaComando.Parameters.AddWithValue("@status_funcionario", "A");
                 ExecutaComando.Parameters.AddWithValue("@nome", Obj.Nome);
                 ExecutaComando.Parameters.AddWithValue("@sexo", Obj.Sexo);
                 ExecutaComando.Parameters.AddWithValue("@rg", Obj.RG);
