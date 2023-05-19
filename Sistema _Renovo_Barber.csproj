@@ -94,6 +94,7 @@
     <Compile Include="Classes\uPai.cs" />
     <Compile Include="Classes\uPais.cs" />
     <Compile Include="Classes\uPessoa.cs" />
+    <Compile Include="Classes\uServicos.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Controllers\uCtrlCargos.cs" />
     <Compile Include="Controllers\uCtrlCidades.cs" />
