@@ -30,6 +30,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private void InitializeComponent()
         {
             this.DgConsultaCidades = new System.Windows.Forms.DataGridView();
+            this.id_cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ddd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +43,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCidades.AllowUserToDeleteRows = false;
             this.DgConsultaCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgConsultaCidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_cidade,
             this.cidade,
             this.ddd,
             this.uf});
@@ -52,6 +54,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCidades.RowTemplate.Height = 24;
             this.DgConsultaCidades.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCidades.TabIndex = 9;
+            // 
+            // id_cidade
+            // 
+            this.id_cidade.HeaderText = "ID Cidade";
+            this.id_cidade.MinimumWidth = 6;
+            this.id_cidade.Name = "id_cidade";
+            this.id_cidade.ReadOnly = true;
+            this.id_cidade.Width = 125;
             // 
             // cidade
             // 
@@ -100,6 +110,7 @@ namespace Sistema__Renovo_Barber.Formularios
         #endregion
 
         private System.Windows.Forms.DataGridView DgConsultaCidades;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn ddd;
         private System.Windows.Forms.DataGridViewTextBoxColumn uf;

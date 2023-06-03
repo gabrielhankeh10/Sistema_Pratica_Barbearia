@@ -2,6 +2,7 @@
 using Sistema__Renovo_Barber.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,33 @@ namespace Sistema__Renovo_Barber.Dao
         public uDaoFornecedor()
         {
             this.ConexaoBanco = new Conexao().GetConnection();
+        }
+        public DataTable PopularGrid()
+        {
+            string Sql = @"select forn.id_fornecedor, case when forn.status_fornecedor = 'A' then 'Ativo' else 'Inativo' end status_fornecedor,
+            forn.nome_fantasia, forn.razao_social, forn.data_fundacao, forn.insc_municipal, forn.insc_estadual,forn.cnpj, forn.email,
+            forn.telefone, forn.celular, forn.cep, forn.endereco, forn.numero, forn.numero, forn.complemento, forn.bairro, forn.data_criacao,
+            forn.data_ult_alteracao, cid.nome as cidade from tb_fornecedores forn left join tb_cidades cid on cid.id_cidade = forn.id_cidade";
+
+            MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+            ExecutaCmd.CommandType = CommandType.Text;
+
+            DataTable Dt = new DataTable();
+            try
+            {
+                ConexaoBanco.Open();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return Dt;
         }
         public void Salvar(uFornecedor Obj)
         {

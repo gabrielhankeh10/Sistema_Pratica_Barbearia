@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,36 @@ namespace Sistema__Renovo_Barber.Dao
         {
             this.ConexaoBanco = new Conexao().GetConnection();
         }
+        public DataTable PopularGrid()
+        {
+            string Sql = @"select cli.id_cliente, 
+			case when cli.status_cliente = 'A' then 'Ativo' else 'Inativo' end status_cliente, cli.nome, cli.apelido, 
+            cli.sexo, cli.rg, cli.cpf, cli.email, cli.telefone, cli.celular, cli.cep,cli.endereco,
+            cli.numero, cli.complemento, cli.bairro,cid.nome as cidade, cli.data_criacao, 
+            cli.data_ult_alteracao from tb_clientes cli left join tb_cidades cid on 
+            cid.id_cidade = cli.id_cidade";
+
+            MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+            ExecutaCmd.CommandType = CommandType.Text;
+
+            DataTable Dt = new DataTable();
+            try
+            {
+                ConexaoBanco.Open();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return Dt;
+        }
+
         public void Salvar(uCliente Obj)
         {
             try

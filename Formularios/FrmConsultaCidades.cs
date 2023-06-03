@@ -27,9 +27,10 @@ namespace Sistema__Renovo_Barber.Formularios
                 {
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(DgConsultaCidades);
-                    row.Cells[0].Value = vLinha["cidade"].ToString();
-                    row.Cells[1].Value = vLinha["ddd"].ToString();
-                    row.Cells[2].Value = vLinha["uf"].ToString();
+                    row.Cells[0].Value = vLinha["id_cidade"].ToString();
+                    row.Cells[1].Value = vLinha["cidade"].ToString();
+                    row.Cells[2].Value = vLinha["ddd"].ToString();
+                    row.Cells[3].Value = vLinha["uf"].ToString();
                     DgConsultaCidades.Rows.Add(row);
                 }
             }

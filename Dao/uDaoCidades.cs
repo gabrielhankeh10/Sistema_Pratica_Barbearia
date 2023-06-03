@@ -19,7 +19,7 @@ namespace Sistema__Renovo_Barber.Dao
         }
         public DataTable PopularGrid()
         {
-            string Sql = @"select cid.nome as CIDADE ,cid.DDD, est.uf from tb_cidades cid 
+            string Sql = @"select cid.id_cidade, cid.nome as CIDADE ,cid.DDD, est.uf from tb_cidades cid 
                             left join tb_estados est on est.id_estado = cid.id_estado";
 
 
