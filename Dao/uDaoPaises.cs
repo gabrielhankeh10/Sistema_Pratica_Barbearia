@@ -2,6 +2,8 @@
 using Sistema__Renovo_Barber.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,29 @@ namespace Sistema__Renovo_Barber.Dao
         public uDaoPaises()
         {
             this.ConexaoBanco = new Conexao().GetConnection();
+        }
+        public DataTable PopularGrid()
+        {
+            string Sql = "select * from tb_pais";
+            MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+            ExecutaCmd.CommandType = CommandType.Text;
+
+            DataTable Dt = new DataTable();
+            try
+            {
+                ConexaoBanco.Open();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return Dt;
         }
 
         public void Salvar(uPais obj)

@@ -29,33 +29,69 @@ namespace Sistema__Renovo_Barber.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.DgConsultaEstado = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaEstado)).BeginInit();
+            this.DgConsultaCidades = new System.Windows.Forms.DataGridView();
+            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ddd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCidades)).BeginInit();
             this.SuspendLayout();
             // 
-            // DgConsultaEstado
+            // DgConsultaCidades
             // 
-            this.DgConsultaEstado.AllowUserToAddRows = false;
-            this.DgConsultaEstado.AllowUserToDeleteRows = false;
-            this.DgConsultaEstado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgConsultaEstado.Location = new System.Drawing.Point(54, 72);
-            this.DgConsultaEstado.Name = "DgConsultaEstado";
-            this.DgConsultaEstado.ReadOnly = true;
-            this.DgConsultaEstado.RowHeadersWidth = 51;
-            this.DgConsultaEstado.RowTemplate.Height = 24;
-            this.DgConsultaEstado.Size = new System.Drawing.Size(782, 437);
-            this.DgConsultaEstado.TabIndex = 9;
+            this.DgConsultaCidades.AllowUserToAddRows = false;
+            this.DgConsultaCidades.AllowUserToDeleteRows = false;
+            this.DgConsultaCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgConsultaCidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cidade,
+            this.ddd,
+            this.uf});
+            this.DgConsultaCidades.Location = new System.Drawing.Point(54, 72);
+            this.DgConsultaCidades.Name = "DgConsultaCidades";
+            this.DgConsultaCidades.ReadOnly = true;
+            this.DgConsultaCidades.RowHeadersWidth = 51;
+            this.DgConsultaCidades.RowTemplate.Height = 24;
+            this.DgConsultaCidades.Size = new System.Drawing.Size(782, 437);
+            this.DgConsultaCidades.TabIndex = 9;
+            // 
+            // cidade
+            // 
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.MinimumWidth = 6;
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            this.cidade.Width = 125;
+            // 
+            // ddd
+            // 
+            this.ddd.HeaderText = "DDD";
+            this.ddd.MinimumWidth = 6;
+            this.ddd.Name = "ddd";
+            this.ddd.ReadOnly = true;
+            this.ddd.Width = 125;
+            // 
+            // uf
+            // 
+            this.uf.HeaderText = "UF";
+            this.uf.MinimumWidth = 6;
+            this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
+            this.uf.Width = 125;
             // 
             // FrmConsultaCidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
-            this.Controls.Add(this.DgConsultaEstado);
+            this.Controls.Add(this.DgConsultaCidades);
             this.Name = "FrmConsultaCidades";
             this.Text = "Consulta de Cidades";
+            this.Controls.SetChildIndex(this.btnSair, 0);
+            this.Controls.SetChildIndex(this.btnExcluir, 0);
+            this.Controls.SetChildIndex(this.btnAlterar, 0);
+            this.Controls.SetChildIndex(this.tbPesquisar, 0);
+            this.Controls.SetChildIndex(this.btnPesquisar, 0);
             this.Controls.SetChildIndex(this.btnIncluir, 0);
-            this.Controls.SetChildIndex(this.DgConsultaEstado, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaEstado)).EndInit();
+            this.Controls.SetChildIndex(this.DgConsultaCidades, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -63,6 +99,9 @@ namespace Sistema__Renovo_Barber.Formularios
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DgConsultaEstado;
+        private System.Windows.Forms.DataGridView DgConsultaCidades;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ddd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
     }
 }
