@@ -2,6 +2,7 @@
 using Sistema__Renovo_Barber.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,34 @@ namespace Sistema__Renovo_Barber.Dao
         public uDaoFuncionarios()
         {
             this.ConexaoBanco = new Conexao().GetConnection();
+        }
+        public DataTable PopularGrid()
+        {
+            string Sql = @"select fun.id_funcionario, case when fun.status_funcionario = 'A' then 'Ativo' else 'Inativo' end status_funcionario,
+                    fun.nome, car.cargo, cid.nome as cidade, fun.sexo, fun.rg, fun.cpf, fun.email, fun.telefone, fun.celular, fun.cep, 
+                    fun.endereco, fun.numero,fun.complemento, fun.data_nasc, fun.data_criacao, fun.data_ult_alteracao from 
+                    tb_funcionarios fun left join tb_cargos car on car.id_cargo = fun.id_cargo 
+                    left join tb_cidades cid on cid.id_cidade = fun.id_cidade";
+
+            MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+            ExecutaCmd.CommandType = CommandType.Text;
+
+            DataTable Dt = new DataTable();
+            try
+            {
+                ConexaoBanco.Open();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return Dt;
         }
         public void Salvar (uFuncionario Obj)
         {

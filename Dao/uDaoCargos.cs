@@ -2,6 +2,7 @@
 using Sistema__Renovo_Barber.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,32 @@ namespace Sistema__Renovo_Barber.Dao
         public uDaoCargos()
         {
             this.ConexaoBanco = new Conexao().GetConnection();
+        }
+        public DataTable PopularGrid()
+        {
+            string Sql = @"select car.id_cargo, case when car.status_cargo = 'A' then 'Ativo' else 'Inativo' 
+                        end status_cargo, car.cargo, car.data_criacao, car.data_ult_alteracao from tb_cargos car";
+
+
+            MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+            ExecutaCmd.CommandType = CommandType.Text;
+
+            DataTable Dt = new DataTable();
+            try
+            {
+                ConexaoBanco.Open();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return Dt;
         }
         public void Salvar (uCargos Obj)
         {

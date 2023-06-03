@@ -30,6 +30,11 @@ namespace Sistema__Renovo_Barber.Formularios
         private void InitializeComponent()
         {
             this.DgConsultaCargos = new System.Windows.Forms.DataGridView();
+            this.id_cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_criacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_ult_alteração = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCargos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,6 +43,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCargos.AllowUserToAddRows = false;
             this.DgConsultaCargos.AllowUserToDeleteRows = false;
             this.DgConsultaCargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgConsultaCargos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_cargo,
+            this.status_cargo,
+            this.cargo,
+            this.data_criacao,
+            this.data_ult_alteração});
             this.DgConsultaCargos.Location = new System.Drawing.Point(54, 72);
             this.DgConsultaCargos.Name = "DgConsultaCargos";
             this.DgConsultaCargos.ReadOnly = true;
@@ -45,6 +56,46 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCargos.RowTemplate.Height = 24;
             this.DgConsultaCargos.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCargos.TabIndex = 10;
+            // 
+            // id_cargo
+            // 
+            this.id_cargo.HeaderText = "ID Cargo";
+            this.id_cargo.MinimumWidth = 6;
+            this.id_cargo.Name = "id_cargo";
+            this.id_cargo.ReadOnly = true;
+            this.id_cargo.Width = 125;
+            // 
+            // status_cargo
+            // 
+            this.status_cargo.HeaderText = "Status";
+            this.status_cargo.MinimumWidth = 6;
+            this.status_cargo.Name = "status_cargo";
+            this.status_cargo.ReadOnly = true;
+            this.status_cargo.Width = 125;
+            // 
+            // cargo
+            // 
+            this.cargo.HeaderText = "Cargo";
+            this.cargo.MinimumWidth = 6;
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            this.cargo.Width = 125;
+            // 
+            // data_criacao
+            // 
+            this.data_criacao.HeaderText = "Data de Criação";
+            this.data_criacao.MinimumWidth = 6;
+            this.data_criacao.Name = "data_criacao";
+            this.data_criacao.ReadOnly = true;
+            this.data_criacao.Width = 125;
+            // 
+            // data_ult_alteração
+            // 
+            this.data_ult_alteração.HeaderText = "Ultima Alteração";
+            this.data_ult_alteração.MinimumWidth = 6;
+            this.data_ult_alteração.Name = "data_ult_alteração";
+            this.data_ult_alteração.ReadOnly = true;
+            this.data_ult_alteração.Width = 125;
             // 
             // FrmConsultaCargos
             // 
@@ -69,5 +120,10 @@ namespace Sistema__Renovo_Barber.Formularios
         #endregion
 
         private System.Windows.Forms.DataGridView DgConsultaCargos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status_cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_criacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_ult_alteração;
     }
 }
