@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Sistema__Renovo_Barber.Dao
 {
-    public class uDaoEstados : uDao  
+    public class uDaoFormaPagamento : uDao
     {
         private MySqlConnection ConexaoBanco;
-        public uDaoEstados()
+        public uDaoFormaPagamento()
         {
             this.ConexaoBanco = new Conexao().GetConnection();
         }
         public DataTable PopularGrid()
         {
-            string Sql = @"select est.*,pais.nome as pais from tb_estados est 
-                            left join tb_pais pais on pais.id_pais = est.id_pais";
+            string Sql = @"select pag.id_forma, case when pag.status_forma = 'A' then 'Ativo' else 'Inativo' end status_forma, 
+                        pag.forma, pag.data_criacao, pag.data_ult_alteracao from tb_forma_pagamento pag;";
 
             MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
             ExecutaCmd.CommandType = CommandType.Text;
@@ -42,30 +42,28 @@ namespace Sistema__Renovo_Barber.Dao
             }
             return Dt;
         }
-        public void Salvar(uEstado Obj)
+        public void Salvar(uFormaPagamento Obj)
         {
             try
             {
-                string Sql = @"insert into tb_estados (nome, uf, id_pais, data_criacao, data_ult_alteracao)
-                                values (@nome, @uf, @id_pais, @data_criacao, @data_ult_alteracao)";
+                string Sql = @"insert into tb_forma_pagamento (status_forma, forma, data_criacao)
+			                    values(@status_forma, @forma, @data_criacao)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
-                ExecutaComando.Parameters.AddWithValue("@nome", Obj.estado);
-                ExecutaComando.Parameters.AddWithValue("@uf", Obj.uf);
-                ExecutaComando.Parameters.AddWithValue("@id_pais", Obj.pais.id);
+
+                ExecutaComando.Parameters.AddWithValue("@status_forma", "A");
+                ExecutaComando.Parameters.AddWithValue("@forma", Obj.Forma);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
-                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
 
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
-                MessageBox.Show("Estado cadastrado com sucesso!");
+                MessageBox.Show("Forma cadastrada com sucesso!");
                 ConexaoBanco.Close();
             }
             catch (Exception Erro)
             {
-                MessageBox.Show("Aconteceu o Erro: " + Erro); 
+                MessageBox.Show("Aconteceu um erro: " + Erro);
             }
         }
-
     }
 }

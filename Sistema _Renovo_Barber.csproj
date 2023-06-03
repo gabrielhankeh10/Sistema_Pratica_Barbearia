@@ -89,6 +89,7 @@
     <Compile Include="Classes\uCargos.cs" />
     <Compile Include="Classes\uCidade.cs" />
     <Compile Include="Classes\uEstado.cs" />
+    <Compile Include="Classes\uFormaPagamento.cs" />
     <Compile Include="Classes\uFornecedor.cs" />
     <Compile Include="Classes\uFuncionario.cs" />
     <Compile Include="Classes\uPai.cs" />
@@ -100,16 +101,20 @@
     <Compile Include="Controllers\uCtrlCidades.cs" />
     <Compile Include="Controllers\uCtrlCliente.cs" />
     <Compile Include="Controllers\uCtrlEstados.cs" />
+    <Compile Include="Controllers\uCtrlFormaPagamento.cs" />
     <Compile Include="Controllers\uCtrlFornecedor.cs" />
     <Compile Include="Controllers\uCtrlFuncionario.cs" />
     <Compile Include="Controllers\uCtrlPaises.cs" />
+    <Compile Include="Controllers\uCtrlServicos.cs" />
     <Compile Include="Dao\uDaoCargos.cs" />
     <Compile Include="Dao\uDaoCidades.cs" />
     <Compile Include="Dao\uDaoCliente.cs" />
     <Compile Include="Dao\uDaoEstados.cs" />
+    <Compile Include="Dao\uDaoFormaPagamento.cs" />
     <Compile Include="Dao\uDaoFornecedor.cs" />
     <Compile Include="Dao\uDaoFuncionarios.cs" />
     <Compile Include="Dao\uDaoPaises.cs" />
+    <Compile Include="Dao\uDaoServicos.cs" />
     <Compile Include="Formularios\FrmCadastroCargos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +145,12 @@
     <Compile Include="Formularios\FrmCadastro.Designer.cs">
       <DependentUpon>FrmCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmCadastroFormaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroFormaPagamento.Designer.cs">
+      <DependentUpon>FrmCadastroFormaPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmCadastroFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +168,12 @@
     </Compile>
     <Compile Include="Formularios\FrmCadastroPessoa.Designer.cs">
       <DependentUpon>FrmCadastroPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroServico.Designer.cs">
+      <DependentUpon>FrmCadastroServico.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmConsultaCargos.cs">
       <SubType>Form</SubType>
@@ -182,6 +199,12 @@
     <Compile Include="Formularios\FrmConsultaEstado.Designer.cs">
       <DependentUpon>FrmConsultaEstado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmConsultaFormaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaFormaPagamento.Designer.cs">
+      <DependentUpon>FrmConsultaFormaPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmConsultaFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +228,12 @@
     </Compile>
     <Compile Include="Formularios\FrmConsulta.Designer.cs">
       <DependentUpon>FrmConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaServicos.Designer.cs">
+      <DependentUpon>FrmConsultaServicos.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -244,6 +273,9 @@
     <EmbeddedResource Include="Formularios\FrmCadastro.resx">
       <DependentUpon>FrmCadastro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCadastroFormaPagamento.resx">
+      <DependentUpon>FrmCadastroFormaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroFornecedor.resx">
       <DependentUpon>FrmCadastroFornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroPessoa.resx">
       <DependentUpon>FrmCadastroPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCadastroServico.resx">
+      <DependentUpon>FrmCadastroServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsulta.resx">
       <DependentUpon>FrmConsulta.cs</DependentUpon>
@@ -268,6 +303,9 @@
     <EmbeddedResource Include="Formularios\FrmConsultaEstado.resx">
       <DependentUpon>FrmConsultaEstado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaFormaPagamento.resx">
+      <DependentUpon>FrmConsultaFormaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaFornecedor.resx">
       <DependentUpon>FrmConsultaFornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaPaises.resx">
       <DependentUpon>FrmConsultaPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaServicos.resx">
+      <DependentUpon>FrmConsultaServicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPai.resx">
       <DependentUpon>FrmPai.cs</DependentUpon>

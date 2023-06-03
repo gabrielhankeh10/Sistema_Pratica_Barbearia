@@ -54,7 +54,7 @@ namespace Sistema__Renovo_Barber.Dao
 
                 ExecutaComando.Parameters.AddWithValue("@cargo", Obj.Cargo);
                 ExecutaComando.Parameters.AddWithValue("@status_cargo", "A");
-                ExecutaComando.Parameters.AddWithValue("data_criacao", Obj.data_criacao);
+                ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
 
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();

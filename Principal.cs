@@ -69,5 +69,17 @@ namespace Sistema__Renovo_Barber
             FrmConsultaFuncionario frmConsultaFuncionario = new FrmConsultaFuncionario();
             frmConsultaFuncionario.ShowDialog();
         }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaServicos frmConsultaServicos = new FrmConsultaServicos();
+            frmConsultaServicos.ShowDialog();
+        }
+
+        private void formaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaFormaPagamento frmConsultaFormaPagamento = new FrmConsultaFormaPagamento();
+            frmConsultaFormaPagamento.ShowDialog();
+        }
     }
 }

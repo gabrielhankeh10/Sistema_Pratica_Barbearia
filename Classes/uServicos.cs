@@ -10,9 +10,13 @@ namespace Sistema__Renovo_Barber.Classes
     {
         public uServicos()
         {
-            uPai Pai = new uPai();
+            
         }
         public uPai Pai { get; set; }
+        public string Descricao { get; set; }
+        public string Status { get; set; }
+        public TimeSpan Duracao { get; set; }
+        public decimal Valor { get; set; }
 
     }
 }
