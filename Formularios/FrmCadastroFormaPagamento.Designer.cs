@@ -89,6 +89,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbStatus);
             this.Name = "FrmCadastroFormaPagamento";
+            this.Text = "Cadastro Forma de Pagamento";
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbStatus, 0);

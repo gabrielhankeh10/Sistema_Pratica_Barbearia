@@ -38,10 +38,11 @@ namespace Sistema__Renovo_Barber
             this.fornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.condiçãoDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@ namespace Sistema__Renovo_Barber
             this.cargosToolStripMenuItem,
             this.funcionarioToolStripMenuItem,
             this.serviçosToolStripMenuItem,
-            this.formaDePagamentoToolStripMenuItem});
+            this.formaDePagamentoToolStripMenuItem,
+            this.condiçãoDePagamentoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
             this.cadastrosToolStripMenuItem.Text = "Consultas";
@@ -79,51 +81,65 @@ namespace Sistema__Renovo_Barber
             // paisToolStripMenuItem
             // 
             this.paisToolStripMenuItem.Name = "paisToolStripMenuItem";
-            this.paisToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.paisToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.paisToolStripMenuItem.Text = "Pais";
             this.paisToolStripMenuItem.Click += new System.EventHandler(this.paisToolStripMenuItem_Click);
             // 
             // estadoToolStripMenuItem
             // 
             this.estadoToolStripMenuItem.Name = "estadoToolStripMenuItem";
-            this.estadoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.estadoToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.estadoToolStripMenuItem.Text = "Estado";
             this.estadoToolStripMenuItem.Click += new System.EventHandler(this.estadoToolStripMenuItem_Click);
             // 
             // cidadeToolStripMenuItem
             // 
             this.cidadeToolStripMenuItem.Name = "cidadeToolStripMenuItem";
-            this.cidadeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cidadeToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.cidadeToolStripMenuItem.Text = "Cidade";
             this.cidadeToolStripMenuItem.Click += new System.EventHandler(this.cidadeToolStripMenuItem_Click);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // fornecedorToolStripMenuItem
             // 
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.fornecedorToolStripMenuItem_Click);
             // 
             // cargosToolStripMenuItem
             // 
             this.cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
-            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.cargosToolStripMenuItem.Text = "Cargos";
             this.cargosToolStripMenuItem.Click += new System.EventHandler(this.cargosToolStripMenuItem_Click);
             // 
             // funcionarioToolStripMenuItem
             // 
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
             this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
+            // 
+            // serviçosToolStripMenuItem
+            // 
+            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.serviçosToolStripMenuItem.Text = "Serviços";
+            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
+            // 
+            // formaDePagamentoToolStripMenuItem
+            // 
+            this.formaDePagamentoToolStripMenuItem.Name = "formaDePagamentoToolStripMenuItem";
+            this.formaDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.formaDePagamentoToolStripMenuItem.Text = "Forma de Pagamento";
+            this.formaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.formaDePagamentoToolStripMenuItem_Click);
             // 
             // agendaToolStripMenuItem
             // 
@@ -138,19 +154,12 @@ namespace Sistema__Renovo_Barber
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // serviçosToolStripMenuItem
+            // condiçãoDePagamentoToolStripMenuItem
             // 
-            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.serviçosToolStripMenuItem.Text = "Serviços";
-            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
-            // 
-            // formaDePagamentoToolStripMenuItem
-            // 
-            this.formaDePagamentoToolStripMenuItem.Name = "formaDePagamentoToolStripMenuItem";
-            this.formaDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.formaDePagamentoToolStripMenuItem.Text = "Forma de Pagamento";
-            this.formaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.formaDePagamentoToolStripMenuItem_Click);
+            this.condiçãoDePagamentoToolStripMenuItem.Name = "condiçãoDePagamentoToolStripMenuItem";
+            this.condiçãoDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.condiçãoDePagamentoToolStripMenuItem.Text = "Condição de Pagamento";
+            this.condiçãoDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.condiçãoDePagamentoToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -184,6 +193,7 @@ namespace Sistema__Renovo_Barber
         private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formaDePagamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem condiçãoDePagamentoToolStripMenuItem;
     }
 }
 
