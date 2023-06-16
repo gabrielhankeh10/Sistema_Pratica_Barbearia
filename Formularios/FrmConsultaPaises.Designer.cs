@@ -52,6 +52,7 @@ namespace Sistema__Renovo_Barber
             this.DgConsultaPais.ReadOnly = true;
             this.DgConsultaPais.RowHeadersWidth = 51;
             this.DgConsultaPais.RowTemplate.Height = 24;
+            this.DgConsultaPais.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaPais.Size = new System.Drawing.Size(784, 437);
             this.DgConsultaPais.TabIndex = 7;
             this.DgConsultaPais.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaPais_CellContentClick);

@@ -63,15 +63,15 @@ namespace Sistema__Renovo_Barber.Formularios
             this.id_forma.MinimumWidth = 6;
             this.id_forma.Name = "id_forma";
             this.id_forma.ReadOnly = true;
-            this.id_forma.Width = 125;
+            this.id_forma.Width = 60;
             // 
             // status_forma
             // 
+            this.status_forma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.status_forma.HeaderText = "Status";
             this.status_forma.MinimumWidth = 6;
             this.status_forma.Name = "status_forma";
             this.status_forma.ReadOnly = true;
-            this.status_forma.Width = 125;
             // 
             // forma
             // 

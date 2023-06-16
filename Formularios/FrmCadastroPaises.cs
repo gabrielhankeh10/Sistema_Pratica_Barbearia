@@ -18,15 +18,60 @@ namespace Sistema__Renovo_Barber
             InitializeComponent();
         }
         private uCtrlPaises ControllerPaises = new uCtrlPaises(); 
-        private void btnSalvar_Click(object sender, EventArgs e)
+
+        public void Alterar_Botao()
         {
+            btnSalvar.Text = "Alterar";
+            tbCodigo.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+        }
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {           
             uPais Obj = new uPais();
-            Obj.pais = tbEstado.Text;
+            Obj.pais = tbPais.Text;
             Obj.ddi = tbDDI.Text;
             Obj.sigla = tbSigla.Text;
             Obj.data_criacao = DateTime.Now;
             Obj.data_ult_alteracao = DateTime.Now;
-            ControllerPaises.Salvar(Obj); 
+            if (btnSalvar.Text == "Salvar")
+            {
+                Obj.pais = tbPais.Text;
+                Obj.ddi = tbDDI.Text;
+                Obj.sigla = tbSigla.Text;
+                Obj.data_criacao = DateTime.Now;
+                Obj.data_ult_alteracao = DateTime.Now;
+                ControllerPaises.Salvar(Obj);
+            }
+            else if (btnSalvar.Text == "Alterar")
+            {
+                Obj.pais = tbPais.Text;
+                Obj.ddi = tbDDI.Text;
+                Obj.sigla = tbSigla.Text;
+                Obj.data_ult_alteracao = DateTime.Now;
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerPaises.Alterar(Obj);
+                this.Close();
+            }
+        }
+        public void Popular(uPais Pais)
+        {
+            tbCodigo.Text = Pais.id.ToString();
+            tbPais.Text = Pais.pais.ToString();
+            tbSigla.Text = Pais.sigla.ToString();
+            tbDDI.Text = Pais.ddi.ToString();
+            tbDatCad.Text = Pais.data_criacao.ToShortDateString();
+            tbDatUltAlt.Text = Pais.data_ult_alteracao.ToShortDateString();
+        }
+
+        public void LimparCampos()
+        {
+            tbCodigo.Text = string.Empty;
+            tbPais.Text = string.Empty;
+            tbSigla.Text = string.Empty;
+            tbDDI.Text = string.Empty;
+            tbDatCad.Text = string.Empty;
+            tbDatUltAlt.Text = string.Empty;
         }
     }
 }

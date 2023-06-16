@@ -29,7 +29,7 @@ namespace Sistema__Renovo_Barber
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbEstado = new System.Windows.Forms.TextBox();
+            this.tbPais = new System.Windows.Forms.TextBox();
             this.Nome = new System.Windows.Forms.Label();
             this.tbSigla = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,13 +38,13 @@ namespace Sistema__Renovo_Barber
             this.btnSalvar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tbEstado
+            // tbPais
             // 
-            this.tbEstado.Location = new System.Drawing.Point(187, 64);
-            this.tbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbEstado.Name = "tbEstado";
-            this.tbEstado.Size = new System.Drawing.Size(255, 22);
-            this.tbEstado.TabIndex = 7;
+            this.tbPais.Location = new System.Drawing.Point(187, 64);
+            this.tbPais.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPais.Name = "tbPais";
+            this.tbPais.Size = new System.Drawing.Size(255, 22);
+            this.tbPais.TabIndex = 7;
             // 
             // Nome
             // 
@@ -110,11 +110,14 @@ namespace Sistema__Renovo_Barber
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbSigla);
             this.Controls.Add(this.Nome);
-            this.Controls.Add(this.tbEstado);
+            this.Controls.Add(this.tbPais);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCadastroPaises";
             this.Text = "Cadastro de Paises";
-            this.Controls.SetChildIndex(this.tbEstado, 0);
+            this.Controls.SetChildIndex(this.btnSair, 0);
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.tbPais, 0);
             this.Controls.SetChildIndex(this.Nome, 0);
             this.Controls.SetChildIndex(this.tbSigla, 0);
             this.Controls.SetChildIndex(this.label4, 0);
@@ -128,7 +131,7 @@ namespace Sistema__Renovo_Barber
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbEstado;
+        private System.Windows.Forms.TextBox tbPais;
         private System.Windows.Forms.Label Nome;
         private System.Windows.Forms.TextBox tbSigla;
         private System.Windows.Forms.Label label4;

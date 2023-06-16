@@ -98,6 +98,7 @@ namespace Sistema__Renovo_Barber
             this.Name = "FrmCadastro";
             this.Text = "Cadastro";
             this.Load += new System.EventHandler(this.FrmCadastro_Load);
+            this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.tbCodigo, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbDatCad, 0);
@@ -110,12 +111,11 @@ namespace Sistema__Renovo_Barber
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbCodigo;
-        private System.Windows.Forms.TextBox tbDatCad;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbDatUltAlt;
         public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox tbCodigo;
+        public System.Windows.Forms.TextBox tbDatCad;
+        public System.Windows.Forms.TextBox tbDatUltAlt;
     }
 }

@@ -37,7 +37,7 @@ namespace Sistema__Renovo_Barber
                 }
             }
         }
-
+        
         public override void IncluirFormCadastro()
         {
             FrmCadastroPaises frmCadastroPaises = new FrmCadastroPaises();
@@ -45,11 +45,25 @@ namespace Sistema__Renovo_Barber
         }
         public override void AlterarFormCadastro()
         {
-            uPais Pais = new uPais();
-            DataGridViewRow vLinha = DgConsultaPais.SelectedRows[0];
-            //Pais = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_pais"]));
-            FrmCadastroPaises frmCadastroPaises = new FrmCadastroPaises();
-            frmCadastroPaises.ShowDialog();
+            try
+            {
+                DataGridViewRow vLinha;
+                uPais Pais = new uPais();
+                //if (DgConsultaPais.SelectedRows[0] != null)
+                //{
+                vLinha = DgConsultaPais.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Pais = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_pais"].Value));
+                    FrmCadastroPaises frmCadastroPaises = new FrmCadastroPaises();
+                    frmCadastroPaises.Alterar_Botao();
+                    frmCadastroPaises.Popular(Pais);
+                    frmCadastroPaises.ShowDialog();
+                    Listar();
+                }   
+                //}
+            }
+            catch { }
         }
         public override void ExcluirFormCadastro()
         {

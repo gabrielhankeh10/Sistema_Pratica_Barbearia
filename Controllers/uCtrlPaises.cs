@@ -22,11 +22,22 @@ namespace Sistema__Renovo_Barber.Controllers
             Pais = pais;
             DaoPais.Salvar(Pais);
         }
+        public void Alterar(uPais pais)
+        {
+            Pais = pais;
+            DaoPais.Alterar(Pais);
+        }
         public DataTable PopularGrid()
         {
             DataTable vData = new DataTable();
             vData = DaoPais.PopularGrid();
             return vData;
         }
+        public uPais Carregar(int Id)
+        {
+            uPais Pais = DaoPais.Selecionar(Id);
+            return Pais;
+        }
+
     }
 }
