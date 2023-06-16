@@ -17,6 +17,22 @@ namespace Sistema__Renovo_Barber.Formularios
             InitializeComponent();
         }
         private uCtrlEstados ControllerEstados = new uCtrlEstados();
+        public void Alterar_Botao()
+        {
+            btnSalvar.Text = "Alterar";
+            tbCodigo.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+        }
+        public void Popular(uEstado Estado)
+        {
+            tbCodigo.Text = Estado.id.ToString();
+            tbEstado.Text = Estado.estado.ToString();
+            tbUf.Text = Estado.uf.ToString();
+            tbCodigoPais.Text = Estado.pais.id.ToString();
+            tbDatCad.Text = Estado.data_criacao.ToShortDateString();
+            tbDatUltAlt.Text = Estado.data_ult_alteracao.ToShortDateString();
+        }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uEstado Obj = new uEstado();
@@ -26,7 +42,26 @@ namespace Sistema__Renovo_Barber.Formularios
             Obj.uf = tbUf.Text;
             Obj.data_criacao = DateTime.Now;
             Obj.data_ult_alteracao = DateTime.Now;
-            ControllerEstados.Salvar(Obj);
+            if (btnSalvar.Text == "Salvar")
+            {
+                Obj.estado = tbEstado.Text;
+                Obj.uf = tbUf.Text;
+                Obj.pais.id = int.Parse(tbCodigoPais.Text);
+                Obj.data_criacao = DateTime.Now;
+                Obj.data_ult_alteracao = DateTime.Now;
+                ControllerEstados.Salvar(Obj);
+            }
+            else if (btnSalvar.Text == "Alterar")
+            {
+                Obj.estado = tbEstado.Text;
+                Obj.uf = tbUf.Text;
+                Obj.pais.id = int.Parse(tbCodigoPais.Text);
+                Obj.data_criacao = DateTime.Now;
+                Obj.data_ult_alteracao = DateTime.Now;
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerEstados.Alterar(Obj);
+                this.Close();
+            }
         }
     }
 }

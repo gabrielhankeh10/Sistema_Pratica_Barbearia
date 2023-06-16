@@ -23,6 +23,17 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoEstados.PopularGrid();
             return vData;
         }
+        public void Alterar(uEstado estado)
+        {
+            Estado = estado;
+            DaoEstados.Alterar(Estado);
+        }
+        public uEstado Carregar(int Id)
+        {
+            uEstado Estado = DaoEstados.Selecionar(Id);
+            return Estado;
+        }
+        
         public void Salvar(uEstado estado)
         {
             Estado = estado;

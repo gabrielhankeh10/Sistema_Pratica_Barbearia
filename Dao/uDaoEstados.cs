@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -42,6 +43,64 @@ namespace Sistema__Renovo_Barber.Dao
             }
             return Dt;
         }
+
+        public void Alterar(uEstado Obj)
+        {
+            try
+            {
+                string Sql = @"update tb_estados set nome = @nome, uf = @uf, id_pais = @id_pais,
+                            data_ult_alteracao = @data_ult_alteracao where id_estado = @id_estado";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_estado", Obj.id);
+                ExecutaCmd.Parameters.AddWithValue("@nome", Obj.estado);
+                ExecutaCmd.Parameters.AddWithValue("@uf", Obj.uf);
+                ExecutaCmd.Parameters.AddWithValue("@id_pais", Obj.pais.id);
+                ExecutaCmd.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Estado alterado com sucesso!");
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
+        public uEstado Selecionar(int Id)
+        {
+            try
+            {
+                uCtrlPaises CtrlPaises = new uCtrlPaises();
+                string Sql = "select * from tb_estados where id_estado = @id_estado";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_estado", Id);
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uEstado Obj = new uEstado
+                        {
+                            id = Convert.ToInt32(reader["id_estado"]),
+                            estado = Convert.ToString(reader["nome"]),
+                            uf = Convert.ToString(reader["uf"]),
+                            pais = CtrlPaises.Carregar(Convert.ToInt32(reader["id_pais"])),
+                            data_criacao = Convert.ToDateTime(reader["data_criacao"]),
+                            data_ult_alteracao = Convert.ToDateTime(reader["data_ult_alteracao"]),
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
+
         public void Salvar(uEstado Obj)
         {
             try

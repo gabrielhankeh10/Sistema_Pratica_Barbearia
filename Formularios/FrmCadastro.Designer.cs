@@ -39,6 +39,7 @@ namespace Sistema__Renovo_Barber
             // 
             // tbCodigo
             // 
+            this.tbCodigo.Enabled = false;
             this.tbCodigo.Location = new System.Drawing.Point(49, 64);
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(100, 22);
@@ -55,6 +56,7 @@ namespace Sistema__Renovo_Barber
             // 
             // tbDatCad
             // 
+            this.tbDatCad.Enabled = false;
             this.tbDatCad.Location = new System.Drawing.Point(49, 524);
             this.tbDatCad.Name = "tbDatCad";
             this.tbDatCad.Size = new System.Drawing.Size(100, 22);
@@ -80,6 +82,7 @@ namespace Sistema__Renovo_Barber
             // 
             // tbDatUltAlt
             // 
+            this.tbDatUltAlt.Enabled = false;
             this.tbDatUltAlt.Location = new System.Drawing.Point(186, 524);
             this.tbDatUltAlt.Name = "tbDatUltAlt";
             this.tbDatUltAlt.Size = new System.Drawing.Size(100, 22);

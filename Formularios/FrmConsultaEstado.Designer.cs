@@ -48,10 +48,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.uf,
             this.pais});
             this.DgConsultaEstado.Location = new System.Drawing.Point(53, 72);
+            this.DgConsultaEstado.MultiSelect = false;
             this.DgConsultaEstado.Name = "DgConsultaEstado";
             this.DgConsultaEstado.ReadOnly = true;
             this.DgConsultaEstado.RowHeadersWidth = 51;
             this.DgConsultaEstado.RowTemplate.Height = 24;
+            this.DgConsultaEstado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaEstado.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaEstado.TabIndex = 8;
             // 

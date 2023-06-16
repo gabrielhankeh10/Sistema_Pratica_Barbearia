@@ -47,7 +47,7 @@ namespace Sistema__Renovo_Barber
             this.nome,
             this.sigla,
             this.ddi});
-            this.DgConsultaPais.Location = new System.Drawing.Point(51, 73);
+            this.DgConsultaPais.Location = new System.Drawing.Point(51, 72);
             this.DgConsultaPais.Name = "DgConsultaPais";
             this.DgConsultaPais.ReadOnly = true;
             this.DgConsultaPais.RowHeadersWidth = 51;

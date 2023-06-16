@@ -27,13 +27,8 @@ namespace Sistema__Renovo_Barber
             tbDatUltAlt.Enabled = false;
         }
         private void btnSalvar_Click(object sender, EventArgs e)
-        {           
+        {
             uPais Obj = new uPais();
-            Obj.pais = tbPais.Text;
-            Obj.ddi = tbDDI.Text;
-            Obj.sigla = tbSigla.Text;
-            Obj.data_criacao = DateTime.Now;
-            Obj.data_ult_alteracao = DateTime.Now;
             if (btnSalvar.Text == "Salvar")
             {
                 Obj.pais = tbPais.Text;
@@ -42,6 +37,7 @@ namespace Sistema__Renovo_Barber
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerPaises.Salvar(Obj);
+      
             }
             else if (btnSalvar.Text == "Alterar")
             {
@@ -62,16 +58,6 @@ namespace Sistema__Renovo_Barber
             tbDDI.Text = Pais.ddi.ToString();
             tbDatCad.Text = Pais.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = Pais.data_ult_alteracao.ToShortDateString();
-        }
-
-        public void LimparCampos()
-        {
-            tbCodigo.Text = string.Empty;
-            tbPais.Text = string.Empty;
-            tbSigla.Text = string.Empty;
-            tbDDI.Text = string.Empty;
-            tbDatCad.Text = string.Empty;
-            tbDatUltAlt.Text = string.Empty;
         }
     }
 }

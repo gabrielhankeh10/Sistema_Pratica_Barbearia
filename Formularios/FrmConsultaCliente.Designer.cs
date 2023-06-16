@@ -76,10 +76,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao,
             this.data_ult_alteracao});
             this.DgConsultaClientes.Location = new System.Drawing.Point(54, 72);
+            this.DgConsultaClientes.MultiSelect = false;
             this.DgConsultaClientes.Name = "DgConsultaClientes";
             this.DgConsultaClientes.ReadOnly = true;
             this.DgConsultaClientes.RowHeadersWidth = 51;
             this.DgConsultaClientes.RowTemplate.Height = 24;
+            this.DgConsultaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaClientes.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaClientes.TabIndex = 9;
             // 
