@@ -20,9 +20,12 @@ namespace Sistema__Renovo_Barber.Formularios
         public void Alterar_Botao()
         {
             btnSalvar.Text = "Alterar";
+            btnPesquisarPais.Text = "Alterar";
             tbCodigo.Enabled = false;
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
+            tbCodigoPais.Enabled = false;
+            tbPais.Enabled = false;
         }
         public void Popular(uEstado Estado)
         {
@@ -30,6 +33,7 @@ namespace Sistema__Renovo_Barber.Formularios
             tbEstado.Text = Estado.estado.ToString();
             tbUf.Text = Estado.uf.ToString();
             tbCodigoPais.Text = Estado.pais.id.ToString();
+            tbPais.Text = Estado.pais.pais.ToString();
             tbDatCad.Text = Estado.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = Estado.data_ult_alteracao.ToShortDateString();
         }
@@ -37,11 +41,6 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             uEstado Obj = new uEstado();
             Obj.pais = new uPais();
-            Obj.pais.id = int.Parse(tbCodigoPais.Text);
-            Obj.estado = tbEstado.Text;
-            Obj.uf = tbUf.Text;
-            Obj.data_criacao = DateTime.Now;
-            Obj.data_ult_alteracao = DateTime.Now;
             if (btnSalvar.Text == "Salvar")
             {
                 Obj.estado = tbEstado.Text;
@@ -59,9 +58,24 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
                 Obj.id = Convert.ToInt32(tbCodigo.Text);
+                Obj.pais.pais = tbPais.Text;
                 ControllerEstados.Alterar(Obj);
                 this.Close();
             }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (btnPesquisarPais.Text == "Alterar")
+            {
+                FrmConsultaPaises frmConsultaPais = new FrmConsultaPaises();
+                frmConsultaPais.ShowDialog();
+            }
+            else if (btnPesquisarPais.Text == "Incluir")
+            {
+                FrmConsultaPaises frmConsultaPais = new FrmConsultaPaises();
+                frmConsultaPais.ShowDialog();
+            }
+            
         }
     }
 }
