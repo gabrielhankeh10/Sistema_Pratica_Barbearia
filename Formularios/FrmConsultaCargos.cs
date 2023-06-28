@@ -1,4 +1,5 @@
-﻿using Sistema__Renovo_Barber.Controllers;
+﻿using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,26 @@ namespace Sistema__Renovo_Barber.Formularios
             InitializeComponent();
             Listar();
         }
+        public override void AlterarFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uCargos Cargos = new uCargos();
+                vLinha = DgConsultaCargos.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Cargos = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_cargo"].Value));
+                    FrmCadastroCargos frmCadastroCargos = new FrmCadastroCargos();
+                    frmCadastroCargos.Alterar_Botao();
+                    frmCadastroCargos.Popular(Cargos);
+                    frmCadastroCargos.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+
         public void Listar()
         {
             DgConsultaCargos.Rows.Clear();
@@ -40,6 +61,7 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroCargos frmCadastroCargos = new FrmCadastroCargos();
             frmCadastroCargos.ShowDialog();
+            Listar();
         }
     }
 }

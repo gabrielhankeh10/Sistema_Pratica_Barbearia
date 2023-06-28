@@ -23,6 +23,17 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoFornecedor.PopularGrid();
             return vData;
         }
+        public void Alterar(uFornecedor fornecedor)
+        {
+            Fornecedor = fornecedor;
+            DaoFornecedor.Alterar(Fornecedor);
+        }
+        public uFornecedor Carregar(int Id)
+        {
+            uFornecedor Fornecedor = DaoFornecedor.Selecionar(Id);
+            return Fornecedor;
+        }
+
         public void Salvar(uFornecedor fornecedor)
         {
             Fornecedor = fornecedor;

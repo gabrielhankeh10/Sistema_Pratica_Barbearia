@@ -50,10 +50,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao,
             this.data_ult_alteração});
             this.DgConsultaCargos.Location = new System.Drawing.Point(54, 72);
+            this.DgConsultaCargos.MultiSelect = false;
             this.DgConsultaCargos.Name = "DgConsultaCargos";
             this.DgConsultaCargos.ReadOnly = true;
             this.DgConsultaCargos.RowHeadersWidth = 51;
             this.DgConsultaCargos.RowTemplate.Height = 24;
+            this.DgConsultaCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaCargos.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCargos.TabIndex = 10;
             // 

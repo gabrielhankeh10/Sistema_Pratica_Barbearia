@@ -82,10 +82,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao,
             this.data_ult_alteracao});
             this.DgConsultaFornecedor.Location = new System.Drawing.Point(53, 72);
+            this.DgConsultaFornecedor.MultiSelect = false;
             this.DgConsultaFornecedor.Name = "DgConsultaFornecedor";
             this.DgConsultaFornecedor.ReadOnly = true;
             this.DgConsultaFornecedor.RowHeadersWidth = 51;
             this.DgConsultaFornecedor.RowTemplate.Height = 24;
+            this.DgConsultaFornecedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaFornecedor.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaFornecedor.TabIndex = 10;
             this.DgConsultaFornecedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaClientes_CellContentClick);

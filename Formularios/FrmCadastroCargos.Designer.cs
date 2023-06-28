@@ -32,6 +32,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbCargo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.tbStatus = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbCargo
@@ -61,19 +63,42 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // tbStatus
+            // 
+            this.tbStatus.Location = new System.Drawing.Point(471, 64);
+            this.tbStatus.Name = "tbStatus";
+            this.tbStatus.Size = new System.Drawing.Size(111, 22);
+            this.tbStatus.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(468, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 21);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Status";
+            // 
             // FrmCadastroCargos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbStatus);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbCargo);
             this.Name = "FrmCadastroCargos";
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbCargo, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
+            this.Controls.SetChildIndex(this.tbStatus, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,5 +109,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.TextBox tbCargo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox tbStatus;
+        private System.Windows.Forms.Label label5;
     }
 }

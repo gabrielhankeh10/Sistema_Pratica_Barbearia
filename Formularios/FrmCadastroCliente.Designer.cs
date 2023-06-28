@@ -34,6 +34,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tbSexo = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.tbCidadeDesc = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnPesquisarEstado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -45,6 +49,15 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.label5.Size = new System.Drawing.Size(34, 17);
             this.label5.Text = "CPF";
+            // 
+            // label11
+            // 
+            this.label11.Size = new System.Drawing.Size(100, 17);
+            this.label11.Text = "Codigo Cidade";
+            // 
+            // tbCidade
+            // 
+            this.tbCidade.Size = new System.Drawing.Size(134, 22);
             // 
             // tbCpfCnpj
             // 
@@ -99,10 +112,49 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label18.TabIndex = 48;
             this.label18.Text = "Sexo";
             // 
+            // tbCidadeDesc
+            // 
+            this.tbCidadeDesc.Location = new System.Drawing.Point(220, 302);
+            this.tbCidadeDesc.Name = "tbCidadeDesc";
+            this.tbCidadeDesc.Size = new System.Drawing.Size(164, 22);
+            this.tbCidadeDesc.TabIndex = 49;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(426, 282);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 17);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "Sexo";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(227, 282);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(52, 17);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "Cidade";
+            // 
+            // btnPesquisarEstado
+            // 
+            this.btnPesquisarEstado.Location = new System.Drawing.Point(49, 344);
+            this.btnPesquisarEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisarEstado.Name = "btnPesquisarEstado";
+            this.btnPesquisarEstado.Size = new System.Drawing.Size(91, 23);
+            this.btnPesquisarEstado.TabIndex = 52;
+            this.btnPesquisarEstado.Text = "Pesquisar";
+            this.btnPesquisarEstado.UseVisualStyleBackColor = true;
+            // 
             // FrmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.btnPesquisarEstado);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tbCidadeDesc);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.tbSexo);
             this.Controls.Add(this.btnSalvar);
@@ -148,6 +200,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.btnSalvar, 0);
             this.Controls.SetChildIndex(this.tbSexo, 0);
             this.Controls.SetChildIndex(this.label18, 0);
+            this.Controls.SetChildIndex(this.tbCidadeDesc, 0);
+            this.Controls.SetChildIndex(this.label12, 0);
+            this.Controls.SetChildIndex(this.label21, 0);
+            this.Controls.SetChildIndex(this.btnPesquisarEstado, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +216,9 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox tbSexo;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tbCidadeDesc;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnPesquisarEstado;
     }
 }

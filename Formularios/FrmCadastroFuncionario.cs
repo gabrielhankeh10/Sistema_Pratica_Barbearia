@@ -36,8 +36,9 @@ namespace Sistema__Renovo_Barber.Formularios
             Obj.Endereco = tbEndereco.Text;
             Obj.Numero = int.Parse(tbNumero.Text);
             Obj.Complemento = tbComplemento.Text;
-            //Obj.Data_nasc = DateTime.Parse(tbDatNasc.Text);
+            Obj.Data_nasc = DateTime.Parse(tbDatNasc.Text);
             Obj.data_criacao = DateTime.Now;
+            Obj.data_ult_alteracao = DateTime.Now;
             Obj.Cargos.id = int.Parse(tbCargo.Text);
             Obj.Cidade.id = int.Parse(tbCidade.Text);
             ControllerFuncionario.Salvar(Obj);

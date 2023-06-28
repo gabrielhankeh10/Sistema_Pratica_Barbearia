@@ -28,6 +28,7 @@ namespace Sistema__Renovo_Barber.Formularios
         public void Popular(uCliente Cliente)
         {
             tbCodigo.Text = Cliente.id.ToString();
+            tbCidadeDesc.Text = Cliente.Cidade.Cidade.ToString();
             tbNome.Text = Cliente.Nome.ToString();
             tbSexo.Text = Cliente.Sexo.ToString();
             tbCpfCnpj.Text = Cliente.CPF.ToString();
@@ -93,6 +94,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Complemento = tbComplemento.Text;
                 Obj.Bairro = tbBairro.Text;
                 Obj.Cidade.id = int.Parse(tbCidade.Text);
+                Obj.Cidade.Cidade = tbCidadeDesc.Text;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerCliente.Alterar(Obj);
                 this.Close();

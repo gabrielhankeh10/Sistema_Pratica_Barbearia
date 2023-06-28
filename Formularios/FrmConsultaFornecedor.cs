@@ -1,4 +1,5 @@
-﻿using Sistema__Renovo_Barber.Controllers;
+﻿using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,26 @@ namespace Sistema__Renovo_Barber.Formularios
             InitializeComponent();
             Listar();
         }
+        public override void AlterarFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uFornecedor Fornecedor = new uFornecedor();
+                vLinha = DgConsultaFornecedor.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Fornecedor = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_fornecedor"].Value));
+                    FrmCadastroFornecedor frmCadastroFornecedor = new FrmCadastroFornecedor();
+                    frmCadastroFornecedor.Alterar_Botao();
+                    frmCadastroFornecedor.Popular(Fornecedor);
+                    frmCadastroFornecedor.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+
         public void Listar()
         {
             DgConsultaFornecedor.Rows.Clear();
@@ -58,6 +79,7 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroFornecedor frmCadastroFornecedor = new FrmCadastroFornecedor();
             frmCadastroFornecedor.ShowDialog();
+            Listar();
         }
         private void btnIncluir_Click(object sender, EventArgs e)
         {

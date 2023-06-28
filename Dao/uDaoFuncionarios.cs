@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,12 +46,101 @@ namespace Sistema__Renovo_Barber.Dao
             }
             return Dt;
         }
+
+        public void Alterar(uFuncionario Obj)
+        {
+            try
+            {
+                string Sql = @"update tb_funcionarios set status_funcionario = @status_funcionario, nome = @nome, sexo = @sexo,
+                                rg = @rg, cpf = @cpf, email = @email, senha = @senha, telefone = @telefone, celular = @celular,
+                                cep = @cep, endereco = @endereco, numero = @numero, complemento = @complemento, data_nasc = @data_nasc,
+                                data_ult_alteracao = @data_ult_alteracao , id_cargo = @id_cargo, id_cidade = @id_cidade
+                                   where id_funcionario = @id_funcionario";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@status_funcionario", Obj.Status);
+                ExecutaCmd.Parameters.AddWithValue("@nome", Obj.Nome);
+                ExecutaCmd.Parameters.AddWithValue("@sexo", Obj.Sexo);
+                ExecutaCmd.Parameters.AddWithValue("@rg", Obj.RG);
+                ExecutaCmd.Parameters.AddWithValue("@cpf", Obj.CPF);
+                ExecutaCmd.Parameters.AddWithValue("@email", Obj.Email);
+                ExecutaCmd.Parameters.AddWithValue("@senha", Obj.Senha);
+                ExecutaCmd.Parameters.AddWithValue("@telefone", Obj.Telefone);
+                ExecutaCmd.Parameters.AddWithValue("@celular", Obj.Celular);
+                ExecutaCmd.Parameters.AddWithValue("@cep", Obj.CEP);
+                ExecutaCmd.Parameters.AddWithValue("@endereco", Obj.Endereco);
+                ExecutaCmd.Parameters.AddWithValue("@numero", Obj.Numero);
+                ExecutaCmd.Parameters.AddWithValue("@complemento", Obj.Complemento);
+                ExecutaCmd.Parameters.AddWithValue("@id_cargo", Obj.Cargos.id);
+                ExecutaCmd.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
+                ExecutaCmd.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
+                ExecutaCmd.Parameters.AddWithValue("@data_nasc", Obj.Data_nasc);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Funcionario alterado com sucesso!");
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
+
+        public uFuncionario Selecionar(int Id)
+        {
+            try
+            {
+                uCtrlCidades CtrlCidades = new uCtrlCidades();
+                uCtrlCargos CtrlCargos = new uCtrlCargos();
+                string Sql = "select * from tb_funcionarios where id_funcionario = @id_funcionario";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_funcionario", Id);
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uFuncionario Obj = new uFuncionario
+                        {
+                            id = Convert.ToInt32(reader["id_funcionario"]),
+                            Status = Convert.ToString(reader["status_funcionario"]),
+                            Nome = Convert.ToString(reader["nome"]),
+                            Sexo = Convert.ToString(reader["sexo"]),
+                            RG = Convert.ToString(reader["rg"]),
+                            CPF = Convert.ToString(reader["cpf"]),
+                            Email = Convert.ToString(reader["email"]),
+                            Senha = Convert.ToString(reader["senha"]),
+                            Telefone = Convert.ToString(reader["telefone"]),
+                            Celular = Convert.ToString(reader["celular"]),
+                            CEP = Convert.ToString(reader["cep"]),
+                            Endereco = Convert.ToString(reader["endereco"]),
+                            Numero = Convert.ToInt32(reader["numero"]),
+                            Complemento = Convert.ToString(reader["complemento"]),
+                            Data_nasc = Convert.ToDateTime(reader["data_nasc"]),
+                            data_criacao = Convert.ToDateTime(reader["data_criacao"]),
+                            data_ult_alteracao = Convert.ToDateTime(reader["data_ult_alteracao"]),
+                            Cidade = CtrlCidades.Carregar(Convert.ToInt32(reader["id_cidade"])),
+                            Cargos = CtrlCargos.Carregar(Convert.ToInt32(reader["id_cargo"]))
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
+
+
         public void Salvar (uFuncionario Obj)
         {
             try
             {
-                string Sql = @"insert into tb_funcionarios (status_funcionario, nome, sexo, rg, cpf, email, senha, telefone, celular, cep, endereco, numero, complemento, data_criacao, id_cargo, id_cidade) 
-                                values (@status_funcionario, @nome, @sexo, @rg, @cpf, @email, @senha, @telefone, @celular, @cep, @endereco, @numero, @complemento, @data_criacao, @id_cargo, @id_cidade)";
+                string Sql = @"insert into tb_funcionarios (status_funcionario, nome, sexo, rg, cpf, email, senha, telefone, celular, cep, endereco, numero, complemento, data_criacao, id_cargo, id_cidade, data_ult_alteracao, data_nasc) 
+                                values (@status_funcionario, @nome, @sexo, @rg, @cpf, @email, @senha, @telefone, @celular, @cep, @endereco, @numero, @complemento, @data_criacao, @id_cargo, @id_cidade, @data_ult_alteracao, @data_nasc)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@status_funcionario", "A");
@@ -69,7 +159,8 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
                 ExecutaComando.Parameters.AddWithValue("@id_cargo", Obj.Cargos.id);
                 ExecutaComando.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
-
+                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
+                ExecutaComando.Parameters.AddWithValue("@data_nasc", Obj.Data_nasc);
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
                 MessageBox.Show("Funcionario Cadastrado com Sucesso! ");

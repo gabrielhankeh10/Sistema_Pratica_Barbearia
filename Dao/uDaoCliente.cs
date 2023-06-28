@@ -136,8 +136,8 @@ namespace Sistema__Renovo_Barber.Dao
         {
             try
             {
-                string Sql = @"insert into tb_clientes (nome, sexo, apelido, status_cliente, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, id_cidade, data_nasc,  data_criacao)
-                             values (@nome, @sexo, @apelido, @status_cliente, @rg, @cpf, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @id_cidade, @data_nasc, @data_criacao)";
+                string Sql = @"insert into tb_clientes (nome, sexo, apelido, status_cliente, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, id_cidade, data_nasc,  data_criacao, data_ult_alteracao)
+                             values (@nome, @sexo, @apelido, @status_cliente, @rg, @cpf, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @id_cidade, @data_nasc, @data_criacao, @data_ult_alteracao)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@nome", Obj.Pessoa.Nome);

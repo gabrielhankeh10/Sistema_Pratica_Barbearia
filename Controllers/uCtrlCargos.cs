@@ -23,6 +23,17 @@ namespace Sistema__Renovo_Barber.Controllers
         {
 
         }
+        public void Alterar(uCargos cargo)
+        {
+            Cargos = cargo;
+            DaoCargos.Alterar(Cargos);
+        }
+        public uCargos Carregar(int Id)
+        {
+            uCargos Cargos = DaoCargos.Selecionar(Id);
+            return Cargos;
+        }
+
         public void Salvar(uCargos cargos)
         {
             Cargos = cargos;

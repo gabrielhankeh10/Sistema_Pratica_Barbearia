@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,6 +46,54 @@ namespace Sistema__Renovo_Barber.Dao
             return Dt;
         }
 
+        public uFornecedor Selecionar(int Id)
+        {
+            try
+            {
+                uCtrlCidades CtrlCidades = new uCtrlCidades();
+                string Sql = "select * from tb_fornecedores where id_fornecedor = @id_fornecedor";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_fornecedor", Id);
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uFornecedor Obj = new uFornecedor
+                        {
+                            id = Convert.ToInt32(reader["id_fornecedor"]),
+                            Status = Convert.ToString(reader["status_fornecedor"]),
+                            NomeFantasia = Convert.ToString(reader["nome_fantasia"]),
+                            Nome = Convert.ToString(reader["razao_social"]),
+                            Data_nasc = Convert.ToDateTime(reader["data_fundacao"]),
+                            InscMunicipal = Convert.ToString(reader["insc_municipal"]),
+                            InscEstadual = Convert.ToString(reader["insc_estadual"]),
+                            CNPJ = Convert.ToString(reader["cnpj"]),
+                            Email = Convert.ToString(reader["email"]),
+                            Telefone = Convert.ToString(reader["telefone"]),
+                            Celular = Convert.ToString(reader["celular"]),
+                            CEP = Convert.ToString(reader["cep"]),
+                            Endereco = Convert.ToString(reader["endereco"]),
+                            Numero = Convert.ToInt32(reader["numero"]),
+                            Complemento = Convert.ToString(reader["complemento"]),
+                            Bairro = Convert.ToString(reader["bairro"]),
+                            data_criacao = Convert.ToDateTime(reader["data_criacao"]),
+                            data_ult_alteracao = Convert.ToDateTime(reader["data_ult_alteracao"]),
+                            Cidade = CtrlCidades.Carregar(Convert.ToInt32(reader["id_cidade"]))
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
+
         public void Alterar(uFornecedor  Obj)
         {
             try
@@ -59,7 +108,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaCmd.Parameters.AddWithValue("@status_fornecedor", Obj.Status);
                 ExecutaCmd.Parameters.AddWithValue("@nome_fantasia", Obj.NomeFantasia);
                 ExecutaCmd.Parameters.AddWithValue("@razao_social", Obj.Nome);
-                //ExecutaCmd.Parameters.AddWithValue("@data_fundacao", Obj.Data_nasc);
+                ExecutaCmd.Parameters.AddWithValue("@data_fundacao", Obj.Data_nasc);
                 ExecutaCmd.Parameters.AddWithValue("@insc_municipal", Obj.InscMunicipal);
                 ExecutaCmd.Parameters.AddWithValue("@insc_estadual", Obj.InscEstadual);
                 ExecutaCmd.Parameters.AddWithValue("@cnpj", Obj.CNPJ);
@@ -67,10 +116,15 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaCmd.Parameters.AddWithValue("@telefone", Obj.Telefone);
                 ExecutaCmd.Parameters.AddWithValue("@celular", Obj.Celular);
                 ExecutaCmd.Parameters.AddWithValue("@cep", Obj.CEP);
-                ExecutaCmd.Parameters.AddWithValue("@telefone", Obj.Telefone);
+                ExecutaCmd.Parameters.AddWithValue("@endereco", Obj.Endereco);
+                ExecutaCmd.Parameters.AddWithValue("@numero", Obj.Numero);
+                ExecutaCmd.Parameters.AddWithValue("@complemento", Obj.Complemento);
+                ExecutaCmd.Parameters.AddWithValue("@bairro", Obj.Bairro);
+                ExecutaCmd.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
+                ExecutaCmd.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
                 ConexaoBanco.Open();
                 ExecutaCmd.ExecuteNonQuery();
-                MessageBox.Show("Estado alterado com sucesso!");
+                MessageBox.Show("Fornecedor alterado com sucesso!");
                 ConexaoBanco.Close();
             }
             catch (Exception Erro)
@@ -83,14 +137,14 @@ namespace Sistema__Renovo_Barber.Dao
         {
             try
             {
-                string Sql = @"insert into tb_fornecedores(status_fornecedor, razao_social, nome_fantasia, data_fundacao, insc_municipal, insc_estadual, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, data_criacao, id_cidade )
-                            values (@status_fornecedor, @razao_social, @nome_fantasia, @data_fundacao, @insc_municipal, @insc_estadual, @cnpj, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @data_criacao, @id_cidade)";
+                string Sql = @"insert into tb_fornecedores(status_fornecedor, razao_social, nome_fantasia, data_fundacao, insc_municipal, insc_estadual, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, data_criacao, data_ult_alteracao, id_cidade )
+                            values (@status_fornecedor, @razao_social, @nome_fantasia, @data_fundacao, @insc_municipal, @insc_estadual, @cnpj, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @data_criacao, @data_ult_alteracao, @id_cidade)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@status_fornecedor", "A");
                 ExecutaComando.Parameters.AddWithValue("@razao_social", Obj.Pessoa.Nome);
                 ExecutaComando.Parameters.AddWithValue("@nome_fantasia", Obj.NomeFantasia);
-               // ExecutaComando.Parameters.AddWithValue("@data_fundacao", Obj.Pessoa.Data_nasc);
+                ExecutaComando.Parameters.AddWithValue("@data_fundacao", Obj.Pessoa.Data_nasc);
                 ExecutaComando.Parameters.AddWithValue("@insc_municipal", Obj.InscMunicipal);
                 ExecutaComando.Parameters.AddWithValue("@insc_estadual", Obj.InscEstadual);
                 ExecutaComando.Parameters.AddWithValue("@cnpj", Obj.CNPJ);
@@ -104,7 +158,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@bairro", Obj.Bairro);
                 ExecutaComando.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
-
+                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
                 MessageBox.Show("Fornecedor cadastrado com sucesso!");
