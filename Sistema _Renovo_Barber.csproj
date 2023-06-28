@@ -107,6 +107,7 @@
     <Compile Include="Controllers\uCtrlFornecedor.cs" />
     <Compile Include="Controllers\uCtrlFuncionario.cs" />
     <Compile Include="Controllers\uCtrlPaises.cs" />
+    <Compile Include="Controllers\uCtrlPessoa.cs" />
     <Compile Include="Controllers\uCtrlServicos.cs" />
     <Compile Include="Dao\uDaoCargos.cs" />
     <Compile Include="Dao\uDaoCidades.cs" />

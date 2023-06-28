@@ -51,6 +51,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbCpfCnpj.Mask = "###.###.###-##";
             this.tbCpfCnpj.Size = new System.Drawing.Size(113, 22);
             // 
+            // tbDatNasc
+            // 
+            this.tbDatNasc.Mask = "";
+            // 
             // tbRG
             // 
             this.tbRG.Location = new System.Drawing.Point(726, 64);
@@ -106,6 +110,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbRG);
             this.Name = "FrmCadastroCliente";
             this.Text = "Cadastro de Cliente";
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbNome, 0);

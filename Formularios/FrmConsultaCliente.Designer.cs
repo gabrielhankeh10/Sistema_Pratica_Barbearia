@@ -46,6 +46,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.complemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_criacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_ult_alteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaClientes)).BeginInit();
@@ -73,6 +74,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.complemento,
             this.bairro,
             this.cidade,
+            this.data_nasc,
             this.data_criacao,
             this.data_ult_alteracao});
             this.DgConsultaClientes.Location = new System.Drawing.Point(54, 72);
@@ -213,6 +215,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.cidade.ReadOnly = true;
             this.cidade.Width = 125;
             // 
+            // data_nasc
+            // 
+            this.data_nasc.HeaderText = "Data de Nascimento";
+            this.data_nasc.MinimumWidth = 6;
+            this.data_nasc.Name = "data_nasc";
+            this.data_nasc.ReadOnly = true;
+            this.data_nasc.Width = 125;
+            // 
             // data_criacao
             // 
             this.data_criacao.HeaderText = "Data de Criação";
@@ -268,6 +278,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn complemento;
         private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
         private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_nasc;
         private System.Windows.Forms.DataGridViewTextBoxColumn data_criacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn data_ult_alteracao;
     }

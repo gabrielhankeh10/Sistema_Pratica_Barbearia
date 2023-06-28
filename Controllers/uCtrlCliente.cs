@@ -22,7 +22,16 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoCliente.PopularGrid();
             return vData;
         }
-
+        public uCliente Carregar(int Id)
+        {
+            uCliente Cliente = DaoCliente.Selecionar(Id);
+            return Cliente;
+        }
+        public void Alterar(uCliente cliente)
+        {
+            Cliente = cliente;
+            DaoCliente.Alterar(Cliente);
+        }
         public void Salvar(uCliente cliente)
         {
             Cliente = cliente;

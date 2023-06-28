@@ -24,7 +24,7 @@ namespace Sistema__Renovo_Barber.Formularios
             Obj.Cidade = new uCidade();
             Obj.Pessoa = new uPessoa();
             Obj.Pessoa.Nome = tbNome.Text;
-            Obj.Pessoa.Data_nasc = DateTime.Parse(tbDatNasc.Text);
+            //Obj.Pessoa.Data_nasc = DateTime.Parse(tbDatNasc.Text);
             Obj.NomeFantasia = tbApelido.Text;
             Obj.CNPJ = tbCpfCnpj.Text;
             Obj.InscEstadual = tbInscricaoEst.Text;

@@ -17,6 +17,26 @@ namespace Sistema__Renovo_Barber.Formularios
             InitializeComponent();
             Listar();
         }
+        public override void AlterarFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uCliente Cliente = new uCliente();
+                vLinha = DgConsultaClientes.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Cliente = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_cliente"].Value));
+                    FrmCadastroCliente frmCadastroCliente = new FrmCadastroCliente();
+                    frmCadastroCliente.Alterar_Botao();
+                    frmCadastroCliente.Popular(Cliente);
+                    frmCadastroCliente.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+
         public void Listar()
         {
             DgConsultaClientes.Rows.Clear();
@@ -43,8 +63,9 @@ namespace Sistema__Renovo_Barber.Formularios
                     row.Cells[13].Value = vLinha["complemento"].ToString();
                     row.Cells[14].Value = vLinha["bairro"].ToString();
                     row.Cells[15].Value = vLinha["cidade"].ToString();
-                    row.Cells[16].Value = vLinha["data_criacao"].ToString();
-                    row.Cells[17].Value = vLinha["data_ult_alteracao"].ToString();
+                    row.Cells[16].Value = vLinha["data_nasc"].ToString();
+                    row.Cells[17].Value = vLinha["data_criacao"].ToString();
+                    row.Cells[18].Value = vLinha["data_ult_alteracao"].ToString();
                     DgConsultaClientes.Rows.Add(row);
                 }
             }

@@ -27,5 +27,6 @@ namespace Sistema__Renovo_Barber.Classes
         public int Numero { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }
+        public string Status { get; set; }
     }
 }

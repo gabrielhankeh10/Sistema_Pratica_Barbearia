@@ -75,7 +75,6 @@ namespace Sistema__Renovo_Barber.Formularios
                 FrmConsultaPaises frmConsultaPais = new FrmConsultaPaises();
                 frmConsultaPais.ShowDialog();
             }
-            
         }
     }
 }

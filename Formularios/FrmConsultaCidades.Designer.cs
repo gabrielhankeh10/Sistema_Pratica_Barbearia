@@ -37,6 +37,10 @@ namespace Sistema__Renovo_Barber.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCidades)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
             // DgConsultaCidades
             // 
             this.DgConsultaCidades.AllowUserToAddRows = false;
@@ -48,10 +52,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.ddd,
             this.uf});
             this.DgConsultaCidades.Location = new System.Drawing.Point(54, 72);
+            this.DgConsultaCidades.MultiSelect = false;
             this.DgConsultaCidades.Name = "DgConsultaCidades";
             this.DgConsultaCidades.ReadOnly = true;
             this.DgConsultaCidades.RowHeadersWidth = 51;
             this.DgConsultaCidades.RowTemplate.Height = 24;
+            this.DgConsultaCidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaCidades.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCidades.TabIndex = 9;
             // 

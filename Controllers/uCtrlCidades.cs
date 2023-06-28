@@ -28,5 +28,16 @@ namespace Sistema__Renovo_Barber.Controllers
             Cidade = cidade;
             DaoCidades.Salvar(Cidade);
         }
+        public uCidade Carregar(int Id)
+        {
+            uCidade Cidade = DaoCidades.Selecionar(Id);
+            return Cidade;
+        }
+        public void Alterar(uCidade cidade)
+        {
+            Cidade = cidade;
+            DaoCidades.Alterar(Cidade);
+        }
+
     }
 }

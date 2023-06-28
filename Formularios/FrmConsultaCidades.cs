@@ -1,4 +1,5 @@
-﻿using Sistema__Renovo_Barber.Controllers;
+﻿using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,26 @@ namespace Sistema__Renovo_Barber.Formularios
             InitializeComponent();
             Listar();
         }
+        public override void AlterarFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uCidade Cidade = new uCidade();
+                vLinha = DgConsultaCidades.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Cidade = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_cidade"].Value));
+                    FrmCadastroCidades frmCadastroCidade = new FrmCadastroCidades();
+                    frmCadastroCidade.Alterar_Botao();
+                    frmCadastroCidade.Popular(Cidade);
+                    frmCadastroCidade.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+
         public void Listar()
         {
             DgConsultaCidades.Rows.Clear();
@@ -40,6 +61,11 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroCidades frmCadastroCidades = new FrmCadastroCidades();
             frmCadastroCidades.ShowDialog();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

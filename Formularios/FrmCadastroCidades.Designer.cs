@@ -36,12 +36,20 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Nome = new System.Windows.Forms.Label();
             this.tbCidade = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.tbEstado = new System.Windows.Forms.TextBox();
+            this.btnPesquisarEstado = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.Text = "Codigo Cidade";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(579, 41);
+            this.label5.Location = new System.Drawing.Point(49, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 17);
             this.label5.TabIndex = 18;
@@ -49,7 +57,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCodEstado
             // 
-            this.tbCodEstado.Location = new System.Drawing.Point(582, 64);
+            this.tbCodEstado.Location = new System.Drawing.Point(49, 125);
             this.tbCodEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodEstado.Name = "tbCodEstado";
             this.tbCodEstado.Size = new System.Drawing.Size(76, 22);
@@ -100,10 +108,40 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // tbEstado
+            // 
+            this.tbEstado.Location = new System.Drawing.Point(578, 64);
+            this.tbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbEstado.Name = "tbEstado";
+            this.tbEstado.Size = new System.Drawing.Size(142, 22);
+            this.tbEstado.TabIndex = 20;
+            // 
+            // btnPesquisarEstado
+            // 
+            this.btnPesquisarEstado.Location = new System.Drawing.Point(744, 63);
+            this.btnPesquisarEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisarEstado.Name = "btnPesquisarEstado";
+            this.btnPesquisarEstado.Size = new System.Drawing.Size(91, 23);
+            this.btnPesquisarEstado.TabIndex = 24;
+            this.btnPesquisarEstado.Text = "Pesquisar";
+            this.btnPesquisarEstado.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(575, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Estado";
+            // 
             // FrmCadastroCidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnPesquisarEstado);
+            this.Controls.Add(this.tbEstado);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbCodEstado);
@@ -113,6 +151,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbCidade);
             this.Name = "FrmCadastroCidades";
             this.Text = "Cadastro de Cidades";
+            this.Controls.SetChildIndex(this.btnSair, 0);
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.tbCidade, 0);
             this.Controls.SetChildIndex(this.Nome, 0);
             this.Controls.SetChildIndex(this.tbDDD, 0);
@@ -120,6 +163,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbCodEstado, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
+            this.Controls.SetChildIndex(this.tbEstado, 0);
+            this.Controls.SetChildIndex(this.btnPesquisarEstado, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +180,8 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Label Nome;
         private System.Windows.Forms.TextBox tbCidade;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox tbEstado;
+        private System.Windows.Forms.Button btnPesquisarEstado;
+        private System.Windows.Forms.Label label6;
     }
 }
