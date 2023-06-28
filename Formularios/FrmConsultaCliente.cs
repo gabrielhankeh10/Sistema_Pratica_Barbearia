@@ -74,6 +74,7 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroCliente frmCadastroCliente = new FrmCadastroCliente();
             frmCadastroCliente.ShowDialog();
+            Listar();
         }
 
     }

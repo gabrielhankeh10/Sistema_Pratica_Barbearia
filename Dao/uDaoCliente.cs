@@ -63,6 +63,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaCmd.Parameters.AddWithValue("@sexo", Obj.Sexo);
                 ExecutaCmd.Parameters.AddWithValue("@apelido", Obj.Apelido);
                 ExecutaCmd.Parameters.AddWithValue("@rg", Obj.RG);
+                ExecutaCmd.Parameters.AddWithValue("@cep", Obj.CEP);
                 ExecutaCmd.Parameters.AddWithValue("@cpf", Obj.CPF);
                 ExecutaCmd.Parameters.AddWithValue("@email", Obj.Email);
                 ExecutaCmd.Parameters.AddWithValue("@telefone", Obj.Telefone);
@@ -156,6 +157,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
                 ExecutaComando.Parameters.AddWithValue("@data_nasc", Obj.Data_nasc);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
+                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
 
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
