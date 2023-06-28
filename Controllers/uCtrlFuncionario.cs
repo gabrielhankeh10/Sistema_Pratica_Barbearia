@@ -17,6 +17,16 @@ namespace Sistema__Renovo_Barber.Controllers
         {
 
         }
+        public void Alterar(uFuncionario funcionario)
+        {
+            Funcionario = funcionario;
+            DaoFuncionario.Alterar(Funcionario);
+        }
+        public uFuncionario Carregar(int Id)
+        {
+            uFuncionario Funcionario = DaoFuncionario.Selecionar(Id);
+            return Funcionario;
+        }
         public DataTable PopularGrid()
         {
             DataTable vData = new DataTable();

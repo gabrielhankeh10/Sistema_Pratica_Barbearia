@@ -1,4 +1,5 @@
-﻿using Sistema__Renovo_Barber.Controllers;
+﻿using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,27 @@ namespace Sistema__Renovo_Barber.Formularios
             InitializeComponent();
             Listar();
         }
+        public override void AlterarFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uFuncionario Funcionario = new uFuncionario();
+                vLinha = DgConsultaFuncionario.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Funcionario = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_funcionario"].Value));
+                    FrmCadastroFuncionario frmCadastroFuncionario = new FrmCadastroFuncionario();
+                    frmCadastroFuncionario.Alterar_Botao();
+                    frmCadastroFuncionario.Popular(Funcionario);
+                    frmCadastroFuncionario.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+
+
         public void Listar()
         {
             DgConsultaFuncionario.Rows.Clear();
