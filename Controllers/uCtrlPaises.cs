@@ -27,6 +27,12 @@ namespace Sistema__Renovo_Barber.Controllers
             Pais = pais;
             DaoPais.Alterar(Pais);
         }
+        public void Excluir(uPais pais)
+        {
+            Pais = pais;
+            DaoPais.Excluir(Pais);
+        }
+
         public uPais Carregar(int Id)
         {
             uPais Pais = DaoPais.Selecionar(Id);

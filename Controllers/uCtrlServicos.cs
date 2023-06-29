@@ -23,6 +23,17 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoServicos.PopularGrid();
             return vData;
         }
+        public void Alterar(uServicos servicos)
+        {
+            Servicos = servicos;
+            DaoServicos.Alterar(Servicos);
+        }
+        public uServicos Carregar(int Id)
+        {
+            uServicos Servicos = DaoServicos.Selecionar(Id);
+            return Servicos;
+        }
+
         public void Salvar(uServicos servicos)
         {
             Servicos = servicos;

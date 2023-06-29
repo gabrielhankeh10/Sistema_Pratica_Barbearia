@@ -26,6 +26,17 @@ namespace Sistema__Renovo_Barber
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
         }
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+            tbPais.Enabled = false;
+            tbSigla.Enabled = false;
+            tbDDI.Enabled = false;
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uPais Obj = new uPais();
@@ -37,7 +48,8 @@ namespace Sistema__Renovo_Barber
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerPaises.Salvar(Obj);
-      
+                this.Close();
+
             }
             else if (btnSalvar.Text == "Alterar")
             {
@@ -49,7 +61,18 @@ namespace Sistema__Renovo_Barber
                 ControllerPaises.Alterar(Obj);
                 this.Close();
             }
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.pais = tbPais.Text;
+                Obj.ddi = tbDDI.Text;
+                Obj.sigla = tbSigla.Text;
+                Obj.data_ult_alteracao = DateTime.Now;
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerPaises.Excluir(Obj);
+                this.Close();
+            }
         }
+
         public void Popular(uPais Pais)
         {
             tbCodigo.Text = Pais.id.ToString();

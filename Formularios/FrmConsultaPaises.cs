@@ -64,8 +64,22 @@ namespace Sistema__Renovo_Barber
         }
         public override void ExcluirFormCadastro()
         {
-            FrmCadastroPaises frmCadastroPaises = new FrmCadastroPaises();
-            frmCadastroPaises.ShowDialog();
+            try
+            {
+                DataGridViewRow vLinha;
+                uPais Pais = new uPais();
+                vLinha = DgConsultaPais.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Pais = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_pais"].Value));
+                    FrmCadastroPaises frmCadastroPaises = new FrmCadastroPaises();
+                    frmCadastroPaises.Excluir_Botao();
+                    frmCadastroPaises.Popular(Pais);
+                    frmCadastroPaises.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
         }
 
         private void DgConsultaPais_CellContentClick(object sender, DataGridViewCellEventArgs e)

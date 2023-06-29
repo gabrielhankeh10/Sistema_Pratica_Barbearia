@@ -54,10 +54,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao,
             this.data_ult_alteracao});
             this.DgConsultaServicos.Location = new System.Drawing.Point(53, 72);
+            this.DgConsultaServicos.MultiSelect = false;
             this.DgConsultaServicos.Name = "DgConsultaServicos";
             this.DgConsultaServicos.ReadOnly = true;
             this.DgConsultaServicos.RowHeadersWidth = 51;
             this.DgConsultaServicos.RowTemplate.Height = 24;
+            this.DgConsultaServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaServicos.Size = new System.Drawing.Size(784, 437);
             this.DgConsultaServicos.TabIndex = 8;
             // 
