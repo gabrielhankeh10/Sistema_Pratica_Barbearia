@@ -38,6 +38,17 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatCad.Text = Cidade.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = Cidade.data_ult_alteracao.ToShortDateString();
         }
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbCidade.Enabled = false;
+            tbDDD.Enabled = false;
+            tbEstado.Enabled = false;
+            tbCodEstado.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+        }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -63,6 +74,12 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerCidades.Alterar(Obj);
+                this.Close();
+            }
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerCidades.Excluir(Obj);
                 this.Close();
             }
         }

@@ -28,6 +28,11 @@ namespace Sistema__Renovo_Barber.Controllers
             Cidade = cidade;
             DaoCidades.Salvar(Cidade);
         }
+        public void Excluir(uCidade cidade)
+        {
+            Cidade = cidade;
+            DaoCidades.Excluir(Cidade);
+        }
         public uCidade Carregar(int Id)
         {
             uCidade Cidade = DaoCidades.Selecionar(Id);

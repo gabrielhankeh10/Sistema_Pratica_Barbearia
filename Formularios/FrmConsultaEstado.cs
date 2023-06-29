@@ -59,6 +59,27 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroEstado frmCadastroEstado = new FrmCadastroEstado();
             frmCadastroEstado.ShowDialog();
+            Listar();
         }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uEstado Estado = new uEstado();
+                vLinha = DgConsultaEstado.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Estado = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_estado"].Value));
+                    FrmCadastroEstado frmCadastroEstado = new FrmCadastroEstado();
+                    frmCadastroEstado.Excluir_Botao();
+                    frmCadastroEstado.Popular(Estado);
+                    frmCadastroEstado.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+
     }
 }

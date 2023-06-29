@@ -57,6 +57,25 @@ namespace Sistema__Renovo_Barber.Formularios
                 }
             }
         }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uCargos Cargos = new uCargos();
+                vLinha = DgConsultaCargos.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Cargos = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_cargo"].Value));
+                    FrmCadastroCargos frmCadastroCargos = new FrmCadastroCargos();
+                    frmCadastroCargos.Excluir_Botao();
+                    frmCadastroCargos.Popular(Cargos);
+                    frmCadastroCargos.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
         public override void IncluirFormCadastro()
         {
             FrmCadastroCargos frmCadastroCargos = new FrmCadastroCargos();

@@ -132,7 +132,25 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public void Excluir(uFornecedor Obj)
+        {
+            try
+            {
+                string Sql = "delete from tb_fornecedores where id_fornecedor = @id_fornecedor";
 
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_fornecedor", Obj.id);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Fornecedor excluido com sucesso!");
+
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
         public void Salvar(uFornecedor Obj)
         {
             try

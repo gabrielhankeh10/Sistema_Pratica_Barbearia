@@ -66,6 +66,25 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public void Excluir(uEstado Obj)
+        {
+            try
+            {
+                string Sql = "delete from tb_estados where id_estado = @id_estado";
+
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_estado", Obj.id);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Estado excluido com sucesso!");
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
+
         public uEstado Selecionar(int Id)
         {
             try

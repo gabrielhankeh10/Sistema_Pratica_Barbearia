@@ -25,6 +25,15 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
         }
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbCargo.Enabled = false;
+            tbStatus.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+        }
 
         public void Popular(uCargos Cargos)
         {
@@ -53,6 +62,12 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Status = tbStatus.Text;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerCargos.Alterar(Obj);
+                this.Close();
+            }
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerCargos.Excluir(Obj);
                 this.Close();
             }
         }

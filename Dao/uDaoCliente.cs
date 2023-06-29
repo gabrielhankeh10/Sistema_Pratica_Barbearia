@@ -85,6 +85,25 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public void Excluir(uCliente Obj)
+        {
+            try
+            {
+                string Sql = "delete from tb_clientes where id_cliente = @id_cliente";
+
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_cliente", Obj.id);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Cliente excluido com sucesso!");
+
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
         public uCliente Selecionar(int Id)
         {
             try

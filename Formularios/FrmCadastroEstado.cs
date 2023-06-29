@@ -27,6 +27,20 @@ namespace Sistema__Renovo_Barber.Formularios
             tbCodigoPais.Enabled = false;
             tbPais.Enabled = false;
         }
+
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+            tbPais.Enabled = false;
+            tbEstado.Enabled = false;
+            tbUf.Enabled = false;
+            tbCodigoPais.Enabled = false;
+            btnPesquisarPais.Enabled = false;
+        }
+
         public void Popular(uEstado Estado)
         {
             tbCodigo.Text = Estado.id.ToString();
@@ -49,6 +63,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerEstados.Salvar(Obj);
+                this.Close();
             }
             else if (btnSalvar.Text == "Alterar")
             {
@@ -60,6 +75,12 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.id = Convert.ToInt32(tbCodigo.Text);
                 Obj.pais.pais = tbPais.Text;
                 ControllerEstados.Alterar(Obj);
+                this.Close();
+            }
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerEstados.Excluir(Obj);
                 this.Close();
             }
         }

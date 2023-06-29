@@ -61,6 +61,26 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroCidades frmCadastroCidades = new FrmCadastroCidades();
             frmCadastroCidades.ShowDialog();
+            Listar();
+        }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uCidade Cidade = new uCidade();
+                vLinha = DgConsultaCidades.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Cidade = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_cidade"].Value));
+                    FrmCadastroCidades frmCadastroCidades = new FrmCadastroCidades();
+                    frmCadastroCidades.Excluir_Botao();
+                    frmCadastroCidades.Popular(Cidade);
+                    frmCadastroCidades.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)

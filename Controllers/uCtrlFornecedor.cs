@@ -28,6 +28,11 @@ namespace Sistema__Renovo_Barber.Controllers
             Fornecedor = fornecedor;
             DaoFornecedor.Alterar(Fornecedor);
         }
+        public void Excluir(uFornecedor fornecedor)
+        {
+            Fornecedor = fornecedor;
+            DaoFornecedor.Excluir(Fornecedor);
+        }
         public uFornecedor Carregar(int Id)
         {
             uFornecedor Fornecedor = DaoFornecedor.Selecionar(Id);

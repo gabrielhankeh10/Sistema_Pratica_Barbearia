@@ -25,6 +25,29 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatUltAlt.Enabled = false;
             tbCidade.Enabled = false;
         }
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbApelido.Enabled = false;
+            tbCpfCnpj.Enabled = false;
+            tbDatNasc.Enabled = false;
+            tbStatus.Enabled = false;
+            tbNome.Enabled = false;
+            tbInscricaoMun.Enabled = false;
+            tbInscricaoEst.Enabled = false;
+            tbEmail.Enabled = false;
+            tbEndereco.Enabled = false;
+            tbNumero.Enabled = false;
+            tbBairro.Enabled = false;
+            tbComplemento.Enabled = false;
+            TbTelefone.Enabled = false;
+            tbCidade.Enabled = false;
+            TbCEP.Enabled = false;
+            tbCelular.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+        }
 
         public void Popular(uFornecedor Fornecedor)
         {
@@ -97,6 +120,12 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Cidade.id = int.Parse(tbCidade.Text);
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerFornecedor.Alterar(Obj);
+                this.Close();
+            }
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerFornecedor.Excluir(Obj);
                 this.Close();
             }
         }

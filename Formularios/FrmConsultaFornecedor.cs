@@ -37,6 +37,25 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uFornecedor Fornecedor = new uFornecedor();
+                vLinha = DgConsultaFornecedor.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Fornecedor = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_fornecedor"].Value));
+                    FrmCadastroFornecedor frmCadastroFornecedor = new FrmCadastroFornecedor();
+                    frmCadastroFornecedor.Excluir_Botao();
+                    frmCadastroFornecedor.Popular(Fornecedor);
+                    frmCadastroFornecedor.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
 
         public void Listar()
         {

@@ -100,7 +100,25 @@ namespace Sistema__Renovo_Barber.Dao
             ConexaoBanco.Close();
             return null;
         }
+        public void Excluir(uCargos Obj)
+        {
+            try
+            {
+                string Sql = "delete from tb_cargos where id_cargo = @id_cargo";
 
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_cargo", Obj.id);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Cargo excluido com sucesso!");
+
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
         public void Salvar (uCargos Obj)
         {
             try

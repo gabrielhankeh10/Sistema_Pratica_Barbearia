@@ -23,6 +23,11 @@ namespace Sistema__Renovo_Barber.Controllers
         {
 
         }
+        public void Excluir(uCargos cargos)
+        {
+            Cargos = cargos;
+            DaoCargos.Excluir(Cargos);
+        }
         public void Alterar(uCargos cargo)
         {
             Cargos = cargo;
@@ -33,7 +38,6 @@ namespace Sistema__Renovo_Barber.Controllers
             uCargos Cargos = DaoCargos.Selecionar(Id);
             return Cargos;
         }
-
         public void Salvar(uCargos cargos)
         {
             Cargos = cargos;

@@ -63,10 +63,6 @@ namespace Sistema__Renovo_Barber
             }
             else if (btnSalvar.Text == "Excluir")
             {
-                Obj.pais = tbPais.Text;
-                Obj.ddi = tbDDI.Text;
-                Obj.sigla = tbSigla.Text;
-                Obj.data_ult_alteracao = DateTime.Now;
                 Obj.id = Convert.ToInt32(tbCodigo.Text);
                 ControllerPaises.Excluir(Obj);
                 this.Close();
