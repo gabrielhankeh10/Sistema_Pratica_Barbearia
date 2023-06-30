@@ -114,6 +114,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCidadeDesc
             // 
+            this.tbCidadeDesc.Enabled = false;
             this.tbCidadeDesc.Location = new System.Drawing.Point(220, 302);
             this.tbCidadeDesc.Name = "tbCidadeDesc";
             this.tbCidadeDesc.Size = new System.Drawing.Size(164, 22);
@@ -146,6 +147,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarEstado.TabIndex = 52;
             this.btnPesquisarEstado.Text = "Pesquisar";
             this.btnPesquisarEstado.UseVisualStyleBackColor = true;
+            this.btnPesquisarEstado.Click += new System.EventHandler(this.btnPesquisarEstado_Click);
             // 
             // FrmCadastroCliente
             // 

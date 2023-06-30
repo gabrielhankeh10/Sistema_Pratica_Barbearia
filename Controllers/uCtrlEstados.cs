@@ -33,6 +33,10 @@ namespace Sistema__Renovo_Barber.Controllers
             uEstado Estado = DaoEstados.Selecionar(Id);
             return Estado;
         }
+        public uEstado PesquisarNome(string estado)
+        {
+            return DaoEstados.SelecionarNome(estado);
+        }
         public void Excluir(uEstado estado)
         {
             Estado = estado;

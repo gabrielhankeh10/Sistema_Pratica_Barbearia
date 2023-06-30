@@ -23,6 +23,10 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoCidades.PopularGrid();
             return vData;
         }
+        public uCidade PesquisarNome(string cidade)
+        {
+            return DaoCidades.SelecionarNome(cidade);
+        }
         public void Salvar(uCidade cidade)
         {
             Cidade = cidade;

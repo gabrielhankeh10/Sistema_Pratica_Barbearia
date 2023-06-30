@@ -119,6 +119,34 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public uCargos SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_cargos where cargo like @cargo";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@cargo","%" + Nome + "%");
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uCargos Obj = new uCargos
+                        {
+                            Cargo = Convert.ToString(reader["cargo"])
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
         public void Salvar (uCargos Obj)
         {
             try

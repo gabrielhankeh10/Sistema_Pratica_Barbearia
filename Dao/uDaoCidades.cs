@@ -66,6 +66,34 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public uCidade SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_cidades where nome like @nome";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@nome", Nome);
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uCidade Obj = new uCidade
+                        {
+                            Cidade = Convert.ToString(reader["nome"])
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
         public void Excluir(uCidade Obj)
         {
             try

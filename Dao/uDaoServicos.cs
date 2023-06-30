@@ -103,7 +103,53 @@ namespace Sistema__Renovo_Barber.Dao
             ConexaoBanco.Close();
             return null;
         }
+        public void Excluir(uServicos Obj)
+        {
+            try
+            {
+                string Sql = "delete from tb_servicos where id_servico = @id_servico";
 
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_servico", Obj.id);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Servico excluido com sucesso!");
+
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
+        public uServicos SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_servicos where descricao like @descricao";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@descricao", "%" + Nome + "%");
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uServicos Obj = new uServicos
+                        {
+                            Descricao = Convert.ToString(reader["descricao"])
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
         public void Salvar(uServicos Obj)
         {
             try

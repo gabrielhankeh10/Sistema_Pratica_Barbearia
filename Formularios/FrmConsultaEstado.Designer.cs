@@ -37,6 +37,10 @@ namespace Sistema__Renovo_Barber.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaEstado)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // DgConsultaEstado
             // 
             this.DgConsultaEstado.AllowUserToAddRows = false;
@@ -56,6 +60,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaEstado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaEstado.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaEstado.TabIndex = 8;
+            this.DgConsultaEstado.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgConsultaEstado_CellMouseDoubleClick);
+            this.DgConsultaEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaEstado_KeyPress);
             // 
             // id_estado
             // 

@@ -24,6 +24,7 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
             tbCidade.Enabled = false;
+            tbStatus.Enabled = true;
         }
         public void Excluir_Botao()
         {
@@ -52,6 +53,7 @@ namespace Sistema__Renovo_Barber.Formularios
         public void Popular(uFornecedor Fornecedor)
         {
             tbCodigo.Text = Fornecedor.id.ToString();
+            tbCidadeDesc.Text = Fornecedor.Cidade.Cidade.ToString();
             tbApelido.Text = Fornecedor.NomeFantasia.ToString();
             tbCpfCnpj.Text = Fornecedor.CNPJ.ToString();
             tbDatNasc.Text = Fornecedor.Data_nasc.ToString();
@@ -128,6 +130,20 @@ namespace Sistema__Renovo_Barber.Formularios
                 ControllerFornecedor.Excluir(Obj);
                 this.Close();
             }
+        }
+
+        private void btnPesquisarCidade_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCidades frmConsultaCidades = new FrmConsultaCidades();
+            frmConsultaCidades.ShowDialog();
+            uCidade Cidade = new uCidade();
+            if (!frmConsultaCidades.ActiveControl.ContainsFocus)
+            {
+                Cidade = frmConsultaCidades.PegarObj();
+                tbCidade.Text = Cidade.id.ToString();
+                tbCidadeDesc.Text = Cidade.Cidade.ToString();
+            }
+            frmConsultaCidades.Close();
         }
     }
 }

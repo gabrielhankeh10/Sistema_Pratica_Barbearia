@@ -68,7 +68,6 @@ namespace Sistema__Renovo_Barber
                 this.Close();
             }
         }
-
         public void Popular(uPais Pais)
         {
             tbCodigo.Text = Pais.id.ToString();

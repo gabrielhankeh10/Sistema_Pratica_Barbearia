@@ -82,10 +82,52 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
-
+        public void PesquisarCidade()
+        {
+            try
+            {
+                DgConsultaCidades.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaCidades.Rows)
+                    {
+                        if (vLinha.Cells["cidade"].Value.ToString() == Obj.Cidade)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            
+        }
+        public uCidade PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaCidades.SelectedRows[0].Cells["id_cidade"].Value));
+        }
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarCidade();
+        }
 
+        private void DgConsultaCidades_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaCidades_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

@@ -27,6 +27,10 @@ namespace Sistema__Renovo_Barber.Controllers
             uCliente Cliente = DaoCliente.Selecionar(Id);
             return Cliente;
         }
+        public uCliente PesquisarNome(string cliente)
+        {
+            return DaoCliente.SelecionarNome(cliente);
+        }
         public void Excluir(uCliente cliente)
         {
             Cliente = cliente;

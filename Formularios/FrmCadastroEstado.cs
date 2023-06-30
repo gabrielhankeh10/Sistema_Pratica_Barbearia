@@ -86,16 +86,16 @@ namespace Sistema__Renovo_Barber.Formularios
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (btnPesquisarPais.Text == "Alterar")
+            FrmConsultaPaises frmConsultaPais = new FrmConsultaPaises();
+            frmConsultaPais.ShowDialog();
+            uPais Pais = new uPais();
+            if(!frmConsultaPais.ActiveControl.ContainsFocus)
             {
-                FrmConsultaPaises frmConsultaPais = new FrmConsultaPaises();
-                frmConsultaPais.ShowDialog();
+                Pais = frmConsultaPais.PegarObj();
+                tbCodigoPais.Text = Pais.id.ToString();
+                tbPais.Text = Pais.pais.ToString();
             }
-            else if (btnPesquisarPais.Text == "Incluir")
-            {
-                FrmConsultaPaises frmConsultaPais = new FrmConsultaPaises();
-                frmConsultaPais.ShowDialog();
-            }
+            frmConsultaPais.Close();
         }
     }
 }

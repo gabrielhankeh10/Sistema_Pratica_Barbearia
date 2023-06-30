@@ -88,12 +88,54 @@ namespace Sistema__Renovo_Barber.Formularios
                 }
             }
         }
+        public void PesquisarCliente()
+        {
+            try
+            {
+                DgConsultaClientes.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaClientes.Rows)
+                    {
+                        if (vLinha.Cells["nome"].Value.ToString() == Obj.Nome)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public override void IncluirFormCadastro()
         {
             FrmCadastroCliente frmCadastroCliente = new FrmCadastroCliente();
             frmCadastroCliente.ShowDialog();
             Listar();
         }
+        public uCliente PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaClientes.SelectedRows[0].Cells["id_cliente"].Value));
+        }
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarCliente();
+        }
 
+        private void DgConsultaClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaClientes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
     }
 }

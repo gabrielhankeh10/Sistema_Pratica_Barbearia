@@ -179,6 +179,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCidade
             // 
+            this.tbCidade.Enabled = false;
             this.tbCidade.Location = new System.Drawing.Point(49, 302);
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(217, 22);
@@ -205,6 +206,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbStatus
             // 
+            this.tbStatus.Enabled = false;
             this.tbStatus.Location = new System.Drawing.Point(49, 123);
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.Size = new System.Drawing.Size(100, 22);
@@ -326,6 +328,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbNome);
             this.Name = "FrmCadastroPessoa";
             this.Text = "Cadastro Pessoa";
+            this.Controls.SetChildIndex(this.btnSair, 0);
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbNome, 0);
             this.Controls.SetChildIndex(this.label4, 0);

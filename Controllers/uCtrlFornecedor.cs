@@ -33,6 +33,10 @@ namespace Sistema__Renovo_Barber.Controllers
             Fornecedor = fornecedor;
             DaoFornecedor.Excluir(Fornecedor);
         }
+        public uFornecedor PesquisarNome(string fornecedor)
+        {
+            return DaoFornecedor.SelecionarNome(fornecedor);
+        }
         public uFornecedor Carregar(int Id)
         {
             uFornecedor Fornecedor = DaoFornecedor.Selecionar(Id);

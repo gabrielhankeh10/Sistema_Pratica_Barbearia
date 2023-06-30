@@ -83,5 +83,19 @@ namespace Sistema__Renovo_Barber.Formularios
                 this.Close();
             }
         }
+
+        private void btnPesquisarEstado_Click(object sender, EventArgs e)
+        {
+            FrmConsultaEstado frmConsultaEstado = new FrmConsultaEstado();
+            frmConsultaEstado.ShowDialog();
+            uEstado Estado = new uEstado();
+            if (!frmConsultaEstado.ActiveControl.ContainsFocus)
+            {
+                Estado = frmConsultaEstado.PegarObj();
+                tbCodEstado.Text = Estado.id.ToString();
+                tbEstado.Text = Estado.estado.ToString();
+            }
+            frmConsultaEstado.Close();
+        }
     }
 }

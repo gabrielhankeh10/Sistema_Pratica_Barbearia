@@ -38,7 +38,49 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uServicos Servicos = new uServicos();
+                vLinha = DgConsultaServicos.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Servicos = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_servico"].Value));
+                    FrmCadastroServico frmCadastroServico = new FrmCadastroServico();
+                    frmCadastroServico.Excluir_Botao();
+                    frmCadastroServico.Popular(Servicos);
+                    frmCadastroServico.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+        public void PesquisarServico()
+        {
+            try
+            {
+                DgConsultaServicos.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaServicos.Rows)
+                    {
+                        if (vLinha.Cells["descricao"].Value.ToString() == Obj.Descricao)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public void Listar()
         {
             DgConsultaServicos.Rows.Clear();
@@ -64,6 +106,12 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroServico frmCadastroServico = new FrmCadastroServico();
             frmCadastroServico.ShowDialog();
+            Listar();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarServico();
         }
     }
 }

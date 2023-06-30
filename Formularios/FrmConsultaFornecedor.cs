@@ -90,6 +90,30 @@ namespace Sistema__Renovo_Barber.Formularios
                 }
             }
         }
+        public void PesquisarFornecedor()
+        {
+            try
+            {
+                DgConsultaFornecedor.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaFornecedor.Rows)
+                    {
+                        if (vLinha.Cells["razao_social"].Value.ToString() == Obj.Nome)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         private void DgConsultaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -103,6 +127,11 @@ namespace Sistema__Renovo_Barber.Formularios
         private void btnIncluir_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarFornecedor();
         }
     }
 }

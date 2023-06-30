@@ -32,7 +32,10 @@ namespace Sistema__Renovo_Barber.Controllers
             Pais = pais;
             DaoPais.Excluir(Pais);
         }
-
+        public uPais PesquisarNome(string pais)
+        {
+            return DaoPais.SelecionarNome(pais);
+        }
         public uPais Carregar(int Id)
         {
             uPais Pais = DaoPais.Selecionar(Id);
@@ -44,7 +47,5 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoPais.PopularGrid();
             return vData;
         }
-        
-
     }
 }

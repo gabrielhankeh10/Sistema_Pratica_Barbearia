@@ -18,7 +18,6 @@ namespace Sistema__Renovo_Barber
             InitializeComponent();
             Listar();
         }
-        
         public void Listar()
         {
             DgConsultaPais.Rows.Clear();
@@ -43,6 +42,31 @@ namespace Sistema__Renovo_Barber
             frmCadastroPaises.ShowDialog();
             Listar();
         }
+
+        public void PesquisarPais()
+        {
+            try
+            {
+                DgConsultaPais.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaPais.Rows)
+                    {
+                        if (vLinha.Cells["nome"].Value.ToString() == Obj.pais)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public override void AlterarFormCadastro()
         {
             try
@@ -58,7 +82,7 @@ namespace Sistema__Renovo_Barber
                     frmCadastroPaises.Popular(Pais);
                     frmCadastroPaises.ShowDialog();
                     Listar();
-                }   
+                }
             }
             catch { }
         }
@@ -84,7 +108,27 @@ namespace Sistema__Renovo_Barber
 
         private void DgConsultaPais_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarPais();
+        }
+        public uPais PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaPais.SelectedRows[0].Cells["id_pais"].Value));
+        }
+        private void DgConsultaPais_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaPais_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

@@ -33,6 +33,11 @@ namespace Sistema__Renovo_Barber
         {
 
         }
+        public virtual void Pesquisar()
+        {
+
+        }
+
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -41,6 +46,11 @@ namespace Sistema__Renovo_Barber
         public virtual void ExcluirFormCadastro()
         {
 
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            Pesquisar();
         }
     }
 }

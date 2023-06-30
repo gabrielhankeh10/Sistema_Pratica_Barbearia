@@ -57,6 +57,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCodEstado
             // 
+            this.tbCodEstado.Enabled = false;
             this.tbCodEstado.Location = new System.Drawing.Point(49, 125);
             this.tbCodEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodEstado.Name = "tbCodEstado";
@@ -110,6 +111,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbEstado
             // 
+            this.tbEstado.Enabled = false;
             this.tbEstado.Location = new System.Drawing.Point(578, 64);
             this.tbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEstado.Name = "tbEstado";
@@ -125,6 +127,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarEstado.TabIndex = 24;
             this.btnPesquisarEstado.Text = "Pesquisar";
             this.btnPesquisarEstado.UseVisualStyleBackColor = true;
+            this.btnPesquisarEstado.Click += new System.EventHandler(this.btnPesquisarEstado_Click);
             // 
             // label6
             // 

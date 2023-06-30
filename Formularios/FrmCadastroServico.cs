@@ -25,6 +25,17 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
         }
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbDescricao.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+            tbStatus.Enabled = false;
+            tbDuracao.Enabled = false;
+            tbValor.Enabled = false;
+        }
         public void Popular(uServicos Servicos)
         {
             tbCodigo.Text = Servicos.id.ToString();
@@ -60,7 +71,13 @@ namespace Sistema__Renovo_Barber.Formularios
                 ControllerServicos.Alterar(Obj);
                 this.Close();
             }
-            
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerServicos.Excluir(Obj);
+                this.Close();
+            }
+
         }
     }
 }

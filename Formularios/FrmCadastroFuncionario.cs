@@ -25,6 +25,31 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
         }
+        public void Excluir_Botao()
+        {
+            btnSalvar.Text = "Excluir";
+            tbCodigo.Enabled = false;
+            tbNome.Enabled = false;
+            tbCpfCnpj.Enabled = false;
+            tbRG.Enabled = false;
+            tbSexo.Enabled = false;
+            tbStatus.Enabled = false;
+            tbApelido.Enabled = false;
+            tbDatNasc.Enabled = false;
+            tbCargo.Enabled = false;
+            tbEmail.Enabled = false;
+            tbEndereco.Enabled = false;
+            tbNumero.Enabled = false;
+            tbBairro.Enabled = false;
+            tbComplemento.Enabled = false;
+            TbTelefone.Enabled = false;
+            tbCidade.Enabled = false;
+            TbCEP.Enabled = false;
+            tbCelular.Enabled = false;
+            tbSenha.Enabled = false;
+            tbDatCad.Enabled = false;
+            tbDatUltAlt.Enabled = false;
+        }
 
         public void Popular(uFuncionario Funcionario)
         {
@@ -105,6 +130,12 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Cargos.id = int.Parse(tbCargo.Text);
                 Obj.Cidade.id = int.Parse(tbCidade.Text);
                 ControllerFuncionario.Alterar(Obj);
+                this.Close();
+            }
+            else if (btnSalvar.Text == "Excluir")
+            {
+                Obj.id = Convert.ToInt32(tbCodigo.Text);
+                ControllerFuncionario.Excluir(Obj);
                 this.Close();
             }
 

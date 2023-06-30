@@ -132,6 +132,34 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public uFornecedor SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_fornecedores where razao_social like @razao_social";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@razao_social", Nome);
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uFornecedor Obj = new uFornecedor
+                        {
+                            Nome = Convert.ToString(reader["razao_social"])
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
         public void Excluir(uFornecedor Obj)
         {
             try

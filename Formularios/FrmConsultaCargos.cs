@@ -37,7 +37,30 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
+        public void PesquisarCargo()
+        {
+            try
+            {
+                DgConsultaCargos.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaCargos.Rows)
+                    {
+                        if (vLinha.Cells["cargo"].Value.ToString() == Obj.Cargo)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public void Listar()
         {
             DgConsultaCargos.Rows.Clear();
@@ -81,6 +104,11 @@ namespace Sistema__Renovo_Barber.Formularios
             FrmCadastroCargos frmCadastroCargos = new FrmCadastroCargos();
             frmCadastroCargos.ShowDialog();
             Listar();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarCargo();
         }
     }
 }

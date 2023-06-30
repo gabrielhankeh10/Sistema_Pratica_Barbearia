@@ -81,6 +81,7 @@ namespace Sistema__Renovo_Barber
             this.btnPesquisar.TabIndex = 6;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // FrmConsulta
             // 
@@ -93,6 +94,7 @@ namespace Sistema__Renovo_Barber
             this.Controls.Add(this.btnExcluir);
             this.Name = "FrmConsulta";
             this.Text = "Consulta";
+            this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.btnExcluir, 0);
             this.Controls.SetChildIndex(this.btnAlterar, 0);
             this.Controls.SetChildIndex(this.btnIncluir, 0);

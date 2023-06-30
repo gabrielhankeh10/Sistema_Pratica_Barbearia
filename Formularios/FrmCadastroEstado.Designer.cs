@@ -80,6 +80,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCodigoPais
             // 
+            this.tbCodigoPais.Enabled = false;
             this.tbCodigoPais.Location = new System.Drawing.Point(49, 118);
             this.tbCodigoPais.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodigoPais.Name = "tbCodigoPais";
@@ -122,6 +123,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbPais
             // 
+            this.tbPais.Enabled = false;
             this.tbPais.Location = new System.Drawing.Point(581, 64);
             this.tbPais.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPais.Name = "tbPais";

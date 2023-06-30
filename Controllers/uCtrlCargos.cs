@@ -23,6 +23,10 @@ namespace Sistema__Renovo_Barber.Controllers
         {
 
         }
+        public uCargos PesquisarNome(string cargos)
+        {
+            return DaoCargos.SelecionarNome(cargos);
+        }
         public void Excluir(uCargos cargos)
         {
             Cargos = cargos;

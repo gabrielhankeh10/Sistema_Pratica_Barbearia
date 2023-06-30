@@ -56,6 +56,10 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // DgConsultaFornecedor
             // 
             this.DgConsultaFornecedor.AllowUserToAddRows = false;

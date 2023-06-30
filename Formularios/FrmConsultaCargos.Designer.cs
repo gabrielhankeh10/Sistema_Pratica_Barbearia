@@ -38,6 +38,10 @@ namespace Sistema__Renovo_Barber.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCargos)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // DgConsultaCargos
             // 
             this.DgConsultaCargos.AllowUserToAddRows = false;

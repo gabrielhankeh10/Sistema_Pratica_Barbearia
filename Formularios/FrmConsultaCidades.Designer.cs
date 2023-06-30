@@ -41,6 +41,10 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // DgConsultaCidades
             // 
             this.DgConsultaCidades.AllowUserToAddRows = false;
@@ -60,6 +64,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaCidades.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCidades.TabIndex = 9;
+            this.DgConsultaCidades.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgConsultaCidades_CellMouseDoubleClick);
+            this.DgConsultaCidades.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaCidades_KeyPress);
             // 
             // id_cidade
             // 

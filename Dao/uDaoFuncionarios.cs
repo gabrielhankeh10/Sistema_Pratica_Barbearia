@@ -46,7 +46,53 @@ namespace Sistema__Renovo_Barber.Dao
             }
             return Dt;
         }
+        public void Excluir(uFuncionario Obj)
+        {
+            try
+            {
+                string Sql = "delete from tb_funcionarios where id_funcionario = @id_funcionario";
 
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_funcionario", Obj.id);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Funcionario excluido com sucesso!");
+
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
+        public uFuncionario SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_funcionarios where nome like @nome";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@nome", "%" + Nome + "%");
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uFuncionario Obj = new uFuncionario
+                        {
+                            Nome = Convert.ToString(reader["nome"])
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
         public void Alterar(uFuncionario Obj)
         {
             try

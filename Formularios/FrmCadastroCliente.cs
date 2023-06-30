@@ -20,6 +20,7 @@ namespace Sistema__Renovo_Barber.Formularios
         public void Alterar_Botao()
         {
             btnSalvar.Text = "Alterar";
+            tbStatus.Enabled = true;
             tbCodigo.Enabled = false;
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
@@ -130,6 +131,20 @@ namespace Sistema__Renovo_Barber.Formularios
                 ControllerCliente.Excluir(Obj);
                 this.Close();
             }
+        }
+
+        private void btnPesquisarEstado_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCidades frmConsultaCidades = new FrmConsultaCidades();
+            frmConsultaCidades.ShowDialog();
+            uCidade Cidade = new uCidade();
+            if (!frmConsultaCidades.ActiveControl.ContainsFocus)
+            {
+                Cidade = frmConsultaCidades.PegarObj();
+                tbCidade.Text = Cidade.id.ToString();
+                tbCidadeDesc.Text = Cidade.Cidade.ToString();
+            }
+            frmConsultaCidades.Close();
         }
     }
 }

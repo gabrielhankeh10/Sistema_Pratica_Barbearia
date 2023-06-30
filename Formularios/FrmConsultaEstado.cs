@@ -61,6 +61,10 @@ namespace Sistema__Renovo_Barber.Formularios
             frmCadastroEstado.ShowDialog();
             Listar();
         }
+        public uEstado PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaEstado.SelectedRows[0].Cells["id_estado"].Value));
+        }
         public override void ExcluirFormCadastro()
         {
             try
@@ -80,6 +84,45 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
+        public void PesquisarEstado()
+        {
+            try
+            {
+                DgConsultaEstado.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaEstado.Rows)
+                    {
+                        if (vLinha.Cells["nome"].Value.ToString() == Obj.estado)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarEstado();
+        }
+
+        private void DgConsultaEstado_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
     }
 }

@@ -116,8 +116,42 @@ namespace Sistema__Renovo_Barber.Dao
             }
             ConexaoBanco.Close();
             return null;
-
         }
+
+        public uPais SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_pais where nome like @nome";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@nome", "%" + Nome + "%");
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uPais Obj = new uPais
+                        {
+                            id = Convert.ToInt32(reader["id_pais"]),
+                            pais = Convert.ToString(reader["nome"]),
+                            sigla = Convert.ToString(reader["sigla"]),
+                            ddi = Convert.ToString(reader["DDI"]),
+                            data_criacao = Convert.ToDateTime(reader["data_criacao"]),
+                            data_ult_alteracao = Convert.ToDateTime(reader["data_ult_alteracao"]),
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
+
         public void Salvar(uPais obj)
         {
             try

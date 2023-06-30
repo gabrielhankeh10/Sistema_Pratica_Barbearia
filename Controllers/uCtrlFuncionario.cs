@@ -27,6 +27,15 @@ namespace Sistema__Renovo_Barber.Controllers
             uFuncionario Funcionario = DaoFuncionario.Selecionar(Id);
             return Funcionario;
         }
+        public void Excluir(uFuncionario funcionario)
+        {
+            Funcionario = funcionario;
+            DaoFuncionario.Excluir(Funcionario);
+        }
+        public uFuncionario PesquisarNome(string funcionario)
+        {
+            return DaoFuncionario.SelecionarNome(funcionario);
+        }
         public DataTable PopularGrid()
         {
             DataTable vData = new DataTable();

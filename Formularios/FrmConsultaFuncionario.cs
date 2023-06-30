@@ -37,8 +37,49 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uFuncionario Funcionario = new uFuncionario();
+                vLinha = DgConsultaFuncionario.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Funcionario = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_funcionario"].Value));
+                    FrmCadastroFuncionario frmCadastroFuncionario = new FrmCadastroFuncionario();
+                    frmCadastroFuncionario.Excluir_Botao();
+                    frmCadastroFuncionario.Popular(Funcionario);
+                    frmCadastroFuncionario.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+        public void PesquisarFuncionario()
+        {
+            try
+            {
+                DgConsultaFuncionario.ClearSelection();
+                var Obj = Controller.PesquisarNome(tbPesquisar.Text);
+                if (Obj != null)
+                {
+                    foreach (DataGridViewRow vLinha in DgConsultaFuncionario.Rows)
+                    {
+                        if (vLinha.Cells["nome"].Value.ToString() == Obj.Nome)
+                        {
+                            vLinha.Selected = true;
+                            break;
+                        }
+                    }
+                }
 
-
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public void Listar()
         {
             DgConsultaFuncionario.Rows.Clear();
@@ -75,7 +116,12 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmCadastroFuncionario frmCadastroFuncionario = new FrmCadastroFuncionario();
             frmCadastroFuncionario.ShowDialog();
+            Listar();
         }
 
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarFuncionario();
+        }
     }
 }

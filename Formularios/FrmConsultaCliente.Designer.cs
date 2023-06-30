@@ -52,6 +52,10 @@ namespace Sistema__Renovo_Barber.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaClientes)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // DgConsultaClientes
             // 
             this.DgConsultaClientes.AllowUserToAddRows = false;
@@ -86,6 +90,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaClientes.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaClientes.TabIndex = 9;
+            this.DgConsultaClientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaClientes_CellContentDoubleClick);
+            this.DgConsultaClientes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaClientes_KeyPress);
             // 
             // id_cliente
             // 

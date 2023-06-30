@@ -37,6 +37,10 @@ namespace Sistema__Renovo_Barber
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaPais)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // DgConsultaPais
             // 
             this.DgConsultaPais.AllowUserToAddRows = false;
@@ -56,6 +60,8 @@ namespace Sistema__Renovo_Barber
             this.DgConsultaPais.Size = new System.Drawing.Size(784, 437);
             this.DgConsultaPais.TabIndex = 7;
             this.DgConsultaPais.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaPais_CellContentClick);
+            this.DgConsultaPais.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaPais_CellContentDoubleClick);
+            this.DgConsultaPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaPais_KeyPress);
             // 
             // id_pais
             // 
