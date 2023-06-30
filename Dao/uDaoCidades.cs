@@ -72,7 +72,7 @@ namespace Sistema__Renovo_Barber.Dao
             {
                 string Sql = "select * from tb_cidades where nome like @nome";
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
-                ExecutaCmd.Parameters.AddWithValue("@nome", Nome);
+                ExecutaCmd.Parameters.AddWithValue("@nome", "%" + Nome + "%");
                 ConexaoBanco.Open();
                 using (var reader = ExecutaCmd.ExecuteReader())
                 {

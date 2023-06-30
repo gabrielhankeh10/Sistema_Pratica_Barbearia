@@ -138,7 +138,7 @@ namespace Sistema__Renovo_Barber.Dao
             {
                 string Sql = "select * from tb_fornecedores where razao_social like @razao_social";
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
-                ExecutaCmd.Parameters.AddWithValue("@razao_social", Nome);
+                ExecutaCmd.Parameters.AddWithValue("@razao_social", "%" + Nome + "%");
                 ConexaoBanco.Open();
                 using (var reader = ExecutaCmd.ExecuteReader())
                 {

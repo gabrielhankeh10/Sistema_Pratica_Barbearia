@@ -105,10 +105,23 @@ namespace Sistema__Renovo_Barber.Formularios
             frmCadastroCargos.ShowDialog();
             Listar();
         }
-
+        public uCargos PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaCargos.SelectedRows[0].Cells["id_cargo"].Value));
+        }
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             PesquisarCargo();
+        }
+        private void DgConsultaCargos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+        private void DgConsultaCargos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

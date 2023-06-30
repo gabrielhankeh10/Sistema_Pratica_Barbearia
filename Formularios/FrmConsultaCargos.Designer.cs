@@ -62,6 +62,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaCargos.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCargos.TabIndex = 10;
+            this.DgConsultaCargos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgConsultaCargos_CellMouseDoubleClick);
+            this.DgConsultaCargos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaCargos_KeyPress);
             // 
             // id_cargo
             // 

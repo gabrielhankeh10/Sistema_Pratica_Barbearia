@@ -53,7 +53,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // label11
             // 
-            this.label11.Size = new System.Drawing.Size(125, 21);
+            this.label11.Size = new System.Drawing.Size(100, 17);
             this.label11.Text = "Codigo Cidade";
             // 
             // tbCidade
@@ -172,7 +172,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(154, 282);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(65, 21);
+            this.label22.Size = new System.Drawing.Size(52, 17);
             this.label22.TabIndex = 57;
             this.label22.Text = "Cidade";
             // 
@@ -185,6 +185,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarCidade.TabIndex = 58;
             this.btnPesquisarCidade.Text = "Pesquisar";
             this.btnPesquisarCidade.UseVisualStyleBackColor = true;
+            this.btnPesquisarCidade.Click += new System.EventHandler(this.btnPesquisarCidade_Click);
             // 
             // btnPesquisarCargo
             // 
@@ -195,11 +196,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarCargo.TabIndex = 59;
             this.btnPesquisarCargo.Text = "Pesquisar";
             this.btnPesquisarCargo.UseVisualStyleBackColor = true;
+            this.btnPesquisarCargo.Click += new System.EventHandler(this.btnPesquisarCargo_Click);
             // 
             // FrmCadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(712, 464);
+            this.ClientSize = new System.Drawing.Size(887, 593);
             this.Controls.Add(this.btnPesquisarCargo);
             this.Controls.Add(this.btnPesquisarCidade);
             this.Controls.Add(this.label22);

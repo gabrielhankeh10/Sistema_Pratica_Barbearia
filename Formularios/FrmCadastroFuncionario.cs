@@ -28,6 +28,7 @@ namespace Sistema__Renovo_Barber.Formularios
         public void Excluir_Botao()
         {
             btnSalvar.Text = "Excluir";
+            tbStatus.Enabled = true;
             tbCodigo.Enabled = false;
             tbNome.Enabled = false;
             tbCpfCnpj.Enabled = false;
@@ -56,6 +57,8 @@ namespace Sistema__Renovo_Barber.Formularios
 
             tbCodigo.Text = Funcionario.id.ToString();
             tbNome.Text = Funcionario.Nome.ToString();
+            tbCidadeDesc.Text = Funcionario.Cidade.Cidade.ToString();
+            tbCargoDesc.Text = Funcionario.Cargos.Cargo.ToString();
             tbCpfCnpj.Text = Funcionario.CPF.ToString();
             tbRG.Text = Funcionario.RG.ToString();
             tbSexo.Text = Funcionario.Sexo.ToString();
@@ -76,8 +79,6 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatCad.Text = Funcionario.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = Funcionario.data_ult_alteracao.ToShortDateString();
         }
-
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uFuncionario Obj = new uFuncionario();
@@ -139,6 +140,34 @@ namespace Sistema__Renovo_Barber.Formularios
                 this.Close();
             }
 
+        }
+
+        private void btnPesquisarCidade_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCidades frmConsultaCidades = new FrmConsultaCidades();
+            frmConsultaCidades.ShowDialog();
+            uCidade Cidade = new uCidade();
+            if (!frmConsultaCidades.ActiveControl.ContainsFocus)
+            {
+                Cidade = frmConsultaCidades.PegarObj();
+                tbCidade.Text = Cidade.id.ToString();
+                tbCidadeDesc.Text = Cidade.Cidade.ToString();
+            }
+            frmConsultaCidades.Close();
+        }
+
+        private void btnPesquisarCargo_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCargos frmConsultaCargos = new FrmConsultaCargos();
+            frmConsultaCargos.ShowDialog();
+            uCargos Cargos = new uCargos();
+            if (!frmConsultaCargos.ActiveControl.ContainsFocus)
+            {
+                Cargos = frmConsultaCargos.PegarObj();
+                tbCargo.Text = Cargos.id.ToString();
+                tbCargoDesc.Text = Cargos.Cargo.ToString();
+            }
+            frmConsultaCargos.Close();
         }
     }
 }

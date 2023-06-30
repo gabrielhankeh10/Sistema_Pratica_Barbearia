@@ -65,6 +65,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbStatus
             // 
+            this.tbStatus.Enabled = false;
             this.tbStatus.Location = new System.Drawing.Point(471, 64);
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.Size = new System.Drawing.Size(111, 22);
@@ -75,7 +76,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(468, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 21);
+            this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 16;
             this.label5.Text = "Status";
             // 
