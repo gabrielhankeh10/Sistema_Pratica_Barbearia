@@ -14,5 +14,6 @@ namespace Sistema__Renovo_Barber.Classes
         }
         public uPai Pai { get; set; }
         public string Forma { get; set; }
+        public string Status { get; set; }
     }
 }

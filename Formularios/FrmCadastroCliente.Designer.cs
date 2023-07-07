@@ -55,6 +55,42 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label11.Size = new System.Drawing.Size(100, 17);
             this.label11.Text = "Codigo Cidade";
             // 
+            // TbCEP
+            // 
+            this.TbCEP.TabIndex = 14;
+            // 
+            // tbCelular
+            // 
+            this.tbCelular.TabIndex = 15;
+            // 
+            // TbTelefone
+            // 
+            this.TbTelefone.TabIndex = 12;
+            // 
+            // tbNome
+            // 
+            this.tbNome.TabIndex = 1;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.TabIndex = 7;
+            // 
+            // tbEndereco
+            // 
+            this.tbEndereco.TabIndex = 8;
+            // 
+            // tbNumero
+            // 
+            this.tbNumero.TabIndex = 9;
+            // 
+            // tbBairro
+            // 
+            this.tbBairro.TabIndex = 10;
+            // 
+            // tbComplemento
+            // 
+            this.tbComplemento.TabIndex = 11;
+            // 
             // tbCidade
             // 
             this.tbCidade.Size = new System.Drawing.Size(134, 22);
@@ -63,10 +99,20 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.tbCpfCnpj.Mask = "###.###.###-##";
             this.tbCpfCnpj.Size = new System.Drawing.Size(113, 22);
+            this.tbCpfCnpj.TabIndex = 3;
             // 
             // tbDatNasc
             // 
             this.tbDatNasc.Mask = "";
+            this.tbDatNasc.TabIndex = 6;
+            // 
+            // tbApelido
+            // 
+            this.tbApelido.TabIndex = 5;
+            // 
+            // btnSair
+            // 
+            this.btnSair.TabIndex = 17;
             // 
             // tbRG
             // 
@@ -74,7 +120,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbRG.Mask = "##.###.###-#";
             this.tbRG.Name = "tbRG";
             this.tbRG.Size = new System.Drawing.Size(109, 22);
-            this.tbRG.TabIndex = 44;
+            this.tbRG.TabIndex = 4;
             // 
             // label20
             // 
@@ -91,17 +137,18 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 46;
+            this.btnSalvar.TabIndex = 16;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // tbSexo
             // 
+            this.tbSexo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbSexo.Location = new System.Drawing.Point(488, 64);
             this.tbSexo.Name = "tbSexo";
             this.tbSexo.Size = new System.Drawing.Size(64, 22);
-            this.tbSexo.TabIndex = 47;
+            this.tbSexo.TabIndex = 2;
             // 
             // label18
             // 
@@ -114,6 +161,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCidadeDesc
             // 
+            this.tbCidadeDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbCidadeDesc.Enabled = false;
             this.tbCidadeDesc.Location = new System.Drawing.Point(220, 302);
             this.tbCidadeDesc.Name = "tbCidadeDesc";
@@ -144,7 +192,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarEstado.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisarEstado.Name = "btnPesquisarEstado";
             this.btnPesquisarEstado.Size = new System.Drawing.Size(91, 23);
-            this.btnPesquisarEstado.TabIndex = 52;
+            this.btnPesquisarEstado.TabIndex = 13;
             this.btnPesquisarEstado.Text = "Pesquisar";
             this.btnPesquisarEstado.UseVisualStyleBackColor = true;
             this.btnPesquisarEstado.Click += new System.EventHandler(this.btnPesquisarEstado_Click);

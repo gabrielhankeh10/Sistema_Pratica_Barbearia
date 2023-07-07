@@ -38,6 +38,8 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbStatus
             // 
+            this.tbStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbStatus.Enabled = false;
             this.tbStatus.Location = new System.Drawing.Point(387, 64);
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.Size = new System.Drawing.Size(89, 22);
@@ -54,6 +56,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbForma
             // 
+            this.tbForma.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbForma.Location = new System.Drawing.Point(186, 64);
             this.tbForma.Name = "tbForma";
             this.tbForma.Size = new System.Drawing.Size(155, 22);
@@ -90,6 +93,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbStatus);
             this.Name = "FrmCadastroFormaPagamento";
             this.Text = "Cadastro Forma de Pagamento";
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbStatus, 0);

@@ -28,5 +28,20 @@ namespace Sistema__Renovo_Barber.Controllers
             FormaPagamento = formaPagamento;
             DaoFormaPagamento.Salvar(FormaPagamento);
         }
+        public uFormaPagamento Carregar(int Id)
+        {
+            uFormaPagamento Forma = DaoFormaPagamento.Selecionar(Id);
+            return Forma;
+        }
+        public void Alterar(uFormaPagamento formaPagamento)
+        {
+            FormaPagamento = formaPagamento;
+            DaoFormaPagamento.Alterar(FormaPagamento);
+        }
+        public void Excluir(uFormaPagamento formaPagamento)
+        {
+            FormaPagamento = formaPagamento;
+            DaoFormaPagamento.Excluir(FormaPagamento);
+        }
     }
 }

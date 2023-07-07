@@ -65,6 +65,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbNome
             // 
+            this.tbNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbNome.Location = new System.Drawing.Point(186, 64);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(272, 22);
@@ -99,6 +100,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbEmail
             // 
+            this.tbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbEmail.Location = new System.Drawing.Point(49, 180);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(272, 22);
@@ -115,6 +117,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbEndereco
             // 
+            this.tbEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbEndereco.Location = new System.Drawing.Point(362, 180);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(327, 22);
@@ -138,6 +141,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbBairro
             // 
+            this.tbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbBairro.Location = new System.Drawing.Point(49, 239);
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.Size = new System.Drawing.Size(217, 22);
@@ -163,6 +167,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbComplemento
             // 
+            this.tbComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbComplemento.Location = new System.Drawing.Point(313, 239);
             this.tbComplemento.Name = "tbComplemento";
             this.tbComplemento.Size = new System.Drawing.Size(269, 22);
@@ -206,6 +211,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbStatus
             // 
+            this.tbStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbStatus.Enabled = false;
             this.tbStatus.Location = new System.Drawing.Point(49, 123);
             this.tbStatus.Name = "tbStatus";
@@ -289,6 +295,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbApelido
             // 
+            this.tbApelido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbApelido.Location = new System.Drawing.Point(186, 123);
             this.tbApelido.Name = "tbApelido";
             this.tbApelido.Size = new System.Drawing.Size(272, 22);

@@ -31,7 +31,6 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             this.DgConsultaCondicaoPagamento = new System.Windows.Forms.DataGridView();
             this.id_condicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status_condicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.condicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parcelas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taxa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +48,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCondicaoPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgConsultaCondicaoPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_condicao,
-            this.status_condicao,
             this.condicao,
             this.parcelas,
             this.taxa,
@@ -58,10 +56,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao,
             this.data_ult_alteracao});
             this.DgConsultaCondicaoPagamento.Location = new System.Drawing.Point(54, 72);
+            this.DgConsultaCondicaoPagamento.MultiSelect = false;
             this.DgConsultaCondicaoPagamento.Name = "DgConsultaCondicaoPagamento";
             this.DgConsultaCondicaoPagamento.ReadOnly = true;
             this.DgConsultaCondicaoPagamento.RowHeadersWidth = 51;
             this.DgConsultaCondicaoPagamento.RowTemplate.Height = 24;
+            this.DgConsultaCondicaoPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaCondicaoPagamento.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCondicaoPagamento.TabIndex = 11;
             // 
@@ -72,14 +72,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.id_condicao.Name = "id_condicao";
             this.id_condicao.ReadOnly = true;
             this.id_condicao.Width = 125;
-            // 
-            // status_condicao
-            // 
-            this.status_condicao.HeaderText = "Status";
-            this.status_condicao.MinimumWidth = 6;
-            this.status_condicao.Name = "status_condicao";
-            this.status_condicao.ReadOnly = true;
-            this.status_condicao.Width = 125;
             // 
             // condicao
             // 
@@ -161,7 +153,6 @@ namespace Sistema__Renovo_Barber.Formularios
 
         private System.Windows.Forms.DataGridView DgConsultaCondicaoPagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_condicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status_condicao;
         private System.Windows.Forms.DataGridViewTextBoxColumn condicao;
         private System.Windows.Forms.DataGridViewTextBoxColumn parcelas;
         private System.Windows.Forms.DataGridViewTextBoxColumn taxa;

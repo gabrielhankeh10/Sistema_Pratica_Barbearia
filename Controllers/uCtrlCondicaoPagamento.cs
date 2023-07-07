@@ -23,6 +23,21 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoCondicaoPagamento.PopularGrid();
             return vData;
         }
+        public uCondicaoPagamento Carregar(int Id)
+        {
+            uCondicaoPagamento CondicaoPagamento = DaoCondicaoPagamento.Selecionar(Id);
+            return CondicaoPagamento;
+        }
+        public void Alterar(uCondicaoPagamento condicaoPagamento)
+        {
+            CondicaoPagamento = condicaoPagamento;
+            DaoCondicaoPagamento.Alterar(CondicaoPagamento);
+        }
+        public void Excluir(uCondicaoPagamento condicaoPagamento)
+        {
+            CondicaoPagamento = condicaoPagamento;
+            DaoCondicaoPagamento.Excluir(CondicaoPagamento);
+        }
         public void Salvar(uCondicaoPagamento condicaoPagamento)
         {
             CondicaoPagamento = condicaoPagamento;
