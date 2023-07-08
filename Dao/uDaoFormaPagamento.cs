@@ -83,6 +83,34 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        public uFormaPagamento SelecionarNome(string Nome)
+        {
+            try
+            {
+                string Sql = "select * from tb_forma_pagamento where forma like @forma";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@forma", "%" + Nome + "%");
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uFormaPagamento Obj = new uFormaPagamento
+                        {
+                            Forma = Convert.ToString(reader["forma"])
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
         public uFormaPagamento Selecionar(int Id)
         {
             try

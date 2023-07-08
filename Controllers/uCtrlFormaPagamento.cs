@@ -38,6 +38,10 @@ namespace Sistema__Renovo_Barber.Controllers
             FormaPagamento = formaPagamento;
             DaoFormaPagamento.Alterar(FormaPagamento);
         }
+        public uFormaPagamento PesquisarNome(string pagamento)
+        {
+            return DaoFormaPagamento.SelecionarNome(pagamento);
+        }
         public void Excluir(uFormaPagamento formaPagamento)
         {
             FormaPagamento = formaPagamento;

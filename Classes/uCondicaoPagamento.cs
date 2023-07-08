@@ -10,15 +10,15 @@ namespace Sistema__Renovo_Barber.Classes
     {
         public uCondicaoPagamento()
         {
-
+            List<uParcelas> uParcelas = new List<uParcelas>();
         }
         public uPai Pai { get; set; }
-        public uFormaPagamento Forma { get; set; }
         public string Condicao { get; set; }
         public int Parcelas { get; set; }
         public decimal Taxa { get; set; }
         public decimal Multa { get; set; }
         public decimal Desconto { get; set; }
-        public int Dias { get; set; }
+        public List<uParcelas> uParcelas { get; set;}
     }
 }
+

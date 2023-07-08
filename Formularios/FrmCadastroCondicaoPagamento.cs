@@ -1,10 +1,12 @@
 ﻿using Sistema__Renovo_Barber.Classes;
 using Sistema__Renovo_Barber.Controllers;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,23 +18,24 @@ namespace Sistema__Renovo_Barber.Formularios
         public FrmCadastroCondicaoPagamento()
         {
             InitializeComponent();
+            tbPercentualTotal.Text = Convert.ToString(100);
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uCondicaoPagamento Obj = new uCondicaoPagamento();
-            Obj.Forma = new uFormaPagamento();
+            //Obj.Forma = new uFormaPagamento();
             if (btnSalvar.Text == "Salvar")
             {
                 Obj.Condicao = tbCondicao.Text;
-                Obj.Parcelas = int.Parse(tbParcelas.Text);
-                Obj.Dias = int.Parse(tbDias.Text);
+                //Obj.Parcelas = int.Parse(tbParcelas.Text);
+                //Obj.Dias = int.Parse(tbDias.Text);
                 Obj.Taxa = decimal.Parse(tbTaxa.Text);
                 Obj.Multa = decimal.Parse(tbMulta.Text);
                 Obj.Desconto = decimal.Parse(tbDesconto.Text);
-                Obj.Forma.id = int.Parse(tbIdForma.Text);
+                //Obj.Forma.id = int.Parse(tbIdForma.Text);
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
+                this.ControllerCondicao.Salvar(this.AdicionarGrid());
                 ControllerCondicao.Salvar(Obj);
                 this.Close();
             }
@@ -40,12 +43,12 @@ namespace Sistema__Renovo_Barber.Formularios
             {
                 Obj.id = Convert.ToInt32(tbCodigo.Text);
                 Obj.Condicao = tbCondicao.Text;
-                Obj.Parcelas = int.Parse(tbParcelas.Text);
-                Obj.Dias = int.Parse(tbDias.Text);
+                //Obj.Parcelas = int.Parse(tbParcelas.Text);
+                //Obj.Dias = int.Parse(tbDias.Text);
                 Obj.Taxa = decimal.Parse(tbTaxa.Text);
                 Obj.Multa = decimal.Parse(tbMulta.Text);
                 Obj.Desconto = decimal.Parse(tbDesconto.Text);
-                Obj.Forma.id = int.Parse(tbIdForma.Text);
+                //Obj.Forma.id = int.Parse(tbIdForma.Text);
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerCondicao.Alterar(Obj);
                 this.Close();
@@ -82,18 +85,63 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDatUltAlt.Enabled = false;
             tbDesconto.Enabled = false;
         }
+        public void Add()
+        {
+            tbPercentual.Text = Convert.ToString((Convert.ToInt32(tbParcelas.Text) / Convert.ToDecimal(tbPercentualTotal.Text)*100));
 
+            int i = DgCondicao.Rows.Count + 1;
+            AddDg(i);
+            tbParcelas.Text = Convert.ToString(i + 1);
+        }
+        public void AddDg(int vLinha)
+        {
+            DgCondicao.Rows.Add(
+                vLinha,
+                tbDias.Text,
+                tbIdForma.Text,
+                tbDescForma.Text,
+                tbPercentual.Text.ToString());
+        }
+        
+        public uCondicaoPagamento AdicionarGrid()
+        {
+            uCtrlFormaPagamento ControllerForma = new uCtrlFormaPagamento();
+            var Obj = new uCondicaoPagamento();
+            List<uParcelas> Lista = new List<uParcelas>();
+            uParcelas Parcelas = null;
+            //Parcelas.FormaPagamento = new uFormaPagamento();
+            //Obj.id = Convert.ToInt32(tbCodigo.Text);
+            Obj.Condicao = Convert.ToString(tbCondicao.Text);
+            Obj.Multa = Convert.ToDecimal(tbMulta.Text);
+            Obj.Taxa = Convert.ToDecimal(tbTaxa.Text);
+            Obj.Desconto = Convert.ToDecimal(tbDesconto.Text);
+            foreach (DataGridViewRow vLinha in DgCondicao.Rows)
+            {
+                Parcelas = new uParcelas();
+                Parcelas.id = Obj.id;
+                Parcelas.NumParcela = Convert.ToInt32(vLinha.Cells["num_parcela"].Value);
+                Parcelas.DiasTotais = Convert.ToInt32(vLinha.Cells["dias_totais"].Value);
+                Parcelas.Porcentagem = Convert.ToDouble(vLinha.Cells["percentual"].Value);
+                Parcelas.FormaPagamento = new uFormaPagamento();
+                Parcelas.FormaPagamento.id = Convert.ToInt32(vLinha.Cells["idForma"].Value);
+                //Parcelas.FormaPagamento = ControllerForma.PesquisarNome(vLinha.Cells["forma_pagamento"].Value.ToString());
+                Lista.Add(Parcelas);
+            }
+            Obj.uParcelas = Lista;
+            Obj.Parcelas = Obj.uParcelas.Count();
+            return Obj;
+        }
         public void Popular(uCondicaoPagamento CondicaoPagamento)
         {
             tbCodigo.Text = CondicaoPagamento.id.ToString();
             tbCondicao.Text = CondicaoPagamento.Condicao.ToString();
-            tbParcelas.Text = CondicaoPagamento.Parcelas.ToString();
-            tbDias.Text = CondicaoPagamento.Dias.ToString();
+            //tbParcelas.Text = CondicaoPagamento.Parcelas.ToString();
+            //tbDias.Text = CondicaoPagamento.Dias.ToString();
             tbTaxa.Text = CondicaoPagamento.Taxa.ToString();
             tbMulta.Text = CondicaoPagamento.Multa.ToString();
             tbDesconto.Text = CondicaoPagamento.Desconto.ToString();
-            tbIdForma.Text = CondicaoPagamento.Forma.id.ToString();
-            tbDescForma.Text = CondicaoPagamento.Forma.Forma.ToString();
+            //tbIdForma.Text = CondicaoPagamento.Forma.id.ToString();
+            //tbDescForma.Text = CondicaoPagamento.Forma.Forma.ToString();
             tbDatCad.Text = CondicaoPagamento.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = CondicaoPagamento.data_ult_alteracao.ToShortDateString();
         }
@@ -123,6 +171,21 @@ namespace Sistema__Renovo_Barber.Formularios
                 tbIdForma.Enabled = false;
                 tbDescForma.Enabled = false;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPercentual_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            Add();
         }
     }
 }

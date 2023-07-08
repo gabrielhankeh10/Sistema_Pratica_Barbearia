@@ -42,19 +42,22 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tbDias = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbPercentual = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbIdForma = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbDescForma = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.DgCondicao = new System.Windows.Forms.DataGridView();
-            this.id_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ddi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbPercentualTotal = new System.Windows.Forms.TextBox();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.num_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dias_totais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.forma_pagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgCondicao)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,9 +157,9 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbDias
             // 
-            this.tbDias.Location = new System.Drawing.Point(531, 64);
+            this.tbDias.Location = new System.Drawing.Point(531, 65);
             this.tbDias.Name = "tbDias";
-            this.tbDias.Size = new System.Drawing.Size(79, 22);
+            this.tbDias.Size = new System.Drawing.Size(48, 22);
             this.tbDias.TabIndex = 53;
             // 
             // label9
@@ -168,17 +171,18 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label9.TabIndex = 54;
             this.label9.Text = "Dias";
             // 
-            // textBox2
+            // tbPercentual
             // 
-            this.textBox2.Location = new System.Drawing.Point(624, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(79, 22);
-            this.textBox2.TabIndex = 55;
+            this.tbPercentual.Location = new System.Drawing.Point(598, 65);
+            this.tbPercentual.Name = "tbPercentual";
+            this.tbPercentual.Size = new System.Drawing.Size(48, 22);
+            this.tbPercentual.TabIndex = 55;
+            this.tbPercentual.TextChanged += new System.EventHandler(this.tbPercentual_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(621, 42);
+            this.label10.Location = new System.Drawing.Point(595, 45);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 17);
             this.label10.TabIndex = 56;
@@ -204,7 +208,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.tbDescForma.Location = new System.Drawing.Point(531, 125);
             this.tbDescForma.Name = "tbDescForma";
-            this.tbDescForma.Size = new System.Drawing.Size(172, 22);
+            this.tbDescForma.Size = new System.Drawing.Size(182, 22);
             this.tbDescForma.TabIndex = 59;
             // 
             // label12
@@ -218,24 +222,14 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(729, 125);
+            this.button1.Location = new System.Drawing.Point(738, 125);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.Size = new System.Drawing.Size(97, 23);
             this.button1.TabIndex = 61;
             this.button1.Text = "Pesquisar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(729, 64);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "Adicionar";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // DgCondicao
             // 
@@ -243,10 +237,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgCondicao.AllowUserToDeleteRows = false;
             this.DgCondicao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgCondicao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_pais,
-            this.nome,
-            this.sigla,
-            this.ddi});
+            this.num_parcela,
+            this.dias_totais,
+            this.idForma,
+            this.forma_pagamento,
+            this.percentual});
             this.DgCondicao.Location = new System.Drawing.Point(49, 180);
             this.DgCondicao.Name = "DgCondicao";
             this.DgCondicao.ReadOnly = true;
@@ -256,51 +251,88 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgCondicao.Size = new System.Drawing.Size(786, 298);
             this.DgCondicao.TabIndex = 63;
             // 
-            // id_pais
+            // tbPercentualTotal
             // 
-            this.id_pais.HeaderText = "Codigo Pais";
-            this.id_pais.MinimumWidth = 6;
-            this.id_pais.Name = "id_pais";
-            this.id_pais.ReadOnly = true;
-            this.id_pais.Width = 125;
+            this.tbPercentualTotal.Location = new System.Drawing.Point(665, 65);
+            this.tbPercentualTotal.Name = "tbPercentualTotal";
+            this.tbPercentualTotal.Size = new System.Drawing.Size(48, 22);
+            this.tbPercentualTotal.TabIndex = 64;
             // 
-            // nome
+            // btnAdicionar
             // 
-            this.nome.HeaderText = "Nome";
-            this.nome.MinimumWidth = 6;
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            this.nome.Width = 125;
+            this.btnAdicionar.Location = new System.Drawing.Point(738, 65);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(97, 23);
+            this.btnAdicionar.TabIndex = 65;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
-            // sigla
+            // label13
             // 
-            this.sigla.HeaderText = "Sigla";
-            this.sigla.MinimumWidth = 6;
-            this.sigla.Name = "sigla";
-            this.sigla.ReadOnly = true;
-            this.sigla.Width = 125;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(662, 45);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 17);
+            this.label13.TabIndex = 66;
+            this.label13.Text = "% Total";
             // 
-            // ddi
+            // num_parcela
             // 
-            this.ddi.HeaderText = "DDI";
-            this.ddi.MinimumWidth = 6;
-            this.ddi.Name = "ddi";
-            this.ddi.ReadOnly = true;
-            this.ddi.Width = 125;
+            this.num_parcela.HeaderText = "N° Parcela";
+            this.num_parcela.MinimumWidth = 6;
+            this.num_parcela.Name = "num_parcela";
+            this.num_parcela.ReadOnly = true;
+            this.num_parcela.Width = 125;
+            // 
+            // dias_totais
+            // 
+            this.dias_totais.HeaderText = "Dias";
+            this.dias_totais.MinimumWidth = 6;
+            this.dias_totais.Name = "dias_totais";
+            this.dias_totais.ReadOnly = true;
+            this.dias_totais.Width = 125;
+            // 
+            // idForma
+            // 
+            this.idForma.HeaderText = "ID Forma";
+            this.idForma.MinimumWidth = 6;
+            this.idForma.Name = "idForma";
+            this.idForma.ReadOnly = true;
+            this.idForma.Width = 125;
+            // 
+            // forma_pagamento
+            // 
+            this.forma_pagamento.HeaderText = "Forma de Pagamento";
+            this.forma_pagamento.MinimumWidth = 6;
+            this.forma_pagamento.Name = "forma_pagamento";
+            this.forma_pagamento.ReadOnly = true;
+            this.forma_pagamento.Width = 125;
+            // 
+            // percentual
+            // 
+            this.percentual.HeaderText = "% Sob Total";
+            this.percentual.MinimumWidth = 6;
+            this.percentual.Name = "percentual";
+            this.percentual.ReadOnly = true;
+            this.percentual.Width = 125;
             // 
             // FrmCadastroCondicaoPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.btnAdicionar);
+            this.Controls.Add(this.tbPercentualTotal);
             this.Controls.Add(this.DgCondicao);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tbDescForma);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbIdForma);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbPercentual);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbDias);
             this.Controls.Add(this.btnSalvar);
@@ -334,15 +366,17 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.btnSalvar, 0);
             this.Controls.SetChildIndex(this.tbDias, 0);
             this.Controls.SetChildIndex(this.label9, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.tbPercentual, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.tbIdForma, 0);
             this.Controls.SetChildIndex(this.label11, 0);
             this.Controls.SetChildIndex(this.tbDescForma, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
             this.Controls.SetChildIndex(this.DgCondicao, 0);
+            this.Controls.SetChildIndex(this.tbPercentualTotal, 0);
+            this.Controls.SetChildIndex(this.btnAdicionar, 0);
+            this.Controls.SetChildIndex(this.label13, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DgCondicao)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -364,18 +398,21 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox tbDias;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbPercentual;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbIdForma;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbDescForma;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView DgCondicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_pais;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sigla;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ddi;
+        private System.Windows.Forms.TextBox tbPercentualTotal;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dias_totais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idForma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn forma_pagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percentual;
     }
 }
