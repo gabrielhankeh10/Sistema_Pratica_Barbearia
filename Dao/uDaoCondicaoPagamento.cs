@@ -137,9 +137,10 @@ namespace Sistema__Renovo_Barber.Dao
             {
                 string Sql = @"insert into tb_condicao_pagamento (condicao, parcelas, taxa, multa, desconto, data_criacao, data_ult_alteracao)
                                 values(@condicao, @parcelas, @taxa, @multa, @desconto, @data_criacao, @data_ult_alteracao)";
-
+                
+                string UltimoID = "select max(id_condicao) from tb_condicao_pagamento";
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
-
+                MySqlCommand ExecutaComando2 = new MySqlCommand(UltimoID, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@condicao", Obj.Condicao);
                 ExecutaComando.Parameters.AddWithValue("@taxa", Obj.Taxa);
                 ExecutaComando.Parameters.AddWithValue("@multa", Obj.Multa);
@@ -149,7 +150,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
-                int i = Convert.ToInt32(ExecutaComando.ExecuteScalar());
+                int i = Convert.ToInt32(ExecutaComando2.ExecuteScalar());
                 ConexaoBanco.Close();
                 if(i>0)
                 {
@@ -169,6 +170,7 @@ namespace Sistema__Renovo_Barber.Dao
                     if(status)
                     {
                         MessageBox.Show("Condição de pagamento cadastrada com sucesso!");
+                        ConexaoBanco.Close();
                     }
                 }
             }

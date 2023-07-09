@@ -26,6 +26,7 @@ namespace Sistema__Renovo_Barber.Dao
                 string Sql = @"insert into tb_parcelas (id_condicao, num_parcela, id_forma, dias_totais, porcentagem,
                             data_criacao, data_ult_alteracao) values (@id_condicao, @num_parcela, @id_forma, @dias_totais,
                                 @porcentagem, @data_criacao, @data_ult_alteracao)";
+                
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
 
                 ExecutaCmd.Parameters.AddWithValue("@id_condicao", Obj.id);
