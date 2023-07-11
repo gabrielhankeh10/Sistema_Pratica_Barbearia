@@ -133,57 +133,54 @@ namespace Sistema__Renovo_Barber.Dao
         public bool Salvar(uCondicaoPagamento Obj)
         {
             bool status = false;
-            try
-            {
-                string Sql = @"insert into tb_condicao_pagamento (condicao, parcelas, taxa, multa, desconto, data_criacao, data_ult_alteracao)
+            string Sql = @"insert into tb_condicao_pagamento (condicao, parcelas, taxa, multa, desconto, data_criacao, data_ult_alteracao)
                                 values(@condicao, @parcelas, @taxa, @multa, @desconto, @data_criacao, @data_ult_alteracao)";
-                
-                string UltimoID = "select max(id_condicao) from tb_condicao_pagamento";
-                MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
-                MySqlCommand ExecutaComando2 = new MySqlCommand(UltimoID, ConexaoBanco);
-                ExecutaComando.Parameters.AddWithValue("@condicao", Obj.Condicao);
-                ExecutaComando.Parameters.AddWithValue("@taxa", Obj.Taxa);
-                ExecutaComando.Parameters.AddWithValue("@multa", Obj.Multa);
-                ExecutaComando.Parameters.AddWithValue("@desconto", Obj.Desconto);
-                ExecutaComando.Parameters.AddWithValue("@parcelas", Obj.Parcelas);
-                ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
-                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
-                ConexaoBanco.Open();
-                ExecutaComando.ExecuteNonQuery();
-                int i = Convert.ToInt32(ExecutaComando2.ExecuteScalar());
-                ConexaoBanco.Close();
-                if(i>0)
+            string UltimoID = "select max(id_condicao) from tb_condicao_pagamento";
+                try
                 {
-                    foreach (uParcelas parcelas in Obj.uParcelas)
+                    MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
+                    MySqlCommand ExecutaComando2 = new MySqlCommand(UltimoID, ConexaoBanco);
+                    ExecutaComando.Parameters.AddWithValue("@condicao", Obj.Condicao);
+                    ExecutaComando.Parameters.AddWithValue("@taxa", Obj.Taxa);
+                    ExecutaComando.Parameters.AddWithValue("@multa", Obj.Multa);
+                    ExecutaComando.Parameters.AddWithValue("@desconto", Obj.Desconto);
+                    ExecutaComando.Parameters.AddWithValue("@parcelas", Obj.Parcelas);
+                    ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
+                    ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
+                    ConexaoBanco.Open();
+                    ExecutaComando.ExecuteNonQuery();
+                    int i = Convert.ToInt32(ExecutaComando2.ExecuteScalar());
+                    ConexaoBanco.Close();
+                    if (i > 0)
                     {
-                        if(parcelas != null)
+                        foreach (uParcelas parcelas in Obj.uParcelas)
                         {
-                            parcelas.id = i;
-                            status = Controller.Salvar(parcelas);
-                            if (!status)
+                            if (parcelas != null)
                             {
-                                MessageBox.Show("Aconteceu um erro");
-                                break;
+                                parcelas.id = i;
+                                status = Controller.SalvarParcelas(parcelas);
+                                if (!status)
+                                {
+                                    MessageBox.Show("Aconteceu um erro");
+                                }
                             }
                         }
-                    }
-                    if(status)
-                    {
-                        MessageBox.Show("Condição de pagamento cadastrada com sucesso!");
-                        ConexaoBanco.Close();
+                        if (status)
+                        {
+                            MessageBox.Show("Condição de pagamento cadastrada com sucesso!");
+                        }
                     }
                 }
-            }
-            catch (Exception Erro)
-            {
-                MessageBox.Show(": " + Erro);
+                catch (Exception Erro)
+                {
+                    MessageBox.Show(": " + Erro);
+                    return status;
+                }
+                finally
+                {
+                    ConexaoBanco.Close();
+                }
                 return status;
-            }
-            finally
-            {
-                ConexaoBanco.Close();
-            }
-            return status;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Sistema__Renovo_Barber.Dao
         {
             this.ConexaoBanco = new Conexao().GetConnection();
         }
-        public bool Salvar(uParcelas Obj)
+        public bool SalvarParcelas(uParcelas Obj)
         {
             bool status = false;
             try
@@ -26,9 +26,7 @@ namespace Sistema__Renovo_Barber.Dao
                 string Sql = @"insert into tb_parcelas (id_condicao, num_parcela, id_forma, dias_totais, porcentagem,
                             data_criacao, data_ult_alteracao) values (@id_condicao, @num_parcela, @id_forma, @dias_totais,
                                 @porcentagem, @data_criacao, @data_ult_alteracao)";
-                
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
-
                 ExecutaCmd.Parameters.AddWithValue("@id_condicao", Obj.id);
                 ExecutaCmd.Parameters.AddWithValue("@num_parcela", Obj.NumParcela);
                 ExecutaCmd.Parameters.AddWithValue("@id_forma", Obj.FormaPagamento.id);
@@ -47,6 +45,7 @@ namespace Sistema__Renovo_Barber.Dao
             catch (Exception Erro)
             {
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
+                return status;
             }
             finally
             {

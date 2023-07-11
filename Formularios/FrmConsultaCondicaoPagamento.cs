@@ -59,6 +59,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 }
             }
         }
+        
         public override void ExcluirFormCadastro()
         {
             try

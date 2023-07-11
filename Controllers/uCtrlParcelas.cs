@@ -16,10 +16,10 @@ namespace Sistema__Renovo_Barber.Controllers
         {
 
         }
-        public bool Salvar(uParcelas parcelas)
+        public bool SalvarParcelas(uParcelas parcelas)
         {
             Parcelas = parcelas;
-            return DaoParcelas.Salvar(parcelas);
+            return DaoParcelas.SalvarParcelas(parcelas);
         }
     }
 }
