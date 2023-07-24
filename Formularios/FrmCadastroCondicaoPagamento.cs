@@ -94,29 +94,29 @@ namespace Sistema__Renovo_Barber.Formularios
                 tbDescForma.Text,
                 tbPercentual.Text.ToString());
         }
-        public void ListarParcelas()
+        /*public void ListarParcelas()
         {
-            DgCondicao.Rows.Clear();
-            uCtrlParcelas Controller = new uCtrlParcelas();
-            DataTable vData = Controller.PopularGrid();
-            if (vData != null)
-            {
-                foreach (DataRow vLinha in vData.Rows)
-                {
-                    DataGridViewRow row = new DataGridViewRow();
-                    row.CreateCells(DgConsultaCondicaoPagamento);
-                    row.Cells[0].Value = vLinha["id_condicao"].ToString();
-                    row.Cells[1].Value = vLinha["condicao"].ToString();
-                    row.Cells[2].Value = vLinha["parcelas"].ToString();
-                    row.Cells[3].Value = vLinha["taxa"].ToString();
-                    row.Cells[4].Value = vLinha["multa"].ToString();
-                    row.Cells[5].Value = vLinha["desconto"].ToString();
-                    row.Cells[6].Value = vLinha["data_criacao"].ToString();
-                    row.Cells[7].Value = vLinha["data_ult_alteracao"].ToString();
-                    DgConsultaCondicaoPagamento.Rows.Add(row);
-                }
-            }
-        }
+           DgCondicao.Rows.Clear();
+           uCtrlParcelas Controller = new uCtrlParcelas();
+           DataTable vData = Controller.PopularGrid();
+           if (vData != null)
+           {
+               foreach (DataRow vLinha in vData.Rows)
+               {
+                   DataGridViewRow row = new DataGridViewRow();
+                   row.CreateCells(DgConsultaCondicaoPagamento);
+                   row.Cells[0].Value = vLinha["id_condicao"].ToString();
+                   row.Cells[1].Value = vLinha["condicao"].ToString();
+                   row.Cells[2].Value = vLinha["parcelas"].ToString();
+                   row.Cells[3].Value = vLinha["taxa"].ToString();
+                   row.Cells[4].Value = vLinha["multa"].ToString();
+                   row.Cells[5].Value = vLinha["desconto"].ToString();
+                   row.Cells[6].Value = vLinha["data_criacao"].ToString();
+                   row.Cells[7].Value = vLinha["data_ult_alteracao"].ToString();
+                   DgConsultaCondicaoPagamento.Rows.Add(row);
+               }
+           }
+       }*/
         public uCondicaoPagamento AdicionarGrid()
         {
             uCtrlFormaPagamento ControllerForma = new uCtrlFormaPagamento();
@@ -150,13 +150,9 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             tbCodigo.Text = CondicaoPagamento.id.ToString();
             tbCondicao.Text = CondicaoPagamento.Condicao.ToString();
-            //tbParcelas.Text = CondicaoPagamento.Parcelas.ToString();
-            //tbDias.Text = CondicaoPagamento.Dias.ToString();
             tbTaxa.Text = CondicaoPagamento.Taxa.ToString();
             tbMulta.Text = CondicaoPagamento.Multa.ToString();
             tbDesconto.Text = CondicaoPagamento.Desconto.ToString();
-            //tbIdForma.Text = CondicaoPagamento.Forma.id.ToString();
-            //tbDescForma.Text = CondicaoPagamento.Forma.Forma.ToString();
             tbDatCad.Text = CondicaoPagamento.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = CondicaoPagamento.data_ult_alteracao.ToShortDateString();
         }

@@ -18,6 +18,13 @@ namespace Sistema__Renovo_Barber.Dao
         {
             this.ConexaoBanco = new Conexao().GetConnection();
         }
+        /*public void AlterarParcelas(uParcelas Obj)
+        {
+            try
+            {
+                string S
+            }
+        }*/
         public bool SalvarParcelas(uParcelas Obj)
         {
             bool status = false;
