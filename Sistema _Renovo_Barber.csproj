@@ -97,6 +97,7 @@
     <Compile Include="Classes\uPais.cs" />
     <Compile Include="Classes\uParcelas.cs" />
     <Compile Include="Classes\uPessoa.cs" />
+    <Compile Include="Classes\uProdutos.cs" />
     <Compile Include="Classes\uServicos.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Controllers\uCtrlCargos.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Controllers\uCtrlPaises.cs" />
     <Compile Include="Controllers\uCtrlParcelas.cs" />
     <Compile Include="Controllers\uCtrlPessoa.cs" />
+    <Compile Include="Controllers\uCtrlProdutos.cs" />
     <Compile Include="Controllers\uCtrlServicos.cs" />
     <Compile Include="Dao\uDaoCargos.cs" />
     <Compile Include="Dao\uDaoCidades.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Dao\uDaoFuncionarios.cs" />
     <Compile Include="Dao\uDaoPaises.cs" />
     <Compile Include="Dao\uDaoParcelas.cs" />
+    <Compile Include="Dao\uDaoProdutos.cs" />
     <Compile Include="Dao\uDaoServicos.cs" />
     <Compile Include="Formularios\FrmCadastroCargos.cs">
       <SubType>Form</SubType>
@@ -139,6 +142,12 @@
     </Compile>
     <Compile Include="Formularios\FrmCadastroCliente.Designer.cs">
       <DependentUpon>FrmCadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroCompra.Designer.cs">
+      <DependentUpon>FrmCadastroCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmCadastroCondicaoPagamento.cs">
       <SubType>Form</SubType>
@@ -181,6 +190,12 @@
     </Compile>
     <Compile Include="Formularios\FrmCadastroPessoa.Designer.cs">
       <DependentUpon>FrmCadastroPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroProdutos.Designer.cs">
+      <DependentUpon>FrmCadastroProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmCadastroServico.cs">
       <SubType>Form</SubType>
@@ -248,6 +263,12 @@
     <Compile Include="Formularios\FrmConsulta.Designer.cs">
       <DependentUpon>FrmConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmConsultaProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaProdutos.Designer.cs">
+      <DependentUpon>FrmConsultaProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmConsultaServicos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +307,9 @@
     <EmbeddedResource Include="Formularios\FrmCadastroCliente.resx">
       <DependentUpon>FrmCadastroCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCadastroCompra.resx">
+      <DependentUpon>FrmCadastroCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroCondicaoPagamento.resx">
       <DependentUpon>FrmCadastroCondicaoPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroPessoa.resx">
       <DependentUpon>FrmCadastroPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCadastroProdutos.resx">
+      <DependentUpon>FrmCadastroProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroServico.resx">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
@@ -339,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaPaises.resx">
       <DependentUpon>FrmConsultaPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaProdutos.resx">
+      <DependentUpon>FrmConsultaProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaServicos.resx">
       <DependentUpon>FrmConsultaServicos.cs</DependentUpon>

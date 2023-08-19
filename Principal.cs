@@ -87,5 +87,11 @@ namespace Sistema__Renovo_Barber
             FrmConsultaCondicaoPagamento frmConsultaCondicaoPagamento = new FrmConsultaCondicaoPagamento();
             frmConsultaCondicaoPagamento.ShowDialog();
         }
+
+        private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaProdutos frmConsultaProdutos = new FrmConsultaProdutos();
+            frmConsultaProdutos.ShowDialog();
+        }
     }
 }

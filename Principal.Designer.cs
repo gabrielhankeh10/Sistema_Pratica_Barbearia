@@ -40,9 +40,10 @@ namespace Sistema__Renovo_Barber
             this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.condiçãoDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.condiçãoDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +72,7 @@ namespace Sistema__Renovo_Barber
             this.cargosToolStripMenuItem,
             this.funcionarioToolStripMenuItem,
             this.serviçosToolStripMenuItem,
+            this.produtosToolStripMenuItem,
             this.formaDePagamentoToolStripMenuItem,
             this.condiçãoDePagamentoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -141,6 +143,13 @@ namespace Sistema__Renovo_Barber
             this.formaDePagamentoToolStripMenuItem.Text = "Forma de Pagamento";
             this.formaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.formaDePagamentoToolStripMenuItem_Click);
             // 
+            // condiçãoDePagamentoToolStripMenuItem
+            // 
+            this.condiçãoDePagamentoToolStripMenuItem.Name = "condiçãoDePagamentoToolStripMenuItem";
+            this.condiçãoDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.condiçãoDePagamentoToolStripMenuItem.Text = "Condição de Pagamento";
+            this.condiçãoDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.condiçãoDePagamentoToolStripMenuItem_Click);
+            // 
             // agendaToolStripMenuItem
             // 
             this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
@@ -154,12 +163,12 @@ namespace Sistema__Renovo_Barber
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // condiçãoDePagamentoToolStripMenuItem
+            // produtosToolStripMenuItem
             // 
-            this.condiçãoDePagamentoToolStripMenuItem.Name = "condiçãoDePagamentoToolStripMenuItem";
-            this.condiçãoDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
-            this.condiçãoDePagamentoToolStripMenuItem.Text = "Condição de Pagamento";
-            this.condiçãoDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.condiçãoDePagamentoToolStripMenuItem_Click);
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.produtosToolStripMenuItem.Text = "Produtos";
+            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -194,6 +203,7 @@ namespace Sistema__Renovo_Barber
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formaDePagamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem condiçãoDePagamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
     }
 }
 
