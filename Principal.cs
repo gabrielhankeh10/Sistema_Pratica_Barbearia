@@ -93,5 +93,11 @@ namespace Sistema__Renovo_Barber
             FrmConsultaProdutos frmConsultaProdutos = new FrmConsultaProdutos();
             frmConsultaProdutos.ShowDialog();
         }
+
+        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCompra frmConsultaCompra = new FrmConsultaCompra();
+            frmConsultaCompra.ShowDialog();
+        }
     }
 }

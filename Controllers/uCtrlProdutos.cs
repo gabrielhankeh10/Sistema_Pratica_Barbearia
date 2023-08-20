@@ -24,5 +24,20 @@ namespace Sistema__Renovo_Barber.Controllers
             Produtos = produtos;
             DaoProdutos.Salvar(Produtos);
         }
+        public void Alterar(uProdutos produtos)
+        {
+            Produtos = produtos;
+            DaoProdutos.Alterar(Produtos);
+        }
+        public uProdutos Carregar(int Id)
+        {
+            uProdutos Produtos = DaoProdutos.Selecionar(Id);
+            return Produtos;
+        }
+        public void Excluir(uProdutos produtos)
+        {
+            Produtos = produtos;
+            DaoProdutos.Excluir(Produtos);
+        }
     }
 }

@@ -95,6 +95,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaFornecedor.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaFornecedor.TabIndex = 10;
             this.DgConsultaFornecedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaClientes_CellContentClick);
+            this.DgConsultaFornecedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaFornecedor_CellDoubleClick);
+            this.DgConsultaFornecedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaFornecedor_KeyPress);
             // 
             // id_fornecedor
             // 

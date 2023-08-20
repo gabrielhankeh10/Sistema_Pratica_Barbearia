@@ -88,11 +88,13 @@
   <ItemGroup>
     <Compile Include="Classes\uCargos.cs" />
     <Compile Include="Classes\uCidade.cs" />
+    <Compile Include="Classes\uCompras.cs" />
     <Compile Include="Classes\uCondicaoPagamento.cs" />
     <Compile Include="Classes\uEstado.cs" />
     <Compile Include="Classes\uFormaPagamento.cs" />
     <Compile Include="Classes\uFornecedor.cs" />
     <Compile Include="Classes\uFuncionario.cs" />
+    <Compile Include="Classes\uItensCompra.cs" />
     <Compile Include="Classes\uPai.cs" />
     <Compile Include="Classes\uPais.cs" />
     <Compile Include="Classes\uParcelas.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Controllers\uCtrlCargos.cs" />
     <Compile Include="Controllers\uCtrlCidades.cs" />
     <Compile Include="Controllers\uCtrlCliente.cs" />
+    <Compile Include="Controllers\uCtrlCompras.cs" />
     <Compile Include="Controllers\uCtrlCondicaoPagamento.cs" />
     <Compile Include="Controllers\uCtrlEstados.cs" />
     <Compile Include="Controllers\uCtrlFormaPagamento.cs" />
@@ -116,11 +119,13 @@
     <Compile Include="Dao\uDaoCargos.cs" />
     <Compile Include="Dao\uDaoCidades.cs" />
     <Compile Include="Dao\uDaoCliente.cs" />
+    <Compile Include="Dao\uDaoCompras.cs" />
     <Compile Include="Dao\uDaoCondicaoPagamento.cs" />
     <Compile Include="Dao\uDaoEstados.cs" />
     <Compile Include="Dao\uDaoFormaPagamento.cs" />
     <Compile Include="Dao\uDaoFornecedor.cs" />
     <Compile Include="Dao\uDaoFuncionarios.cs" />
+    <Compile Include="Dao\uDaoItensCompra.cs" />
     <Compile Include="Dao\uDaoPaises.cs" />
     <Compile Include="Dao\uDaoParcelas.cs" />
     <Compile Include="Dao\uDaoProdutos.cs" />
@@ -220,6 +225,12 @@
     </Compile>
     <Compile Include="Formularios\FrmConsultaCliente.Designer.cs">
       <DependentUpon>FrmConsultaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaCompra.Designer.cs">
+      <DependentUpon>FrmConsultaCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmConsultaCondicaoPagamento.cs">
       <SubType>Form</SubType>
@@ -348,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaCliente.resx">
       <DependentUpon>FrmConsultaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaCompra.resx">
+      <DependentUpon>FrmConsultaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaCondicaoPagamento.resx">
       <DependentUpon>FrmConsultaCondicaoPagamento.cs</DependentUpon>

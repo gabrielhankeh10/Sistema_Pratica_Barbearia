@@ -64,6 +64,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaProdutos.Size = new System.Drawing.Size(784, 437);
             this.DgConsultaProdutos.TabIndex = 9;
+            this.DgConsultaProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaProdutos_CellDoubleClick);
+            this.DgConsultaProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaProdutos_KeyPress);
             // 
             // id_produto
             // 

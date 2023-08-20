@@ -59,7 +59,10 @@ namespace Sistema__Renovo_Barber.Formularios
                 }
             }
         }
-        
+        public uCondicaoPagamento PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaCondicaoPagamento.SelectedRows[0].Cells["id_condicao"].Value));
+        }
         public override void ExcluirFormCadastro()
         {
             try
@@ -84,6 +87,18 @@ namespace Sistema__Renovo_Barber.Formularios
             FrmCadastroCondicaoPagamento frmCadastroCondicaoPagamento = new FrmCadastroCondicaoPagamento();
             frmCadastroCondicaoPagamento.ShowDialog();
             Listar();
+        }
+
+        private void DgConsultaCondicaoPagamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaCondicaoPagamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

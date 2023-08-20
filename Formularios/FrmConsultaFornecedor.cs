@@ -124,6 +124,11 @@ namespace Sistema__Renovo_Barber.Formularios
             frmCadastroFornecedor.ShowDialog();
             Listar();
         }
+
+        public uFornecedor PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaFornecedor.SelectedRows[0].Cells["id_fornecedor"].Value));
+        }
         private void btnIncluir_Click(object sender, EventArgs e)
         {
 
@@ -132,6 +137,18 @@ namespace Sistema__Renovo_Barber.Formularios
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             PesquisarFornecedor();
+        }
+
+        private void DgConsultaFornecedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Sistema__Renovo_Barber.Controllers;
+﻿using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,11 +40,66 @@ namespace Sistema__Renovo_Barber.Formularios
                 }
             }
         }
+        public override void ExcluirFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uProdutos Produtos = new uProdutos();
+                vLinha = DgConsultaProdutos.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Produtos = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_produto"].Value));
+                    FrmCadastroProdutos frmCadastroProdutos = new FrmCadastroProdutos();
+                    frmCadastroProdutos.Excluir_Botao();
+                    frmCadastroProdutos.Popular(Produtos);
+                    frmCadastroProdutos.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+        public override void AlterarFormCadastro()
+        {
+            try
+            {
+                DataGridViewRow vLinha;
+                uProdutos Produtos = new uProdutos();
+                vLinha = DgConsultaProdutos.SelectedRows[0];
+                if (vLinha != null)
+                {
+                    Produtos = Controller.Carregar(Convert.ToInt32(vLinha.Cells["id_produto"].Value));
+                    FrmCadastroProdutos frmCadastroProdutos = new FrmCadastroProdutos();
+                    frmCadastroProdutos.Alterar_Botao();
+                    frmCadastroProdutos.Popular(Produtos);
+                    frmCadastroProdutos.ShowDialog();
+                    Listar();
+                }
+            }
+            catch { }
+        }
+        public uProdutos PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaProdutos.SelectedRows[0].Cells["id_produto"].Value));
+        }
+
         public override void IncluirFormCadastro()
         {
             FrmCadastroProdutos frmCadastroProdutos = new FrmCadastroProdutos();
             frmCadastroProdutos.ShowDialog();
             Listar();
+        }
+
+        private void DgConsultaProdutos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

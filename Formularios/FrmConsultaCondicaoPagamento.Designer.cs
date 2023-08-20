@@ -64,6 +64,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaCondicaoPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaCondicaoPagamento.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaCondicaoPagamento.TabIndex = 11;
+            this.DgConsultaCondicaoPagamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaCondicaoPagamento_CellDoubleClick);
+            this.DgConsultaCondicaoPagamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaCondicaoPagamento_KeyPress);
             // 
             // id_condicao
             // 

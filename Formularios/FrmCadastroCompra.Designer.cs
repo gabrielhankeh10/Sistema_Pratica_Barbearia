@@ -38,11 +38,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbFornecedor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPesquisarFornecedor = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDescricaoCondicao = new System.Windows.Forms.TextBox();
+            this.tbCodigoFornecedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbCodigoCondicao = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_criacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_ult_alteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.tbDataCad = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCodigoProduto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -140,6 +140,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbFornecedor
             // 
+            this.tbFornecedor.Enabled = false;
             this.tbFornecedor.Location = new System.Drawing.Point(503, 56);
             this.tbFornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFornecedor.Name = "tbFornecedor";
@@ -164,22 +165,25 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarFornecedor.TabIndex = 25;
             this.btnPesquisarFornecedor.Text = "Pesquisar";
             this.btnPesquisarFornecedor.UseVisualStyleBackColor = true;
+            this.btnPesquisarFornecedor.Click += new System.EventHandler(this.btnPesquisarFornecedor_Click);
             // 
-            // textBox4
+            // tbDescricaoCondicao
             // 
-            this.textBox4.Location = new System.Drawing.Point(503, 118);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(209, 22);
-            this.textBox4.TabIndex = 26;
+            this.tbDescricaoCondicao.Enabled = false;
+            this.tbDescricaoCondicao.Location = new System.Drawing.Point(503, 118);
+            this.tbDescricaoCondicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDescricaoCondicao.Name = "tbDescricaoCondicao";
+            this.tbDescricaoCondicao.Size = new System.Drawing.Size(209, 22);
+            this.tbDescricaoCondicao.TabIndex = 26;
             // 
-            // textBox1
+            // tbCodigoFornecedor
             // 
-            this.textBox1.Location = new System.Drawing.Point(401, 57);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(69, 22);
-            this.textBox1.TabIndex = 27;
+            this.tbCodigoFornecedor.Enabled = false;
+            this.tbCodigoFornecedor.Location = new System.Drawing.Point(401, 57);
+            this.tbCodigoFornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCodigoFornecedor.Name = "tbCodigoFornecedor";
+            this.tbCodigoFornecedor.Size = new System.Drawing.Size(69, 22);
+            this.tbCodigoFornecedor.TabIndex = 27;
             // 
             // label4
             // 
@@ -199,13 +203,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label5.TabIndex = 29;
             this.label5.Text = "Codigo";
             // 
-            // textBox2
+            // tbCodigoCondicao
             // 
-            this.textBox2.Location = new System.Drawing.Point(401, 117);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(69, 22);
-            this.textBox2.TabIndex = 30;
+            this.tbCodigoCondicao.Enabled = false;
+            this.tbCodigoCondicao.Location = new System.Drawing.Point(401, 117);
+            this.tbCodigoCondicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCodigoCondicao.Name = "tbCodigoCondicao";
+            this.tbCodigoCondicao.Size = new System.Drawing.Size(69, 22);
+            this.tbCodigoCondicao.TabIndex = 30;
             // 
             // label6
             // 
@@ -225,6 +230,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.button1.TabIndex = 32;
             this.button1.Text = "Pesquisar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
@@ -238,7 +244,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbDataChegada
             // 
             this.tbDataChegada.Location = new System.Drawing.Point(46, 118);
-            this.tbDataChegada.Mask = "__/__/____";
+            this.tbDataChegada.Mask = "00/00/0000";
             this.tbDataChegada.Name = "tbDataChegada";
             this.tbDataChegada.Size = new System.Drawing.Size(89, 22);
             this.tbDataChegada.TabIndex = 35;
@@ -255,7 +261,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbDataEmissao
             // 
             this.tbDataEmissao.Location = new System.Drawing.Point(161, 116);
-            this.tbDataEmissao.Mask = "__/__/____";
+            this.tbDataEmissao.Mask = "00/00/0000";
             this.tbDataEmissao.Name = "tbDataEmissao";
             this.tbDataEmissao.Size = new System.Drawing.Size(89, 22);
             this.tbDataEmissao.TabIndex = 37;
@@ -269,6 +275,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.TabIndex = 38;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // DgConsultaServicos
             // 
@@ -283,7 +290,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.valor,
             this.data_criacao,
             this.data_ult_alteracao});
-            this.DgConsultaServicos.Location = new System.Drawing.Point(46, 280);
+            this.DgConsultaServicos.Location = new System.Drawing.Point(46, 282);
             this.DgConsultaServicos.MultiSelect = false;
             this.DgConsultaServicos.Name = "DgConsultaServicos";
             this.DgConsultaServicos.ReadOnly = true;
@@ -349,13 +356,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_ult_alteracao.ReadOnly = true;
             this.data_ult_alteracao.Width = 125;
             // 
-            // maskedTextBox1
+            // tbDataCad
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(46, 604);
-            this.maskedTextBox1.Mask = "__/__/____";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(89, 22);
-            this.maskedTextBox1.TabIndex = 40;
+            this.tbDataCad.Enabled = false;
+            this.tbDataCad.Location = new System.Drawing.Point(46, 604);
+            this.tbDataCad.Mask = "00/00/0000";
+            this.tbDataCad.Name = "tbDataCad";
+            this.tbDataCad.Size = new System.Drawing.Size(89, 22);
+            this.tbDataCad.TabIndex = 40;
             // 
             // label9
             // 
@@ -368,6 +376,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCodigoProduto
             // 
+            this.tbCodigoProduto.Enabled = false;
             this.tbCodigoProduto.Location = new System.Drawing.Point(46, 241);
             this.tbCodigoProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodigoProduto.Name = "tbCodigoProduto";
@@ -385,6 +394,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbDescProduto
             // 
+            this.tbDescProduto.Enabled = false;
             this.tbDescProduto.Location = new System.Drawing.Point(161, 241);
             this.tbDescProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescProduto.Name = "tbDescProduto";
@@ -409,6 +419,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btPesquisarProduto.TabIndex = 46;
             this.btPesquisarProduto.Text = "Pesquisar";
             this.btPesquisarProduto.UseVisualStyleBackColor = true;
+            this.btPesquisarProduto.Click += new System.EventHandler(this.btPesquisarProduto_Click);
             // 
             // tbCustoFrete
             // 
@@ -464,7 +475,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbDataCancelamento
             // 
             this.tbDataCancelamento.Location = new System.Drawing.Point(284, 116);
-            this.tbDataCancelamento.Mask = "__/__/____";
+            this.tbDataCancelamento.Mask = "00/00/0000";
             this.tbDataCancelamento.Name = "tbDataCancelamento";
             this.tbDataCancelamento.Size = new System.Drawing.Size(85, 22);
             this.tbDataCancelamento.TabIndex = 55;
@@ -564,7 +575,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbCodigoProduto);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.tbDataCad);
             this.Controls.Add(this.DgConsultaServicos);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.tbDataEmissao);
@@ -573,11 +584,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbCodigoCondicao);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbCodigoFornecedor);
+            this.Controls.Add(this.tbDescricaoCondicao);
             this.Controls.Add(this.btnPesquisarFornecedor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbFornecedor);
@@ -599,11 +610,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbFornecedor, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.btnPesquisarFornecedor, 0);
-            this.Controls.SetChildIndex(this.textBox4, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.tbDescricaoCondicao, 0);
+            this.Controls.SetChildIndex(this.tbCodigoFornecedor, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.tbCodigoCondicao, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -612,7 +623,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbDataEmissao, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
             this.Controls.SetChildIndex(this.DgConsultaServicos, 0);
-            this.Controls.SetChildIndex(this.maskedTextBox1, 0);
+            this.Controls.SetChildIndex(this.tbDataCad, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.tbCodigoProduto, 0);
             this.Controls.SetChildIndex(this.label10, 0);
@@ -651,11 +662,11 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.TextBox tbFornecedor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnPesquisarFornecedor;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDescricaoCondicao;
+        private System.Windows.Forms.TextBox tbCodigoFornecedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbCodigoCondicao;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
@@ -671,7 +682,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn data_criacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn data_ult_alteracao;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox tbDataCad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbCodigoProduto;
         private System.Windows.Forms.Label label10;
