@@ -29,6 +29,10 @@ namespace Sistema__Renovo_Barber.Controllers
             Produtos = produtos;
             DaoProdutos.Alterar(Produtos);
         }
+        public void AtualizarEstoque(int Id, decimal Custo, int Qtd)
+        {
+            DaoProdutos.AtualizarEstoque(Id, Custo, Qtd);
+        }
         public uProdutos Carregar(int Id)
         {
             uProdutos Produtos = DaoProdutos.Selecionar(Id);

@@ -64,6 +64,28 @@ namespace Sistema__Renovo_Barber.Dao
             }
         }
 
+        public void AtualizarEstoque(int Id, decimal Custo, int Qtd)
+        {
+            try
+            {
+                string Sql = @"update tb_produtos set preco_custo = @preco_custo, qtd_estoque = @qtd_estoque, 
+                                data_ult_alteracao = @data_ult_alteracao where id_produto = @id_produto";
+                
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@id_produto", Id);
+                ExecutaCmd.Parameters.AddWithValue("@preco_custo", Custo);
+                ExecutaCmd.Parameters.AddWithValue("@qtd_estoque", Qtd);
+                ExecutaCmd.Parameters.AddWithValue("@data_ult_alteracao", DateTime.Now);
+                ConexaoBanco.Open();
+                ExecutaCmd.ExecuteNonQuery();
+                MessageBox.Show("Estoque atualizado com sucesso!");
+                ConexaoBanco.Close();
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+        }
         public void Excluir(uProdutos Obj)
         {
             try

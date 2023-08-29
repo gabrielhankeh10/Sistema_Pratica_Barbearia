@@ -20,6 +20,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private uCtrlCompras ControllerCompras = new uCtrlCompras();
         private uCtrlProdutos ControllerProdutos = new uCtrlProdutos();
         private uCtrlComprasItens ControllerComprasItens = new uCtrlComprasItens();
+   
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -72,11 +73,11 @@ namespace Sistema__Renovo_Barber.Formularios
             int Total = 0;
             foreach (DataGridViewRow vLinha in DgItensCompra.Rows)
             {
-                Total += Convert.ToInt32(vLinha.Cells["qtd_estoque"].Value);
+                Total += Convert.ToInt32(vLinha.Cells["qtd_entrada"].Value);
             }
             foreach (DataGridViewRow vLinha in DgItensCompra.Rows)
             {
-                vLinha.Cells["percentual_compra"].Value = Math.Round(((Convert.ToDecimal(vLinha.Cells["qtd_estoque"].Value) / Total) * 100), 8);
+                vLinha.Cells["percentual_compra"].Value = Math.Round(((Convert.ToDecimal(vLinha.Cells["qtd_entrada"].Value) / Total) * 100), 8);
             }
         }
 
@@ -155,6 +156,17 @@ namespace Sistema__Renovo_Barber.Formularios
             PercentualItem();
             NovoPrecoItens();
         }
+
+        private decimal CustoTotal()
+        {
+            decimal Total = 0;
+            foreach(DataGridViewRow vLinha in DgItensCompra.Rows)
+            {
+                Total += Convert.ToDecimal(vLinha.Cells["qtd_entrada"].Value) * Convert.ToDecimal(vLinha.Cells["custo_sugerido"].Value);
+            }
+            return Total;
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uCompras Obj = new uCompras();
@@ -165,6 +177,7 @@ namespace Sistema__Renovo_Barber.Formularios
             Obj.Num_nfc = int.Parse(tbNumNota.Text);
             Obj.Modelo_nfc = int.Parse(tbModeloNota.Text);
             Obj.Serie_nfc = int.Parse(tbSerieNota.Text);
+            Obj.Valor_total = CustoTotal();
             Obj.Valor_frete = decimal.Parse(tbCustoFrete.Text);
             Obj.Valor_seguro = decimal.Parse(tbCustoSeguro.Text);
             Obj.Valor_outras_despesas = decimal.Parse(tbOutrosCustos.Text);
@@ -175,6 +188,7 @@ namespace Sistema__Renovo_Barber.Formularios
             ControllerCompras.Salvar(Obj);
             foreach (uItensCompra ItensCompra in Obj.ItensCompra)
             {
+                ControllerProdutos.AtualizarEstoque(ItensCompra.Produtos.id, ItensCompra.Media_ponderada, ItensCompra.Qtd + ItensCompra.Produtos.Qtd_estoque);
                 ControllerComprasItens.SalvarItens(ItensCompra);
             }
             this.Close();

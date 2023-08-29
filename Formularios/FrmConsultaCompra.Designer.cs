@@ -30,10 +30,6 @@ namespace Sistema__Renovo_Barber.Formularios
         private void InitializeComponent()
         {
             this.DgConsultaClientes = new System.Windows.Forms.DataGridView();
-            this.tbPesquisarCompra = new System.Windows.Forms.TextBox();
-            this.btnPesquisarCompra = new System.Windows.Forms.Button();
-            this.btnIncluir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.num_nfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelo_nfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serie_nfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +42,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_chegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_emissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_criacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbPesquisarCompra = new System.Windows.Forms.TextBox();
+            this.btnPesquisarCompra = new System.Windows.Forms.Button();
+            this.btnIncluir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +71,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_chegada,
             this.data_emissao,
             this.data_criacao});
-            this.DgConsultaClientes.Location = new System.Drawing.Point(51, 78);
+            this.DgConsultaClientes.Location = new System.Drawing.Point(51, 79);
             this.DgConsultaClientes.MultiSelect = false;
             this.DgConsultaClientes.Name = "DgConsultaClientes";
             this.DgConsultaClientes.ReadOnly = true;
@@ -80,43 +80,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaClientes.Size = new System.Drawing.Size(785, 419);
             this.DgConsultaClientes.TabIndex = 10;
-            // 
-            // tbPesquisarCompra
-            // 
-            this.tbPesquisarCompra.Location = new System.Drawing.Point(51, 34);
-            this.tbPesquisarCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPesquisarCompra.Name = "tbPesquisarCompra";
-            this.tbPesquisarCompra.Size = new System.Drawing.Size(255, 22);
-            this.tbPesquisarCompra.TabIndex = 14;
-            // 
-            // btnPesquisarCompra
-            // 
-            this.btnPesquisarCompra.Location = new System.Drawing.Point(339, 33);
-            this.btnPesquisarCompra.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPesquisarCompra.Name = "btnPesquisarCompra";
-            this.btnPesquisarCompra.Size = new System.Drawing.Size(91, 23);
-            this.btnPesquisarCompra.TabIndex = 25;
-            this.btnPesquisarCompra.Text = "Pesquisar";
-            this.btnPesquisarCompra.UseVisualStyleBackColor = true;
-            // 
-            // btnIncluir
-            // 
-            this.btnIncluir.Location = new System.Drawing.Point(560, 518);
-            this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(84, 23);
-            this.btnIncluir.TabIndex = 26;
-            this.btnIncluir.Text = "Incluir";
-            this.btnIncluir.UseVisualStyleBackColor = true;
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(661, 518);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(84, 23);
-            this.btnCancelar.TabIndex = 27;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // num_nfc
             // 
@@ -214,10 +177,47 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao.ReadOnly = true;
             this.data_criacao.Width = 125;
             // 
+            // tbPesquisarCompra
+            // 
+            this.tbPesquisarCompra.Location = new System.Drawing.Point(51, 34);
+            this.tbPesquisarCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPesquisarCompra.Name = "tbPesquisarCompra";
+            this.tbPesquisarCompra.Size = new System.Drawing.Size(255, 22);
+            this.tbPesquisarCompra.TabIndex = 14;
+            // 
+            // btnPesquisarCompra
+            // 
+            this.btnPesquisarCompra.Location = new System.Drawing.Point(339, 33);
+            this.btnPesquisarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisarCompra.Name = "btnPesquisarCompra";
+            this.btnPesquisarCompra.Size = new System.Drawing.Size(91, 23);
+            this.btnPesquisarCompra.TabIndex = 25;
+            this.btnPesquisarCompra.Text = "Pesquisar";
+            this.btnPesquisarCompra.UseVisualStyleBackColor = true;
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.Location = new System.Drawing.Point(560, 518);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(84, 23);
+            this.btnIncluir.TabIndex = 26;
+            this.btnIncluir.Text = "Incluir";
+            this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(661, 518);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(84, 23);
+            this.btnCancelar.TabIndex = 27;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // FrmConsultaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(891, 581);
+            this.ClientSize = new System.Drawing.Size(888, 593);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIncluir);
             this.Controls.Add(this.btnPesquisarCompra);

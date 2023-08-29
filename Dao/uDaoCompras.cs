@@ -51,7 +51,12 @@ namespace Sistema__Renovo_Barber.Dao
         }
         public DataTable PopularGrid()
         {
-            string Sql = "select * from tb_compras";
+            string Sql = @"select tb.num_nfc, tb.modelo_nfc, tb.serie_nfc, forn.razao_social as fornecedor, 
+                            pag.condicao, tb.valor_total, tb.valor_frete, tb.valor_seguro, tb.valor_outras_despesas,
+                            tb.data_chegada, tb.data_emissao, tb.data_criacao from tb_compras tb
+                            left join tb_fornecedores forn on forn.id_fornecedor = tb.id_fornecedor
+                            left join tb_condicao_pagamento pag on pag.id_condicao = tb.id_condicao";
+
             MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
             ExecutaCmd.CommandType = CommandType.Text;
 

@@ -223,7 +223,7 @@ CREATE TABLE tb_itens_compras(
   FOREIGN KEY (id_fornecedor) REFERENCES tb_fornecedores(id_fornecedor)
 )
 
-CREATE TABLE tb_contas_receber(
+CREATE TABLE tb_contas_pagar(
   num_nfc int not null,
   modelo_nfc int not null,
   serie_nfc int not null,
@@ -234,7 +234,6 @@ CREATE TABLE tb_contas_receber(
   situacao varchar(10) not null,
   data_baixa datetime not null,
   data_vencimento datetime not null,
-  data_emissao datetime not null,
   data_criacao datetime not null,
   data_ult_alteracao datetime not null,
   PRIMARY KEY (num_nfc, modelo_nfc, serie_nfc, id_fornecedor, num_parcela),
