@@ -12,10 +12,12 @@ namespace Sistema__Renovo_Barber.Classes
         {
             uFornecedor Fornecedor = new uFornecedor();
             uCondicaoPagamento CondicaoPagamento = new uCondicaoPagamento();
+            List<uItensCompra> ItensCompra = new List<uItensCompra>();
         }
         public uPai Pai { get; set; }
         public uFornecedor Fornecedor { get; set; }
         public uCondicaoPagamento CondicaoPagamento { get; set; }
+        public List<uItensCompra> ItensCompra { get; set; }
         public int Num_nfc { get; set; }
         public int Modelo_nfc { get; set; }
         public int Serie_nfc { get; set; }

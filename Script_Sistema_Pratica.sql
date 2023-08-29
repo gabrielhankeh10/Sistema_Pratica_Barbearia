@@ -211,13 +211,35 @@ CREATE TABLE tb_itens_compras(
   serie_nfc int not null,
   id_fornecedor int not null,
   id_produto int not null,
+  qtd_produto int not null,
   preco_custo decimal (10,2) not null,
   total_custo decimal (10,2) not null,
   percentual_compra decimal (10,2) not null,
-  media_ponderara decimal (10,2) not null,
+  media_ponderada decimal (10,2) not null,
   data_criacao datetime,
   PRIMARY KEY (num_nfc, modelo_nfc, serie_nfc, id_fornecedor, id_produto),
-  FOREIGN KEY (num_nfc, modelo_nfc, serie_nfc, id_fornecedor) REFERENCES tb_compras (num_nfc, modelo_nfc, serie_nfc, id_fornecedor),
-  FOREIGN KEY (id_produto) REFERENCES tb_produtos (id_produto)
+  FOREIGN KEY (num_nfc, modelo_nfc, serie_nfc) REFERENCES tb_compras (num_nfc, modelo_nfc, serie_nfc),
+  FOREIGN KEY (id_produto) REFERENCES tb_produtos (id_produto),
+  FOREIGN KEY (id_fornecedor) REFERENCES tb_fornecedores(id_fornecedor)
+)
+
+CREATE TABLE tb_contas_receber(
+  num_nfc int not null,
+  modelo_nfc int not null,
+  serie_nfc int not null,
+  num_parcela int not null,
+  id_fornecedor int not null,
+  id_condicao int not null,
+  valor decimal(10,2) not null,
+  situacao varchar(10) not null,
+  data_baixa datetime not null,
+  data_vencimento datetime not null,
+  data_emissao datetime not null,
+  data_criacao datetime not null,
+  data_ult_alteracao datetime not null,
+  PRIMARY KEY (num_nfc, modelo_nfc, serie_nfc, id_fornecedor, num_parcela),
+  FOREIGN KEY (num_nfc, modelo_nfc, serie_nfc) REFERENCES tb_compras (num_nfc, modelo_nfc, serie_nfc),
+  FOREIGN KEY (id_fornecedor) REFERENCES tb_fornecedores(id_fornecedor),
+  FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento (id_condicao)
 )
 

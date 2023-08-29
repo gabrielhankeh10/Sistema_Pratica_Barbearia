@@ -106,6 +106,7 @@
     <Compile Include="Controllers\uCtrlCidades.cs" />
     <Compile Include="Controllers\uCtrlCliente.cs" />
     <Compile Include="Controllers\uCtrlCompras.cs" />
+    <Compile Include="Controllers\uCtrlComprasItens.cs" />
     <Compile Include="Controllers\uCtrlCondicaoPagamento.cs" />
     <Compile Include="Controllers\uCtrlEstados.cs" />
     <Compile Include="Controllers\uCtrlFormaPagamento.cs" />

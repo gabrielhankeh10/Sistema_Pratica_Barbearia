@@ -50,14 +50,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label8 = new System.Windows.Forms.Label();
             this.tbDataEmissao = new System.Windows.Forms.MaskedTextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.DgConsultaServicos = new System.Windows.Forms.DataGridView();
-            this.id_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_criacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_ult_alteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgItensCompra = new System.Windows.Forms.DataGridView();
             this.tbDataCad = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCodigoProduto = new System.Windows.Forms.TextBox();
@@ -80,7 +73,16 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaServicos)).BeginInit();
+            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd_estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custo_atual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custo_sugerido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentual_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.media_ponderada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -277,84 +279,30 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // DgConsultaServicos
+            // DgItensCompra
             // 
-            this.DgConsultaServicos.AllowUserToAddRows = false;
-            this.DgConsultaServicos.AllowUserToDeleteRows = false;
-            this.DgConsultaServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgConsultaServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_servico,
-            this.descricao,
-            this.status_servico,
-            this.duracao,
-            this.valor,
-            this.data_criacao,
-            this.data_ult_alteracao});
-            this.DgConsultaServicos.Location = new System.Drawing.Point(46, 282);
-            this.DgConsultaServicos.MultiSelect = false;
-            this.DgConsultaServicos.Name = "DgConsultaServicos";
-            this.DgConsultaServicos.ReadOnly = true;
-            this.DgConsultaServicos.RowHeadersWidth = 51;
-            this.DgConsultaServicos.RowTemplate.Height = 24;
-            this.DgConsultaServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgConsultaServicos.Size = new System.Drawing.Size(789, 287);
-            this.DgConsultaServicos.TabIndex = 39;
-            // 
-            // id_servico
-            // 
-            this.id_servico.HeaderText = "ID Servico";
-            this.id_servico.MinimumWidth = 6;
-            this.id_servico.Name = "id_servico";
-            this.id_servico.ReadOnly = true;
-            this.id_servico.Width = 125;
-            // 
-            // descricao
-            // 
-            this.descricao.HeaderText = "Serviço";
-            this.descricao.MinimumWidth = 6;
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            this.descricao.Width = 125;
-            // 
-            // status_servico
-            // 
-            this.status_servico.HeaderText = "Status";
-            this.status_servico.MinimumWidth = 6;
-            this.status_servico.Name = "status_servico";
-            this.status_servico.ReadOnly = true;
-            this.status_servico.Width = 125;
-            // 
-            // duracao
-            // 
-            this.duracao.HeaderText = "Duração";
-            this.duracao.MinimumWidth = 6;
-            this.duracao.Name = "duracao";
-            this.duracao.ReadOnly = true;
-            this.duracao.Width = 125;
-            // 
-            // valor
-            // 
-            this.valor.HeaderText = "Valor";
-            this.valor.MinimumWidth = 6;
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 125;
-            // 
-            // data_criacao
-            // 
-            this.data_criacao.HeaderText = "Data de Criação";
-            this.data_criacao.MinimumWidth = 6;
-            this.data_criacao.Name = "data_criacao";
-            this.data_criacao.ReadOnly = true;
-            this.data_criacao.Width = 125;
-            // 
-            // data_ult_alteracao
-            // 
-            this.data_ult_alteracao.HeaderText = "Ultima Alteração";
-            this.data_ult_alteracao.MinimumWidth = 6;
-            this.data_ult_alteracao.Name = "data_ult_alteracao";
-            this.data_ult_alteracao.ReadOnly = true;
-            this.data_ult_alteracao.Width = 125;
+            this.DgItensCompra.AllowUserToAddRows = false;
+            this.DgItensCompra.AllowUserToDeleteRows = false;
+            this.DgItensCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgItensCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_produto,
+            this.produto,
+            this.qtd_estoque,
+            this.qtd_entrada,
+            this.custo_atual,
+            this.custo_sugerido,
+            this.desconto,
+            this.percentual_compra,
+            this.media_ponderada});
+            this.DgItensCompra.Location = new System.Drawing.Point(46, 282);
+            this.DgItensCompra.MultiSelect = false;
+            this.DgItensCompra.Name = "DgItensCompra";
+            this.DgItensCompra.ReadOnly = true;
+            this.DgItensCompra.RowHeadersWidth = 51;
+            this.DgItensCompra.RowTemplate.Height = 24;
+            this.DgItensCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgItensCompra.Size = new System.Drawing.Size(789, 287);
+            this.DgItensCompra.TabIndex = 39;
             // 
             // tbDataCad
             // 
@@ -522,6 +470,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.button2.TabIndex = 60;
             this.button2.Text = "Adicionar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label16
             // 
@@ -550,6 +499,78 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label18.TabIndex = 63;
             this.label18.Text = "Desconto";
             // 
+            // id_produto
+            // 
+            this.id_produto.HeaderText = "ID Produto";
+            this.id_produto.MinimumWidth = 6;
+            this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            this.id_produto.Width = 125;
+            // 
+            // produto
+            // 
+            this.produto.HeaderText = "Produto";
+            this.produto.MinimumWidth = 6;
+            this.produto.Name = "produto";
+            this.produto.ReadOnly = true;
+            this.produto.Width = 125;
+            // 
+            // qtd_estoque
+            // 
+            this.qtd_estoque.HeaderText = "Qtd Estoque";
+            this.qtd_estoque.MinimumWidth = 6;
+            this.qtd_estoque.Name = "qtd_estoque";
+            this.qtd_estoque.ReadOnly = true;
+            this.qtd_estoque.Width = 125;
+            // 
+            // qtd_entrada
+            // 
+            this.qtd_entrada.HeaderText = "Qtd Entrada";
+            this.qtd_entrada.MinimumWidth = 6;
+            this.qtd_entrada.Name = "qtd_entrada";
+            this.qtd_entrada.ReadOnly = true;
+            this.qtd_entrada.Width = 125;
+            // 
+            // custo_atual
+            // 
+            this.custo_atual.HeaderText = "Custo Atual";
+            this.custo_atual.MinimumWidth = 6;
+            this.custo_atual.Name = "custo_atual";
+            this.custo_atual.ReadOnly = true;
+            this.custo_atual.Width = 125;
+            // 
+            // custo_sugerido
+            // 
+            this.custo_sugerido.HeaderText = "Custo Sugerido";
+            this.custo_sugerido.MinimumWidth = 6;
+            this.custo_sugerido.Name = "custo_sugerido";
+            this.custo_sugerido.ReadOnly = true;
+            this.custo_sugerido.Width = 125;
+            // 
+            // desconto
+            // 
+            this.desconto.HeaderText = "Desconto";
+            this.desconto.MinimumWidth = 6;
+            this.desconto.Name = "desconto";
+            this.desconto.ReadOnly = true;
+            this.desconto.Width = 125;
+            // 
+            // percentual_compra
+            // 
+            this.percentual_compra.HeaderText = "% Compra";
+            this.percentual_compra.MinimumWidth = 6;
+            this.percentual_compra.Name = "percentual_compra";
+            this.percentual_compra.ReadOnly = true;
+            this.percentual_compra.Width = 125;
+            // 
+            // media_ponderada
+            // 
+            this.media_ponderada.HeaderText = "Média Ponderada";
+            this.media_ponderada.MinimumWidth = 6;
+            this.media_ponderada.Name = "media_ponderada";
+            this.media_ponderada.ReadOnly = true;
+            this.media_ponderada.Width = 125;
+            // 
             // FrmCadastroCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -576,7 +597,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbCodigoProduto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbDataCad);
-            this.Controls.Add(this.DgConsultaServicos);
+            this.Controls.Add(this.DgItensCompra);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.tbDataEmissao);
             this.Controls.Add(this.label8);
@@ -622,7 +643,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.tbDataEmissao, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
-            this.Controls.SetChildIndex(this.DgConsultaServicos, 0);
+            this.Controls.SetChildIndex(this.DgItensCompra, 0);
             this.Controls.SetChildIndex(this.tbDataCad, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.tbCodigoProduto, 0);
@@ -645,7 +666,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.label17, 0);
             this.Controls.SetChildIndex(this.label18, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaServicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,14 +695,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox tbDataEmissao;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.DataGridView DgConsultaServicos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_servico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status_servico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duracao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_criacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_ult_alteracao;
+        private System.Windows.Forms.DataGridView DgItensCompra;
         private System.Windows.Forms.MaskedTextBox tbDataCad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbCodigoProduto;
@@ -704,5 +718,14 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtd_estoque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtd_entrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custo_atual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custo_sugerido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desconto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percentual_compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn media_ponderada;
     }
 }

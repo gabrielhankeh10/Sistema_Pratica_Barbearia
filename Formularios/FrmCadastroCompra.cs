@@ -18,6 +18,8 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDataCad.Text = Convert.ToString(DateTime.Now);
         }
         private uCtrlCompras ControllerCompras = new uCtrlCompras();
+        private uCtrlProdutos ControllerProdutos = new uCtrlProdutos();
+        private uCtrlComprasItens ControllerComprasItens = new uCtrlComprasItens();
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -65,6 +67,94 @@ namespace Sistema__Renovo_Barber.Formularios
             frmConsultaProdutos.Close();
         }
 
+        public void PercentualItem()
+        {
+            int Total = 0;
+            foreach (DataGridViewRow vLinha in DgItensCompra.Rows)
+            {
+                Total += Convert.ToInt32(vLinha.Cells["qtd_estoque"].Value);
+            }
+            foreach (DataGridViewRow vLinha in DgItensCompra.Rows)
+            {
+                vLinha.Cells["percentual_compra"].Value = Math.Round(((Convert.ToDecimal(vLinha.Cells["qtd_estoque"].Value) / Total) * 100), 8);
+            }
+        }
+
+        private void NovoPrecoItens()
+        {
+            decimal Frete = Convert.ToDecimal(tbCustoFrete.Text);
+            decimal Seguro = Convert.ToDecimal(tbCustoSeguro.Text);
+            decimal OutrosCustos = Convert.ToDecimal(tbOutrosCustos.Text);
+
+            foreach (DataGridViewRow vLinha in DgItensCompra.Rows)
+            {
+                if (vLinha != null)
+                {
+                    var CustoProdutoAtual = Convert.ToDecimal(vLinha.Cells["custo_atual"].Value);
+                    var QtdEstoqueAtual = Convert.ToInt32(vLinha.Cells["qtd_estoque"].Value);
+                    var PercentualCompra = Convert.ToDecimal(vLinha.Cells["percentual_compra"].Value);
+                    var CustoEntrada = Convert.ToDecimal(tbCusto.Text);
+                    var QtdEntradaEstoque = Convert.ToInt32(vLinha.Cells["qtd_entrada"].Value);
+                    var Desconto = Convert.ToDecimal(vLinha.Cells["desconto"].Value);
+                    var RatFrete = (PercentualCompra / 100) * Frete;
+                    var RatSeguro = (PercentualCompra / 100) * Seguro;
+                    var RatOutrosCustos = (PercentualCompra / 100) * OutrosCustos;
+                    var NovoCustoProduto = (RatFrete + RatSeguro + RatOutrosCustos + CustoEntrada) - Desconto;
+                    var MediaPond = ((QtdEstoqueAtual * CustoProdutoAtual) + (QtdEntradaEstoque * NovoCustoProduto)) / (QtdEstoqueAtual + QtdEntradaEstoque);
+                    vLinha.Cells["media_ponderada"].Value = Math.Round(MediaPond, 8);
+                    vLinha.Cells["custo_sugerido"].Value = NovoCustoProduto;
+                }
+            }
+        }
+
+        public List<uItensCompra> ItensListView(int Num_nfc, int Modelo_nfc, int Serie_nfc, int Id_fornecedor)
+        {
+            var vLista = new List<uItensCompra>();
+            foreach(DataGridViewRow vLinha in DgItensCompra.Rows)
+            {
+                uItensCompra ItensCompra = new uItensCompra();
+                ItensCompra.Num_nfc = Num_nfc;
+                ItensCompra.Modelo_nfc = Modelo_nfc;
+                ItensCompra.Serie_nfc = Serie_nfc;
+                ItensCompra.Id_fornecedor = Id_fornecedor;
+                ItensCompra.Produtos = ControllerProdutos.Carregar(Convert.ToInt32(vLinha.Cells["id_produto"].Value));
+                ItensCompra.Qtd = Convert.ToInt32(vLinha.Cells["qtd_entrada"].Value);
+                ItensCompra.Preco_custo = Convert.ToDecimal(vLinha.Cells["custo_sugerido"].Value);
+                ItensCompra.Desconto = Convert.ToDecimal(vLinha.Cells["desconto"].Value);
+                ItensCompra.Percentual_compra = Convert.ToDecimal(vLinha.Cells["percentual_compra"].Value);
+                ItensCompra.Media_ponderada = Convert.ToDecimal(vLinha.Cells["media_ponderada"].Value);
+                ItensCompra.data_criacao = DateTime.Now;
+                vLista.Add(ItensCompra);
+            }
+            return vLista;
+        }
+        public void AdicionarItens()
+        {
+            uProdutos Produtos = ControllerProdutos.Carregar(Convert.ToInt32(tbCodigoProduto.Text));
+            var NomeProduto = tbDescProduto.Text;
+            var IdProduto = tbCodigoProduto.Text;
+            var CustoSugerido = tbCusto.Text;
+            var Desconto = tbDesconto.Text;
+            var QtdEntrada = tbQtd.Text;
+            var QtdEstoque = Produtos.Qtd_estoque;
+            var CustoAtual = Produtos.Preco_custo;
+            var MediaPonderada = 0;
+            var Percentual = 0;
+            
+            DgItensCompra.Rows.Add(
+                IdProduto,
+                NomeProduto,
+                QtdEstoque,
+                QtdEntrada,
+                CustoAtual,
+                CustoSugerido,
+                Desconto,
+                Percentual,
+                MediaPonderada
+                );
+            PercentualItem();
+            NovoPrecoItens();
+        }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uCompras Obj = new uCompras();
@@ -81,8 +171,18 @@ namespace Sistema__Renovo_Barber.Formularios
             Obj.Data_chegada = DateTime.Parse(tbDataChegada.Text);
             Obj.Data_emissao = DateTime.Parse(tbDataEmissao.Text);
             Obj.data_criacao = DateTime.Now;
+            Obj.ItensCompra = ItensListView(Obj.Num_nfc, Obj.Modelo_nfc, Obj.Serie_nfc, Obj.Fornecedor.id);
             ControllerCompras.Salvar(Obj);
+            foreach (uItensCompra ItensCompra in Obj.ItensCompra)
+            {
+                ControllerComprasItens.SalvarItens(ItensCompra);
+            }
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdicionarItens();
         }
     }
 }
