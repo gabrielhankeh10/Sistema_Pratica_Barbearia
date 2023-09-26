@@ -51,6 +51,15 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbDataEmissao = new System.Windows.Forms.MaskedTextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.DgItensCompra = new System.Windows.Forms.DataGridView();
+            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd_estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custo_atual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custo_sugerido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentual_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.media_ponderada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbDataCad = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCodigoProduto = new System.Windows.Forms.TextBox();
@@ -73,34 +82,34 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd_estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custo_atual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custo_sugerido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentual_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.media_ponderada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgParcelas = new System.Windows.Forms.DataGridView();
+            this.tbTotalNota = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.num_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.forma_pagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentual_sob_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgParcelas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(760, 604);
+            this.btnSair.Location = new System.Drawing.Point(1168, 680);
             // 
             // tbNumNota
             // 
-            this.tbNumNota.Location = new System.Drawing.Point(46, 56);
+            this.tbNumNota.Location = new System.Drawing.Point(46, 40);
             this.tbNumNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNumNota.Name = "tbNumNota";
             this.tbNumNota.Size = new System.Drawing.Size(89, 22);
-            this.tbNumNota.TabIndex = 14;
+            this.tbNumNota.TabIndex = 1;
             // 
             // Nome
             // 
             this.Nome.AutoSize = true;
-            this.Nome.Location = new System.Drawing.Point(43, 35);
+            this.Nome.Location = new System.Drawing.Point(43, 19);
             this.Nome.Name = "Nome";
             this.Nome.Size = new System.Drawing.Size(57, 17);
             this.Nome.TabIndex = 15;
@@ -108,16 +117,16 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbModeloNota
             // 
-            this.tbModeloNota.Location = new System.Drawing.Point(161, 56);
+            this.tbModeloNota.Location = new System.Drawing.Point(161, 40);
             this.tbModeloNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbModeloNota.Name = "tbModeloNota";
             this.tbModeloNota.Size = new System.Drawing.Size(89, 22);
-            this.tbModeloNota.TabIndex = 16;
+            this.tbModeloNota.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(158, 35);
+            this.label1.Location = new System.Drawing.Point(158, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 17;
@@ -125,16 +134,16 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbSerieNota
             // 
-            this.tbSerieNota.Location = new System.Drawing.Point(284, 56);
+            this.tbSerieNota.Location = new System.Drawing.Point(284, 40);
             this.tbSerieNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSerieNota.Name = "tbSerieNota";
             this.tbSerieNota.Size = new System.Drawing.Size(85, 22);
-            this.tbSerieNota.TabIndex = 18;
+            this.tbSerieNota.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(281, 35);
+            this.label2.Location = new System.Drawing.Point(281, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 19;
@@ -143,7 +152,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbFornecedor
             // 
             this.tbFornecedor.Enabled = false;
-            this.tbFornecedor.Location = new System.Drawing.Point(503, 56);
+            this.tbFornecedor.Location = new System.Drawing.Point(503, 40);
             this.tbFornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFornecedor.Name = "tbFornecedor";
             this.tbFornecedor.Size = new System.Drawing.Size(209, 22);
@@ -152,7 +161,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(500, 35);
+            this.label3.Location = new System.Drawing.Point(500, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 21;
@@ -160,7 +169,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // btnPesquisarFornecedor
             // 
-            this.btnPesquisarFornecedor.Location = new System.Drawing.Point(744, 56);
+            this.btnPesquisarFornecedor.Location = new System.Drawing.Point(744, 40);
             this.btnPesquisarFornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisarFornecedor.Name = "btnPesquisarFornecedor";
             this.btnPesquisarFornecedor.Size = new System.Drawing.Size(91, 23);
@@ -172,7 +181,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbDescricaoCondicao
             // 
             this.tbDescricaoCondicao.Enabled = false;
-            this.tbDescricaoCondicao.Location = new System.Drawing.Point(503, 118);
+            this.tbDescricaoCondicao.Location = new System.Drawing.Point(148, 427);
             this.tbDescricaoCondicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescricaoCondicao.Name = "tbDescricaoCondicao";
             this.tbDescricaoCondicao.Size = new System.Drawing.Size(209, 22);
@@ -181,7 +190,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbCodigoFornecedor
             // 
             this.tbCodigoFornecedor.Enabled = false;
-            this.tbCodigoFornecedor.Location = new System.Drawing.Point(401, 57);
+            this.tbCodigoFornecedor.Location = new System.Drawing.Point(401, 41);
             this.tbCodigoFornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodigoFornecedor.Name = "tbCodigoFornecedor";
             this.tbCodigoFornecedor.Size = new System.Drawing.Size(69, 22);
@@ -190,7 +199,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(398, 35);
+            this.label4.Location = new System.Drawing.Point(398, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 28;
@@ -199,7 +208,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(398, 96);
+            this.label5.Location = new System.Drawing.Point(43, 405);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 17);
             this.label5.TabIndex = 29;
@@ -208,7 +217,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbCodigoCondicao
             // 
             this.tbCodigoCondicao.Enabled = false;
-            this.tbCodigoCondicao.Location = new System.Drawing.Point(401, 117);
+            this.tbCodigoCondicao.Location = new System.Drawing.Point(46, 426);
             this.tbCodigoCondicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodigoCondicao.Name = "tbCodigoCondicao";
             this.tbCodigoCondicao.Size = new System.Drawing.Size(69, 22);
@@ -217,7 +226,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(500, 96);
+            this.label6.Location = new System.Drawing.Point(145, 405);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(163, 17);
             this.label6.TabIndex = 31;
@@ -225,7 +234,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(744, 116);
+            this.button1.Location = new System.Drawing.Point(389, 425);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 23);
@@ -237,7 +246,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(158, 96);
+            this.label7.Location = new System.Drawing.Point(1013, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 17);
             this.label7.TabIndex = 34;
@@ -245,7 +254,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbDataChegada
             // 
-            this.tbDataChegada.Location = new System.Drawing.Point(46, 118);
+            this.tbDataChegada.Location = new System.Drawing.Point(868, 41);
             this.tbDataChegada.Mask = "00/00/0000";
             this.tbDataChegada.Name = "tbDataChegada";
             this.tbDataChegada.Size = new System.Drawing.Size(89, 22);
@@ -254,7 +263,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 96);
+            this.label8.Location = new System.Drawing.Point(865, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 17);
             this.label8.TabIndex = 36;
@@ -262,7 +271,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbDataEmissao
             // 
-            this.tbDataEmissao.Location = new System.Drawing.Point(161, 116);
+            this.tbDataEmissao.Location = new System.Drawing.Point(1016, 41);
             this.tbDataEmissao.Mask = "00/00/0000";
             this.tbDataEmissao.Name = "tbDataEmissao";
             this.tbDataEmissao.Size = new System.Drawing.Size(89, 22);
@@ -270,7 +279,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(670, 604);
+            this.btnSalvar.Location = new System.Drawing.Point(1077, 680);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
@@ -294,210 +303,15 @@ namespace Sistema__Renovo_Barber.Formularios
             this.desconto,
             this.percentual_compra,
             this.media_ponderada});
-            this.DgItensCompra.Location = new System.Drawing.Point(46, 282);
+            this.DgItensCompra.Location = new System.Drawing.Point(46, 130);
             this.DgItensCompra.MultiSelect = false;
             this.DgItensCompra.Name = "DgItensCompra";
             this.DgItensCompra.ReadOnly = true;
             this.DgItensCompra.RowHeadersWidth = 51;
             this.DgItensCompra.RowTemplate.Height = 24;
             this.DgItensCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgItensCompra.Size = new System.Drawing.Size(789, 287);
+            this.DgItensCompra.Size = new System.Drawing.Size(1197, 262);
             this.DgItensCompra.TabIndex = 39;
-            // 
-            // tbDataCad
-            // 
-            this.tbDataCad.Enabled = false;
-            this.tbDataCad.Location = new System.Drawing.Point(46, 604);
-            this.tbDataCad.Mask = "00/00/0000";
-            this.tbDataCad.Name = "tbDataCad";
-            this.tbDataCad.Size = new System.Drawing.Size(89, 22);
-            this.tbDataCad.TabIndex = 40;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 584);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 17);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "Data Cad.";
-            // 
-            // tbCodigoProduto
-            // 
-            this.tbCodigoProduto.Enabled = false;
-            this.tbCodigoProduto.Location = new System.Drawing.Point(46, 241);
-            this.tbCodigoProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCodigoProduto.Name = "tbCodigoProduto";
-            this.tbCodigoProduto.Size = new System.Drawing.Size(90, 22);
-            this.tbCodigoProduto.TabIndex = 42;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 221);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 17);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Codigo";
-            // 
-            // tbDescProduto
-            // 
-            this.tbDescProduto.Enabled = false;
-            this.tbDescProduto.Location = new System.Drawing.Point(161, 241);
-            this.tbDescProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbDescProduto.Name = "tbDescProduto";
-            this.tbDescProduto.Size = new System.Drawing.Size(193, 22);
-            this.tbDescProduto.TabIndex = 44;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(158, 221);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 17);
-            this.label11.TabIndex = 45;
-            this.label11.Text = "Produto";
-            // 
-            // btPesquisarProduto
-            // 
-            this.btPesquisarProduto.Location = new System.Drawing.Point(379, 240);
-            this.btPesquisarProduto.Margin = new System.Windows.Forms.Padding(4);
-            this.btPesquisarProduto.Name = "btPesquisarProduto";
-            this.btPesquisarProduto.Size = new System.Drawing.Size(91, 23);
-            this.btPesquisarProduto.TabIndex = 46;
-            this.btPesquisarProduto.Text = "Pesquisar";
-            this.btPesquisarProduto.UseVisualStyleBackColor = true;
-            this.btPesquisarProduto.Click += new System.EventHandler(this.btPesquisarProduto_Click);
-            // 
-            // tbCustoFrete
-            // 
-            this.tbCustoFrete.Location = new System.Drawing.Point(46, 180);
-            this.tbCustoFrete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCustoFrete.Name = "tbCustoFrete";
-            this.tbCustoFrete.Size = new System.Drawing.Size(115, 22);
-            this.tbCustoFrete.TabIndex = 49;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(43, 161);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(81, 17);
-            this.label12.TabIndex = 50;
-            this.label12.Text = "Custo Frete";
-            // 
-            // tbCustoSeguro
-            // 
-            this.tbCustoSeguro.Location = new System.Drawing.Point(202, 180);
-            this.tbCustoSeguro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCustoSeguro.Name = "tbCustoSeguro";
-            this.tbCustoSeguro.Size = new System.Drawing.Size(115, 22);
-            this.tbCustoSeguro.TabIndex = 51;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(199, 161);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 17);
-            this.label13.TabIndex = 52;
-            this.label13.Text = "Custo Seguro";
-            // 
-            // tbOutrosCustos
-            // 
-            this.tbOutrosCustos.Location = new System.Drawing.Point(355, 180);
-            this.tbOutrosCustos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbOutrosCustos.Name = "tbOutrosCustos";
-            this.tbOutrosCustos.Size = new System.Drawing.Size(115, 22);
-            this.tbOutrosCustos.TabIndex = 53;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(352, 161);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 17);
-            this.label14.TabIndex = 54;
-            this.label14.Text = "Outras Despesas";
-            // 
-            // tbDataCancelamento
-            // 
-            this.tbDataCancelamento.Location = new System.Drawing.Point(284, 116);
-            this.tbDataCancelamento.Mask = "00/00/0000";
-            this.tbDataCancelamento.Name = "tbDataCancelamento";
-            this.tbDataCancelamento.Size = new System.Drawing.Size(85, 22);
-            this.tbDataCancelamento.TabIndex = 55;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(281, 96);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(109, 17);
-            this.label15.TabIndex = 56;
-            this.label15.Text = "Data Cancelada";
-            // 
-            // tbQtd
-            // 
-            this.tbQtd.Location = new System.Drawing.Point(503, 241);
-            this.tbQtd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbQtd.Name = "tbQtd";
-            this.tbQtd.Size = new System.Drawing.Size(61, 22);
-            this.tbQtd.TabIndex = 57;
-            // 
-            // tbDesconto
-            // 
-            this.tbDesconto.Location = new System.Drawing.Point(651, 241);
-            this.tbDesconto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbDesconto.Name = "tbDesconto";
-            this.tbDesconto.Size = new System.Drawing.Size(61, 22);
-            this.tbDesconto.TabIndex = 58;
-            // 
-            // tbCusto
-            // 
-            this.tbCusto.Location = new System.Drawing.Point(577, 241);
-            this.tbCusto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCusto.Name = "tbCusto";
-            this.tbCusto.Size = new System.Drawing.Size(61, 22);
-            this.tbCusto.TabIndex = 59;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(744, 241);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 23);
-            this.button2.TabIndex = 60;
-            this.button2.Text = "Adicionar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(500, 221);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(31, 17);
-            this.label16.TabIndex = 61;
-            this.label16.Text = "Qtd";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(574, 221);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 17);
-            this.label17.TabIndex = 62;
-            this.label17.Text = "Custo";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(648, 221);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 17);
-            this.label18.TabIndex = 63;
-            this.label18.Text = "Desconto";
             // 
             // id_produto
             // 
@@ -571,10 +385,286 @@ namespace Sistema__Renovo_Barber.Formularios
             this.media_ponderada.ReadOnly = true;
             this.media_ponderada.Width = 125;
             // 
+            // tbDataCad
+            // 
+            this.tbDataCad.Enabled = false;
+            this.tbDataCad.Location = new System.Drawing.Point(47, 680);
+            this.tbDataCad.Mask = "00/00/0000";
+            this.tbDataCad.Name = "tbDataCad";
+            this.tbDataCad.Size = new System.Drawing.Size(89, 22);
+            this.tbDataCad.TabIndex = 40;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(43, 660);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 17);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "Data Cad.";
+            // 
+            // tbCodigoProduto
+            // 
+            this.tbCodigoProduto.Enabled = false;
+            this.tbCodigoProduto.Location = new System.Drawing.Point(45, 89);
+            this.tbCodigoProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCodigoProduto.Name = "tbCodigoProduto";
+            this.tbCodigoProduto.Size = new System.Drawing.Size(90, 22);
+            this.tbCodigoProduto.TabIndex = 42;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(42, 69);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 17);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Codigo";
+            // 
+            // tbDescProduto
+            // 
+            this.tbDescProduto.Enabled = false;
+            this.tbDescProduto.Location = new System.Drawing.Point(160, 89);
+            this.tbDescProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDescProduto.Name = "tbDescProduto";
+            this.tbDescProduto.Size = new System.Drawing.Size(193, 22);
+            this.tbDescProduto.TabIndex = 44;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(157, 69);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 17);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "Produto";
+            // 
+            // btPesquisarProduto
+            // 
+            this.btPesquisarProduto.Location = new System.Drawing.Point(378, 88);
+            this.btPesquisarProduto.Margin = new System.Windows.Forms.Padding(4);
+            this.btPesquisarProduto.Name = "btPesquisarProduto";
+            this.btPesquisarProduto.Size = new System.Drawing.Size(91, 23);
+            this.btPesquisarProduto.TabIndex = 46;
+            this.btPesquisarProduto.Text = "Pesquisar";
+            this.btPesquisarProduto.UseVisualStyleBackColor = true;
+            this.btPesquisarProduto.Click += new System.EventHandler(this.btPesquisarProduto_Click);
+            // 
+            // tbCustoFrete
+            // 
+            this.tbCustoFrete.Location = new System.Drawing.Point(505, 425);
+            this.tbCustoFrete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCustoFrete.Name = "tbCustoFrete";
+            this.tbCustoFrete.Size = new System.Drawing.Size(115, 22);
+            this.tbCustoFrete.TabIndex = 49;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(502, 406);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(81, 17);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "Custo Frete";
+            // 
+            // tbCustoSeguro
+            // 
+            this.tbCustoSeguro.Location = new System.Drawing.Point(661, 425);
+            this.tbCustoSeguro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCustoSeguro.Name = "tbCustoSeguro";
+            this.tbCustoSeguro.Size = new System.Drawing.Size(115, 22);
+            this.tbCustoSeguro.TabIndex = 51;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(658, 406);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 17);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "Custo Seguro";
+            // 
+            // tbOutrosCustos
+            // 
+            this.tbOutrosCustos.Location = new System.Drawing.Point(814, 425);
+            this.tbOutrosCustos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbOutrosCustos.Name = "tbOutrosCustos";
+            this.tbOutrosCustos.Size = new System.Drawing.Size(115, 22);
+            this.tbOutrosCustos.TabIndex = 53;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(811, 406);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 17);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Outras Despesas";
+            // 
+            // tbDataCancelamento
+            // 
+            this.tbDataCancelamento.Location = new System.Drawing.Point(1158, 39);
+            this.tbDataCancelamento.Mask = "00/00/0000";
+            this.tbDataCancelamento.Name = "tbDataCancelamento";
+            this.tbDataCancelamento.Size = new System.Drawing.Size(85, 22);
+            this.tbDataCancelamento.TabIndex = 55;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1134, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(109, 17);
+            this.label15.TabIndex = 56;
+            this.label15.Text = "Data Cancelada";
+            // 
+            // tbQtd
+            // 
+            this.tbQtd.Location = new System.Drawing.Point(502, 89);
+            this.tbQtd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbQtd.Name = "tbQtd";
+            this.tbQtd.Size = new System.Drawing.Size(61, 22);
+            this.tbQtd.TabIndex = 57;
+            // 
+            // tbDesconto
+            // 
+            this.tbDesconto.Location = new System.Drawing.Point(650, 89);
+            this.tbDesconto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDesconto.Name = "tbDesconto";
+            this.tbDesconto.Size = new System.Drawing.Size(61, 22);
+            this.tbDesconto.TabIndex = 58;
+            // 
+            // tbCusto
+            // 
+            this.tbCusto.Location = new System.Drawing.Point(576, 89);
+            this.tbCusto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCusto.Name = "tbCusto";
+            this.tbCusto.Size = new System.Drawing.Size(61, 22);
+            this.tbCusto.TabIndex = 59;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(743, 89);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 23);
+            this.button2.TabIndex = 60;
+            this.button2.Text = "Adicionar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(499, 69);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(31, 17);
+            this.label16.TabIndex = 61;
+            this.label16.Text = "Qtd";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(573, 69);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 17);
+            this.label17.TabIndex = 62;
+            this.label17.Text = "Custo";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(647, 69);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 17);
+            this.label18.TabIndex = 63;
+            this.label18.Text = "Desconto";
+            // 
+            // dgParcelas
+            // 
+            this.dgParcelas.AllowUserToAddRows = false;
+            this.dgParcelas.AllowUserToDeleteRows = false;
+            this.dgParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.num_parcela,
+            this.dias,
+            this.id_forma,
+            this.forma_pagamento,
+            this.percentual_sob_total});
+            this.dgParcelas.Location = new System.Drawing.Point(46, 468);
+            this.dgParcelas.MultiSelect = false;
+            this.dgParcelas.Name = "dgParcelas";
+            this.dgParcelas.ReadOnly = true;
+            this.dgParcelas.RowHeadersWidth = 51;
+            this.dgParcelas.RowTemplate.Height = 24;
+            this.dgParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgParcelas.Size = new System.Drawing.Size(1197, 179);
+            this.dgParcelas.TabIndex = 64;
+            // 
+            // tbTotalNota
+            // 
+            this.tbTotalNota.Location = new System.Drawing.Point(1128, 425);
+            this.tbTotalNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTotalNota.Name = "tbTotalNota";
+            this.tbTotalNota.Size = new System.Drawing.Size(115, 22);
+            this.tbTotalNota.TabIndex = 65;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1125, 406);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 17);
+            this.label19.TabIndex = 66;
+            this.label19.Text = "Total Nota";
+            // 
+            // num_parcela
+            // 
+            this.num_parcela.HeaderText = "Nº Parcela";
+            this.num_parcela.MinimumWidth = 6;
+            this.num_parcela.Name = "num_parcela";
+            this.num_parcela.ReadOnly = true;
+            this.num_parcela.Width = 125;
+            // 
+            // dias
+            // 
+            this.dias.HeaderText = "Dias";
+            this.dias.MinimumWidth = 6;
+            this.dias.Name = "dias";
+            this.dias.ReadOnly = true;
+            this.dias.Width = 125;
+            // 
+            // id_forma
+            // 
+            this.id_forma.HeaderText = "ID Forma";
+            this.id_forma.MinimumWidth = 6;
+            this.id_forma.Name = "id_forma";
+            this.id_forma.ReadOnly = true;
+            this.id_forma.Width = 125;
+            // 
+            // forma_pagamento
+            // 
+            this.forma_pagamento.HeaderText = "Forma de Pagamento";
+            this.forma_pagamento.MinimumWidth = 6;
+            this.forma_pagamento.Name = "forma_pagamento";
+            this.forma_pagamento.ReadOnly = true;
+            this.forma_pagamento.Width = 125;
+            // 
+            // percentual_sob_total
+            // 
+            this.percentual_sob_total.HeaderText = "% Sob Total";
+            this.percentual_sob_total.MinimumWidth = 6;
+            this.percentual_sob_total.Name = "percentual_sob_total";
+            this.percentual_sob_total.ReadOnly = true;
+            this.percentual_sob_total.Width = 125;
+            // 
             // FrmCadastroCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(891, 657);
+            this.ClientSize = new System.Drawing.Size(1304, 732);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.tbTotalNota);
+            this.Controls.Add(this.dgParcelas);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -666,7 +756,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.label17, 0);
             this.Controls.SetChildIndex(this.label18, 0);
+            this.Controls.SetChildIndex(this.dgParcelas, 0);
+            this.Controls.SetChildIndex(this.tbTotalNota, 0);
+            this.Controls.SetChildIndex(this.label19, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgParcelas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,5 +821,13 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn desconto;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentual_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn media_ponderada;
+        private System.Windows.Forms.DataGridView dgParcelas;
+        private System.Windows.Forms.TextBox tbTotalNota;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn forma_pagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percentual_sob_total;
     }
 }

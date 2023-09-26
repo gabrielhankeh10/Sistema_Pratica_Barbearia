@@ -232,7 +232,7 @@ CREATE TABLE tb_contas_pagar(
   id_condicao int not null,
   valor decimal(10,2) not null,
   situacao varchar(10) not null,
-  data_baixa datetime not null,
+  data_baixa datetime,
   data_vencimento datetime not null,
   data_criacao datetime not null,
   data_ult_alteracao datetime not null,
@@ -242,3 +242,10 @@ CREATE TABLE tb_contas_pagar(
   FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento (id_condicao)
 )
 
+CREATE TABLE tb_horarios_profissionais(
+  id_funcionario int not null,
+  data_agenda date time not null,
+  horario_inicio time not null,
+  horario_fim time not null,
+  intervalo time not null,
+)

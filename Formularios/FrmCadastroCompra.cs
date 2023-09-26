@@ -197,6 +197,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private void button2_Click(object sender, EventArgs e)
         {
             AdicionarItens();
+            tbTotalNota.Text = Convert.ToString(CustoTotal());
         }
     }
 }
