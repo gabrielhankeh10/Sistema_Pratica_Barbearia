@@ -49,6 +49,9 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
+        
+
+
         public DataTable PopularGrid()
         {
             string Sql = @"select tb.num_nfc, tb.modelo_nfc, tb.serie_nfc, forn.razao_social as fornecedor, 

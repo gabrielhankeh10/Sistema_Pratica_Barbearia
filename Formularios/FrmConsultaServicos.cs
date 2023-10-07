@@ -38,6 +38,10 @@ namespace Sistema__Renovo_Barber.Formularios
             }
             catch { }
         }
+        public uServicos PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaServicos.SelectedRows[0].Cells["id_servico"].Value));
+        }
         public override void ExcluirFormCadastro()
         {
             try
@@ -112,6 +116,18 @@ namespace Sistema__Renovo_Barber.Formularios
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             PesquisarServico();
+        }
+
+        private void DgConsultaServicos_DoubleClick(object sender, EventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaServicos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

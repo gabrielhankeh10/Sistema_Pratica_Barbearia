@@ -99,5 +99,17 @@ namespace Sistema__Renovo_Barber
             FrmConsultaCompra frmConsultaCompra = new FrmConsultaCompra();
             frmConsultaCompra.ShowDialog();
         }
+
+        private void gerarAgendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAgendaProfissional frmAgendaProfissional = new FrmAgendaProfissional();
+            frmAgendaProfissional.ShowDialog();
+        }
+
+        private void consultarAgendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaAgenda frmConsultaAgenda = new FrmConsultaAgenda();
+            frmConsultaAgenda.ShowDialog();
+        }
     }
 }

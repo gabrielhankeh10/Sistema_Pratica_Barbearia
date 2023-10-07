@@ -83,13 +83,13 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dgParcelas = new System.Windows.Forms.DataGridView();
-            this.tbTotalNota = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.num_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.forma_pagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentual_sob_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbTotalNota = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgParcelas)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +105,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbNumNota.Name = "tbNumNota";
             this.tbNumNota.Size = new System.Drawing.Size(89, 22);
             this.tbNumNota.TabIndex = 1;
+            this.tbNumNota.Leave += new System.EventHandler(this.tbNumNota_Leave);
             // 
             // Nome
             // 
@@ -601,23 +602,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.dgParcelas.Size = new System.Drawing.Size(1197, 179);
             this.dgParcelas.TabIndex = 64;
             // 
-            // tbTotalNota
-            // 
-            this.tbTotalNota.Location = new System.Drawing.Point(1128, 425);
-            this.tbTotalNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbTotalNota.Name = "tbTotalNota";
-            this.tbTotalNota.Size = new System.Drawing.Size(115, 22);
-            this.tbTotalNota.TabIndex = 65;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1125, 406);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 17);
-            this.label19.TabIndex = 66;
-            this.label19.Text = "Total Nota";
-            // 
             // num_parcela
             // 
             this.num_parcela.HeaderText = "Nº Parcela";
@@ -657,6 +641,23 @@ namespace Sistema__Renovo_Barber.Formularios
             this.percentual_sob_total.Name = "percentual_sob_total";
             this.percentual_sob_total.ReadOnly = true;
             this.percentual_sob_total.Width = 125;
+            // 
+            // tbTotalNota
+            // 
+            this.tbTotalNota.Location = new System.Drawing.Point(1128, 425);
+            this.tbTotalNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTotalNota.Name = "tbTotalNota";
+            this.tbTotalNota.Size = new System.Drawing.Size(115, 22);
+            this.tbTotalNota.TabIndex = 65;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1125, 406);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 17);
+            this.label19.TabIndex = 66;
+            this.label19.Text = "Total Nota";
             // 
             // FrmCadastroCompra
             // 

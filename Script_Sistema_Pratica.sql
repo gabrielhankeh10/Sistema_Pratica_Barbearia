@@ -179,6 +179,7 @@ create table tb_parcelas(
 CREATE TABLE tb_produtos (
   id_produto int auto_increment primary key not null,
   descricao_produto varchar(50) not null,
+  unidade_medida varchar(50) not null,
   marca varchar(50) not null,
   preco_custo decimal (10,2) not null,
   preco_venda decimal (10,2) not null,
@@ -242,10 +243,15 @@ CREATE TABLE tb_contas_pagar(
   FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento (id_condicao)
 )
 
-CREATE TABLE tb_horarios_profissionais(
+CREATE TABLE tb_agenda(
   id_funcionario int not null,
-  data_agenda date time not null,
-  horario_inicio time not null,
-  horario_fim time not null,
-  intervalo time not null,
+  id_cliente int,
+  data_agenda datetime not null,
+  id_servico int,
+  id_condicao int,
+  PRIMARY KEY (id_funcionario, data_agenda),
+  FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionario),
+  FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id_cliente),
+  FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento(id_condicao)
 )
+

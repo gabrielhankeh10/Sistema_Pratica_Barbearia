@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\uAgenda.cs" />
     <Compile Include="Classes\uCargos.cs" />
     <Compile Include="Classes\uCidade.cs" />
     <Compile Include="Classes\uCompras.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Classes\uProdutos.cs" />
     <Compile Include="Classes\uServicos.cs" />
     <Compile Include="Conexao.cs" />
+    <Compile Include="Controllers\uCtrlAgenda.cs" />
     <Compile Include="Controllers\uCtrlCargos.cs" />
     <Compile Include="Controllers\uCtrlCidades.cs" />
     <Compile Include="Controllers\uCtrlCliente.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Controllers\uCtrlPessoa.cs" />
     <Compile Include="Controllers\uCtrlProdutos.cs" />
     <Compile Include="Controllers\uCtrlServicos.cs" />
+    <Compile Include="Dao\uDaoAgenda.cs" />
     <Compile Include="Dao\uDaoCargos.cs" />
     <Compile Include="Dao\uDaoCidades.cs" />
     <Compile Include="Dao\uDaoCliente.cs" />
@@ -134,6 +137,24 @@
     <Compile Include="Dao\uDaoParcelas.cs" />
     <Compile Include="Dao\uDaoProdutos.cs" />
     <Compile Include="Dao\uDaoServicos.cs" />
+    <Compile Include="Formularios\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmAgendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAgendamento.Designer.cs">
+      <DependentUpon>FrmAgendamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmAgendaProfissional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAgendaProfissional.Designer.cs">
+      <DependentUpon>FrmAgendaProfissional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmCadastroCargos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +232,12 @@
     </Compile>
     <Compile Include="Formularios\FrmCadastroServico.Designer.cs">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaAgenda.Designer.cs">
+      <DependentUpon>FrmConsultaAgenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmConsultaCargos.cs">
       <SubType>Form</SubType>
@@ -290,6 +317,12 @@
     <Compile Include="Formularios\FrmConsultaServicos.Designer.cs">
       <DependentUpon>FrmConsultaServicos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmOrdemServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmOrdemServico.Designer.cs">
+      <DependentUpon>FrmOrdemServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +346,15 @@
       <DependentUpon>FrmCadastroPaises.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\uCliente.cs" />
+    <EmbeddedResource Include="Formularios\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAgendamento.resx">
+      <DependentUpon>FrmAgendamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAgendaProfissional.resx">
+      <DependentUpon>FrmAgendaProfissional.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroCargos.resx">
       <DependentUpon>FrmCadastroCargos.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +397,9 @@
     <EmbeddedResource Include="Formularios\FrmConsulta.resx">
       <DependentUpon>FrmConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaAgenda.resx">
+      <DependentUpon>FrmConsultaAgenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaCargos.resx">
       <DependentUpon>FrmConsultaCargos.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaServicos.resx">
       <DependentUpon>FrmConsultaServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmOrdemServico.resx">
+      <DependentUpon>FrmOrdemServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPai.resx">
       <DependentUpon>FrmPai.cs</DependentUpon>

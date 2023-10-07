@@ -66,6 +66,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaServicos.Size = new System.Drawing.Size(784, 437);
             this.DgConsultaServicos.TabIndex = 8;
+            this.DgConsultaServicos.DoubleClick += new System.EventHandler(this.DgConsultaServicos_DoubleClick);
+            this.DgConsultaServicos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaServicos_KeyPress);
             // 
             // id_servico
             // 

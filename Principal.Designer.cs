@@ -39,12 +39,14 @@ namespace Sistema__Renovo_Barber
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.condiçãoDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerarAgendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarAgendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +140,13 @@ namespace Sistema__Renovo_Barber
             this.serviçosToolStripMenuItem.Text = "Serviços";
             this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
+            // produtosToolStripMenuItem
+            // 
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.produtosToolStripMenuItem.Text = "Produtos";
+            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
+            // 
             // formaDePagamentoToolStripMenuItem
             // 
             this.formaDePagamentoToolStripMenuItem.Name = "formaDePagamentoToolStripMenuItem";
@@ -152,8 +161,18 @@ namespace Sistema__Renovo_Barber
             this.condiçãoDePagamentoToolStripMenuItem.Text = "Condição de Pagamento";
             this.condiçãoDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.condiçãoDePagamentoToolStripMenuItem_Click);
             // 
+            // comprasToolStripMenuItem
+            // 
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.comprasToolStripMenuItem.Text = "Compras";
+            this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
+            // 
             // agendaToolStripMenuItem
             // 
+            this.agendaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerarAgendaToolStripMenuItem,
+            this.consultarAgendaToolStripMenuItem});
             this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
             this.agendaToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.agendaToolStripMenuItem.Text = "Agenda";
@@ -165,19 +184,19 @@ namespace Sistema__Renovo_Barber
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // produtosToolStripMenuItem
+            // gerarAgendaToolStripMenuItem
             // 
-            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
-            this.produtosToolStripMenuItem.Text = "Produtos";
-            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
+            this.gerarAgendaToolStripMenuItem.Name = "gerarAgendaToolStripMenuItem";
+            this.gerarAgendaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gerarAgendaToolStripMenuItem.Text = "Gerar Agenda";
+            this.gerarAgendaToolStripMenuItem.Click += new System.EventHandler(this.gerarAgendaToolStripMenuItem_Click);
             // 
-            // comprasToolStripMenuItem
+            // consultarAgendaToolStripMenuItem
             // 
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
+            this.consultarAgendaToolStripMenuItem.Name = "consultarAgendaToolStripMenuItem";
+            this.consultarAgendaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.consultarAgendaToolStripMenuItem.Text = "Consultar Agenda";
+            this.consultarAgendaToolStripMenuItem.Click += new System.EventHandler(this.consultarAgendaToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -214,6 +233,8 @@ namespace Sistema__Renovo_Barber
         private System.Windows.Forms.ToolStripMenuItem condiçãoDePagamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerarAgendaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarAgendaToolStripMenuItem;
     }
 }
 
