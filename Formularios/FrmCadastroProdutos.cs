@@ -55,6 +55,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Marca = tbMarcaProduto.Text;
                 Obj.Preco_custo = decimal.Parse(tbPrecoCusto.Text);
                 Obj.Preco_venda = decimal.Parse(tbPrecoVenda.Text);
+                Obj.UND = tbUnidade.Text;
                 Obj.Qtd_estoque = 0;
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
@@ -66,6 +67,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.id = Convert.ToInt32(tbCodigo.Text);
                 Obj.Descricao_produto = tbDescricaoProduto.Text;
                 Obj.Marca = tbMarcaProduto.Text;
+                Obj.UND = tbUnidade.Text;
                 Obj.Qtd_estoque = Convert.ToInt32(tbQtdEstoque.Text);
                 Obj.Preco_custo = Convert.ToDecimal(tbPrecoCusto.Text);
                 Obj.Preco_venda = Convert.ToDecimal(tbPrecoVenda.Text);

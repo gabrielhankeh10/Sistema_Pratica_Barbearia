@@ -17,17 +17,19 @@ namespace Sistema__Renovo_Barber.Classes
         public uFornecedor Fornecedor { get; set; }
         public uCondicaoPagamento CondicaoPagamento { get; set; }
         public uCompras Compras { get; set; }
+        public uFormaPagamento FormaPagamento { get; set; }
         public decimal Valor { get; set; }
         public string Situacao { get; set; }
+        public int NumParcela { get; set; }
+        public DateTime DataCriacao { get; set; }
         public DateTime DataBaixa { get; set; }
         public DateTime DataVencimento { get; set; }
         public static List<uContasPagar> MakeBills(uCompras compras, uCondicaoPagamento condicaoPagamento)
         {
             List<uContasPagar> vLista = new List<uContasPagar>();
-            int i = 0;
             uCondicaoPagamento condicao = condicaoPagamento;
             int QtdParcelas = condicao.uParcelas.Count;
-            
+            int i = 0;
             foreach(uParcelas parcelas in condicao.uParcelas)
             {
                 uContasPagar Pagar = new uContasPagar();
@@ -35,9 +37,15 @@ namespace Sistema__Renovo_Barber.Classes
                 Pagar.Compras.Modelo_nfc = compras.Modelo_nfc;
                 Pagar.Compras.Serie_nfc = compras.Serie_nfc;
                 Pagar.Fornecedor.id = compras.Fornecedor.id;
-                Pagar.CondicaoPagamento.Parcelas = condicaoPagamento.Parcelas;
+                Pagar.CondicaoPagamento = condicaoPagamento;
                 Pagar.Situacao = "AB";
                 Pagar.Compras = compras;
+                Pagar.DataVencimento = compras.Data_emissao.AddDays(parcelas.DiasTotais);
+                Pagar.data_criacao = compras.Data_emissao;
+                Pagar.Valor = ((Convert.ToDecimal(parcelas.Porcentagem) / 100) * compras.Valor_total) + (condicao.Taxa / condicao.uParcelas.Count);
+                Pagar.FormaPagamento = parcelas.FormaPagamento;
+                Pagar.NumParcela = i;
+                i++;
                 vLista.Add(Pagar);
             }
             return vLista;

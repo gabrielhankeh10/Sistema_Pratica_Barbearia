@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -49,8 +50,44 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
-        
 
+        public uCompras Buscar(int num_nota, int modelo, int serie, int codForneceodr)
+        {
+            try
+            {
+                string Sql = @"select tb.num_nfc, tb.modelo_nfc, tb.serie_nfc, tb.id_fornecedor from tb_compras tb 
+                                where tb.num_nfc = @num_nfc and tb.modelo_nfc = @modelo_nfc and tb.serie_nfc = serie_nfc and tb.id_fornecedor = @id_fornecedor";
+
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
+                ExecutaCmd.Parameters.AddWithValue("@num_nfc",num_nota);
+                ExecutaCmd.Parameters.AddWithValue("@modelo_nfc", modelo);
+                ExecutaCmd.Parameters.AddWithValue("@serie_nfc", serie);
+                ExecutaCmd.Parameters.AddWithValue("@id_fornecedor", codForneceodr);
+                ConexaoBanco.Open();
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uCtrlFornecedor Controller = new uCtrlFornecedor();
+                        uCompras Obj = new uCompras
+                        {
+                            Num_nfc = Convert.ToInt32(reader["num_nfc"]),
+                            Modelo_nfc = Convert.ToInt32(reader["modelo_nfc"]),
+                            Serie_nfc = Convert.ToInt32(reader["serie_nfc"]),
+                            Fornecedor = Controller.Carregar(Convert.ToInt32(reader["id_fornecedor"]))
+                        };
+                        ConexaoBanco.Close();
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
 
         public DataTable PopularGrid()
         {

@@ -29,17 +29,13 @@ namespace Sistema__Renovo_Barber.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbNumNota = new System.Windows.Forms.TextBox();
             this.Nome = new System.Windows.Forms.Label();
-            this.tbModeloNota = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbSerieNota = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbFornecedor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPesquisarFornecedor = new System.Windows.Forms.Button();
             this.tbDescricaoCondicao = new System.Windows.Forms.TextBox();
-            this.tbCodigoFornecedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbCodigoCondicao = new System.Windows.Forms.TextBox();
@@ -51,15 +47,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbDataEmissao = new System.Windows.Forms.MaskedTextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.DgItensCompra = new System.Windows.Forms.DataGridView();
-            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd_estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custo_atual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custo_sugerido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentual_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.media_ponderada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbDataCad = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCodigoProduto = new System.Windows.Forms.TextBox();
@@ -90,22 +77,41 @@ namespace Sistema__Renovo_Barber.Formularios
             this.percentual_sob_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTotalNota = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.tbUND = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.und = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custo_atual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custo_sugerido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentual_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preco_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.media_ponderada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbTotalItens = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.GbChave = new System.Windows.Forms.GroupBox();
+            this.gbProdutos = new System.Windows.Forms.GroupBox();
+            this.gbDatas = new System.Windows.Forms.GroupBox();
+            this.gbCondicao = new System.Windows.Forms.GroupBox();
+            this.tbNumNota = new System.Windows.Forms.NumericUpDown();
+            this.tbModeloNota = new System.Windows.Forms.NumericUpDown();
+            this.tbSerieNota = new System.Windows.Forms.NumericUpDown();
+            this.tbCodigoFornecedor = new System.Windows.Forms.NumericUpDown();
+            this.texto = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgParcelas)).BeginInit();
+            this.GbChave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNumNota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbModeloNota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSerieNota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCodigoFornecedor)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(1168, 680);
-            // 
-            // tbNumNota
-            // 
-            this.tbNumNota.Location = new System.Drawing.Point(46, 40);
-            this.tbNumNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNumNota.Name = "tbNumNota";
-            this.tbNumNota.Size = new System.Drawing.Size(89, 22);
-            this.tbNumNota.TabIndex = 1;
-            this.tbNumNota.Leave += new System.EventHandler(this.tbNumNota_Leave);
             // 
             // Nome
             // 
@@ -116,14 +122,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Nome.TabIndex = 15;
             this.Nome.Text = "Nº Nota";
             // 
-            // tbModeloNota
-            // 
-            this.tbModeloNota.Location = new System.Drawing.Point(161, 40);
-            this.tbModeloNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbModeloNota.Name = "tbModeloNota";
-            this.tbModeloNota.Size = new System.Drawing.Size(89, 22);
-            this.tbModeloNota.TabIndex = 2;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -132,14 +130,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 17;
             this.label1.Text = "Modelo Nota";
-            // 
-            // tbSerieNota
-            // 
-            this.tbSerieNota.Location = new System.Drawing.Point(284, 40);
-            this.tbSerieNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbSerieNota.Name = "tbSerieNota";
-            this.tbSerieNota.Size = new System.Drawing.Size(85, 22);
-            this.tbSerieNota.TabIndex = 3;
             // 
             // label2
             // 
@@ -187,15 +177,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbDescricaoCondicao.Name = "tbDescricaoCondicao";
             this.tbDescricaoCondicao.Size = new System.Drawing.Size(209, 22);
             this.tbDescricaoCondicao.TabIndex = 26;
-            // 
-            // tbCodigoFornecedor
-            // 
-            this.tbCodigoFornecedor.Enabled = false;
-            this.tbCodigoFornecedor.Location = new System.Drawing.Point(401, 41);
-            this.tbCodigoFornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCodigoFornecedor.Name = "tbCodigoFornecedor";
-            this.tbCodigoFornecedor.Size = new System.Drawing.Size(69, 22);
-            this.tbCodigoFornecedor.TabIndex = 27;
             // 
             // label4
             // 
@@ -297,12 +278,13 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgItensCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_produto,
             this.produto,
-            this.qtd_estoque,
+            this.und,
             this.qtd_entrada,
             this.custo_atual,
             this.custo_sugerido,
             this.desconto,
             this.percentual_compra,
+            this.preco_total,
             this.media_ponderada});
             this.DgItensCompra.Location = new System.Drawing.Point(46, 130);
             this.DgItensCompra.MultiSelect = false;
@@ -311,80 +293,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgItensCompra.RowHeadersWidth = 51;
             this.DgItensCompra.RowTemplate.Height = 24;
             this.DgItensCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgItensCompra.Size = new System.Drawing.Size(1197, 262);
+            this.DgItensCompra.Size = new System.Drawing.Size(1197, 253);
             this.DgItensCompra.TabIndex = 39;
-            // 
-            // id_produto
-            // 
-            this.id_produto.HeaderText = "ID Produto";
-            this.id_produto.MinimumWidth = 6;
-            this.id_produto.Name = "id_produto";
-            this.id_produto.ReadOnly = true;
-            this.id_produto.Width = 125;
-            // 
-            // produto
-            // 
-            this.produto.HeaderText = "Produto";
-            this.produto.MinimumWidth = 6;
-            this.produto.Name = "produto";
-            this.produto.ReadOnly = true;
-            this.produto.Width = 125;
-            // 
-            // qtd_estoque
-            // 
-            this.qtd_estoque.HeaderText = "Qtd Estoque";
-            this.qtd_estoque.MinimumWidth = 6;
-            this.qtd_estoque.Name = "qtd_estoque";
-            this.qtd_estoque.ReadOnly = true;
-            this.qtd_estoque.Width = 125;
-            // 
-            // qtd_entrada
-            // 
-            this.qtd_entrada.HeaderText = "Qtd Entrada";
-            this.qtd_entrada.MinimumWidth = 6;
-            this.qtd_entrada.Name = "qtd_entrada";
-            this.qtd_entrada.ReadOnly = true;
-            this.qtd_entrada.Width = 125;
-            // 
-            // custo_atual
-            // 
-            this.custo_atual.HeaderText = "Custo Atual";
-            this.custo_atual.MinimumWidth = 6;
-            this.custo_atual.Name = "custo_atual";
-            this.custo_atual.ReadOnly = true;
-            this.custo_atual.Width = 125;
-            // 
-            // custo_sugerido
-            // 
-            this.custo_sugerido.HeaderText = "Custo Sugerido";
-            this.custo_sugerido.MinimumWidth = 6;
-            this.custo_sugerido.Name = "custo_sugerido";
-            this.custo_sugerido.ReadOnly = true;
-            this.custo_sugerido.Width = 125;
-            // 
-            // desconto
-            // 
-            this.desconto.HeaderText = "Desconto";
-            this.desconto.MinimumWidth = 6;
-            this.desconto.Name = "desconto";
-            this.desconto.ReadOnly = true;
-            this.desconto.Width = 125;
-            // 
-            // percentual_compra
-            // 
-            this.percentual_compra.HeaderText = "% Compra";
-            this.percentual_compra.MinimumWidth = 6;
-            this.percentual_compra.Name = "percentual_compra";
-            this.percentual_compra.ReadOnly = true;
-            this.percentual_compra.Width = 125;
-            // 
-            // media_ponderada
-            // 
-            this.media_ponderada.HeaderText = "Média Ponderada";
-            this.media_ponderada.MinimumWidth = 6;
-            this.media_ponderada.Name = "media_ponderada";
-            this.media_ponderada.ReadOnly = true;
-            this.media_ponderada.Width = 125;
             // 
             // tbDataCad
             // 
@@ -407,7 +317,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbCodigoProduto
             // 
             this.tbCodigoProduto.Enabled = false;
-            this.tbCodigoProduto.Location = new System.Drawing.Point(45, 89);
+            this.tbCodigoProduto.Location = new System.Drawing.Point(45, 97);
             this.tbCodigoProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCodigoProduto.Name = "tbCodigoProduto";
             this.tbCodigoProduto.Size = new System.Drawing.Size(90, 22);
@@ -416,7 +326,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(42, 69);
+            this.label10.Location = new System.Drawing.Point(42, 77);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 17);
             this.label10.TabIndex = 43;
@@ -425,7 +335,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbDescProduto
             // 
             this.tbDescProduto.Enabled = false;
-            this.tbDescProduto.Location = new System.Drawing.Point(160, 89);
+            this.tbDescProduto.Location = new System.Drawing.Point(160, 97);
             this.tbDescProduto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescProduto.Name = "tbDescProduto";
             this.tbDescProduto.Size = new System.Drawing.Size(193, 22);
@@ -434,7 +344,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(157, 69);
+            this.label11.Location = new System.Drawing.Point(157, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 17);
             this.label11.TabIndex = 45;
@@ -442,7 +352,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // btPesquisarProduto
             // 
-            this.btPesquisarProduto.Location = new System.Drawing.Point(378, 88);
+            this.btPesquisarProduto.Location = new System.Drawing.Point(443, 98);
             this.btPesquisarProduto.Margin = new System.Windows.Forms.Padding(4);
             this.btPesquisarProduto.Name = "btPesquisarProduto";
             this.btPesquisarProduto.Size = new System.Drawing.Size(91, 23);
@@ -521,7 +431,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbQtd
             // 
-            this.tbQtd.Location = new System.Drawing.Point(502, 89);
+            this.tbQtd.Location = new System.Drawing.Point(559, 99);
             this.tbQtd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbQtd.Name = "tbQtd";
             this.tbQtd.Size = new System.Drawing.Size(61, 22);
@@ -529,7 +439,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbDesconto
             // 
-            this.tbDesconto.Location = new System.Drawing.Point(650, 89);
+            this.tbDesconto.Location = new System.Drawing.Point(707, 99);
             this.tbDesconto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDesconto.Name = "tbDesconto";
             this.tbDesconto.Size = new System.Drawing.Size(61, 22);
@@ -537,7 +447,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCusto
             // 
-            this.tbCusto.Location = new System.Drawing.Point(576, 89);
+            this.tbCusto.Location = new System.Drawing.Point(633, 99);
             this.tbCusto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCusto.Name = "tbCusto";
             this.tbCusto.Size = new System.Drawing.Size(61, 22);
@@ -545,7 +455,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(743, 89);
+            this.button2.Location = new System.Drawing.Point(866, 100);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 23);
@@ -557,7 +467,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(499, 69);
+            this.label16.Location = new System.Drawing.Point(556, 79);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(31, 17);
             this.label16.TabIndex = 61;
@@ -566,7 +476,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(573, 69);
+            this.label17.Location = new System.Drawing.Point(630, 79);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(44, 17);
             this.label17.TabIndex = 62;
@@ -575,7 +485,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(647, 69);
+            this.label18.Location = new System.Drawing.Point(704, 79);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 17);
             this.label18.TabIndex = 63;
@@ -599,8 +509,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.dgParcelas.RowHeadersWidth = 51;
             this.dgParcelas.RowTemplate.Height = 24;
             this.dgParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgParcelas.Size = new System.Drawing.Size(1197, 179);
+            this.dgParcelas.Size = new System.Drawing.Size(1050, 179);
             this.dgParcelas.TabIndex = 64;
+            this.dgParcelas.Visible = false;
             // 
             // num_parcela
             // 
@@ -659,13 +570,244 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label19.TabIndex = 66;
             this.label19.Text = "Total Nota";
             // 
+            // tbUND
+            // 
+            this.tbUND.Enabled = false;
+            this.tbUND.Location = new System.Drawing.Point(373, 97);
+            this.tbUND.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbUND.Name = "tbUND";
+            this.tbUND.Size = new System.Drawing.Size(47, 22);
+            this.tbUND.TabIndex = 67;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(370, 78);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(38, 17);
+            this.label20.TabIndex = 68;
+            this.label20.Text = "UND";
+            // 
+            // id_produto
+            // 
+            this.id_produto.HeaderText = "ID Produto";
+            this.id_produto.MinimumWidth = 6;
+            this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            this.id_produto.Width = 125;
+            // 
+            // produto
+            // 
+            this.produto.HeaderText = "Produto";
+            this.produto.MinimumWidth = 6;
+            this.produto.Name = "produto";
+            this.produto.ReadOnly = true;
+            this.produto.Width = 125;
+            // 
+            // und
+            // 
+            this.und.HeaderText = "UND";
+            this.und.MinimumWidth = 6;
+            this.und.Name = "und";
+            this.und.ReadOnly = true;
+            this.und.Width = 125;
+            // 
+            // qtd_entrada
+            // 
+            this.qtd_entrada.HeaderText = "Qtd Entrada";
+            this.qtd_entrada.MinimumWidth = 6;
+            this.qtd_entrada.Name = "qtd_entrada";
+            this.qtd_entrada.ReadOnly = true;
+            this.qtd_entrada.Width = 125;
+            // 
+            // custo_atual
+            // 
+            this.custo_atual.HeaderText = "Custo Atual";
+            this.custo_atual.MinimumWidth = 6;
+            this.custo_atual.Name = "custo_atual";
+            this.custo_atual.ReadOnly = true;
+            this.custo_atual.Width = 125;
+            // 
+            // custo_sugerido
+            // 
+            this.custo_sugerido.HeaderText = "Custo Sugerido";
+            this.custo_sugerido.MinimumWidth = 6;
+            this.custo_sugerido.Name = "custo_sugerido";
+            this.custo_sugerido.ReadOnly = true;
+            this.custo_sugerido.Width = 125;
+            // 
+            // desconto
+            // 
+            this.desconto.HeaderText = "Desconto";
+            this.desconto.MinimumWidth = 6;
+            this.desconto.Name = "desconto";
+            this.desconto.ReadOnly = true;
+            this.desconto.Width = 125;
+            // 
+            // percentual_compra
+            // 
+            this.percentual_compra.HeaderText = "% Compra";
+            this.percentual_compra.MinimumWidth = 6;
+            this.percentual_compra.Name = "percentual_compra";
+            this.percentual_compra.ReadOnly = true;
+            this.percentual_compra.Width = 125;
+            // 
+            // preco_total
+            // 
+            this.preco_total.HeaderText = "Preço Total";
+            this.preco_total.MinimumWidth = 6;
+            this.preco_total.Name = "preco_total";
+            this.preco_total.ReadOnly = true;
+            this.preco_total.Width = 125;
+            // 
+            // media_ponderada
+            // 
+            this.media_ponderada.HeaderText = "Média Ponderada";
+            this.media_ponderada.MinimumWidth = 6;
+            this.media_ponderada.Name = "media_ponderada";
+            this.media_ponderada.ReadOnly = true;
+            this.media_ponderada.Width = 125;
+            // 
+            // tbTotalItens
+            // 
+            this.tbTotalItens.Location = new System.Drawing.Point(785, 100);
+            this.tbTotalItens.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTotalItens.Name = "tbTotalItens";
+            this.tbTotalItens.Size = new System.Drawing.Size(61, 22);
+            this.tbTotalItens.TabIndex = 69;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(782, 81);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(40, 17);
+            this.label21.TabIndex = 70;
+            this.label21.Text = "Total";
+            // 
+            // GbChave
+            // 
+            this.GbChave.Controls.Add(this.tbCodigoFornecedor);
+            this.GbChave.Controls.Add(this.tbSerieNota);
+            this.GbChave.Controls.Add(this.tbModeloNota);
+            this.GbChave.Controls.Add(this.tbNumNota);
+            this.GbChave.Location = new System.Drawing.Point(34, 6);
+            this.GbChave.Name = "GbChave";
+            this.GbChave.Size = new System.Drawing.Size(812, 64);
+            this.GbChave.TabIndex = 71;
+            this.GbChave.TabStop = false;
+            this.GbChave.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // gbProdutos
+            // 
+            this.gbProdutos.Location = new System.Drawing.Point(34, 70);
+            this.gbProdutos.Name = "gbProdutos";
+            this.gbProdutos.Size = new System.Drawing.Size(930, 56);
+            this.gbProdutos.TabIndex = 72;
+            this.gbProdutos.TabStop = false;
+            // 
+            // gbDatas
+            // 
+            this.gbDatas.Location = new System.Drawing.Point(852, 6);
+            this.gbDatas.Name = "gbDatas";
+            this.gbDatas.Size = new System.Drawing.Size(407, 64);
+            this.gbDatas.TabIndex = 0;
+            this.gbDatas.TabStop = false;
+            // 
+            // gbCondicao
+            // 
+            this.gbCondicao.Location = new System.Drawing.Point(34, 389);
+            this.gbCondicao.Name = "gbCondicao";
+            this.gbCondicao.Size = new System.Drawing.Size(1225, 73);
+            this.gbCondicao.TabIndex = 73;
+            this.gbCondicao.TabStop = false;
+            // 
+            // tbNumNota
+            // 
+            this.tbNumNota.Location = new System.Drawing.Point(11, 33);
+            this.tbNumNota.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.tbNumNota.Name = "tbNumNota";
+            this.tbNumNota.Size = new System.Drawing.Size(90, 22);
+            this.tbNumNota.TabIndex = 0;
+            // 
+            // tbModeloNota
+            // 
+            this.tbModeloNota.Location = new System.Drawing.Point(127, 33);
+            this.tbModeloNota.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.tbModeloNota.Name = "tbModeloNota";
+            this.tbModeloNota.Size = new System.Drawing.Size(90, 22);
+            this.tbModeloNota.TabIndex = 1;
+            // 
+            // tbSerieNota
+            // 
+            this.tbSerieNota.Location = new System.Drawing.Point(250, 33);
+            this.tbSerieNota.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.tbSerieNota.Name = "tbSerieNota";
+            this.tbSerieNota.Size = new System.Drawing.Size(90, 22);
+            this.tbSerieNota.TabIndex = 2;
+            // 
+            // tbCodigoFornecedor
+            // 
+            this.tbCodigoFornecedor.Location = new System.Drawing.Point(367, 34);
+            this.tbCodigoFornecedor.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.tbCodigoFornecedor.Name = "tbCodigoFornecedor";
+            this.tbCodigoFornecedor.Size = new System.Drawing.Size(90, 22);
+            this.tbCodigoFornecedor.TabIndex = 3;
+            // 
+            // texto
+            // 
+            this.texto.Location = new System.Drawing.Point(1102, 468);
+            this.texto.Name = "texto";
+            this.texto.Size = new System.Drawing.Size(156, 179);
+            this.texto.TabIndex = 74;
+            this.texto.Text = "";
+            // 
             // FrmCadastroCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1304, 732);
+            this.Controls.Add(this.texto);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.tbTotalNota);
-            this.Controls.Add(this.dgParcelas);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.tbOutrosCustos);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.tbCustoSeguro);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tbCustoFrete);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbCodigoCondicao);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbDescricaoCondicao);
+            this.Controls.Add(this.gbCondicao);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.tbDataCancelamento);
+            this.Controls.Add(this.tbDataEmissao);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tbDataChegada);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.gbDatas);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.tbTotalItens);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.tbUND);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -673,83 +815,46 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbCusto);
             this.Controls.Add(this.tbDesconto);
             this.Controls.Add(this.tbQtd);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.tbDataCancelamento);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.tbOutrosCustos);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.tbCustoSeguro);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.tbCustoFrete);
             this.Controls.Add(this.btPesquisarProduto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbDescProduto);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbCodigoProduto);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.tbDataCad);
-            this.Controls.Add(this.DgItensCompra);
-            this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.tbDataEmissao);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbDataChegada);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbCodigoCondicao);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.gbProdutos);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbCodigoFornecedor);
-            this.Controls.Add(this.tbDescricaoCondicao);
             this.Controls.Add(this.btnPesquisarFornecedor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbFornecedor);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbSerieNota);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbModeloNota);
             this.Controls.Add(this.Nome);
-            this.Controls.Add(this.tbNumNota);
+            this.Controls.Add(this.GbChave);
+            this.Controls.Add(this.dgParcelas);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbDataCad);
+            this.Controls.Add(this.DgItensCompra);
+            this.Controls.Add(this.btnSalvar);
             this.Name = "FrmCadastroCompra";
             this.Text = "Cadastro de Compra";
-            this.Controls.SetChildIndex(this.btnSair, 0);
-            this.Controls.SetChildIndex(this.tbNumNota, 0);
-            this.Controls.SetChildIndex(this.Nome, 0);
-            this.Controls.SetChildIndex(this.tbModeloNota, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.tbSerieNota, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.tbFornecedor, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.btnPesquisarFornecedor, 0);
-            this.Controls.SetChildIndex(this.tbDescricaoCondicao, 0);
-            this.Controls.SetChildIndex(this.tbCodigoFornecedor, 0);
-            this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.tbCodigoCondicao, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.label7, 0);
-            this.Controls.SetChildIndex(this.tbDataChegada, 0);
-            this.Controls.SetChildIndex(this.label8, 0);
-            this.Controls.SetChildIndex(this.tbDataEmissao, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
             this.Controls.SetChildIndex(this.DgItensCompra, 0);
             this.Controls.SetChildIndex(this.tbDataCad, 0);
             this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.dgParcelas, 0);
+            this.Controls.SetChildIndex(this.GbChave, 0);
+            this.Controls.SetChildIndex(this.Nome, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.tbFornecedor, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.btnPesquisarFornecedor, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.gbProdutos, 0);
             this.Controls.SetChildIndex(this.tbCodigoProduto, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.tbDescProduto, 0);
             this.Controls.SetChildIndex(this.label11, 0);
             this.Controls.SetChildIndex(this.btPesquisarProduto, 0);
-            this.Controls.SetChildIndex(this.tbCustoFrete, 0);
-            this.Controls.SetChildIndex(this.label12, 0);
-            this.Controls.SetChildIndex(this.tbCustoSeguro, 0);
-            this.Controls.SetChildIndex(this.label13, 0);
-            this.Controls.SetChildIndex(this.tbOutrosCustos, 0);
-            this.Controls.SetChildIndex(this.label14, 0);
-            this.Controls.SetChildIndex(this.tbDataCancelamento, 0);
-            this.Controls.SetChildIndex(this.label15, 0);
             this.Controls.SetChildIndex(this.tbQtd, 0);
             this.Controls.SetChildIndex(this.tbDesconto, 0);
             this.Controls.SetChildIndex(this.tbCusto, 0);
@@ -757,29 +862,53 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.label17, 0);
             this.Controls.SetChildIndex(this.label18, 0);
-            this.Controls.SetChildIndex(this.dgParcelas, 0);
+            this.Controls.SetChildIndex(this.tbUND, 0);
+            this.Controls.SetChildIndex(this.label20, 0);
+            this.Controls.SetChildIndex(this.tbTotalItens, 0);
+            this.Controls.SetChildIndex(this.label21, 0);
+            this.Controls.SetChildIndex(this.gbDatas, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.tbDataChegada, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.tbDataEmissao, 0);
+            this.Controls.SetChildIndex(this.tbDataCancelamento, 0);
+            this.Controls.SetChildIndex(this.label15, 0);
+            this.Controls.SetChildIndex(this.gbCondicao, 0);
+            this.Controls.SetChildIndex(this.tbDescricaoCondicao, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.tbCodigoCondicao, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.tbCustoFrete, 0);
+            this.Controls.SetChildIndex(this.label12, 0);
+            this.Controls.SetChildIndex(this.tbCustoSeguro, 0);
+            this.Controls.SetChildIndex(this.label13, 0);
+            this.Controls.SetChildIndex(this.tbOutrosCustos, 0);
+            this.Controls.SetChildIndex(this.label14, 0);
             this.Controls.SetChildIndex(this.tbTotalNota, 0);
             this.Controls.SetChildIndex(this.label19, 0);
+            this.Controls.SetChildIndex(this.btnSair, 0);
+            this.Controls.SetChildIndex(this.texto, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DgItensCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgParcelas)).EndInit();
+            this.GbChave.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tbNumNota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbModeloNota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSerieNota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCodigoFornecedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbNumNota;
         private System.Windows.Forms.Label Nome;
-        private System.Windows.Forms.TextBox tbModeloNota;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbSerieNota;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbFornecedor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnPesquisarFornecedor;
         private System.Windows.Forms.TextBox tbDescricaoCondicao;
-        private System.Windows.Forms.TextBox tbCodigoFornecedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbCodigoCondicao;
@@ -813,15 +942,6 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtd_estoque;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtd_entrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn custo_atual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn custo_sugerido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desconto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn percentual_compra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn media_ponderada;
         private System.Windows.Forms.DataGridView dgParcelas;
         private System.Windows.Forms.TextBox tbTotalNota;
         private System.Windows.Forms.Label label19;
@@ -830,5 +950,28 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn id_forma;
         private System.Windows.Forms.DataGridViewTextBoxColumn forma_pagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentual_sob_total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn und;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtd_entrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custo_atual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custo_sugerido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desconto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percentual_compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preco_total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn media_ponderada;
+        private System.Windows.Forms.TextBox tbUND;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbTotalItens;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox GbChave;
+        private System.Windows.Forms.GroupBox gbProdutos;
+        private System.Windows.Forms.GroupBox gbDatas;
+        private System.Windows.Forms.GroupBox gbCondicao;
+        private System.Windows.Forms.NumericUpDown tbNumNota;
+        private System.Windows.Forms.NumericUpDown tbCodigoFornecedor;
+        private System.Windows.Forms.NumericUpDown tbSerieNota;
+        private System.Windows.Forms.NumericUpDown tbModeloNota;
+        private System.Windows.Forms.RichTextBox texto;
     }
 }

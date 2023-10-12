@@ -16,6 +16,10 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             InitializeComponent();
             tbDataCad.Text = Convert.ToString(DateTime.Now);
+            tbNumNota.Controls[0].Visible = false;
+            tbModeloNota.Controls[0].Visible = false;
+            tbSerieNota.Controls[0].Visible = false;
+            tbCodigoFornecedor.Controls[0].Visible = false;
         }
         private uCtrlCompras ControllerCompras = new uCtrlCompras();
         private uCtrlProdutos ControllerProdutos = new uCtrlProdutos();
@@ -191,6 +195,10 @@ namespace Sistema__Renovo_Barber.Formularios
                 ControllerProdutos.AtualizarEstoque(ItensCompra.Produtos.id, ItensCompra.Media_ponderada, ItensCompra.Qtd + ItensCompra.Produtos.Qtd_estoque);
                 ControllerComprasItens.SalvarItens(ItensCompra);
             }
+            if(btnSalvar.Text == "Cancelar")
+            {
+                //Crontroller
+            }
             this.Close();
         }
 
@@ -202,9 +210,122 @@ namespace Sistema__Renovo_Barber.Formularios
 
         private void tbNumNota_Leave(object sender, EventArgs e)
         {
-            
+            ValidarNota();
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        public void NovoForm()
+        {
+            gbCondicao.Enabled = false;
+            gbDatas.Enabled = false;
+            gbProdutos.Enabled = false;
+        }
+        public void PopularForm(uCompras Obj)
+        {
+            gbProdutos.Enabled = false;
+            GbChave.Enabled = false;
+            gbCondicao.Enabled = false;
+            gbDatas.Enabled = false;
+            Popular(Obj);
+        }
+        public void FormCancelamento()
+        {
+            texto.Visible = true;
+            btnSalvar.Text = "Cancelar";
+        }
+
+        public bool ValidarNota()
+        {
+            if(tbNumNota.Value > 0 && tbModeloNota.Value > 0 && tbSerieNota.Value > 0 && tbCodigoFornecedor.Value > 0)
+            {
+                var Obj = ControllerCompras.Buscar(Convert.ToInt32(tbNumNota.Value), Convert.ToInt32(tbModeloNota.Value), Convert.ToInt32(tbSerieNota.Value), Convert.ToInt32(tbCodigoFornecedor.Value));
+                if (Obj != null)
+                {
+                    MessageBox.Show("Nota ja cadastrada");
+                    return false;
+                }else
+                {
+                    Desbloquear();
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public void Desbloquear()
+        {
+            GbChave.Enabled = false;
+            gbCondicao.Enabled = true;
+            gbDatas.Enabled = true;
+            gbProdutos.Enabled = true;
+        }
+
+        public void Popular(uCompras Obj)
+        {
+            tbNumNota.Text = Obj.Num_nfc.ToString();
+            tbModeloNota.Text = Obj.Modelo_nfc.ToString();
+            tbSerieNota.Text = Obj.Serie_nfc.ToString();
+            tbCodigoFornecedor.Text = Obj.Fornecedor.id.ToString();
+            tbFornecedor.Text = Obj.Fornecedor.Nome.ToString();
+            tbDataChegada.Text = Obj.Data_chegada.ToString();
+            tbDataEmissao.Text = Obj.Data_emissao.ToString();
+            tbDataCancelamento.Text = Obj.Data_cancelamento.ToString();
+            tbCodigoCondicao.Text = Obj.CondicaoPagamento.id.ToString();
+            tbDescricaoCondicao.Text = Obj.CondicaoPagamento.Condicao.ToString();
+            tbCustoFrete.Text = Obj.Valor_frete.ToString();
+            tbCustoSeguro.Text = Obj.Valor_seguro.ToString();
+            tbOutrosCustos.Text = Obj.Valor_outras_despesas.ToString();
+            tbTotalNota.Text = Obj.Valor_total.ToString();
+            PopularItens(Obj.ItensCompra);
+            PopularCondicao(Obj.CondicaoPagamento.uParcelas);
+        }
+        public void PopularItens(List<uItensCompra>List)
+        {
+            DgItensCompra.Rows.Clear();
+            foreach (uItensCompra Item in List)
+            {
+                DgItensCompra.Rows.Add(Item.Produtos.id,
+                    Item.Produtos.Descricao_produto,
+                    Item.Produtos.UND,
+                    Item.Qtd,
+                    Item.Produtos.Preco_custo,
+                    Item.Preco_custo,
+                    Item.Desconto,
+                    Item.Percentual_compra,
+                    Item.Total_custo,
+                    Item.Media_ponderada);
+            }
+        }
+        public void PopularCondicao(List<uParcelas>List)
+        {
+            dgParcelas.Rows.Clear();
+            foreach (uParcelas Parc in List)
+            {
+                dgParcelas.Rows.Add(Parc.NumParcela,
+                    Parc.DiasTotais,
+                    Parc.FormaPagamento.id,
+                    Parc.FormaPagamento.Forma,
+                    Parc.Porcentagem);
+            }
+        }
+
+        private void tbModeloNota_Leave(object sender, EventArgs e)
+        {
+            ValidarNota();
+        }
+
+        private void tbSerieNota_Leave(object sender, EventArgs e)
+        {
+            ValidarNota();
+        }
+
+        private void tbCodigoFornecedor_Leave(object sender, EventArgs e)
+        {
+            ValidarNota();
+        }
     }
 }

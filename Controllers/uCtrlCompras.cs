@@ -28,5 +28,10 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoCompras.PopularGrid();
             return vData;
         }
+
+        public uCompras Buscar(int Modelo, int Numero, int Serie, int CodFornecedor)
+        {
+            return null;
+        }
     }
 }

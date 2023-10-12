@@ -40,6 +40,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbQtdEstoque = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.tbUnidade = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbDescricaoProduto
@@ -134,10 +136,28 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // tbUnidade
+            // 
+            this.tbUnidade.Location = new System.Drawing.Point(307, 131);
+            this.tbUnidade.Name = "tbUnidade";
+            this.tbUnidade.Size = new System.Drawing.Size(102, 22);
+            this.tbUnidade.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(304, 108);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 17);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "UND Medida";
+            // 
             // FrmCadastroProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbUnidade);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbQtdEstoque);
@@ -167,6 +187,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbQtdEstoque, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
+            this.Controls.SetChildIndex(this.tbUnidade, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +207,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.TextBox tbQtdEstoque;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox tbUnidade;
+        private System.Windows.Forms.Label label9;
     }
 }

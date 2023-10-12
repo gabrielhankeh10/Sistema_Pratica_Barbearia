@@ -29,10 +29,16 @@ namespace Sistema__Renovo_Barber.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.DgConsultaClientes = new System.Windows.Forms.DataGridView();
+            this.DgConsultaCompras = new System.Windows.Forms.DataGridView();
+            this.tbPesquisarCompra = new System.Windows.Forms.TextBox();
+            this.btnPesquisarCompra = new System.Windows.Forms.Button();
+            this.btnIncluir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             this.num_nfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelo_nfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serie_nfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.condicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,26 +48,23 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_chegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_emissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_criacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbPesquisarCompra = new System.Windows.Forms.TextBox();
-            this.btnPesquisarCompra = new System.Windows.Forms.Button();
-            this.btnIncluir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(761, 518);
             // 
-            // DgConsultaClientes
+            // DgConsultaCompras
             // 
-            this.DgConsultaClientes.AllowUserToAddRows = false;
-            this.DgConsultaClientes.AllowUserToDeleteRows = false;
-            this.DgConsultaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgConsultaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgConsultaCompras.AllowUserToAddRows = false;
+            this.DgConsultaCompras.AllowUserToDeleteRows = false;
+            this.DgConsultaCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgConsultaCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.num_nfc,
             this.modelo_nfc,
             this.serie_nfc,
+            this.cod_fornecedor,
             this.fornecedor,
             this.condicao,
             this.valor_total,
@@ -71,15 +74,63 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_chegada,
             this.data_emissao,
             this.data_criacao});
-            this.DgConsultaClientes.Location = new System.Drawing.Point(51, 79);
-            this.DgConsultaClientes.MultiSelect = false;
-            this.DgConsultaClientes.Name = "DgConsultaClientes";
-            this.DgConsultaClientes.ReadOnly = true;
-            this.DgConsultaClientes.RowHeadersWidth = 51;
-            this.DgConsultaClientes.RowTemplate.Height = 24;
-            this.DgConsultaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgConsultaClientes.Size = new System.Drawing.Size(785, 419);
-            this.DgConsultaClientes.TabIndex = 10;
+            this.DgConsultaCompras.Location = new System.Drawing.Point(51, 79);
+            this.DgConsultaCompras.MultiSelect = false;
+            this.DgConsultaCompras.Name = "DgConsultaCompras";
+            this.DgConsultaCompras.ReadOnly = true;
+            this.DgConsultaCompras.RowHeadersWidth = 51;
+            this.DgConsultaCompras.RowTemplate.Height = 24;
+            this.DgConsultaCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgConsultaCompras.Size = new System.Drawing.Size(785, 419);
+            this.DgConsultaCompras.TabIndex = 10;
+            // 
+            // tbPesquisarCompra
+            // 
+            this.tbPesquisarCompra.Location = new System.Drawing.Point(51, 34);
+            this.tbPesquisarCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPesquisarCompra.Name = "tbPesquisarCompra";
+            this.tbPesquisarCompra.Size = new System.Drawing.Size(255, 22);
+            this.tbPesquisarCompra.TabIndex = 14;
+            // 
+            // btnPesquisarCompra
+            // 
+            this.btnPesquisarCompra.Location = new System.Drawing.Point(339, 33);
+            this.btnPesquisarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisarCompra.Name = "btnPesquisarCompra";
+            this.btnPesquisarCompra.Size = new System.Drawing.Size(91, 23);
+            this.btnPesquisarCompra.TabIndex = 25;
+            this.btnPesquisarCompra.Text = "Pesquisar";
+            this.btnPesquisarCompra.UseVisualStyleBackColor = true;
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.Location = new System.Drawing.Point(560, 518);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(84, 23);
+            this.btnIncluir.TabIndex = 26;
+            this.btnIncluir.Text = "Incluir";
+            this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(661, 518);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(84, 23);
+            this.btnCancelar.TabIndex = 27;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.Location = new System.Drawing.Point(458, 518);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(84, 23);
+            this.btnSelecionar.TabIndex = 28;
+            this.btnSelecionar.Text = "Selecionar";
+            this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // num_nfc
             // 
@@ -104,6 +155,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.serie_nfc.Name = "serie_nfc";
             this.serie_nfc.ReadOnly = true;
             this.serie_nfc.Width = 125;
+            // 
+            // cod_fornecedor
+            // 
+            this.cod_fornecedor.HeaderText = "Cod Fornecedor";
+            this.cod_fornecedor.MinimumWidth = 6;
+            this.cod_fornecedor.Name = "cod_fornecedor";
+            this.cod_fornecedor.ReadOnly = true;
+            this.cod_fornecedor.Width = 125;
             // 
             // fornecedor
             // 
@@ -177,61 +236,26 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data_criacao.ReadOnly = true;
             this.data_criacao.Width = 125;
             // 
-            // tbPesquisarCompra
-            // 
-            this.tbPesquisarCompra.Location = new System.Drawing.Point(51, 34);
-            this.tbPesquisarCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPesquisarCompra.Name = "tbPesquisarCompra";
-            this.tbPesquisarCompra.Size = new System.Drawing.Size(255, 22);
-            this.tbPesquisarCompra.TabIndex = 14;
-            // 
-            // btnPesquisarCompra
-            // 
-            this.btnPesquisarCompra.Location = new System.Drawing.Point(339, 33);
-            this.btnPesquisarCompra.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPesquisarCompra.Name = "btnPesquisarCompra";
-            this.btnPesquisarCompra.Size = new System.Drawing.Size(91, 23);
-            this.btnPesquisarCompra.TabIndex = 25;
-            this.btnPesquisarCompra.Text = "Pesquisar";
-            this.btnPesquisarCompra.UseVisualStyleBackColor = true;
-            // 
-            // btnIncluir
-            // 
-            this.btnIncluir.Location = new System.Drawing.Point(560, 518);
-            this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(84, 23);
-            this.btnIncluir.TabIndex = 26;
-            this.btnIncluir.Text = "Incluir";
-            this.btnIncluir.UseVisualStyleBackColor = true;
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(661, 518);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(84, 23);
-            this.btnCancelar.TabIndex = 27;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
             // FrmConsultaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(888, 593);
+            this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIncluir);
             this.Controls.Add(this.btnPesquisarCompra);
             this.Controls.Add(this.tbPesquisarCompra);
-            this.Controls.Add(this.DgConsultaClientes);
+            this.Controls.Add(this.DgConsultaCompras);
             this.Name = "FrmConsultaCompra";
             this.Text = "Consulta de Compras";
-            this.Controls.SetChildIndex(this.DgConsultaClientes, 0);
+            this.Controls.SetChildIndex(this.DgConsultaCompras, 0);
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.tbPesquisarCompra, 0);
             this.Controls.SetChildIndex(this.btnPesquisarCompra, 0);
             this.Controls.SetChildIndex(this.btnIncluir, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaClientes)).EndInit();
+            this.Controls.SetChildIndex(this.btnSelecionar, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,14 +263,16 @@ namespace Sistema__Renovo_Barber.Formularios
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DgConsultaClientes;
+        private System.Windows.Forms.DataGridView DgConsultaCompras;
         private System.Windows.Forms.TextBox tbPesquisarCompra;
         private System.Windows.Forms.Button btnPesquisarCompra;
         public System.Windows.Forms.Button btnIncluir;
         public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_nfc;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelo_nfc;
         private System.Windows.Forms.DataGridViewTextBoxColumn serie_nfc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_fornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn condicao;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_total;

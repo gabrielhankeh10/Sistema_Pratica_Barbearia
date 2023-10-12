@@ -19,6 +19,7 @@ namespace Sistema__Renovo_Barber.Classes
         public decimal Multa { get; set; }
         public decimal Desconto { get; set; }
         public List<uParcelas> uParcelas { get; set;}
+
     }
 }
 

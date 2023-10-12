@@ -15,6 +15,7 @@ namespace Sistema__Renovo_Barber.Classes
         public uPai Pai { get; set; }
         public string Descricao_produto { get; set; }
         public string Marca { get; set; }
+        public string UND { get; set; }
         public decimal Preco_venda { get; set; }
         public decimal Preco_custo { get; set; }
         public int Qtd_estoque { get; set; }
