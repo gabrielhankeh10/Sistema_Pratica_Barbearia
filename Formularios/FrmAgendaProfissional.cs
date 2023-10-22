@@ -31,8 +31,10 @@ namespace Sistema__Renovo_Barber.Formularios
                 uAgenda Agenda = new uAgenda();
                 Agenda.Funcionario = Funcionario;
                 Agenda.Data = DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {Inter1Inicio}");
+                Agenda.Intervalo = int.Parse(tbIntervalo.Text);
                 CtrlAgenda.Salvar(Agenda);
-                Inter1Inicio = Inter1Inicio.Add(new TimeSpan(0, 30, 0));
+                Inter1Inicio = Inter1Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
+
             }
             while (Inter2Inicio < Inter2Fim)
             {
@@ -40,8 +42,9 @@ namespace Sistema__Renovo_Barber.Formularios
                 uAgenda Agenda = new uAgenda();
                 Agenda.Funcionario = Funcionario;
                 Agenda.Data = DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {Inter2Inicio}");
+                Agenda.Intervalo = int.Parse(tbIntervalo.Text);
                 CtrlAgenda.Salvar(Agenda);
-                Inter2Inicio = Inter2Inicio.Add(new TimeSpan(0, 30, 0));
+                Inter2Inicio = Inter2Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
             }
             MessageBox.Show("Agenda Cadastrada");
         }

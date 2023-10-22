@@ -57,6 +57,7 @@ namespace Sistema__Renovo_Barber.Formularios
             Agenda = CtrlAgenda.CarregarConsulta(Data, IdFuncionario);
             FrmAgendamento FrmAgendamento = new FrmAgendamento(Agenda);
             FrmAgendamento.ShowDialog();
+            Listar();
         }
 
         private void DgConsultaCargos_KeyPress(object sender, KeyPressEventArgs e)
@@ -65,6 +66,11 @@ namespace Sistema__Renovo_Barber.Formularios
         }
 
         private void DgConsultaCargos_DoubleClick(object sender, EventArgs e)
+        {
+            AgendarCliente();
+        }
+
+        private void DgConsultaAgenda_KeyDown(object sender, KeyEventArgs e)
         {
             AgendarCliente();
         }

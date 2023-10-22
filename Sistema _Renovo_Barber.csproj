@@ -92,6 +92,7 @@
     <Compile Include="Classes\uCompras.cs" />
     <Compile Include="Classes\uCondicaoPagamento.cs" />
     <Compile Include="Classes\uContasPagar.cs" />
+    <Compile Include="Classes\uContasReceber.cs" />
     <Compile Include="Classes\uEstado.cs" />
     <Compile Include="Classes\uFormaPagamento.cs" />
     <Compile Include="Classes\uFornecedor.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Dao\uDaoCompras.cs" />
     <Compile Include="Dao\uDaoCondicaoPagamento.cs" />
     <Compile Include="Dao\uDaoContasPagar.cs" />
+    <Compile Include="Dao\uDaoContasReceber.cs" />
     <Compile Include="Dao\uDaoEstados.cs" />
     <Compile Include="Dao\uDaoFormaPagamento.cs" />
     <Compile Include="Dao\uDaoFornecedor.cs" />
@@ -184,6 +186,12 @@
     </Compile>
     <Compile Include="Formularios\FrmCadastroCondicaoPagamento.Designer.cs">
       <DependentUpon>FrmCadastroCondicaoPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCadastroContasReceber.Designer.cs">
+      <DependentUpon>FrmCadastroContasReceber.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmCadastroEstado.cs">
       <SubType>Form</SubType>
@@ -268,6 +276,12 @@
     </Compile>
     <Compile Include="Formularios\FrmConsultaCondicaoPagamento.Designer.cs">
       <DependentUpon>FrmConsultaCondicaoPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConsultaContasReceber.Designer.cs">
+      <DependentUpon>FrmConsultaContasReceber.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmConsultaEstado.cs">
       <SubType>Form</SubType>
@@ -370,6 +384,9 @@
     <EmbeddedResource Include="Formularios\FrmCadastroCondicaoPagamento.resx">
       <DependentUpon>FrmCadastroCondicaoPagamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCadastroContasReceber.resx">
+      <DependentUpon>FrmCadastroContasReceber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCadastroEstado.resx">
       <DependentUpon>FrmCadastroEstado.cs</DependentUpon>
     </EmbeddedResource>
@@ -414,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaCondicaoPagamento.resx">
       <DependentUpon>FrmConsultaCondicaoPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConsultaContasReceber.resx">
+      <DependentUpon>FrmConsultaContasReceber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmConsultaEstado.resx">
       <DependentUpon>FrmConsultaEstado.cs</DependentUpon>

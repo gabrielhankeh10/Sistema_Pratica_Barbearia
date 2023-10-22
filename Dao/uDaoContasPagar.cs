@@ -35,7 +35,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@situacao", "AB");
                 ExecutaComando.Parameters.AddWithValue("@data_vencimento", Obj.DataVencimento);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
-                ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_ult_alteracao);
+                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
                 MessageBox.Show("Títulos gerados com sucesso!");
@@ -46,6 +46,5 @@ namespace Sistema__Renovo_Barber.Dao
                 MessageBox.Show("Aconteceu o Erro: " + Erro);
             }
         }
-
     }
 }

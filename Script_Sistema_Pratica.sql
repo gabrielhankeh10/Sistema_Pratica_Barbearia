@@ -248,10 +248,20 @@ CREATE TABLE tb_agenda(
   id_cliente int,
   data_agenda datetime not null,
   id_servico int,
+  id_receber int,
   id_condicao int,
+  intervalo int,
   PRIMARY KEY (id_funcionario, data_agenda),
   FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionario),
   FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id_cliente),
-  FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento(id_condicao)
+  FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento(id_condicao),
+  FOREIGN KEY (id_receber) REFERENCES tb_agenda(id_condicao)
+)
+
+CREATE TABLE tb_contas_receber(
+  id_receber int not null auto_increment primary key,
+  id_condicao int,
+  situacao varchar(10),
+  data_criacao datetime not null,
 )
 

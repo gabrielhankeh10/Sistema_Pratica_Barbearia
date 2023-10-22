@@ -128,7 +128,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaAgenda.Size = new System.Drawing.Size(803, 410);
             this.DgConsultaAgenda.TabIndex = 32;
             this.DgConsultaAgenda.DoubleClick += new System.EventHandler(this.DgConsultaCargos_DoubleClick);
-            this.DgConsultaAgenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaCargos_KeyPress);
+            this.DgConsultaAgenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgConsultaAgenda_KeyDown);
             // 
             // data
             // 

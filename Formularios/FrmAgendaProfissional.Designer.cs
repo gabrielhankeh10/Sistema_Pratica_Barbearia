@@ -47,6 +47,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbInter2Fim = new System.Windows.Forms.TextBox();
             this.tbInter2Ini = new System.Windows.Forms.TextBox();
             this.btnGerar = new System.Windows.Forms.Button();
+            this.tbIntervalo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -202,10 +204,28 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnGerar.UseVisualStyleBackColor = true;
             this.btnGerar.Click += new System.EventHandler(this.btnGerar_Click);
             // 
+            // tbIntervalo
+            // 
+            this.tbIntervalo.Location = new System.Drawing.Point(590, 156);
+            this.tbIntervalo.Name = "tbIntervalo";
+            this.tbIntervalo.Size = new System.Drawing.Size(59, 22);
+            this.tbIntervalo.TabIndex = 36;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(587, 136);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 17);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Intervalo";
+            // 
             // FrmAgendaProfissional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tbIntervalo);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
@@ -245,6 +265,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.btnGerar, 0);
+            this.Controls.SetChildIndex(this.tbIntervalo, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +292,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.TextBox tbInter2Fim;
         private System.Windows.Forms.TextBox tbInter2Ini;
         private System.Windows.Forms.Button btnGerar;
+        private System.Windows.Forms.TextBox tbIntervalo;
+        private System.Windows.Forms.Label label10;
     }
 }

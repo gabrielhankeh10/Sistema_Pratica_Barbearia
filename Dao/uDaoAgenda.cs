@@ -54,29 +54,52 @@ namespace Sistema__Renovo_Barber.Dao
         
         public void Alterar(uAgenda Obj)
         {
+            ConexaoBanco.Open();
+            var Transacao = ConexaoBanco.BeginTransaction();
             try
             {
-                string Sql = @"update tb_agenda set id_cliente =  @id_cliente, id_servico = @id_servico
+                var Tempo = Obj.Servicos.Duracao;
+                var Data = Obj.Data;
+                while (Tempo > TimeSpan.Parse("0"))
+                {
+                    var Agenda = Selecionar(Data, Obj.Funcionario.id, Transacao);
+                    if (Agenda.Cliente != null)
+                    {
+                        throw new Exception("Horario Reservado");
+                    }
+                    if (Data < DateTime.Now)
+                    {
+                        throw new Exception("Horario Nao Permitido");
+                    }
+                    {
+                        string Sql = @"update tb_agenda set id_cliente =  @id_cliente, id_servico = @id_servico
                                 where data_agenda = @data_agenda and id_funcionario = @id_funcionario";
-                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
-                if (Obj.Cliente != null)
-                    ExecutaCmd.Parameters.AddWithValue("@id_cliente", Obj.Cliente.id);
-                else
-                    ExecutaCmd.Parameters.AddWithValue("@id_cliente", null);
-                if (Obj.Servicos != null)
-                    ExecutaCmd.Parameters.AddWithValue("@id_servico", Obj.Servicos.id);
-                else
-                    ExecutaCmd.Parameters.AddWithValue("@id_servico", null);
-                ExecutaCmd.Parameters.AddWithValue("@data_agenda", Obj.Data);
-                ExecutaCmd.Parameters.AddWithValue("@id_funcionario", Obj.Funcionario.id);
-                ConexaoBanco.Open();
-                ExecutaCmd.ExecuteNonQuery();
-                ConexaoBanco.Close();
+                        MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco,Transacao);
+                        if (Obj.Cliente != null)
+                            ExecutaCmd.Parameters.AddWithValue("@id_cliente", Obj.Cliente.id);
+                        else
+                            ExecutaCmd.Parameters.AddWithValue("@id_cliente", null);
+                        if (Obj.Servicos != null)
+                            ExecutaCmd.Parameters.AddWithValue("@id_servico", Obj.Servicos.id);
+                        else
+                            ExecutaCmd.Parameters.AddWithValue("@id_servico", null);
+                        ExecutaCmd.Parameters.AddWithValue("@data_agenda", Data);
+                        ExecutaCmd.Parameters.AddWithValue("@id_funcionario", Obj.Funcionario.id);
+
+                        ExecutaCmd.ExecuteNonQuery();
+                    }
+                    Data = Data.AddMinutes(Obj.Intervalo);
+                    Tempo -=(TimeSpan.FromMinutes(Obj.Intervalo));
+                }
+                Transacao.Commit();
+                MessageBox.Show("Agendado");
             }
             catch (Exception Erro)
             {
-                MessageBox.Show("Aconteceu o Erro: " + Erro);
+                Transacao.Rollback();
+                MessageBox.Show("Aconteceu o Erro: " + Erro.Message);
             }
+            finally { ConexaoBanco.Close(); }
         }
         
         public uAgenda Selecionar(DateTime Data, int IdFuncionario)
@@ -84,7 +107,7 @@ namespace Sistema__Renovo_Barber.Dao
             try
             {
                 uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
-                string Sql = @"select tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico from tb_agenda tb
+                string Sql = @"select tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico, tb.intervalo from tb_agenda tb
                                 left join tb_funcionarios fun on fun.id_funcionario = tb.id_funcionario
                                 left join tb_clientes cli on cli.id_cliente = tb.id_cliente
                                 left join tb_servicos ser on ser.id_servico = tb.id_servico
@@ -107,6 +130,9 @@ namespace Sistema__Renovo_Barber.Dao
                             }
                             
                         };
+                        int Intervalo = 0;
+                        int.TryParse(reader["intervalo"].ToString(), out Intervalo);
+                        Obj.Intervalo = Intervalo;
                         int idCliente = 0;
                         int.TryParse(reader["id_cliente"].ToString(), out idCliente);
                         if(idCliente > 0)
@@ -139,6 +165,69 @@ namespace Sistema__Renovo_Barber.Dao
             ConexaoBanco.Close();
             return null;
         }
+
+        public uAgenda Selecionar(DateTime Data, int IdFuncionario, MySqlTransaction transaction)
+        {
+            try
+            {
+                uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
+                string Sql = @"select tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico, tb.intervalo from tb_agenda tb
+                                left join tb_funcionarios fun on fun.id_funcionario = tb.id_funcionario
+                                left join tb_clientes cli on cli.id_cliente = tb.id_cliente
+                                left join tb_servicos ser on ser.id_servico = tb.id_servico
+                                where tb.id_funcionario = @id_funcionario and tb.data_agenda = @data_agenda";
+                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco, transaction);
+                ExecutaCmd.Parameters.AddWithValue("@id_funcionario", IdFuncionario);
+                ExecutaCmd.Parameters.AddWithValue("@data_agenda", Data);
+                using (var reader = ExecutaCmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        uAgenda Obj = new uAgenda
+                        {
+                            Data = Convert.ToDateTime(reader["data_agenda"]),
+                            Funcionario = new uFuncionario
+                            {
+                                id = Convert.ToInt32(reader["id_funcionario"]),
+                                Nome = Convert.ToString(reader["funcionario"])
+                            }
+
+                        };
+                        int Intervalo = 0;
+                        int.TryParse(reader["intervalo"].ToString(), out Intervalo);
+                        Obj.Intervalo = Intervalo;
+                        int idCliente = 0;
+                        int.TryParse(reader["id_cliente"].ToString(), out idCliente);
+                        if (idCliente > 0)
+                        {
+                            Obj.Cliente = new uCliente
+                            {
+                                id = Convert.ToInt32(reader["id_cliente"]),
+                                Nome = Convert.ToString(reader["cliente"])
+                            };
+                        }
+                        int idServico = 0;
+                        int.TryParse(reader["id_servico"].ToString(), out idServico);
+                        if (idServico > 0)
+                        {
+                            Obj.Servicos = new uServicos
+                            {
+                                id = idServico,
+                                Descricao = Convert.ToString(reader["servico"])
+                            };
+                        }
+                        return Obj;
+                    }
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show("Aconteceu o Erro: " + Erro);
+            }
+            ConexaoBanco.Close();
+            return null;
+        }
+
         /*
         public void Excluir(uAgenda Obj)
         {
@@ -191,8 +280,8 @@ namespace Sistema__Renovo_Barber.Dao
         {
             try
             {
-                string Sql = @"insert into tb_agenda (id_funcionario, id_cliente, data_agenda)
-                                values (@id_funcionario, @id_cliente, @data_agenda)";
+                string Sql = @"insert into tb_agenda (id_funcionario, id_cliente, data_agenda, intervalo)
+                                values (@id_funcionario, @id_cliente, @data_agenda, @intervalo)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
 
@@ -202,6 +291,7 @@ namespace Sistema__Renovo_Barber.Dao
                 else
                     ExecutaComando.Parameters.AddWithValue("@id_cliente", null);
                 ExecutaComando.Parameters.AddWithValue("@data_agenda", Obj.Data);
+                ExecutaComando.Parameters.AddWithValue("@intervalo", Obj.Intervalo);
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
                 ConexaoBanco.Close();
