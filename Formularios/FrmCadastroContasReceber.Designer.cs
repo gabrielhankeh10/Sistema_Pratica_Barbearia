@@ -47,13 +47,16 @@ namespace Sistema__Renovo_Barber.Formularios
             this.ddd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCidades)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(310, 42);
+            this.label6.Location = new System.Drawing.Point(456, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 68;
@@ -61,7 +64,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbIdServico
             // 
-            this.tbIdServico.Location = new System.Drawing.Point(313, 61);
+            this.tbIdServico.Location = new System.Drawing.Point(459, 61);
             this.tbIdServico.Name = "tbIdServico";
             this.tbIdServico.Size = new System.Drawing.Size(69, 22);
             this.tbIdServico.TabIndex = 67;
@@ -69,18 +72,19 @@ namespace Sistema__Renovo_Barber.Formularios
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(401, 42);
+            this.label7.Location = new System.Drawing.Point(553, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 17);
+            this.label7.Size = new System.Drawing.Size(12, 17);
             this.label7.TabIndex = 65;
-            this.label7.Text = "Serviço";
+            this.label7.Text = " ";
             // 
             // tbNomeServico
             // 
-            this.tbNomeServico.Location = new System.Drawing.Point(404, 62);
+            this.tbNomeServico.Location = new System.Drawing.Point(556, 62);
             this.tbNomeServico.Name = "tbNomeServico";
             this.tbNomeServico.Size = new System.Drawing.Size(141, 22);
             this.tbNomeServico.TabIndex = 64;
+            this.tbNomeServico.Text = " ";
             // 
             // label3
             // 
@@ -117,7 +121,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 42);
+            this.label1.Location = new System.Drawing.Point(191, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 55;
@@ -125,7 +129,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbIdFuncionario
             // 
-            this.tbIdFuncionario.Location = new System.Drawing.Point(48, 61);
+            this.tbIdFuncionario.Location = new System.Drawing.Point(194, 61);
             this.tbIdFuncionario.Name = "tbIdFuncionario";
             this.tbIdFuncionario.Size = new System.Drawing.Size(69, 22);
             this.tbIdFuncionario.TabIndex = 54;
@@ -133,7 +137,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(136, 42);
+            this.label4.Location = new System.Drawing.Point(282, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 53;
@@ -141,7 +145,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbFuncionario
             // 
-            this.tbFuncionario.Location = new System.Drawing.Point(139, 62);
+            this.tbFuncionario.Location = new System.Drawing.Point(285, 62);
             this.tbFuncionario.Name = "tbFuncionario";
             this.tbFuncionario.Size = new System.Drawing.Size(141, 22);
             this.tbFuncionario.TabIndex = 52;
@@ -200,7 +204,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(448, 116);
+            this.btnAdicionar.Location = new System.Drawing.Point(313, 116);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(97, 23);
@@ -208,10 +212,42 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(729, 60);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(97, 23);
+            this.btnPesquisar.TabIndex = 71;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(48, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(111, 22);
+            this.dateTimePicker1.TabIndex = 72;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "Data";
+            // 
             // FrmCadastroContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.DgConsultaCidades);
             this.Controls.Add(this.label6);
@@ -243,6 +279,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.DgConsultaCidades, 0);
             this.Controls.SetChildIndex(this.btnAdicionar, 0);
+            this.Controls.SetChildIndex(this.btnPesquisar, 0);
+            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaCidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -269,5 +308,8 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn ddd;
         private System.Windows.Forms.DataGridViewTextBoxColumn uf;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label2;
     }
 }

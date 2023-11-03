@@ -10,22 +10,20 @@ using System.Windows.Forms;
 
 namespace Sistema__Renovo_Barber.Formularios
 {
-    public partial class FrmConsultaAgenda : Sistema__Renovo_Barber.Formularios.FrmPai
+    public partial class FrmConsultaAgendaContasReceber : Sistema__Renovo_Barber.Formularios.FrmPai
     {
-        public FrmConsultaAgenda()
+        public FrmConsultaAgendaContasReceber(DateTime Data)
         {
             InitializeComponent();
-            dateTimePicker1.Text = DateTime.Now.ToString();
+            dateTimePicker1.Text = Data.ToString();
             Listar();
         }
         public void Listar()
         {
             DgConsultaAgenda.Rows.Clear();
             int? IdFuncionario = null;
-            if (!string.IsNullOrEmpty(tbIdFuncionario.Text))
-                IdFuncionario = int.Parse(tbIdFuncionario.Text);
             uCtrlAgenda Controller = new uCtrlAgenda();
-            DataTable vData = Controller.PopularGrid(dateTimePicker1.Value, IdFuncionario);
+            DataTable vData = Controller.PopularGridReceber(dateTimePicker1.Value);
             if (vData != null)
             {
                 foreach (DataRow vLinha in vData.Rows)
@@ -45,6 +43,11 @@ namespace Sistema__Renovo_Barber.Formularios
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             Listar();
+        }
+
+        public void ObterServicos()
+        {
+
         }
 
         public void AgendarCliente()

@@ -111,5 +111,11 @@ namespace Sistema__Renovo_Barber
             FrmConsultaAgenda frmConsultaAgenda = new FrmConsultaAgenda();
             frmConsultaAgenda.ShowDialog();
         }
+
+        private void finalizarAgendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastroContasReceber frmCadastroContasReceber = new FrmCadastroContasReceber();
+            frmCadastroContasReceber.ShowDialog();
+        }
     }
 }

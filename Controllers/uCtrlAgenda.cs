@@ -23,9 +23,9 @@ namespace Sistema__Renovo_Barber.Controllers
             DaoCargos.Excluir(Cargos);
         }*/
 
-        public uAgenda CarregarConsulta(DateTime Data, int IdFuncionario)
+        public uAgenda CarregarConsulta(int IdAgenda)
         {
-            return DaoAgenda.Selecionar(Data, IdFuncionario);
+            return DaoAgenda.Selecionar(IdAgenda);
         }
         public void Alterar(uAgenda agenda)
         {
@@ -37,6 +37,13 @@ namespace Sistema__Renovo_Barber.Controllers
             vData = DaoAgenda.PopularGrid(Data, IdFuncionario);
             return vData;
         }
+        public DataTable PopularGridReceber(DateTime Data)
+        {
+            DataTable vData = new DataTable();
+            vData = DaoAgenda.PopularGridReceber(Data);
+            return vData;
+        }
+
         public void Salvar(uAgenda agenda)
         {
             DaoAgenda.Salvar(agenda);
