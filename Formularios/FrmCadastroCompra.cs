@@ -95,8 +95,9 @@ namespace Sistema__Renovo_Barber.Formularios
             {
                 if (vLinha != null)
                 {
-                    var CustoProdutoAtual = Convert.ToDecimal(vLinha.Cells["custo_atual"].Value);
-                    var QtdEstoqueAtual = Convert.ToInt32(vLinha.Cells["qtd_estoque"].Value);
+                    var Produto = ControllerProdutos.Carregar(Convert.ToInt32(vLinha.Cells["id_produto"].Value));
+                    var CustoProdutoAtual = Produto.Preco_custo;
+                    var QtdEstoqueAtual = Produto.Qtd_estoque;
                     var PercentualCompra = Convert.ToDecimal(vLinha.Cells["percentual_compra"].Value);
                     var CustoEntrada = Convert.ToDecimal(tbCusto.Text);
                     var QtdEntradaEstoque = Convert.ToInt32(vLinha.Cells["qtd_entrada"].Value);

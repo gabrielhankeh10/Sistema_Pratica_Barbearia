@@ -146,8 +146,8 @@ namespace Sistema__Renovo_Barber.Dao
         {
             try
             {
-                string Sql = @"insert into tb_produtos (descricao_produto, marca, preco_custo, preco_venda, qtd_estoque, data_criacao, data_ult_alteracao)
-                               values (@descricao_produto, @marca, @preco_custo, @preco_venda, @qtd_estoque, @data_criacao, @data_ult_alteracao)";
+                string Sql = @"insert into tb_produtos (descricao_produto, marca, preco_custo, preco_venda, qtd_estoque, data_criacao, data_ult_alteracao, unidade_medida)
+                               values (@descricao_produto, @marca, @preco_custo, @preco_venda, @qtd_estoque, @data_criacao, @data_ult_alteracao, @unidade_medida)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@descricao_produto", Obj.Descricao_produto);
@@ -155,6 +155,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@preco_custo", Obj.Preco_custo);
                 ExecutaComando.Parameters.AddWithValue("@preco_venda", Obj.Preco_venda);
                 ExecutaComando.Parameters.AddWithValue("@qtd_estoque", Obj.Qtd_estoque);
+                ExecutaComando.Parameters.AddWithValue("@unidade_medida", Obj.UND);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
                 ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
                 ConexaoBanco.Open();

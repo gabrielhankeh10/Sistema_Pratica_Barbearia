@@ -151,7 +151,7 @@ namespace Sistema__Renovo_Barber.Dao
             try
             {
                 uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
-                string Sql = @"select tb.id_agenda, tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico, tb.intervalo from tb_agenda tb
+                string Sql = @"select tb.id_agenda, tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico, tb.intervalo, ser.valor, tb.id_agenda_referencia from tb_agenda tb
                                 left join tb_funcionarios fun on fun.id_funcionario = tb.id_funcionario
                                 left join tb_clientes cli on cli.id_cliente = tb.id_cliente
                                 left join tb_servicos ser on ser.id_servico = tb.id_servico
@@ -163,10 +163,13 @@ namespace Sistema__Renovo_Barber.Dao
                 {
                     if (reader.Read())
                     {
+                        int id_agenda_referencia = 0;
+                        int.TryParse(reader["id_agenda_referencia"].ToString(), out id_agenda_referencia);
                         uAgenda Obj = new uAgenda
                         {
                             id_agenda = Convert.ToInt32(reader["id_agenda"]),
                             Data = Convert.ToDateTime(reader["data_agenda"]),
+                            id_agenda_referencia = id_agenda_referencia,
                             Funcionario = new uFuncionario
                             {
                                 id = Convert.ToInt32(reader["id_funcionario"]),
@@ -179,7 +182,8 @@ namespace Sistema__Renovo_Barber.Dao
                         Obj.Intervalo = Intervalo;
                         int idCliente = 0;
                         int.TryParse(reader["id_cliente"].ToString(), out idCliente);
-                        if(idCliente > 0)
+                        
+                        if (idCliente > 0)
                         {
                             Obj.Cliente = new uCliente
                             {
@@ -194,7 +198,8 @@ namespace Sistema__Renovo_Barber.Dao
                             Obj.Servicos = new uServicos
                             {
                                 id = idServico,
-                                Descricao = Convert.ToString(reader["servico"])
+                                Descricao = Convert.ToString(reader["servico"]),
+                                Valor = Convert.ToDecimal(reader["valor"])
                             };
                         }
                         ConexaoBanco.Close();

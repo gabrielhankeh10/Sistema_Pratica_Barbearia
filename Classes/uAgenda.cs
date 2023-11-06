@@ -22,7 +22,7 @@ namespace Sistema__Renovo_Barber.Classes
         public uContasReceber ContasReceber { get; set; }
         public int Intervalo { get; set; }
         public int id_agenda { get; set; }
-        public int id_agenda_referencia { get; set; }
+        public int? id_agenda_referencia { get; set; }
         public DateTime Data { get; set; }
     }
 }

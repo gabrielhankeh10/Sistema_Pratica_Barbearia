@@ -101,6 +101,7 @@
     <Compile Include="Classes\uPai.cs" />
     <Compile Include="Classes\uPais.cs" />
     <Compile Include="Classes\uParcelas.cs" />
+    <Compile Include="Classes\uParcelasReceber.cs" />
     <Compile Include="Classes\uPessoa.cs" />
     <Compile Include="Classes\uProdutos.cs" />
     <Compile Include="Classes\uServicos.cs" />

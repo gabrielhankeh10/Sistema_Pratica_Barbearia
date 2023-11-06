@@ -12,10 +12,12 @@ namespace Sistema__Renovo_Barber.Formularios
 {
     public partial class FrmConsultaAgendaContasReceber : Sistema__Renovo_Barber.Formularios.FrmPai
     {
-        public FrmConsultaAgendaContasReceber(DateTime Data)
+        FrmCadastroContasReceber frmCadastroContasReceber;
+        public FrmConsultaAgendaContasReceber(DateTime Data, FrmCadastroContasReceber _frmCadastroContasReceber)
         {
             InitializeComponent();
             dateTimePicker1.Text = Data.ToString();
+            frmCadastroContasReceber = _frmCadastroContasReceber;
             Listar();
         }
         public void Listar()
@@ -57,9 +59,12 @@ namespace Sistema__Renovo_Barber.Formularios
             uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
             uAgenda Agenda = new uAgenda();
             Agenda = CtrlAgenda.CarregarConsulta(IdAgenda);
-            FrmAgendamento FrmAgendamento = new FrmAgendamento(Agenda);
-            FrmAgendamento.ShowDialog();
-            Listar();
+            if(Agenda.id_agenda_referencia > 0)
+            {
+                Agenda = CtrlAgenda.CarregarConsulta(Agenda.id_agenda_referencia??0);
+            }
+            frmCadastroContasReceber.ReceberAgenda(Agenda);
+            this.Close();
         }
 
         private void DgConsultaCargos_KeyPress(object sender, KeyPressEventArgs e)
