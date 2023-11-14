@@ -49,6 +49,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnGerar = new System.Windows.Forms.Button();
             this.tbIntervalo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.DgConsultaAgenda = new System.Windows.Forms.DataGridView();
+            this.datas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -76,6 +79,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisar.TabIndex = 19;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // tbIdFuncionario
             // 
@@ -116,6 +120,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(128, 22);
             this.dateTimePicker1.TabIndex = 24;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label3
             // 
@@ -220,10 +225,36 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label10.TabIndex = 37;
             this.label10.Text = "Intervalo";
             // 
+            // DgConsultaAgenda
+            // 
+            this.DgConsultaAgenda.AllowUserToAddRows = false;
+            this.DgConsultaAgenda.AllowUserToDeleteRows = false;
+            this.DgConsultaAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgConsultaAgenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datas});
+            this.DgConsultaAgenda.Location = new System.Drawing.Point(39, 210);
+            this.DgConsultaAgenda.MultiSelect = false;
+            this.DgConsultaAgenda.Name = "DgConsultaAgenda";
+            this.DgConsultaAgenda.ReadOnly = true;
+            this.DgConsultaAgenda.RowHeadersWidth = 51;
+            this.DgConsultaAgenda.RowTemplate.Height = 24;
+            this.DgConsultaAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgConsultaAgenda.Size = new System.Drawing.Size(796, 299);
+            this.DgConsultaAgenda.TabIndex = 38;
+            // 
+            // datas
+            // 
+            this.datas.HeaderText = "Datas Com Agenda";
+            this.datas.MinimumWidth = 6;
+            this.datas.Name = "datas";
+            this.datas.ReadOnly = true;
+            this.datas.Width = 180;
+            // 
             // FrmAgendaProfissional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.DgConsultaAgenda);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbIntervalo);
             this.Controls.Add(this.btnGerar);
@@ -267,6 +298,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.btnGerar, 0);
             this.Controls.SetChildIndex(this.tbIntervalo, 0);
             this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.DgConsultaAgenda, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +327,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.TextBox tbIntervalo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView DgConsultaAgenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datas;
     }
 }

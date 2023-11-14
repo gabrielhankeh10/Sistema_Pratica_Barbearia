@@ -27,6 +27,12 @@ namespace Sistema__Renovo_Barber.Controllers
         {
             return DaoAgenda.Selecionar(IdAgenda);
         }
+        public DataTable Verificar_datas(int Ano, int Mes, int IdFuncionario)
+        {
+            return DaoAgenda.Verificar_datas(Ano, Mes, IdFuncionario);
+        }
+
+
         public void Alterar(uAgenda agenda)
         {
             DaoAgenda.Alterar(agenda);

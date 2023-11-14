@@ -38,7 +38,7 @@ namespace Sistema__Renovo_Barber.Formularios
                     row.Cells[0].Value = vLinha["num_nfc"].ToString();
                     row.Cells[1].Value = vLinha["modelo_nfc"].ToString();
                     row.Cells[2].Value = vLinha["serie_nfc"].ToString();
-                    row.Cells[3].Value = vLinha["cod_fornecedor"].ToString();
+                    row.Cells[3].Value = vLinha["id_fornecedor"].ToString();
                     row.Cells[4].Value = vLinha["fornecedor"].ToString();
                     row.Cells[5].Value = vLinha["condicao"].ToString();
                     row.Cells[6].Value = vLinha["valor_total"].ToString();

@@ -173,9 +173,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(426, 282);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(39, 17);
+            this.label12.Size = new System.Drawing.Size(35, 17);
             this.label12.TabIndex = 50;
-            this.label12.Text = "Sexo";
+            this.label12.Text = "CEP";
             // 
             // label21
             // 

@@ -91,7 +91,7 @@ namespace Sistema__Renovo_Barber.Dao
 
         public DataTable PopularGrid()
         {
-            string Sql = @"select tb.num_nfc, tb.modelo_nfc, tb.serie_nfc, forn.razao_social as fornecedor, 
+            string Sql = @"select tb.num_nfc, tb.modelo_nfc, tb.serie_nfc, tb.id_fornecedor, forn.razao_social as fornecedor, 
                             pag.condicao, tb.valor_total, tb.valor_frete, tb.valor_seguro, tb.valor_outras_despesas,
                             tb.data_chegada, tb.data_emissao, tb.data_criacao from tb_compras tb
                             left join tb_fornecedores forn on forn.id_fornecedor = tb.id_fornecedor

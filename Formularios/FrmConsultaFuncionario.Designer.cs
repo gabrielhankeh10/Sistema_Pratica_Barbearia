@@ -88,6 +88,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgConsultaFuncionario.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaFuncionario.TabIndex = 10;
+            this.DgConsultaFuncionario.DoubleClick += new System.EventHandler(this.DgConsultaFuncionario_DoubleClick);
+            this.DgConsultaFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaFuncionario_KeyPress);
             // 
             // id_funcionario
             // 
@@ -240,6 +242,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.DgConsultaFuncionario);
             this.Name = "FrmConsultaFuncionario";
             this.Text = "Consulta de Funcionarios";
+            this.DoubleClick += new System.EventHandler(this.FrmConsultaFuncionario_DoubleClick);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmConsultaFuncionario_KeyPress);
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.btnExcluir, 0);
             this.Controls.SetChildIndex(this.btnAlterar, 0);

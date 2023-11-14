@@ -145,7 +145,30 @@ namespace Sistema__Renovo_Barber.Dao
             }
             finally { ConexaoBanco.Close(); }
         }
-        
+
+        public DataTable Verificar_datas(int Ano, int Mes, int IdFuncionario)
+        {
+            DataTable Dt = new DataTable();
+            ConexaoBanco.Open();
+            try
+            {
+                string Sql = $@"select distinct cast(tb.data_agenda as date) as data from tb_agenda tb where 
+                            year(tb.data_agenda) = {Ano} and month(tb.data_agenda) = {Mes} and tb.id_funcionario = {IdFuncionario}";
+                uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return Dt;
+        }
+
         public uAgenda Selecionar(int IdAgenda)
         {
             try

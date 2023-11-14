@@ -118,10 +118,39 @@ namespace Sistema__Renovo_Barber.Formularios
             frmCadastroFuncionario.ShowDialog();
             Listar();
         }
+        public uFuncionario PegarObj()
+        {
+            return Controller.Carregar(Convert.ToInt32(DgConsultaFuncionario.SelectedRows[0].Cells["id_funcionario"].Value));
+        }
+
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             PesquisarFuncionario();
+        }
+
+        private void FrmConsultaFuncionario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void FrmConsultaFuncionario_DoubleClick(object sender, EventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaFuncionario_DoubleClick(object sender, EventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
+
+        private void DgConsultaFuncionario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PegarObj();
+            this.Hide();
         }
     }
 }

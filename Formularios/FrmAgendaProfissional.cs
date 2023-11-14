@@ -52,10 +52,63 @@ namespace Sistema__Renovo_Barber.Formularios
         {
 
         }
-
         private void btnGerar_Click(object sender, EventArgs e)
         {
             GerarAgenda();
+            Listar_Datas();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            FrmConsultaFuncionario frmConsultaFuncionario = new FrmConsultaFuncionario();
+            frmConsultaFuncionario.ShowDialog();
+            uFuncionario Funcionario = new uFuncionario();
+            if (!frmConsultaFuncionario.ActiveControl.ContainsFocus)
+            {
+                Funcionario = frmConsultaFuncionario.PegarObj();
+                tbIdFuncionario.Text = Funcionario.id.ToString();
+                tbFuncionario.Text = Funcionario.Nome.ToString();
+                frmConsultaFuncionario.Close();
+                DgConsultaAgenda.Rows.Clear();
+                
+                uCtrlAgenda Controller = new uCtrlAgenda();
+                DataTable vData = Controller.Verificar_datas(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, Funcionario.id);
+                if (vData != null)
+                {
+                    foreach (DataRow vLinha in vData.Rows)
+                    {
+                        DgConsultaAgenda.Rows.Add(
+                            vLinha["data"]);
+                    }
+                }
+            }
+            
+        }
+
+        private void Listar_Datas()
+        {
+            DgConsultaAgenda.Rows.Clear();
+            if (!string.IsNullOrEmpty(tbIdFuncionario.Text))
+            {
+                uCtrlAgenda Controller = new uCtrlAgenda();
+                int IdFuncionario = int.Parse(tbIdFuncionario.Text);
+                DataTable vData = Controller.Verificar_datas(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, IdFuncionario);
+                if (vData != null)
+                {
+                    foreach (DataRow vLinha in vData.Rows)
+                    {
+                        DgConsultaAgenda.Rows.Add(
+                            vLinha["data"]);
+                    }
+                }
+            }
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+            Listar_Datas();
         }
     }
 }
