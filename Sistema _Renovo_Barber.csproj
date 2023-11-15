@@ -114,6 +114,7 @@
     <Compile Include="Controllers\uCtrlComprasItens.cs" />
     <Compile Include="Controllers\uCtrlCondicaoPagamento.cs" />
     <Compile Include="Controllers\uCtrlContasPagar.cs" />
+    <Compile Include="Controllers\uCtrlContasReceber .cs" />
     <Compile Include="Controllers\uCtrlEstados.cs" />
     <Compile Include="Controllers\uCtrlFormaPagamento.cs" />
     <Compile Include="Controllers\uCtrlFornecedor.cs" />

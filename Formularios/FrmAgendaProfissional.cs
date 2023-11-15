@@ -20,33 +20,49 @@ namespace Sistema__Renovo_Barber.Formularios
 
         public void GerarAgenda()
         {
-            Funcionario.id = 1;
-            TimeSpan Inter1Inicio = TimeSpan.Parse(tbInter1Ini.Text);
-            TimeSpan Inter1Fim = TimeSpan.Parse(tbInter1Fim.Text);
-            TimeSpan Inter2Inicio = TimeSpan.Parse(tbInter2Ini.Text);
-            TimeSpan Inter2Fim = TimeSpan.Parse(tbInter2Fim.Text);
-            while (Inter1Inicio < Inter1Fim)
+            try
             {
-                uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
-                uAgenda Agenda = new uAgenda();
-                Agenda.Funcionario = Funcionario;
-                Agenda.Data = DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {Inter1Inicio}");
-                Agenda.Intervalo = int.Parse(tbIntervalo.Text);
-                CtrlAgenda.Salvar(Agenda);
-                Inter1Inicio = Inter1Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
+                if (DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {tbInter1Ini.Text}") < DateTime.Now)
 
+                    throw new Exception("Data inválida.");
+                else
+                {
+                    Funcionario.id = Convert.ToInt32(tbIdFuncionario.Text);
+                    TimeSpan Inter1Inicio = TimeSpan.Parse(tbInter1Ini.Text);
+                    TimeSpan Inter1Fim = TimeSpan.Parse(tbInter1Fim.Text);
+                    while (Inter1Inicio < Inter1Fim)
+                    {
+                        uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
+                        uAgenda Agenda = new uAgenda();
+                        Agenda.Funcionario = Funcionario;
+                        Agenda.Data = DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {Inter1Inicio}");
+                        Agenda.Intervalo = int.Parse(tbIntervalo.Text);
+                        CtrlAgenda.Salvar(Agenda);
+                        Inter1Inicio = Inter1Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
+
+                    }
+                    if (!string.IsNullOrEmpty(tbInter2Ini.Text))
+                    {
+                        TimeSpan Inter2Inicio = TimeSpan.Parse(tbInter2Ini.Text);
+                        TimeSpan Inter2Fim = TimeSpan.Parse(tbInter2Fim.Text);
+                        while (Inter2Inicio < Inter2Fim)
+                        {
+                            uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
+                            uAgenda Agenda = new uAgenda();
+                            Agenda.Funcionario = Funcionario;
+                            Agenda.Data = DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {Inter2Inicio}");
+                            Agenda.Intervalo = int.Parse(tbIntervalo.Text);
+                            CtrlAgenda.Salvar(Agenda);
+                            Inter2Inicio = Inter2Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
+                        }
+                    }
+                    MessageBox.Show("Agenda Cadastrada");
+                }
             }
-            while (Inter2Inicio < Inter2Fim)
+            catch (Exception e)
             {
-                uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
-                uAgenda Agenda = new uAgenda();
-                Agenda.Funcionario = Funcionario;
-                Agenda.Data = DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {Inter2Inicio}");
-                Agenda.Intervalo = int.Parse(tbIntervalo.Text);
-                CtrlAgenda.Salvar(Agenda);
-                Inter2Inicio = Inter2Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
+                MessageBox.Show(e.Message);
             }
-            MessageBox.Show("Agenda Cadastrada");
         }
         private void label6_Click(object sender, EventArgs e)
         {

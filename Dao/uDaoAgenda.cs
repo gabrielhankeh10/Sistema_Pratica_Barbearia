@@ -52,7 +52,7 @@ namespace Sistema__Renovo_Barber.Dao
             return Dt;
         }
 
-        public DataTable PopularGridReceber(DateTime Data)
+        public DataTable PopularGridReceber(DateTime Data)  
         {
             string Sql = $@"select tb.id_agenda, tb.data_agenda, tb.id_funcionario, fun.nome as funcionario, tb.id_cliente, cli.nome as cliente, 
                             tb.id_servico, ser.descricao as servico from tb_agenda tb 
@@ -351,8 +351,16 @@ namespace Sistema__Renovo_Barber.Dao
         }*/
         public void Salvar(uAgenda Obj)
         {
-            try
             {
+                if (Obj.Data < DateTime.Now)
+                    throw new Exception("Data inválida.");
+
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(
+                    $"select id_agenda from tb_agenda WHERE id_funcionario = {Obj.Funcionario.id} AND data_agenda =  '{Obj.Data.ToString("yyyy-MM-dd hh:mm")}'", ConexaoBanco);
+                DataTable Dt = new DataTable();
+                sqlDataAdapter.Fill(Dt);
+                if (Dt.Rows.Count > 0)
+                    throw new Exception("Agenda já reservada.");
                 string Sql = @"insert into tb_agenda (id_funcionario, id_cliente, data_agenda, intervalo)
                                 values (@id_funcionario, @id_cliente, @data_agenda, @intervalo)";
 
@@ -368,10 +376,6 @@ namespace Sistema__Renovo_Barber.Dao
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
                 ConexaoBanco.Close();
-            }
-            catch (Exception Erro)
-            {
-                MessageBox.Show("Aconteceu um erro: " + Erro);
             }
         }
     }

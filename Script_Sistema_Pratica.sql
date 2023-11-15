@@ -261,8 +261,8 @@ CREATE TABLE tb_agenda(
 
 CREATE TABLE tb_contas_receber(
   id_receber int not null auto_increment primary key,
-  id_condicao int,
+  id_forma int,
   situacao varchar(10),
-  data_criacao datetime not null,
+  data_criacao datetime not null
 )
 

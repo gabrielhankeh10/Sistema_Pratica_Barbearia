@@ -1,4 +1,5 @@
 ﻿using Sistema__Renovo_Barber.Classes;
+using Sistema__Renovo_Barber.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,8 +39,8 @@ namespace Sistema__Renovo_Barber.Formularios
 
         public void ReceberCondicao(uCondicaoPagamento Obj)
         {
-            tbCodigoCondicao.Text = Obj.id.ToString();
-            tbDescricaoPagamento.Text = Obj.Condicao;
+            tbCodigoForma.Text = Obj.id.ToString();
+            tbDescricaoForma.Text = Obj.Condicao;
             CondicaoPagamento = Obj;
         }
 
@@ -91,8 +92,29 @@ namespace Sistema__Renovo_Barber.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmConsultaCondicaoPagamento frmConsultaCondicaoPagamento = new FrmConsultaCondicaoPagamento();
-            frmConsultaCondicaoPagamento.ShowDialog();
+            FrmConsultaFormaPagamento frmConsultaFormaPagamento = new FrmConsultaFormaPagamento();
+            frmConsultaFormaPagamento.ShowDialog();
+
+            uFormaPagamento FormaPagamento = new uFormaPagamento();
+            if (!frmConsultaFormaPagamento.ActiveControl.ContainsFocus)
+            {
+                FormaPagamento = frmConsultaFormaPagamento.PegarObj();
+                tbCodigoForma.Text = FormaPagamento.id.ToString();
+                tbDescricaoForma.Text = FormaPagamento.Forma.ToString();
+            }
+            frmConsultaFormaPagamento.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            uContasReceber ContasReceber = new uContasReceber();
+            ContasReceber.Agendas = ListaAgenda;
+            ContasReceber.Data_criacao = DateTime.Now;
+            ContasReceber.FormaPagamento = new uFormaPagamento();
+            ContasReceber.FormaPagamento.id = int.Parse(tbCodigoForma.Text);
+            ContasReceber.Situacao = "Pago";
+            uCtrlContasReceber CtrlReceber = new uCtrlContasReceber();
+            CtrlReceber.Salvar(ContasReceber);
         }
     }
 }

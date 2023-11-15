@@ -34,23 +34,23 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.tbIdFuncionario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbInter1Ini = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbInter1Fim = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbInter2Fim = new System.Windows.Forms.TextBox();
-            this.tbInter2Ini = new System.Windows.Forms.TextBox();
             this.btnGerar = new System.Windows.Forms.Button();
-            this.tbIntervalo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DgConsultaAgenda = new System.Windows.Forms.DataGridView();
             this.datas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbInter1Ini = new System.Windows.Forms.MaskedTextBox();
+            this.tbInter1Fim = new System.Windows.Forms.MaskedTextBox();
+            this.tbInter2Ini = new System.Windows.Forms.MaskedTextBox();
+            this.tbInter2Fim = new System.Windows.Forms.MaskedTextBox();
+            this.tbIntervalo = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,13 +97,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label1.TabIndex = 21;
             this.label1.Text = "Codigo";
             // 
-            // tbInter1Ini
-            // 
-            this.tbInter1Ini.Location = new System.Drawing.Point(37, 156);
-            this.tbInter1Ini.Name = "tbInter1Ini";
-            this.tbInter1Ini.Size = new System.Drawing.Size(101, 22);
-            this.tbInter1Ini.TabIndex = 22;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -139,13 +132,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label5.Size = new System.Drawing.Size(74, 17);
             this.label5.TabIndex = 27;
             this.label5.Text = "Intervalo 2";
-            // 
-            // tbInter1Fim
-            // 
-            this.tbInter1Fim.Location = new System.Drawing.Point(171, 156);
-            this.tbInter1Fim.Name = "tbInter1Fim";
-            this.tbInter1Fim.Size = new System.Drawing.Size(101, 22);
-            this.tbInter1Fim.TabIndex = 28;
             // 
             // label6
             // 
@@ -184,20 +170,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label9.TabIndex = 33;
             this.label9.Text = "Hora Inicio";
             // 
-            // tbInter2Fim
-            // 
-            this.tbInter2Fim.Location = new System.Drawing.Point(455, 156);
-            this.tbInter2Fim.Name = "tbInter2Fim";
-            this.tbInter2Fim.Size = new System.Drawing.Size(101, 22);
-            this.tbInter2Fim.TabIndex = 32;
-            // 
-            // tbInter2Ini
-            // 
-            this.tbInter2Ini.Location = new System.Drawing.Point(321, 156);
-            this.tbInter2Ini.Name = "tbInter2Ini";
-            this.tbInter2Ini.Size = new System.Drawing.Size(101, 22);
-            this.tbInter2Ini.TabIndex = 31;
-            // 
             // btnGerar
             // 
             this.btnGerar.Location = new System.Drawing.Point(666, 524);
@@ -209,21 +181,14 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnGerar.UseVisualStyleBackColor = true;
             this.btnGerar.Click += new System.EventHandler(this.btnGerar_Click);
             // 
-            // tbIntervalo
-            // 
-            this.tbIntervalo.Location = new System.Drawing.Point(590, 156);
-            this.tbIntervalo.Name = "tbIntervalo";
-            this.tbIntervalo.Size = new System.Drawing.Size(59, 22);
-            this.tbIntervalo.TabIndex = 36;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(587, 136);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 17);
+            this.label10.Size = new System.Drawing.Size(138, 17);
             this.label10.TabIndex = 37;
-            this.label10.Text = "Intervalo";
+            this.label10.Text = "Intervalo em Minutos";
             // 
             // DgConsultaAgenda
             // 
@@ -250,26 +215,66 @@ namespace Sistema__Renovo_Barber.Formularios
             this.datas.ReadOnly = true;
             this.datas.Width = 180;
             // 
+            // tbInter1Ini
+            // 
+            this.tbInter1Ini.Location = new System.Drawing.Point(39, 156);
+            this.tbInter1Ini.Mask = "##:##";
+            this.tbInter1Ini.Name = "tbInter1Ini";
+            this.tbInter1Ini.Size = new System.Drawing.Size(99, 22);
+            this.tbInter1Ini.TabIndex = 39;
+            // 
+            // tbInter1Fim
+            // 
+            this.tbInter1Fim.Location = new System.Drawing.Point(171, 156);
+            this.tbInter1Fim.Mask = "##:##";
+            this.tbInter1Fim.Name = "tbInter1Fim";
+            this.tbInter1Fim.Size = new System.Drawing.Size(100, 22);
+            this.tbInter1Fim.TabIndex = 40;
+            // 
+            // tbInter2Ini
+            // 
+            this.tbInter2Ini.Location = new System.Drawing.Point(323, 156);
+            this.tbInter2Ini.Mask = "##:##";
+            this.tbInter2Ini.Name = "tbInter2Ini";
+            this.tbInter2Ini.Size = new System.Drawing.Size(100, 22);
+            this.tbInter2Ini.TabIndex = 41;
+            // 
+            // tbInter2Fim
+            // 
+            this.tbInter2Fim.Location = new System.Drawing.Point(455, 156);
+            this.tbInter2Fim.Mask = "##:##";
+            this.tbInter2Fim.Name = "tbInter2Fim";
+            this.tbInter2Fim.Size = new System.Drawing.Size(100, 22);
+            this.tbInter2Fim.TabIndex = 42;
+            // 
+            // tbIntervalo
+            // 
+            this.tbIntervalo.Location = new System.Drawing.Point(590, 156);
+            this.tbIntervalo.Mask = "##";
+            this.tbIntervalo.Name = "tbIntervalo";
+            this.tbIntervalo.Size = new System.Drawing.Size(37, 22);
+            this.tbIntervalo.TabIndex = 43;
+            // 
             // FrmAgendaProfissional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.tbIntervalo);
+            this.Controls.Add(this.tbInter2Fim);
+            this.Controls.Add(this.tbInter2Ini);
+            this.Controls.Add(this.tbInter1Fim);
+            this.Controls.Add(this.tbInter1Ini);
             this.Controls.Add(this.DgConsultaAgenda);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.tbIntervalo);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.tbInter2Fim);
-            this.Controls.Add(this.tbInter2Ini);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbInter1Fim);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbInter1Ini);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbIdFuncionario);
             this.Controls.Add(this.btnPesquisar);
@@ -277,28 +282,28 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.tbFuncionario);
             this.Name = "FrmAgendaProfissional";
             this.Text = "Agenda Profissional";
-            this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.tbFuncionario, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.btnPesquisar, 0);
             this.Controls.SetChildIndex(this.tbIdFuncionario, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.tbInter1Ini, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.dateTimePicker1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.tbInter1Fim, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
-            this.Controls.SetChildIndex(this.tbInter2Ini, 0);
-            this.Controls.SetChildIndex(this.tbInter2Fim, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.btnGerar, 0);
-            this.Controls.SetChildIndex(this.tbIntervalo, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.DgConsultaAgenda, 0);
+            this.Controls.SetChildIndex(this.tbInter1Ini, 0);
+            this.Controls.SetChildIndex(this.tbInter1Fim, 0);
+            this.Controls.SetChildIndex(this.tbInter2Ini, 0);
+            this.Controls.SetChildIndex(this.btnSair, 0);
+            this.Controls.SetChildIndex(this.tbInter2Fim, 0);
+            this.Controls.SetChildIndex(this.tbIntervalo, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,22 +317,22 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox tbIdFuncionario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbInter1Ini;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbInter1Fim;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbInter2Fim;
-        private System.Windows.Forms.TextBox tbInter2Ini;
         private System.Windows.Forms.Button btnGerar;
-        private System.Windows.Forms.TextBox tbIntervalo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView DgConsultaAgenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn datas;
+        private System.Windows.Forms.MaskedTextBox tbInter1Ini;
+        private System.Windows.Forms.MaskedTextBox tbInter1Fim;
+        private System.Windows.Forms.MaskedTextBox tbInter2Ini;
+        private System.Windows.Forms.MaskedTextBox tbInter2Fim;
+        private System.Windows.Forms.MaskedTextBox tbIntervalo;
     }
 }

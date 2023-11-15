@@ -42,19 +42,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label4 = new System.Windows.Forms.Label();
             this.tbFuncionario = new System.Windows.Forms.TextBox();
             this.DgConsultaReceber = new System.Windows.Forms.DataGridView();
-            this.btnAdicionar = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbTotal = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Codigo = new System.Windows.Forms.Label();
-            this.tbDescricaoPagamento = new System.Windows.Forms.TextBox();
-            this.tbCodigoCondicao = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.id_agenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +50,19 @@ namespace Sistema__Renovo_Barber.Formularios
             this.id_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Codigo = new System.Windows.Forms.Label();
+            this.tbDescricaoForma = new System.Windows.Forms.TextBox();
+            this.tbCodigoForma = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaReceber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,6 +191,71 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaReceber.Size = new System.Drawing.Size(826, 239);
             this.DgConsultaReceber.TabIndex = 69;
             // 
+            // id_agenda
+            // 
+            this.id_agenda.HeaderText = "ID Agenda";
+            this.id_agenda.MinimumWidth = 6;
+            this.id_agenda.Name = "id_agenda";
+            this.id_agenda.ReadOnly = true;
+            this.id_agenda.Visible = false;
+            this.id_agenda.Width = 125;
+            // 
+            // id_cliente
+            // 
+            this.id_cliente.HeaderText = "Codigo Cliente";
+            this.id_cliente.MinimumWidth = 6;
+            this.id_cliente.Name = "id_cliente";
+            this.id_cliente.ReadOnly = true;
+            this.id_cliente.Width = 60;
+            // 
+            // cliente_nome
+            // 
+            this.cliente_nome.HeaderText = "Cliente";
+            this.cliente_nome.MinimumWidth = 6;
+            this.cliente_nome.Name = "cliente_nome";
+            this.cliente_nome.ReadOnly = true;
+            this.cliente_nome.Width = 125;
+            // 
+            // id_funcionario
+            // 
+            this.id_funcionario.HeaderText = "Codigo Funcionario";
+            this.id_funcionario.MinimumWidth = 6;
+            this.id_funcionario.Name = "id_funcionario";
+            this.id_funcionario.ReadOnly = true;
+            this.id_funcionario.Width = 60;
+            // 
+            // nome_funcionario
+            // 
+            this.nome_funcionario.HeaderText = "Nome Funcionario";
+            this.nome_funcionario.MinimumWidth = 6;
+            this.nome_funcionario.Name = "nome_funcionario";
+            this.nome_funcionario.ReadOnly = true;
+            this.nome_funcionario.Width = 125;
+            // 
+            // id_servico
+            // 
+            this.id_servico.HeaderText = "Codigo Serviço";
+            this.id_servico.MinimumWidth = 6;
+            this.id_servico.Name = "id_servico";
+            this.id_servico.ReadOnly = true;
+            this.id_servico.Width = 125;
+            // 
+            // nome_servico
+            // 
+            this.nome_servico.HeaderText = "Serviço";
+            this.nome_servico.MinimumWidth = 6;
+            this.nome_servico.Name = "nome_servico";
+            this.nome_servico.ReadOnly = true;
+            this.nome_servico.Width = 125;
+            // 
+            // valor
+            // 
+            this.valor.HeaderText = "Valor $";
+            this.valor.MinimumWidth = 6;
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 125;
+            // 
             // btnAdicionar
             // 
             this.btnAdicionar.Location = new System.Drawing.Point(779, 91);
@@ -267,22 +332,22 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Codigo.Text = "Codigo Forma";
             this.Codigo.Click += new System.EventHandler(this.label10_Click);
             // 
-            // tbDescricaoPagamento
+            // tbDescricaoForma
             // 
-            this.tbDescricaoPagamento.Location = new System.Drawing.Point(227, 146);
-            this.tbDescricaoPagamento.Name = "tbDescricaoPagamento";
-            this.tbDescricaoPagamento.Size = new System.Drawing.Size(221, 22);
-            this.tbDescricaoPagamento.TabIndex = 77;
-            this.tbDescricaoPagamento.Text = " ";
-            this.tbDescricaoPagamento.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbDescricaoForma.Location = new System.Drawing.Point(227, 146);
+            this.tbDescricaoForma.Name = "tbDescricaoForma";
+            this.tbDescricaoForma.Size = new System.Drawing.Size(221, 22);
+            this.tbDescricaoForma.TabIndex = 77;
+            this.tbDescricaoForma.Text = " ";
+            this.tbDescricaoForma.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // tbCodigoCondicao
+            // tbCodigoForma
             // 
-            this.tbCodigoCondicao.Location = new System.Drawing.Point(49, 146);
-            this.tbCodigoCondicao.Name = "tbCodigoCondicao";
-            this.tbCodigoCondicao.Size = new System.Drawing.Size(141, 22);
-            this.tbCodigoCondicao.TabIndex = 79;
-            this.tbCodigoCondicao.Text = " ";
+            this.tbCodigoForma.Location = new System.Drawing.Point(49, 146);
+            this.tbCodigoForma.Name = "tbCodigoForma";
+            this.tbCodigoForma.Size = new System.Drawing.Size(141, 22);
+            this.tbCodigoForma.TabIndex = 79;
+            this.tbCodigoForma.Text = " ";
             // 
             // label10
             // 
@@ -313,71 +378,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.button2.TabIndex = 82;
             this.button2.Text = "Finalizar";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // id_agenda
-            // 
-            this.id_agenda.HeaderText = "ID Agenda";
-            this.id_agenda.MinimumWidth = 6;
-            this.id_agenda.Name = "id_agenda";
-            this.id_agenda.ReadOnly = true;
-            this.id_agenda.Visible = false;
-            this.id_agenda.Width = 125;
-            // 
-            // id_cliente
-            // 
-            this.id_cliente.HeaderText = "Codigo Cliente";
-            this.id_cliente.MinimumWidth = 6;
-            this.id_cliente.Name = "id_cliente";
-            this.id_cliente.ReadOnly = true;
-            this.id_cliente.Width = 60;
-            // 
-            // cliente_nome
-            // 
-            this.cliente_nome.HeaderText = "Cliente";
-            this.cliente_nome.MinimumWidth = 6;
-            this.cliente_nome.Name = "cliente_nome";
-            this.cliente_nome.ReadOnly = true;
-            this.cliente_nome.Width = 125;
-            // 
-            // id_funcionario
-            // 
-            this.id_funcionario.HeaderText = "Codigo Funcionario";
-            this.id_funcionario.MinimumWidth = 6;
-            this.id_funcionario.Name = "id_funcionario";
-            this.id_funcionario.ReadOnly = true;
-            this.id_funcionario.Width = 60;
-            // 
-            // nome_funcionario
-            // 
-            this.nome_funcionario.HeaderText = "Nome Funcionario";
-            this.nome_funcionario.MinimumWidth = 6;
-            this.nome_funcionario.Name = "nome_funcionario";
-            this.nome_funcionario.ReadOnly = true;
-            this.nome_funcionario.Width = 125;
-            // 
-            // id_servico
-            // 
-            this.id_servico.HeaderText = "Codigo Serviço";
-            this.id_servico.MinimumWidth = 6;
-            this.id_servico.Name = "id_servico";
-            this.id_servico.ReadOnly = true;
-            this.id_servico.Width = 125;
-            // 
-            // nome_servico
-            // 
-            this.nome_servico.HeaderText = "Serviço";
-            this.nome_servico.MinimumWidth = 6;
-            this.nome_servico.Name = "nome_servico";
-            this.nome_servico.ReadOnly = true;
-            this.nome_servico.Width = 125;
-            // 
-            // valor
-            // 
-            this.valor.HeaderText = "Valor $";
-            this.valor.MinimumWidth = 6;
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 125;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmCadastroContasReceber
             // 
@@ -386,9 +387,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.tbCodigoCondicao);
+            this.Controls.Add(this.tbCodigoForma);
             this.Controls.Add(this.Codigo);
-            this.Controls.Add(this.tbDescricaoPagamento);
+            this.Controls.Add(this.tbDescricaoForma);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.label8);
@@ -410,7 +411,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbFuncionario);
             this.Name = "FrmCadastroContasReceber";
-            this.Text = "Contas Receber";
+            this.Text = "Finalizar Agenda";
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.tbFuncionario, 0);
             this.Controls.SetChildIndex(this.label4, 0);
@@ -432,9 +433,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.tbTotal, 0);
             this.Controls.SetChildIndex(this.label9, 0);
-            this.Controls.SetChildIndex(this.tbDescricaoPagamento, 0);
+            this.Controls.SetChildIndex(this.tbDescricaoForma, 0);
             this.Controls.SetChildIndex(this.Codigo, 0);
-            this.Controls.SetChildIndex(this.tbCodigoCondicao, 0);
+            this.Controls.SetChildIndex(this.tbCodigoForma, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.button2, 0);
@@ -467,8 +468,8 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label Codigo;
-        private System.Windows.Forms.TextBox tbDescricaoPagamento;
-        private System.Windows.Forms.TextBox tbCodigoCondicao;
+        private System.Windows.Forms.TextBox tbDescricaoForma;
+        private System.Windows.Forms.TextBox tbCodigoForma;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

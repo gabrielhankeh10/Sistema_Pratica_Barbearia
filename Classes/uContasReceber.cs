@@ -10,13 +10,13 @@ namespace Sistema__Renovo_Barber.Classes
     {
         public uContasReceber()
         {
-            uCondicaoPagamento CondicaoPagamento = new uCondicaoPagamento();
+            uFormaPagamento FormaPagamento = new uFormaPagamento();
         }
 
         public int Id_receber { get; set; }
         public string Situacao { get; set; }
         public DateTime Data_criacao { get; set; }
-        public uCondicaoPagamento CondicaoPagamento { get; set; }
+        public uFormaPagamento FormaPagamento { get; set; }
         public List<uAgenda> Agendas { get; set; }
     }
 }
