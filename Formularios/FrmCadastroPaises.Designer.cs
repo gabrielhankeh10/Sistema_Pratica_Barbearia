@@ -38,13 +38,18 @@ namespace Sistema__Renovo_Barber
             this.btnSalvar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // btnSair
+            // 
+            this.btnSair.TabIndex = 5;
+            // 
             // tbPais
             // 
+            this.tbPais.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbPais.Location = new System.Drawing.Point(187, 64);
             this.tbPais.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPais.Name = "tbPais";
             this.tbPais.Size = new System.Drawing.Size(255, 22);
-            this.tbPais.TabIndex = 7;
+            this.tbPais.TabIndex = 1;
             // 
             // Nome
             // 
@@ -57,11 +62,12 @@ namespace Sistema__Renovo_Barber
             // 
             // tbSigla
             // 
+            this.tbSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbSigla.Location = new System.Drawing.Point(473, 64);
             this.tbSigla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSigla.Name = "tbSigla";
             this.tbSigla.Size = new System.Drawing.Size(76, 22);
-            this.tbSigla.TabIndex = 9;
+            this.tbSigla.TabIndex = 2;
             // 
             // label4
             // 
@@ -83,11 +89,12 @@ namespace Sistema__Renovo_Barber
             // 
             // tbDDI
             // 
+            this.tbDDI.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbDDI.Location = new System.Drawing.Point(583, 64);
             this.tbDDI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDDI.Name = "tbDDI";
             this.tbDDI.Size = new System.Drawing.Size(76, 22);
-            this.tbDDI.TabIndex = 11;
+            this.tbDDI.TabIndex = 3;
             // 
             // btnSalvar
             // 
@@ -95,7 +102,7 @@ namespace Sistema__Renovo_Barber
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 13;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -114,6 +121,8 @@ namespace Sistema__Renovo_Barber
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCadastroPaises";
             this.Text = "Cadastro de Paises";
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.btnSair, 0);
             this.Controls.SetChildIndex(this.tbCodigo, 0);
             this.Controls.SetChildIndex(this.label1, 0);

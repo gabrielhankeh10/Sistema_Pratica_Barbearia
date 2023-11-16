@@ -30,6 +30,8 @@ namespace Sistema__Renovo_Barber.Formularios
         private void InitializeComponent()
         {
             this.DgConsultaAgenda = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.id_agenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,8 +39,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.id_forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.codigo_funcionario,
             this.funcionario,
             this.codigo_cliente,
-            this.cliente});
+            this.cliente,
+            this.id_forma,
+            this.forma});
             this.DgConsultaAgenda.Location = new System.Drawing.Point(32, 89);
             this.DgConsultaAgenda.MultiSelect = false;
             this.DgConsultaAgenda.Name = "DgConsultaAgenda";
@@ -66,6 +70,24 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaAgenda.TabIndex = 32;
             this.DgConsultaAgenda.DoubleClick += new System.EventHandler(this.DgConsultaCargos_DoubleClick);
             this.DgConsultaAgenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgConsultaAgenda_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 17);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Data de Agenda";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(32, 46);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(128, 22);
+            this.dateTimePicker1.TabIndex = 31;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // id_agenda
             // 
@@ -125,23 +147,21 @@ namespace Sistema__Renovo_Barber.Formularios
             this.cliente.ReadOnly = true;
             this.cliente.Width = 200;
             // 
-            // label2
+            // id_forma
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 17);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Data de Agenda";
+            this.id_forma.HeaderText = "Codigo Forma";
+            this.id_forma.MinimumWidth = 6;
+            this.id_forma.Name = "id_forma";
+            this.id_forma.ReadOnly = true;
+            this.id_forma.Width = 125;
             // 
-            // dateTimePicker1
+            // forma
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(32, 46);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(128, 22);
-            this.dateTimePicker1.TabIndex = 31;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.forma.HeaderText = "Forma de Pagamento";
+            this.forma.MinimumWidth = 6;
+            this.forma.Name = "forma";
+            this.forma.ReadOnly = true;
+            this.forma.Width = 125;
             // 
             // FrmConsultaAgendaContasReceber
             // 
@@ -164,6 +184,8 @@ namespace Sistema__Renovo_Barber.Formularios
 
         #endregion
         private System.Windows.Forms.DataGridView DgConsultaAgenda;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_agenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn horario;
@@ -171,7 +193,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn forma;
     }
 }

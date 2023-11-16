@@ -13,9 +13,11 @@ namespace Sistema__Renovo_Barber
         {
             uPessoa Pessoa = new uPessoa();
             uCidade Cidade = new uCidade();
+            uFormaPagamento Forma = new uFormaPagamento();
         }
         public uPessoa Pessoa { get; set; }
         public uCidade Cidade { get; set; }
+        public uFormaPagamento FormaPagamento { get; set; }
         public string Apelido { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }

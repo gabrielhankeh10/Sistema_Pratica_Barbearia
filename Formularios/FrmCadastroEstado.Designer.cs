@@ -58,13 +58,17 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.tbDatUltAlt.Margin = new System.Windows.Forms.Padding(4);
             // 
+            // btnSair
+            // 
+            this.btnSair.TabIndex = 4;
+            // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(669, 524);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 14;
+            this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -98,11 +102,12 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbUf
             // 
+            this.tbUf.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbUf.Location = new System.Drawing.Point(472, 64);
             this.tbUf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUf.Name = "tbUf";
             this.tbUf.Size = new System.Drawing.Size(76, 22);
-            this.tbUf.TabIndex = 17;
+            this.tbUf.TabIndex = 1;
             // 
             // Nome
             // 
@@ -115,14 +120,16 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbEstado
             // 
+            this.tbEstado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbEstado.Location = new System.Drawing.Point(187, 64);
             this.tbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEstado.Name = "tbEstado";
             this.tbEstado.Size = new System.Drawing.Size(255, 22);
-            this.tbEstado.TabIndex = 15;
+            this.tbEstado.TabIndex = 0;
             // 
             // tbPais
             // 
+            this.tbPais.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbPais.Enabled = false;
             this.tbPais.Location = new System.Drawing.Point(581, 64);
             this.tbPais.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -145,7 +152,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarPais.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisarPais.Name = "btnPesquisarPais";
             this.btnPesquisarPais.Size = new System.Drawing.Size(91, 23);
-            this.btnPesquisarPais.TabIndex = 23;
+            this.btnPesquisarPais.TabIndex = 2;
             this.btnPesquisarPais.Text = "Pesquisar";
             this.btnPesquisarPais.UseVisualStyleBackColor = true;
             this.btnPesquisarPais.Click += new System.EventHandler(this.button1_Click);

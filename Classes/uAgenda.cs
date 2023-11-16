@@ -14,12 +14,14 @@ namespace Sistema__Renovo_Barber.Classes
             uCliente Cliente = new uCliente();
             uServicos Servicos = new uServicos();
             uContasReceber ContasReceber = new uContasReceber();
+            uFormaPagamento FormaPagamento = new uFormaPagamento();
         }
 
         public uFuncionario Funcionario { get; set; }
         public uCliente Cliente { get; set; }
         public uServicos Servicos { get; set; }
         public uContasReceber ContasReceber { get; set; }
+        public uFormaPagamento FormaPagamento { get; set; }
         public int Intervalo { get; set; }
         public int id_agenda { get; set; }
         public int? id_agenda_referencia { get; set; }

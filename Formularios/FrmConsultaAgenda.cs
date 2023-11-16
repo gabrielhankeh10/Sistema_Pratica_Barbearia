@@ -33,6 +33,7 @@ namespace Sistema__Renovo_Barber.Formularios
                     DgConsultaAgenda.Rows.Add(
                         vLinha["id_agenda"],
                         (DateTime)vLinha["data_agenda"],
+                        vLinha["status"],
                         ((DateTime)vLinha["data_agenda"]).ToString("hh:mm"),
                         vLinha["id_funcionario"],
                         vLinha["funcionario"],

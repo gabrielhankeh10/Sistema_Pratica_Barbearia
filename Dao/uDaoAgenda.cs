@@ -20,7 +20,9 @@ namespace Sistema__Renovo_Barber.Dao
         }
         public DataTable PopularGrid(DateTime Data, int? IdFuncionario)
         {
-            string Sql = $@"select tb.id_agenda, tb.data_agenda, tb.id_funcionario, fun.nome as funcionario, tb.id_cliente, cli.nome as cliente, 
+            string Sql = $@"select tb.id_agenda, tb.data_agenda,case when tb.id_cliente > 0 and tb.id_receber is null then 'Agendado'
+                            when tb.id_cliente > 0 and tb.id_receber > 0 then 'Finalizado'
+                            else 'Disponível' end status, tb.id_funcionario, fun.nome as funcionario, tb.id_cliente, cli.nome as cliente, 
                             tb.id_servico, ser.descricao as servico from tb_agenda tb 
                             left join tb_funcionarios fun on fun.id_funcionario = tb.id_funcionario
                             left join tb_clientes cli on cli.id_cliente = tb.id_cliente
@@ -55,10 +57,11 @@ namespace Sistema__Renovo_Barber.Dao
         public DataTable PopularGridReceber(DateTime Data)  
         {
             string Sql = $@"select tb.id_agenda, tb.data_agenda, tb.id_funcionario, fun.nome as funcionario, tb.id_cliente, cli.nome as cliente, 
-                            tb.id_servico, ser.descricao as servico from tb_agenda tb 
+                            tb.id_servico, ser.descricao as servico, cli.id_forma, fr.forma from tb_agenda tb 
                             left join tb_funcionarios fun on fun.id_funcionario = tb.id_funcionario
                             left join tb_clientes cli on cli.id_cliente = tb.id_cliente
                             left join tb_servicos ser on ser.id_servico = tb.id_servico
+                            left join tb_forma_pagamento fr on fr.id_forma = cli.id_forma
                             where cast(tb.data_agenda as date) = cast('{Data.ToString("yyyy-MM-dd")}' as date) and tb.id_receber is null and tb.id_cliente is not null";
 
 
@@ -174,10 +177,11 @@ namespace Sistema__Renovo_Barber.Dao
             try
             {
                 uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
-                string Sql = @"select tb.id_agenda, tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico, tb.intervalo, ser.valor, tb.id_agenda_referencia from tb_agenda tb
+                string Sql = @"select tb.id_agenda, tb.id_funcionario, tb.data_agenda, tb.id_cliente, cli.nome cliente, fun.nome funcionario, tb.id_servico, ser.descricao as servico, tb.intervalo, ser.valor, tb.id_agenda_referencia, cli.id_forma, fr.forma from tb_agenda tb
                                 left join tb_funcionarios fun on fun.id_funcionario = tb.id_funcionario
                                 left join tb_clientes cli on cli.id_cliente = tb.id_cliente
                                 left join tb_servicos ser on ser.id_servico = tb.id_servico
+                                left join tb_forma_pagamento fr on fr.id_forma = cli.id_forma
                                 where tb.id_agenda = @id_agenda";
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaCmd.Parameters.AddWithValue("@id_agenda", IdAgenda);

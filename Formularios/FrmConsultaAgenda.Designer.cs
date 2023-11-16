@@ -39,6 +39,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaAgenda = new System.Windows.Forms.DataGridView();
             this.id_agenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(884, 528);
             // 
             // dateTimePicker1
             // 
@@ -115,6 +120,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaAgenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_agenda,
             this.data,
+            this.status,
             this.horario,
             this.codigo_funcionario,
             this.funcionario,
@@ -127,7 +133,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaAgenda.RowHeadersWidth = 51;
             this.DgConsultaAgenda.RowTemplate.Height = 24;
             this.DgConsultaAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgConsultaAgenda.Size = new System.Drawing.Size(803, 410);
+            this.DgConsultaAgenda.Size = new System.Drawing.Size(927, 410);
             this.DgConsultaAgenda.TabIndex = 32;
             this.DgConsultaAgenda.DoubleClick += new System.EventHandler(this.DgConsultaCargos_DoubleClick);
             this.DgConsultaAgenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgConsultaAgenda_KeyDown);
@@ -150,29 +156,37 @@ namespace Sistema__Renovo_Barber.Formularios
             this.data.Visible = false;
             this.data.Width = 125;
             // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 65;
+            // 
             // horario
             // 
             this.horario.HeaderText = "Horario";
             this.horario.MinimumWidth = 6;
             this.horario.Name = "horario";
             this.horario.ReadOnly = true;
-            this.horario.Width = 125;
+            this.horario.Width = 55;
             // 
             // codigo_funcionario
             // 
-            this.codigo_funcionario.HeaderText = "Codigo Funcionario";
+            this.codigo_funcionario.HeaderText = "Código Funcionario";
             this.codigo_funcionario.MinimumWidth = 6;
             this.codigo_funcionario.Name = "codigo_funcionario";
             this.codigo_funcionario.ReadOnly = true;
-            this.codigo_funcionario.Width = 125;
+            this.codigo_funcionario.Width = 70;
             // 
             // funcionario
             // 
-            this.funcionario.HeaderText = "Nome Funcionario";
+            this.funcionario.HeaderText = "Funcionario";
             this.funcionario.MinimumWidth = 6;
             this.funcionario.Name = "funcionario";
             this.funcionario.ReadOnly = true;
-            this.funcionario.Width = 200;
+            this.funcionario.Width = 180;
             // 
             // codigo_cliente
             // 
@@ -180,7 +194,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.codigo_cliente.MinimumWidth = 6;
             this.codigo_cliente.Name = "codigo_cliente";
             this.codigo_cliente.ReadOnly = true;
-            this.codigo_cliente.Width = 125;
+            this.codigo_cliente.Width = 45;
             // 
             // cliente
             // 
@@ -193,7 +207,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // FrmConsultaAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(891, 581);
+            this.ClientSize = new System.Drawing.Size(1002, 581);
             this.Controls.Add(this.DgConsultaAgenda);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
@@ -231,6 +245,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridView DgConsultaAgenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_agenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn horario;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionario;

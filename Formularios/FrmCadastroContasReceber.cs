@@ -13,7 +13,7 @@ namespace Sistema__Renovo_Barber.Formularios
     public partial class FrmCadastroContasReceber : Sistema__Renovo_Barber.Formularios.FrmPai
     {
         uAgenda Agenda;
-        uCondicaoPagamento CondicaoPagamento;
+        uFormaPagamento FormaPagamento;
         List<uAgenda> ListaAgenda;
         public FrmCadastroContasReceber()
         {
@@ -34,14 +34,16 @@ namespace Sistema__Renovo_Barber.Formularios
             tbFuncionario.Text = Obj.Funcionario.Nome;
             tbIdServico.Text = Obj.Servicos.id.ToString();
             tbNomeServico.Text = Obj.Servicos.Descricao;
+            //tbCodigoForma.Text = Obj.FormaPagamento.id.ToString();
+            //tbDescricaoForma.Text = Obj.FormaPagamento.Forma.ToString();
             Agenda = Obj;
         }
 
-        public void ReceberCondicao(uCondicaoPagamento Obj)
+        public void ReceberCondicao(uFormaPagamento Obj)
         {
             tbCodigoForma.Text = Obj.id.ToString();
-            tbDescricaoForma.Text = Obj.Condicao;
-            CondicaoPagamento = Obj;
+            tbDescricaoForma.Text = Obj.Forma;
+            FormaPagamento = Obj;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

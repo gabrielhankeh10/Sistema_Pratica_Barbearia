@@ -38,6 +38,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label12 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.btnPesquisarEstado = new System.Windows.Forms.Button();
+            this.tbFormaPagamento = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbIdeForma = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -103,7 +108,6 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbDatNasc
             // 
-            this.tbDatNasc.Mask = "";
             this.tbDatNasc.TabIndex = 6;
             // 
             // tbApelido
@@ -197,10 +201,62 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarEstado.UseVisualStyleBackColor = true;
             this.btnPesquisarEstado.Click += new System.EventHandler(this.btnPesquisarEstado_Click);
             // 
+            // tbFormaPagamento
+            // 
+            this.tbFormaPagamento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbFormaPagamento.Enabled = false;
+            this.tbFormaPagamento.Location = new System.Drawing.Point(558, 368);
+            this.tbFormaPagamento.Name = "tbFormaPagamento";
+            this.tbFormaPagamento.Size = new System.Drawing.Size(164, 22);
+            this.tbFormaPagamento.TabIndex = 52;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(744, 368);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(555, 348);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(144, 17);
+            this.label22.TabIndex = 54;
+            this.label22.Text = "Forma de Pagamento";
+            // 
+            // tbIdeForma
+            // 
+            this.tbIdeForma.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbIdeForma.Enabled = false;
+            this.tbIdeForma.Location = new System.Drawing.Point(441, 369);
+            this.tbIdeForma.Name = "tbIdeForma";
+            this.tbIdeForma.Size = new System.Drawing.Size(65, 22);
+            this.tbIdeForma.TabIndex = 55;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(438, 349);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(96, 17);
+            this.label23.TabIndex = 56;
+            this.label23.Text = "Codigo Forma";
+            // 
             // FrmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(891, 581);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.tbIdeForma);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbFormaPagamento);
             this.Controls.Add(this.btnPesquisarEstado);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label12);
@@ -254,6 +310,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.label21, 0);
             this.Controls.SetChildIndex(this.btnPesquisarEstado, 0);
+            this.Controls.SetChildIndex(this.tbFormaPagamento, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.label22, 0);
+            this.Controls.SetChildIndex(this.tbIdeForma, 0);
+            this.Controls.SetChildIndex(this.label23, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +331,10 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnPesquisarEstado;
+        private System.Windows.Forms.TextBox tbFormaPagamento;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox tbIdeForma;
+        private System.Windows.Forms.Label label23;
     }
 }
