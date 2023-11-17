@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Sistema__Renovo_Barber.Formularios
 {
@@ -47,7 +49,6 @@ namespace Sistema__Renovo_Barber.Formularios
             tbCidade.Enabled = false;
             TbCEP.Enabled = false;
             tbCelular.Enabled = false;
-            tbSenha.Enabled = false;
             tbDatCad.Enabled = false;
             tbDatUltAlt.Enabled = false;
         }
@@ -75,7 +76,6 @@ namespace Sistema__Renovo_Barber.Formularios
             tbCidade.Text = Funcionario.Cidade.id.ToString();
             TbCEP.Text = Funcionario.CEP.ToString();
             tbCelular.Text = Funcionario.Celular.ToString();
-            tbSenha.Text = Funcionario.Senha.ToString();
             tbDatCad.Text = Funcionario.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = Funcionario.data_ult_alteracao.ToShortDateString();
         }
@@ -93,7 +93,6 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.RG = tbRG.Text;
                 Obj.CPF = tbCpfCnpj.Text;
                 Obj.Email = tbEmail.Text;
-                Obj.Senha = tbSenha.Text;
                 Obj.Telefone = TbTelefone.Text;
                 Obj.Celular = tbCelular.Text;
                 Obj.CEP = TbCEP.Text;
@@ -119,7 +118,6 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.RG = tbRG.Text;
                 Obj.CPF = tbCpfCnpj.Text;
                 Obj.Email = tbEmail.Text;
-                Obj.Senha = tbSenha.Text;
                 Obj.Telefone = TbTelefone.Text;
                 Obj.Celular = tbCelular.Text;
                 Obj.CEP = TbCEP.Text;
@@ -168,6 +166,122 @@ namespace Sistema__Renovo_Barber.Formularios
                 tbCargoDesc.Text = Cargos.Cargo.ToString();
             }
             frmConsultaCargos.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCargos frmConsultaCargos = new FrmConsultaCargos();
+            frmConsultaCargos.ShowDialog();
+            uCargos Cargos = new uCargos();
+            if (!frmConsultaCargos.ActiveControl.ContainsFocus)
+            {
+                Cargos = frmConsultaCargos.PegarObj();
+                tbCargo.Text = Cargos.id.ToString();
+                tbCargoDesc.Text = Cargos.Cargo.ToString();
+            }
+            frmConsultaCargos.Close();
+        }
+
+        public bool ValidarCPF(string cpf)
+        {
+            string cpfNumeros = new string(cpf.Where(char.IsDigit).ToArray());
+
+            if (cpfNumeros.Length != 11)
+                return false;
+
+            int soma = 0;
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(cpfNumeros[i].ToString()) * (10 - i);
+
+            int primeiroDigito = 11 - (soma % 11);
+            if (primeiroDigito > 9)
+                primeiroDigito = 0;
+
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(cpfNumeros[i].ToString()) * (11 - i);
+
+            int segundoDigito = 11 - (soma % 11);
+            if (segundoDigito > 9)
+                segundoDigito = 0;
+
+            return cpfNumeros.EndsWith(primeiroDigito.ToString() + segundoDigito.ToString());
+        }
+        public bool ValidarRG(string rg)
+        {
+            string rgNumeros = new string(rg.Where(char.IsDigit).ToArray());
+
+            if (rgNumeros.Length < 8)
+                return false;
+
+            return true;
+        }
+
+        static bool ValidarEmail(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(email);
+        }
+        private void tbCpfCnpj_Leave(object sender, EventArgs e)
+        {
+            string CPF = tbCpfCnpj.Text;
+
+            CPF = CPF.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            ValidarCPF(CPF);
+            bool Verifica = ValidarCPF(CPF);
+
+            if (Verifica)
+            {
+            }
+            else
+            {
+                MessageBox.Show("CPF inválido!");
+                tbCpfCnpj.Clear();
+                tbCpfCnpj.Focus();
+            }
+        }
+
+        private void tbRG_Leave(object sender, EventArgs e)
+        {
+            string Rg = tbRG.Text;
+
+            Rg = Rg.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            ValidarRG(Rg);
+            bool Verifica = ValidarRG(Rg);
+
+            if (Verifica)
+            {
+            }
+            else
+            {
+                MessageBox.Show("RG inválido!");
+                tbRG.Clear();
+                tbRG.Focus();
+            }
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            string Email = tbEmail.Text;
+
+            Email = Email.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            ValidarEmail(Email);
+            bool Verifica = ValidarEmail(Email);
+
+            if (Verifica)
+            {
+            }
+            else
+            {
+                MessageBox.Show("Email inválido!");
+                tbEmail.Clear();
+                tbEmail.Focus();
+            }
         }
     }
 }

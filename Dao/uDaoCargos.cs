@@ -162,7 +162,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
                 ConexaoBanco.Open();
                 ExecutaComando.ExecuteNonQuery();
-                MessageBox.Show("Cliente cadastrado com sucesso!");
+                MessageBox.Show("Cargo cadastrado com sucesso!");
                 ConexaoBanco.Close();
             }
             catch (Exception Erro)

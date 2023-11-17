@@ -40,12 +40,17 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbDuracao = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
+            // btnSair
+            // 
+            this.btnSair.TabIndex = 4;
+            // 
             // tbDescricao
             // 
+            this.tbDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbDescricao.Location = new System.Drawing.Point(186, 64);
             this.tbDescricao.Name = "tbDescricao";
             this.tbDescricao.Size = new System.Drawing.Size(203, 22);
-            this.tbDescricao.TabIndex = 7;
+            this.tbDescricao.TabIndex = 0;
             // 
             // label4
             // 
@@ -54,10 +59,11 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 17);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Servico";
+            this.label4.Text = "Serviço";
             // 
             // tbStatus
             // 
+            this.tbStatus.Enabled = false;
             this.tbStatus.Location = new System.Drawing.Point(420, 64);
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.Size = new System.Drawing.Size(71, 22);
@@ -86,7 +92,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbValor.Location = new System.Drawing.Point(644, 64);
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(96, 22);
-            this.tbValor.TabIndex = 13;
+            this.tbValor.TabIndex = 2;
             // 
             // label7
             // 
@@ -103,7 +109,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 15;
+            this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -114,7 +120,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbDuracao.Mask = "##:##";
             this.tbDuracao.Name = "tbDuracao";
             this.tbDuracao.Size = new System.Drawing.Size(59, 22);
-            this.tbDuracao.TabIndex = 16;
+            this.tbDuracao.TabIndex = 1;
             // 
             // FrmCadastroServico
             // 
@@ -130,6 +136,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbDescricao);
             this.Name = "FrmCadastroServico";
+            this.Text = "Cadastro de Serviço";
+            this.Controls.SetChildIndex(this.tbCodigo, 0);
+            this.Controls.SetChildIndex(this.tbDatCad, 0);
+            this.Controls.SetChildIndex(this.tbDatUltAlt, 0);
             this.Controls.SetChildIndex(this.tbDescricao, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.tbStatus, 0);

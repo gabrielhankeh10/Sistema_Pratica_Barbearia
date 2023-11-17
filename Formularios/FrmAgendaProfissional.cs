@@ -98,7 +98,8 @@ namespace Sistema__Renovo_Barber.Formularios
                     }
                 }
             }
-            
+            tbFuncionario.Enabled = false;
+            tbIdFuncionario.Enabled = false;
         }
 
         private void Listar_Datas()

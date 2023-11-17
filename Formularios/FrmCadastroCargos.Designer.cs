@@ -38,6 +38,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             // tbCargo
             // 
+            this.tbCargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbCargo.Location = new System.Drawing.Point(177, 64);
             this.tbCargo.Name = "tbCargo";
             this.tbCargo.Size = new System.Drawing.Size(261, 22);

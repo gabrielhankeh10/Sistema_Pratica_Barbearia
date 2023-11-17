@@ -36,14 +36,12 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbCargo = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.tbSenha = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.tbCargoDesc = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tbCidadeDesc = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.btnPesquisarCidade = new System.Windows.Forms.Button();
-            this.btnPesquisarCargo = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label5
@@ -56,6 +54,43 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label11.Size = new System.Drawing.Size(100, 17);
             this.label11.Text = "Codigo Cidade";
             // 
+            // TbCEP
+            // 
+            this.TbCEP.TabIndex = 13;
+            // 
+            // tbCelular
+            // 
+            this.tbCelular.TabIndex = 14;
+            // 
+            // TbTelefone
+            // 
+            this.TbTelefone.TabIndex = 11;
+            // 
+            // tbNome
+            // 
+            this.tbNome.TabIndex = 0;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.TabIndex = 6;
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
+            // 
+            // tbEndereco
+            // 
+            this.tbEndereco.TabIndex = 7;
+            // 
+            // tbNumero
+            // 
+            this.tbNumero.TabIndex = 8;
+            // 
+            // tbBairro
+            // 
+            this.tbBairro.TabIndex = 9;
+            // 
+            // tbComplemento
+            // 
+            this.tbComplemento.TabIndex = 10;
+            // 
             // tbCidade
             // 
             this.tbCidade.Size = new System.Drawing.Size(89, 22);
@@ -64,13 +99,28 @@ namespace Sistema__Renovo_Barber.Formularios
             // 
             this.tbCpfCnpj.Mask = "###.###.###-##";
             this.tbCpfCnpj.Size = new System.Drawing.Size(125, 22);
+            this.tbCpfCnpj.TabIndex = 2;
+            this.tbCpfCnpj.Leave += new System.EventHandler(this.tbCpfCnpj_Leave);
+            // 
+            // tbDatNasc
+            // 
+            this.tbDatNasc.TabIndex = 5;
+            // 
+            // tbApelido
+            // 
+            this.tbApelido.TabIndex = 4;
+            // 
+            // btnSair
+            // 
+            this.btnSair.TabIndex = 17;
             // 
             // tbSexo
             // 
+            this.tbSexo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbSexo.Location = new System.Drawing.Point(488, 64);
             this.tbSexo.Name = "tbSexo";
             this.tbSexo.Size = new System.Drawing.Size(60, 22);
-            this.tbSexo.TabIndex = 44;
+            this.tbSexo.TabIndex = 1;
             // 
             // tbRG
             // 
@@ -78,7 +128,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbRG.Mask = "##.###.###-#";
             this.tbRG.Name = "tbRG";
             this.tbRG.Size = new System.Drawing.Size(100, 22);
-            this.tbRG.TabIndex = 45;
+            this.tbRG.TabIndex = 3;
+            this.tbRG.Leave += new System.EventHandler(this.tbRG_Leave);
             // 
             // label12
             // 
@@ -121,26 +172,10 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 51;
+            this.btnSalvar.TabIndex = 16;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // tbSenha
-            // 
-            this.tbSenha.Location = new System.Drawing.Point(646, 123);
-            this.tbSenha.Name = "tbSenha";
-            this.tbSenha.Size = new System.Drawing.Size(189, 22);
-            this.tbSenha.TabIndex = 52;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(643, 101);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(49, 17);
-            this.label18.TabIndex = 53;
-            this.label18.Text = "Senha";
             // 
             // tbCargoDesc
             // 
@@ -182,34 +217,32 @@ namespace Sistema__Renovo_Barber.Formularios
             this.btnPesquisarCidade.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisarCidade.Name = "btnPesquisarCidade";
             this.btnPesquisarCidade.Size = new System.Drawing.Size(91, 23);
-            this.btnPesquisarCidade.TabIndex = 58;
+            this.btnPesquisarCidade.TabIndex = 12;
             this.btnPesquisarCidade.Text = "Pesquisar";
             this.btnPesquisarCidade.UseVisualStyleBackColor = true;
             this.btnPesquisarCidade.Click += new System.EventHandler(this.btnPesquisarCidade_Click);
             // 
-            // btnPesquisarCargo
+            // button1
             // 
-            this.btnPesquisarCargo.Location = new System.Drawing.Point(319, 362);
-            this.btnPesquisarCargo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPesquisarCargo.Name = "btnPesquisarCargo";
-            this.btnPesquisarCargo.Size = new System.Drawing.Size(91, 23);
-            this.btnPesquisarCargo.TabIndex = 59;
-            this.btnPesquisarCargo.Text = "Pesquisar";
-            this.btnPesquisarCargo.UseVisualStyleBackColor = true;
-            this.btnPesquisarCargo.Click += new System.EventHandler(this.btnPesquisarCargo_Click);
+            this.button1.Location = new System.Drawing.Point(319, 361);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmCadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(887, 593);
-            this.Controls.Add(this.btnPesquisarCargo);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPesquisarCidade);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.tbCidadeDesc);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.tbCargoDesc);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.tbCargo);
@@ -226,8 +259,6 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbCargo, 0);
             this.Controls.SetChildIndex(this.label20, 0);
             this.Controls.SetChildIndex(this.btnSalvar, 0);
-            this.Controls.SetChildIndex(this.tbSenha, 0);
-            this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.tbCargoDesc, 0);
             this.Controls.SetChildIndex(this.tbCodigo, 0);
             this.Controls.SetChildIndex(this.tbDatCad, 0);
@@ -266,7 +297,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.Controls.SetChildIndex(this.tbCidadeDesc, 0);
             this.Controls.SetChildIndex(this.label22, 0);
             this.Controls.SetChildIndex(this.btnPesquisarCidade, 0);
-            this.Controls.SetChildIndex(this.btnPesquisarCargo, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,13 +312,11 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.TextBox tbCargo;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.TextBox tbSenha;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbCargoDesc;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox tbCidadeDesc;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button btnPesquisarCidade;
-        private System.Windows.Forms.Button btnPesquisarCargo;
+        private System.Windows.Forms.Button button1;
     }
 }
