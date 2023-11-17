@@ -79,6 +79,7 @@ namespace Sistema__Renovo_Barber.Formularios
             // tbEmail
             // 
             this.tbEmail.TabIndex = 7;
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             // 
             // tbEndereco
             // 
@@ -105,6 +106,9 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbCpfCnpj.Mask = "###.###.###-##";
             this.tbCpfCnpj.Size = new System.Drawing.Size(113, 22);
             this.tbCpfCnpj.TabIndex = 3;
+            this.tbCpfCnpj.TabIndexChanged += new System.EventHandler(this.tbCpfCnpj_TabIndexChanged);
+            this.tbCpfCnpj.TextChanged += new System.EventHandler(this.tbCpfCnpj_TextChanged);
+            this.tbCpfCnpj.Leave += new System.EventHandler(this.tbCpfCnpj_Leave);
             // 
             // tbDatNasc
             // 
@@ -125,6 +129,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.tbRG.Name = "tbRG";
             this.tbRG.Size = new System.Drawing.Size(109, 22);
             this.tbRG.TabIndex = 4;
+            this.tbRG.Leave += new System.EventHandler(this.tbRG_Leave);
             // 
             // label20
             // 

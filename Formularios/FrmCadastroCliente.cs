@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Sistema__Renovo_Barber.Formularios
 {
@@ -140,6 +142,74 @@ namespace Sistema__Renovo_Barber.Formularios
             }
         }
 
+        public static bool IsCpfValid(string cpf)
+        {
+            cpf = cpf.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            if (cpf.Length != 11 || IsAllSameDigits(cpf))
+            {
+                return false;
+            }
+
+            int[] weights = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int sum1 = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                sum1 += (cpf[i] - '0') * weights[i];
+            }
+
+            int remainder1 = sum1 % 11;
+            int digit1 = (remainder1 < 2) ? 0 : 11 - remainder1;
+
+            int sum2 = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                sum2 += (cpf[i] - '0') * (weights[i] + 1);
+            }
+
+            int remainder2 = sum2 % 11;
+            int digit2 = (remainder2 < 2) ? 0 : 11 - remainder2;
+
+            return (cpf[9] - '0' == digit1) && (cpf[10] - '0' == digit2);
+        }
+
+        public static bool IsAllSameDigits(string s)
+        {
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (s[i] != s[0])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool ValidarCPF(string cpf)
+        {
+            string cpfNumeros = new string(cpf.Where(char.IsDigit).ToArray());
+
+            if (cpfNumeros.Length != 11)
+                return false;
+
+            int soma = 0;
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(cpfNumeros[i].ToString()) * (10 - i);
+
+            int primeiroDigito = 11 - (soma % 11);
+            if (primeiroDigito > 9)
+                primeiroDigito = 0;
+
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(cpfNumeros[i].ToString()) * (11 - i);
+
+            int segundoDigito = 11 - (soma % 11);
+            if (segundoDigito > 9)
+                segundoDigito = 0;
+
+            return cpfNumeros.EndsWith(primeiroDigito.ToString() + segundoDigito.ToString());
+        }
         private void btnPesquisarEstado_Click(object sender, EventArgs e)
         {
             FrmConsultaCidades frmConsultaCidades = new FrmConsultaCidades();
@@ -166,6 +236,107 @@ namespace Sistema__Renovo_Barber.Formularios
                 tbFormaPagamento.Text = FormaPagamento.Forma.ToString();
             }
             frmConsultaFormaPagamento.Close();
+        }
+
+        private void tbCpfCnpj_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tbCpfCnpj_TabIndexChanged(object sender, EventArgs e)
+        {
+            string CPF = tbCpfCnpj.Text;
+
+            ValidarCPF(CPF);
+
+            bool Valida = ValidarCPF(CPF);
+
+            if (Valida)
+            {
+                MessageBox.Show("CPF Valido");
+            }
+            else
+            {
+                MessageBox.Show("CPF inválido!");
+            }
+        }
+
+        public bool ValidarRG(string rg)
+        {
+            string rgNumeros = new string(rg.Where(char.IsDigit).ToArray());
+
+            if (rgNumeros.Length < 8)
+                return false;
+
+            return true;
+        }
+
+        static bool ValidarEmail(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(email);
+        }
+
+        private void tbCpfCnpj_Leave(object sender, EventArgs e)
+        {
+            string CPF = tbCpfCnpj.Text;
+
+            CPF = CPF.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            ValidarCPF(CPF);
+            bool Verifica = ValidarCPF(CPF);
+
+            if (Verifica)
+            {
+            }
+            else
+            {
+                MessageBox.Show("CPF inválido!");
+                tbCpfCnpj.Clear();
+                tbCpfCnpj.Focus();
+            }
+        }
+
+        private void tbRG_Leave(object sender, EventArgs e)
+        {
+            string Rg = tbRG.Text;
+
+            Rg = Rg.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            ValidarRG(Rg);
+            bool Verifica = ValidarRG(Rg);
+
+            if (Verifica)
+            {
+            }
+            else
+            {
+                MessageBox.Show("RG inválido!");
+                tbRG.Clear();
+                tbRG.Focus();
+            }
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            string Email = tbEmail.Text;
+
+            Email = Email.Replace(",", "").Replace("-", "").Replace(" ", "");
+
+            ValidarEmail(Email);
+            bool Verifica = ValidarEmail(Email);
+
+            if (Verifica)
+            {
+            }
+            else
+            {
+                MessageBox.Show("Email inválido!");
+                tbEmail.Clear();
+                tbEmail.Focus();
+            }
         }
     }
 }
