@@ -40,17 +40,20 @@ namespace Sistema__Renovo_Barber.Formularios
                 tbCliente.Text = Cliente.Nome.ToString();
             }
             frmConsultaCliente.Close();
+            tbCodigoCliente.Enabled = false;
+            tbCliente.Enabled = false;
         }
 
         private void btnGerar_Click(object sender, EventArgs e)
         {
             uCtrlAgenda CtrlAgenda = new uCtrlAgenda();
             CtrlAgenda.Alterar(Agenda);
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void btnPesquisaServico_Click(object sender, EventArgs e)
@@ -64,9 +67,15 @@ namespace Sistema__Renovo_Barber.Formularios
                 tbIdServico.Text = Servicos.id.ToString();
                 tbNomeServico.Text = Servicos.Descricao.ToString();
                 Agenda.Servicos = Servicos;
-                
             }
             frmConsultaServicos.Close();
+            tbIdServico.Enabled = false;
+            tbNomeServico.Enabled = false;
+        }
+
+        private void FrmAgendamento_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -212,10 +212,12 @@ namespace Sistema__Renovo_Barber.Dao
                         
                         if (idCliente > 0)
                         {
+                            
                             Obj.Cliente = new uCliente
                             {
                                 id = Convert.ToInt32(reader["id_cliente"]),
                                 Nome = Convert.ToString(reader["cliente"])
+                                
                             };
                         }
                         int idServico = 0;

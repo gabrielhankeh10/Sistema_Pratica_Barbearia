@@ -48,33 +48,46 @@ namespace Sistema__Renovo_Barber.Dao
         }
         public uCondicaoPagamento Selecionar(int Id)
         {
+            DataTable Dt = new DataTable();
+            ConexaoBanco.Open();
             try
             {
                 uCtrlFormaPagamento CtrlFormaPagamento = new uCtrlFormaPagamento();
-                string Sql = "select * from tb_condicao_pagamento where id_condicao = @id_condicao";
-                MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
-                ExecutaCmd.Parameters.AddWithValue("@id_condicao", Id);
-                ConexaoBanco.Open();
-                using (var reader = ExecutaCmd.ExecuteReader())
+                string Sql = $"select * from tb_condicao_pagamento pag left join tb_parcelas par on par.id_condicao = pag.id_condicao left join tb_forma_pagamento frm on frm.id_forma = par.id_forma where pag.id_condicao = {Id}";
+
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(Sql, ConexaoBanco);
+                sqlDataAdapter.Fill(Dt);
+                if (Dt.Rows.Count > 0)
                 {
-                    if (reader.Read())
+                    uCondicaoPagamento Obj = new uCondicaoPagamento
                     {
-                        uCondicaoPagamento Obj = new uCondicaoPagamento
+                        id = Convert.ToInt32(Dt.Rows[0]["id_condicao"]),
+                        Condicao = Convert.ToString(Dt.Rows[0]["condicao"]),
+                        Parcelas = Convert.ToInt32(Dt.Rows[0]["parcelas"]),
+                        Taxa = Convert.ToInt32(Dt.Rows[0]["taxa"]),
+                        Multa = Convert.ToInt32(Dt.Rows[0]["multa"]),
+                        Desconto = Convert.ToInt32(Dt.Rows[0]["desconto"]),
+                        data_criacao = Convert.ToDateTime(Dt.Rows[0]["data_criacao"]),
+                        data_ult_alteracao = Convert.ToDateTime(Dt.Rows[0]["data_ult_alteracao"]),
+                        uParcelas = new List<uParcelas>()
+                    };
+
+                    foreach (DataRow item in Dt.Rows)
+                    {
+                        uParcelas parcela = new uParcelas
                         {
-                            id = Convert.ToInt32(reader["id_condicao"]),
-                            Condicao = Convert.ToString(reader["condicao"]),
-                            //Parcelas = Convert.ToInt32(reader["parcelas"]),
-                            Taxa = Convert.ToInt32(reader["taxa"]),
-                            Multa = Convert.ToInt32(reader["multa"]),
-                            Desconto = Convert.ToInt32(reader["desconto"]),
-                            //Dias = Convert.ToInt32(reader["dias"]),
-                            //Forma = CtrlFormaPagamento.Carregar(Convert.ToInt32(reader["id_forma"])),
-                            data_criacao = Convert.ToDateTime(reader["data_criacao"]),
-                            data_ult_alteracao = Convert.ToDateTime(reader["data_ult_alteracao"])
+                            DiasTotais = Convert.ToInt32(item["dias_totais"]),
+                            NumParcela = Convert.ToInt32(item["num_parcela"]),
+                            Porcentagem = Convert.ToDouble(item["porcentagem"]),
+                            FormaPagamento = new uFormaPagamento { 
+                                id = Convert.ToInt32(item["id_forma"]),
+                                Forma = Convert.ToString(item["forma"])    
+                            }
                         };
-                        ConexaoBanco.Close();
-                        return Obj;
+                        Obj.uParcelas.Add(parcela);
                     }
+                    ConexaoBanco.Close();
+                    return Obj;
                 }
             }
             catch (Exception Erro)
@@ -136,51 +149,51 @@ namespace Sistema__Renovo_Barber.Dao
             string Sql = @"insert into tb_condicao_pagamento (condicao, parcelas, taxa, multa, desconto, data_criacao, data_ult_alteracao)
                                 values(@condicao, @parcelas, @taxa, @multa, @desconto, @data_criacao, @data_ult_alteracao)";
             string UltimoID = "select max(id_condicao) from tb_condicao_pagamento";
-                try
+            try
+            {
+                MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
+                MySqlCommand ExecutaComando2 = new MySqlCommand(UltimoID, ConexaoBanco);
+                ExecutaComando.Parameters.AddWithValue("@condicao", Obj.Condicao);
+                ExecutaComando.Parameters.AddWithValue("@taxa", Obj.Taxa);
+                ExecutaComando.Parameters.AddWithValue("@multa", Obj.Multa);
+                ExecutaComando.Parameters.AddWithValue("@desconto", Obj.Desconto);
+                ExecutaComando.Parameters.AddWithValue("@parcelas", Obj.Parcelas);
+                ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
+                ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
+                ConexaoBanco.Open();
+                ExecutaComando.ExecuteNonQuery();
+                int i = Convert.ToInt32(ExecutaComando2.ExecuteScalar());
+                ConexaoBanco.Close();
+                if (i > 0)
                 {
-                    MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
-                    MySqlCommand ExecutaComando2 = new MySqlCommand(UltimoID, ConexaoBanco);
-                    ExecutaComando.Parameters.AddWithValue("@condicao", Obj.Condicao);
-                    ExecutaComando.Parameters.AddWithValue("@taxa", Obj.Taxa);
-                    ExecutaComando.Parameters.AddWithValue("@multa", Obj.Multa);
-                    ExecutaComando.Parameters.AddWithValue("@desconto", Obj.Desconto);
-                    ExecutaComando.Parameters.AddWithValue("@parcelas", Obj.Parcelas);
-                    ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
-                    ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
-                    ConexaoBanco.Open();
-                    ExecutaComando.ExecuteNonQuery();
-                    int i = Convert.ToInt32(ExecutaComando2.ExecuteScalar());
-                    ConexaoBanco.Close();
-                    if (i > 0)
+                    foreach (uParcelas parcelas in Obj.uParcelas)
                     {
-                        foreach (uParcelas parcelas in Obj.uParcelas)
+                        if (parcelas != null)
                         {
-                            if (parcelas != null)
+                            parcelas.id = i;
+                            status = Controller.SalvarParcelas(parcelas);
+                            if (!status)
                             {
-                                parcelas.id = i;
-                                status = Controller.SalvarParcelas(parcelas);
-                                if (!status)
-                                {
-                                    MessageBox.Show("Aconteceu um erro");
-                                }
+                                MessageBox.Show("Aconteceu um erro");
                             }
                         }
-                        if (status)
-                        {
-                            MessageBox.Show("Condição de pagamento cadastrada com sucesso!");
-                        }
+                    }
+                    if (status)
+                    {
+                        MessageBox.Show("Condição de pagamento cadastrada com sucesso!");
                     }
                 }
-                catch (Exception Erro)
-                {
-                    MessageBox.Show(": " + Erro);
-                    return status;
-                }
-                finally
-                {
-                    ConexaoBanco.Close();
-                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show(": " + Erro);
                 return status;
+            }
+            finally
+            {
+                ConexaoBanco.Close();
+            }
+            return status;
         }
     }
 }

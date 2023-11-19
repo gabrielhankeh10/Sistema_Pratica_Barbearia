@@ -16,7 +16,7 @@ namespace Sistema__Renovo_Barber.Classes
         public int IdReceber { get; set; }
 
         public DateTime DataVencimento { get; set; }
-        public decimal Valor { get; set; }
+        public double Valor { get; set; }
 
     }
 }

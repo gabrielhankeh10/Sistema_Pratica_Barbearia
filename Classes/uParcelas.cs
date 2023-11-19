@@ -14,7 +14,7 @@ namespace Sistema__Renovo_Barber.Classes
         }
         public int NumParcela { get; set; }
         public int DiasTotais { get; set; }
-        public double Porcentagem { get; set; }
+        public Double Porcentagem { get; set; }
         public uFormaPagamento FormaPagamento { get; set; }
     }
 }

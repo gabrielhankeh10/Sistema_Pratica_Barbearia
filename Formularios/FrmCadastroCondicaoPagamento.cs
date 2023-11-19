@@ -155,6 +155,16 @@ namespace Sistema__Renovo_Barber.Formularios
             tbDesconto.Text = CondicaoPagamento.Desconto.ToString();
             tbDatCad.Text = CondicaoPagamento.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = CondicaoPagamento.data_ult_alteracao.ToShortDateString();
+            foreach(var Parc in CondicaoPagamento.uParcelas)
+            {
+                DgCondicao.Rows.Add(
+                    Parc.NumParcela,
+                    Parc.DiasTotais,
+                    Parc.FormaPagamento.id,
+                    Parc.FormaPagamento.Forma,
+                    Parc.Porcentagem
+                    );
+            }
         }
 
         private void tbParcelas_TextChanged(object sender, EventArgs e)

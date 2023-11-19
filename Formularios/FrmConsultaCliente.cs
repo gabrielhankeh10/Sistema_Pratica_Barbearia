@@ -137,5 +137,11 @@ namespace Sistema__Renovo_Barber.Formularios
             PegarObj();
             this.Hide();
         }
+
+        private void DgConsultaClientes_DoubleClick(object sender, EventArgs e)
+        {
+            PegarObj();
+            this.Hide();
+        }
     }
 }

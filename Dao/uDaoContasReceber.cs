@@ -23,14 +23,15 @@ namespace Sistema__Renovo_Barber.Dao
             var Transacao = ConexaoBanco.BeginTransaction();
             try
             {
-                string Sql = @"insert into tb_contas_receber (id_receber, id_forma, situacao, data_criacao)
-                                values (@id_receber, @id_forma, @situacao, @data_criacao) ";
+                string Sql = @"insert into tb_contas_receber (id_receber, id_forma, situacao, data_criacao, id_condicao)
+                                values (@id_receber, @id_forma, @situacao, @data_criacao,@id_condicao) ";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@id_receber", Obj.Id_receber);
                 ExecutaComando.Parameters.AddWithValue("@id_forma", Obj.FormaPagamento.id);
                 ExecutaComando.Parameters.AddWithValue("@situacao", Obj.Situacao);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.Data_criacao);
+                ExecutaComando.Parameters.AddWithValue("@id_condicao", Obj.CondicaoPagamento.id);
 
                 ExecutaComando.ExecuteNonQuery();
                 MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter("select max(id_receber) from tb_contas_receber;", ConexaoBanco);
@@ -49,9 +50,20 @@ namespace Sistema__Renovo_Barber.Dao
                     ExecutaCmd.Parameters.AddWithValue("@id_receber", Obj.Id_receber);
                     ExecutaCmd.ExecuteNonQuery();
                 }
+
+                foreach (var Parc in Obj.ListaParcelaReceber)
+                {
+                    string SqlAgenda = @"insert into tb_receber_parcelas (id_receber, num_parcela, valor, vencimento)
+							    values (@id_receber, @num_parcela, @valor, @vencimento) ";
+                    MySqlCommand ExecutaCmd = new MySqlCommand(SqlAgenda, ConexaoBanco, Transacao);
+                    ExecutaCmd.Parameters.AddWithValue("@id_receber", Obj.Id_receber);
+                    ExecutaCmd.Parameters.AddWithValue("@num_parcela", Parc.NumParcela);
+                    ExecutaCmd.Parameters.AddWithValue("@valor", Parc.Valor);
+                    ExecutaCmd.Parameters.AddWithValue("@vencimento", Parc.DataVencimento);
+                    ExecutaCmd.ExecuteNonQuery();
+                }
                 Transacao.Commit();
                 MessageBox.Show("Títulos gerados com sucesso!");
-                
             }
             catch (Exception Erro)
             {

@@ -18,5 +18,7 @@ namespace Sistema__Renovo_Barber.Classes
         public DateTime Data_criacao { get; set; }
         public uFormaPagamento FormaPagamento { get; set; }
         public List<uAgenda> Agendas { get; set; }
+        public uCondicaoPagamento CondicaoPagamento { get; set; }
+        public List<uParcelasReceber> ListaParcelaReceber { get; set; }
     }
 }

@@ -91,6 +91,7 @@ namespace Sistema__Renovo_Barber.Formularios
             this.DgConsultaClientes.Size = new System.Drawing.Size(782, 437);
             this.DgConsultaClientes.TabIndex = 9;
             this.DgConsultaClientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgConsultaClientes_CellContentDoubleClick);
+            this.DgConsultaClientes.DoubleClick += new System.EventHandler(this.DgConsultaClientes_DoubleClick);
             this.DgConsultaClientes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgConsultaClientes_KeyPress);
             // 
             // id_cliente

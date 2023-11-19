@@ -14,7 +14,9 @@ namespace Sistema__Renovo_Barber.Formularios
     {
         uAgenda Agenda;
         uFormaPagamento FormaPagamento;
+        uCondicaoPagamento CondicaoPagamento;
         List<uAgenda> ListaAgenda;
+        List<uParcelasReceber> ListaParcelaReceber;
         public FrmCadastroContasReceber()
         {
             InitializeComponent();
@@ -25,6 +27,14 @@ namespace Sistema__Renovo_Barber.Formularios
         {
             FrmConsultaAgendaContasReceber frmConsultaAgendaContasReceber = new FrmConsultaAgendaContasReceber(dateTimePicker1.Value, this);
             frmConsultaAgendaContasReceber.ShowDialog();
+            tbIdServico.Enabled = false;
+            tbNomeServico.Enabled = false;
+            tbIdFuncionario.Enabled = false;
+            tbFuncionario.Enabled = false;
+            tbCliente.Enabled = false;
+            tbCodigoCliente.Enabled = false;
+            tbCodigoCondicao.Enabled = false;
+            tbDescricaoCondicao.Enabled = false;
         }
         public void ReceberAgenda(uAgenda Obj)
         {
@@ -41,8 +51,8 @@ namespace Sistema__Renovo_Barber.Formularios
 
         public void ReceberCondicao(uFormaPagamento Obj)
         {
-            tbCodigoForma.Text = Obj.id.ToString();
-            tbDescricaoForma.Text = Obj.Forma;
+            tbCodigoCondicao.Text = Obj.id.ToString();
+            tbDescricaoCondicao.Text = Obj.Forma;
             FormaPagamento = Obj;
         }
 
@@ -74,7 +84,9 @@ namespace Sistema__Renovo_Barber.Formularios
                 ValorTotal += Agenda.Servicos.Valor;
                 tbTotal.Text = ValorTotal.ToString();
                 ListaAgenda.Add(Agenda);
+               
             }
+            btnPagamento.Enabled = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -94,17 +106,30 @@ namespace Sistema__Renovo_Barber.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmConsultaFormaPagamento frmConsultaFormaPagamento = new FrmConsultaFormaPagamento();
-            frmConsultaFormaPagamento.ShowDialog();
+            FrmConsultaCondicaoPagamento frmConsultaCondicaoPagamento = new FrmConsultaCondicaoPagamento();
+            frmConsultaCondicaoPagamento.ShowDialog();
 
-            uFormaPagamento FormaPagamento = new uFormaPagamento();
-            if (!frmConsultaFormaPagamento.ActiveControl.ContainsFocus)
+            if (!frmConsultaCondicaoPagamento.ActiveControl.ContainsFocus)
             {
-                FormaPagamento = frmConsultaFormaPagamento.PegarObj();
-                tbCodigoForma.Text = FormaPagamento.id.ToString();
-                tbDescricaoForma.Text = FormaPagamento.Forma.ToString();
+                CondicaoPagamento = frmConsultaCondicaoPagamento.PegarObj();
+                tbCodigoCondicao.Text = CondicaoPagamento.id.ToString();
+                tbDescricaoCondicao.Text = CondicaoPagamento.Condicao.ToString();
+                dgParcelasReceber.Rows.Clear();
+                var Total = Double.Parse("0"+tbTotal.Text);
+                ListaParcelaReceber = new List<uParcelasReceber>();
+                foreach (var Parc in CondicaoPagamento.uParcelas)
+                {
+                    ListaParcelaReceber.Add(new uParcelasReceber
+                    {
+                        DataVencimento = DateTime.Now.AddDays(Parc.DiasTotais),
+                        NumParcela = Parc.NumParcela,
+                        Valor = (Parc.Porcentagem / 100) * Total
+                    });
+                    dgParcelasReceber.Rows.Add(Parc.NumParcela,(Parc.Porcentagem / 100) * Total,DateTime.Now.AddDays(Parc.DiasTotais));
+                }
             }
-            frmConsultaFormaPagamento.Close();
+            frmConsultaCondicaoPagamento.Close();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -113,8 +138,10 @@ namespace Sistema__Renovo_Barber.Formularios
             ContasReceber.Agendas = ListaAgenda;
             ContasReceber.Data_criacao = DateTime.Now;
             ContasReceber.FormaPagamento = new uFormaPagamento();
-            ContasReceber.FormaPagamento.id = int.Parse(tbCodigoForma.Text);
+            ContasReceber.FormaPagamento.id = int.Parse(tbCodigoCondicao.Text);
             ContasReceber.Situacao = "Pago";
+            ContasReceber.CondicaoPagamento = CondicaoPagamento;
+            ContasReceber.ListaParcelaReceber = ListaParcelaReceber;
             uCtrlContasReceber CtrlReceber = new uCtrlContasReceber();
             CtrlReceber.Salvar(ContasReceber);
         }
