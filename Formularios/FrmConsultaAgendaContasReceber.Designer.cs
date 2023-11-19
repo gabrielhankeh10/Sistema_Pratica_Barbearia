@@ -39,8 +39,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_condicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgConsultaAgenda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,8 +57,8 @@ namespace Sistema__Renovo_Barber.Formularios
             this.funcionario,
             this.codigo_cliente,
             this.cliente,
-            this.id_forma,
-            this.forma});
+            this.id_condicao,
+            this.condicao});
             this.DgConsultaAgenda.Location = new System.Drawing.Point(32, 89);
             this.DgConsultaAgenda.MultiSelect = false;
             this.DgConsultaAgenda.Name = "DgConsultaAgenda";
@@ -147,21 +147,21 @@ namespace Sistema__Renovo_Barber.Formularios
             this.cliente.ReadOnly = true;
             this.cliente.Width = 200;
             // 
-            // id_forma
+            // id_condicao
             // 
-            this.id_forma.HeaderText = "Codigo Forma";
-            this.id_forma.MinimumWidth = 6;
-            this.id_forma.Name = "id_forma";
-            this.id_forma.ReadOnly = true;
-            this.id_forma.Width = 125;
+            this.id_condicao.HeaderText = "Codigo Forma";
+            this.id_condicao.MinimumWidth = 6;
+            this.id_condicao.Name = "id_condicao";
+            this.id_condicao.ReadOnly = true;
+            this.id_condicao.Width = 125;
             // 
-            // forma
+            // condicao
             // 
-            this.forma.HeaderText = "Forma de Pagamento";
-            this.forma.MinimumWidth = 6;
-            this.forma.Name = "forma";
-            this.forma.ReadOnly = true;
-            this.forma.Width = 125;
+            this.condicao.HeaderText = "Forma de Pagamento";
+            this.condicao.MinimumWidth = 6;
+            this.condicao.Name = "condicao";
+            this.condicao.ReadOnly = true;
+            this.condicao.Width = 125;
             // 
             // FrmConsultaAgendaContasReceber
             // 
@@ -193,7 +193,7 @@ namespace Sistema__Renovo_Barber.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_forma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_condicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn condicao;
     }
 }

@@ -38,8 +38,8 @@ namespace Sistema__Renovo_Barber.Formularios
                         vLinha["funcionario"],
                         vLinha["id_cliente"],
                         vLinha["cliente"],
-                        vLinha["id_forma"],
-                        vLinha["forma"]);
+                        vLinha["id_condicao"],
+                        vLinha["condicao"]);
                 }
             }
         }

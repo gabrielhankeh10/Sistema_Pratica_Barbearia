@@ -50,8 +50,8 @@ namespace Sistema__Renovo_Barber.Formularios
             TbCEP.Enabled = false;
             tbCelular.Enabled = false;
             tbDatCad.Enabled = false;
-            tbIdeForma.Enabled = false;
-            tbFormaPagamento.Enabled = false;
+            tbIdeCondicao.Enabled = false;
+            tbCondicaoPagamento.Enabled = false;
             tbDatUltAlt.Enabled = false;
             btnPesquisarEstado.Enabled = false;
         }
@@ -75,15 +75,15 @@ namespace Sistema__Renovo_Barber.Formularios
             tbCidade.Text = Cliente.Cidade.id.ToString();
             TbCEP.Text = Cliente.CEP.ToString();
             tbCelular.Text = Cliente.Celular.ToString();
-            tbIdeForma.Text = Cliente.FormaPagamento.id.ToString();
-            tbFormaPagamento.Text = Cliente.FormaPagamento.Forma.ToString();
+            tbIdeCondicao.Text = Cliente.CondicaoPagamento.id.ToString();
+            tbCondicaoPagamento.Text = Cliente.CondicaoPagamento.Condicao.ToString();
             tbDatCad.Text = Cliente.data_criacao.ToShortDateString();
             tbDatUltAlt.Text = Cliente.data_ult_alteracao.ToShortDateString();
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             uCliente Obj = new uCliente();
-            Obj.FormaPagamento = new uFormaPagamento();
+            Obj.CondicaoPagamento = new uCondicaoPagamento();
             Obj.Pessoa = new uPessoa();
             Obj.Cidade = new uCidade();
             if (btnSalvar.Text == "Salvar")
@@ -103,7 +103,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Complemento = tbComplemento.Text;
                 Obj.Bairro = tbBairro.Text;
                 Obj.Cidade.id = int.Parse(tbCidade.Text);
-                Obj.FormaPagamento.id = int.Parse(tbIdeForma.Text);
+                Obj.CondicaoPagamento.id = int.Parse(tbIdeCondicao.Text);
                 Obj.data_criacao = DateTime.Now;
                 Obj.data_ult_alteracao = DateTime.Now;
                 ControllerCliente.Salvar(Obj);
@@ -127,7 +127,7 @@ namespace Sistema__Renovo_Barber.Formularios
                 Obj.Numero = int.Parse(tbNumero.Text);
                 Obj.Complemento = tbComplemento.Text;
                 Obj.Bairro = tbBairro.Text;
-                Obj.FormaPagamento.id = int.Parse(tbIdeForma.Text);
+                Obj.CondicaoPagamento.id = int.Parse(tbIdeCondicao.Text);
                 Obj.Cidade.id = int.Parse(tbCidade.Text);
                 Obj.Cidade.Cidade = tbCidadeDesc.Text;
                 Obj.data_ult_alteracao = DateTime.Now;
@@ -226,16 +226,16 @@ namespace Sistema__Renovo_Barber.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmConsultaFormaPagamento frmConsultaFormaPagamento = new FrmConsultaFormaPagamento();
-            frmConsultaFormaPagamento.ShowDialog();
-            uFormaPagamento FormaPagamento = new uFormaPagamento();
-            if (!frmConsultaFormaPagamento.ActiveControl.ContainsFocus)
+            FrmConsultaCondicaoPagamento frmConsultaCondicaoPagamento = new FrmConsultaCondicaoPagamento();
+            frmConsultaCondicaoPagamento.ShowDialog();
+            uCondicaoPagamento CondicaoPagamento = new uCondicaoPagamento();
+            if (!frmConsultaCondicaoPagamento.ActiveControl.ContainsFocus)
             {
-                FormaPagamento = frmConsultaFormaPagamento.PegarObj();
-                tbIdeForma.Text = FormaPagamento.id.ToString();
-                tbFormaPagamento.Text = FormaPagamento.Forma.ToString();
+                CondicaoPagamento = frmConsultaCondicaoPagamento.PegarObj();
+                tbIdeCondicao.Text = CondicaoPagamento.id.ToString();
+                tbCondicaoPagamento.Text = CondicaoPagamento.Condicao.ToString();
             }
-            frmConsultaFormaPagamento.Close();
+            frmConsultaCondicaoPagamento.Close();
         }
 
         private void tbCpfCnpj_TextChanged(object sender, EventArgs e)

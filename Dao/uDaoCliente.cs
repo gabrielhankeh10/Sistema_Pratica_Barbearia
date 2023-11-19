@@ -54,7 +54,7 @@ namespace Sistema__Renovo_Barber.Dao
                                 sexo = @sexo, apelido = @apelido, rg = @rg, cpf = @cpf, email = @email, 
                                 telefone = @telefone, celular = @celular, cep = @cep, endereco = @endereco, 
                                 numero = @numero, complemento = @complemento, bairro = @bairro, 
-                                id_cidade = @id_cidade, data_nasc = @data_nasc, data_ult_alteracao = @data_ult_alteracao, id_forma = @id_forma 
+                                id_cidade = @id_cidade, data_nasc = @data_nasc, data_ult_alteracao = @data_ult_alteracao, id_condicao = @id_condicao 
                                 where id_cliente = @id_cliente";
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaCmd.Parameters.AddWithValue("@id_cliente", Obj.id);
@@ -74,7 +74,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaCmd.Parameters.AddWithValue("@bairro", Obj.Bairro);
                 ExecutaCmd.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
                 ExecutaCmd.Parameters.AddWithValue("@data_nasc", Obj.Data_nasc);
-                ExecutaCmd.Parameters.AddWithValue("@id_forma", Obj.FormaPagamento.id);
+                ExecutaCmd.Parameters.AddWithValue("@id_condicao", Obj.CondicaoPagamento.id);
                 ExecutaCmd.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
                 ConexaoBanco.Open();
                 ExecutaCmd.ExecuteNonQuery();
@@ -138,7 +138,7 @@ namespace Sistema__Renovo_Barber.Dao
             try
             {
                 uCtrlCidades CtrlCidades = new uCtrlCidades();
-                uCtrlFormaPagamento CtrlPagamento = new uCtrlFormaPagamento();
+                uCtrlCondicaoPagamento CtrlPagamento = new uCtrlCondicaoPagamento();
                 string Sql = "select * from tb_clientes where id_cliente = @id_cliente";
                 MySqlCommand ExecutaCmd = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaCmd.Parameters.AddWithValue("@id_cliente", Id);
@@ -164,7 +164,7 @@ namespace Sistema__Renovo_Barber.Dao
                             Complemento = Convert.ToString(reader["complemento"]),
                             Telefone = Convert.ToString(reader["telefone"]),
                             Cidade = CtrlCidades.Carregar(Convert.ToInt32(reader["id_cidade"])),
-                            FormaPagamento = CtrlPagamento.Carregar((Convert.ToInt32(reader["id_forma"]))),
+                            CondicaoPagamento = CtrlPagamento.Carregar((Convert.ToInt32(reader["id_condicao"]))),
                             CEP = Convert.ToString(reader["cep"]),
                             Celular = Convert.ToString(reader["celular"]),
                             data_criacao = Convert.ToDateTime(reader["data_criacao"]),
@@ -186,8 +186,8 @@ namespace Sistema__Renovo_Barber.Dao
         {
             try
             {
-                string Sql = @"insert into tb_clientes (nome, sexo, apelido, status_cliente, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, id_cidade, data_nasc, id_forma,  data_criacao, data_ult_alteracao)
-                             values (@nome, @sexo, @apelido, @status_cliente, @rg, @cpf, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @id_cidade, @data_nasc, @id_forma, @data_criacao, @data_ult_alteracao)";
+                string Sql = @"insert into tb_clientes (nome, sexo, apelido, status_cliente, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, id_cidade, data_nasc, id_condicao,  data_criacao, data_ult_alteracao)
+                             values (@nome, @sexo, @apelido, @status_cliente, @rg, @cpf, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @id_cidade, @data_nasc, @id_condicao, @data_criacao, @data_ult_alteracao)";
 
                 MySqlCommand ExecutaComando = new MySqlCommand(Sql, ConexaoBanco);
                 ExecutaComando.Parameters.AddWithValue("@nome", Obj.Pessoa.Nome);
@@ -206,7 +206,7 @@ namespace Sistema__Renovo_Barber.Dao
                 ExecutaComando.Parameters.AddWithValue("@bairro", Obj.Bairro);
                 ExecutaComando.Parameters.AddWithValue("@id_cidade", Obj.Cidade.id);
                 ExecutaComando.Parameters.AddWithValue("@data_nasc", Obj.Data_nasc);
-                ExecutaComando.Parameters.AddWithValue("@id_forma", Obj.FormaPagamento.id);
+                ExecutaComando.Parameters.AddWithValue("@id_condicao", Obj.CondicaoPagamento.id);
                 ExecutaComando.Parameters.AddWithValue("@data_criacao", Obj.data_criacao);
                 ExecutaComando.Parameters.AddWithValue("@data_ult_alteracao", Obj.data_ult_alteracao);
 

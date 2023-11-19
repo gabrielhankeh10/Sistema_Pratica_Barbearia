@@ -176,6 +176,15 @@ create table tb_parcelas(
   FOREIGN KEY (id_condicao) REFERENCES tb_condicao_pagamento(id_condicao) ON DELETE CASCADE
 );
 
+create table tb_receber_parcelas(
+  id_receber int not null,
+  num_parcela int not null,
+  valor decimal,
+  vencimento datetime,
+  primary key (id_receber, num_parcela),
+  FOREIGN key (id_receber) REFERENCES tb_contas_receber(id_receber) 
+)
+
 CREATE TABLE tb_produtos (
   id_produto int auto_increment primary key not null,
   descricao_produto varchar(50) not null,

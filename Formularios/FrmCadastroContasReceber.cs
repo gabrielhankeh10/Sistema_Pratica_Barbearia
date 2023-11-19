@@ -44,8 +44,10 @@ namespace Sistema__Renovo_Barber.Formularios
             tbFuncionario.Text = Obj.Funcionario.Nome;
             tbIdServico.Text = Obj.Servicos.id.ToString();
             tbNomeServico.Text = Obj.Servicos.Descricao;
-            //tbCodigoForma.Text = Obj.FormaPagamento.id.ToString();
-            //tbDescricaoForma.Text = Obj.FormaPagamento.Forma.ToString();
+            CondicaoPagamento = Obj.Cliente.CondicaoPagamento;
+            tbCodigoCondicao.Text = CondicaoPagamento.id.ToString();
+            tbDescricaoCondicao.Text = CondicaoPagamento.Condicao.ToString();
+            dgParcelasReceber.Rows.Clear();            
             Agenda = Obj;
         }
 
@@ -84,7 +86,17 @@ namespace Sistema__Renovo_Barber.Formularios
                 ValorTotal += Agenda.Servicos.Valor;
                 tbTotal.Text = ValorTotal.ToString();
                 ListaAgenda.Add(Agenda);
-               
+                ListaParcelaReceber = new List<uParcelasReceber>();
+                foreach (var Parc in CondicaoPagamento.uParcelas)
+                {
+                    ListaParcelaReceber.Add(new uParcelasReceber
+                    {
+                        DataVencimento = DateTime.Now.AddDays(Parc.DiasTotais),
+                        NumParcela = Parc.NumParcela,
+                        Valor = (Parc.Porcentagem / 100) * (double)ValorTotal
+                    });
+                    dgParcelasReceber.Rows.Add(Parc.NumParcela, (Parc.Porcentagem / 100) * (double)ValorTotal, DateTime.Now.AddDays(Parc.DiasTotais));
+                }
             }
             btnPagamento.Enabled = true;
         }
