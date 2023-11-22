@@ -231,15 +231,15 @@ namespace Sistema__Renovo_Barber.Formularios
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(555, 348);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(144, 17);
+            this.label22.Size = new System.Drawing.Size(163, 17);
             this.label22.TabIndex = 54;
-            this.label22.Text = "Forma de Pagamento";
+            this.label22.Text = "Condição de Pagamento";
             // 
             // tbIdeCondicao
             // 
             this.tbIdeCondicao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbIdeCondicao.Enabled = false;
-            this.tbIdeCondicao.Location = new System.Drawing.Point(441, 369);
+            this.tbIdeCondicao.Location = new System.Drawing.Point(428, 369);
             this.tbIdeCondicao.Name = "tbIdeCondicao";
             this.tbIdeCondicao.Size = new System.Drawing.Size(65, 22);
             this.tbIdeCondicao.TabIndex = 55;
@@ -247,11 +247,11 @@ namespace Sistema__Renovo_Barber.Formularios
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(438, 349);
+            this.label23.Location = new System.Drawing.Point(425, 349);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(96, 17);
+            this.label23.Size = new System.Drawing.Size(115, 17);
             this.label23.TabIndex = 56;
-            this.label23.Text = "Codigo Forma";
+            this.label23.Text = "Codigo Condição";
             // 
             // FrmCadastroCliente
             // 

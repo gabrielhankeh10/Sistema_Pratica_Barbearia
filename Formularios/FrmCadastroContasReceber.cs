@@ -156,6 +156,7 @@ namespace Sistema__Renovo_Barber.Formularios
             ContasReceber.ListaParcelaReceber = ListaParcelaReceber;
             uCtrlContasReceber CtrlReceber = new uCtrlContasReceber();
             CtrlReceber.Salvar(ContasReceber);
+            this.Close();
         }
     }
 }

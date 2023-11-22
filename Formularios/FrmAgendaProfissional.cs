@@ -20,6 +20,7 @@ namespace Sistema__Renovo_Barber.Formularios
 
         public void GerarAgenda()
         {
+            
             try
             {
                 if (DateTime.Parse($"{dateTimePicker1.Value.ToString("dd/MM/yyyy")} {tbInter1Ini.Text}") < DateTime.Now)
@@ -27,6 +28,7 @@ namespace Sistema__Renovo_Barber.Formularios
                     throw new Exception("Data inválida.");
                 else
                 {
+                    string Horario_2;
                     Funcionario.id = Convert.ToInt32(tbIdFuncionario.Text);
                     TimeSpan Inter1Inicio = TimeSpan.Parse(tbInter1Ini.Text);
                     TimeSpan Inter1Fim = TimeSpan.Parse(tbInter1Fim.Text);
@@ -39,8 +41,8 @@ namespace Sistema__Renovo_Barber.Formularios
                         Agenda.Intervalo = int.Parse(tbIntervalo.Text);
                         CtrlAgenda.Salvar(Agenda);
                         Inter1Inicio = Inter1Inicio.Add(new TimeSpan(0, Agenda.Intervalo, 0));
-
                     }
+                    
                     if (!string.IsNullOrEmpty(tbInter2Ini.Text))
                     {
                         TimeSpan Inter2Inicio = TimeSpan.Parse(tbInter2Ini.Text);
